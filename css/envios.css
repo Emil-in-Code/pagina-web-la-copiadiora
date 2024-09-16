@@ -1,0 +1,73 @@
+.container-envios {
+    border-radius: 7px;
+    max-width: 600px;
+    margin: auto;
+}
+
+.h2envios {
+    color:  rgba(255, 206, 6, 1);
+}
+
+.btn-whatsapp {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: rgba(255, 206, 6, 1);
+    text-align: center;
+    text-decoration: none;
+    border:1px solid rgba(255, 206, 6, 1);
+    border-radius: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+    background-color: rgba(255, 206, 6, 1);
+    color: #000000;
+}
+
+.h3-envios {
+    color: rgba(255, 206, 6, 1);
+    text-align: center;
+}
+
+h4 {
+    text-align: center;
+    color: #000000;
+    background-color: rgba(255, 206, 6, 1);
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+.cards-zones {
+    border-radius: 7px;
+    max-width: 600px;  
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+.zone {
+    color: white;
+    background-color:  rgba(254, 239, 180, 1);
+    border-radius: 7px; 
+    width: 35%;
+    text-align: center;
+    margin: 15px;
+}
+
+ul {
+    color: #000000;
+    text-align:left;
+    padding-bottom: 20px;
+}
+
+.parrafo-final-envios {
+    font-size: 15px;
+    color: #000000;
+    text-align: center;
+}

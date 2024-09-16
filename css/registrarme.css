@@ -1,0 +1,23 @@
+form {
+    border-radius: 7px;
+    max-width: 600px;
+    margin: auto;
+}
+.form-input {
+    border-radius: 7px;
+    border: none;
+    border-left: solid rgba(255, 206, 6, 1);
+    padding: 10px 20px;
+    margin: 5px;
+   
+}
+
+.form-input:hover {
+    box-shadow: -3px 5px 1px rgba(255, 206, 6, 1);
+}
+
+.p-input {
+    font-size: 15px;
+   display: block;
+   margin-bottom: 0;
+}

@@ -1,0 +1,95 @@
+main {
+    display: flex;
+}
+.sidebar {
+    width: 200px;
+    background-color: #000000;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.sidebar button {
+    width: 100%;
+    margin-bottom: 15px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: whitesmoke;
+    color: #000000;
+    text-align: center;
+    text-decoration: none;
+    border-left: solid rgba(255, 206, 6, 1);
+    border-radius: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar button:hover {
+    background-color: rgba(255, 206, 6, 1);
+    color: #000000;
+}
+
+.upload-area {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed rgba(255, 206, 6, 1);
+    margin: 20px;
+    position: relative;
+    max-width: 90%;
+    border-radius: 7px;
+}
+
+
+
+.btn-archivos {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: rgba(255, 206, 6, 1);
+    text-align: center;
+    text-decoration: none;
+    border:1px solid rgba(255, 206, 6, 1);
+    border-radius: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-archivos:hover {
+    background-color: rgba(255, 206, 6, 1);
+   color: #000000;
+}
+
+.precios-previsualizados {
+    padding: 10px;
+    background-color: #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer div {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.p-precios {
+    font-size: 15px;
+}
+.pagar {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: rgba(255, 206, 6, 1);
+    text-align: center;
+    text-decoration: none;
+    border:1px solid rgba(255, 206, 6, 1);
+    border-radius: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.pagar:hover {
+    background-color: rgba(255, 206, 6, 1);
+   color: #000000;
+}
+
+  
