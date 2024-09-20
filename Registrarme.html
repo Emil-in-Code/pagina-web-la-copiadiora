@@ -20,33 +20,53 @@
   <body class="body">
 
     <!-- SECCIÓN NAVBAR -->
-
-    <div class="header-container">
-      <nav class="navbar">
-        <ul>
-          <li class="links-nav logotipo"><a href="index.html"><span>La Copiadora</span></a></li> <!-- Logo -->
-          <div class="navlinks">
-            <li class="links-nav"><a href="laCopiadoraStore.html" target="_blank">Store</a></li> <!-- Store -->
-            <li class="links-nav"><a href="inicioSesion.html">Inicio Sesión</a></li> <!-- Inicio Sesión -->
-            <li class="links-nav"><a href="envios.html">Envíos</a></li> <!-- Envíos -->
-            <li class="links-nav"><a href="Precios.html">Precios</a></li> <!-- Precios -->
-            <li class="links-nav"><a href="pedidos.html">Pedidos</a></li> <!--pedidos-->
-            <li class="links-nav"><a href="linksutiles.html">links útiles</a></li><!--links-->
-          </div>
+      
+    <header class="header-container">
+      <nav class="nav" aria-label="Main Navigation">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__links link--logo" href="index.html"><span>La Copiadora</span></a></li> <!-- Logo -->
+          <li class="nav__item"><a class="nav__links" href="laCopiadoraStore.html" target="_blank">Store</a></li> <!-- Store-->
+          <li class="nav__item"><a class="nav__links" href="envios.html">Envíos</a></li> <!-- Envíos -->
+          <li class="nav__item"><a class="nav__links" href="Precios.html">Precios</a></li> <!-- Precios -->
+          <li class="nav__item"><a class="nav__links" href="pedidos.html">Pedidos</a></li> <!--pedidos-->
+          <li class="nav__item"><a class="nav__links" href="/linksutiles.html">links útiles</a></li><!--links-->
+          <li class="nav__item"><a class="nav__links link--buton" href="inicioSesion.html">Log in</a></li><!--login-->
         </ul>
       </nav>
+    </header>
+
+
+    <div class="container">
+      <form>
+
+        <h2 class="h2-registro">Forumalario de registro</h2>
+
+        <label for="username">Nombre:</label>
+        <input id="username" class="form-input" type="text" name="username" placeholder="Fulanito" required minlength="3">
+
+        <label for="lastname">Apellido:</label>
+        <input id="lastname" class="form-input" type="text" name="lastname" placeholder="Cosme" required minlength="3">
+
+        <label for="age">Edad:</label>
+        <input id="age" class="form-input" type="number" name="age" placeholder="Tu edad" required maxlength="2">
+
+        <label for="email">Correo electrónico:</label>
+        <input id="email" class="form-input" type="email" name="email" placeholder="cosmefulanito@mail.com" required>
+
+        <label for="whatsApp">WhatsApp:</label>
+        <input id="whatsApp" class="form-input" type="number" name="whatsApp" placeholder="4815162342" required>
+
+        <label for="birthdate">Fecha de nacimiento:</label>
+        <input id="birthdate" class="form-input" type="date" name="birthdate" title="¿cuándo naciste?" required>
+
+        <label for="occupation">Ocupación:</label>
+        <input id="occupation" class="form-input" type="text" name="occupation" title="¿a qué te dedicas?" placeholder="estudio en/ trabajo en">
+
+        <input class="form-input" type="submit" value="Registrarse">
+
+      </form>
     </div>
 
-   <form>
-      <input class="form-input" type="text" name="username" placeholder="Tu nombre" required minlength="3">
-      <input class="form-input" type="text" name="lastname" placeholder="Tu apellido" required minlength="3">
-      <input class="form-input" type="number" name="age" placeholder="Tu edad" required maxlength="2">
-      <input class="form-input" type="email" name="email" placeholder="Tu correo favorito" required>
-      <p class="p-input">¿Cuándo naciste?</p>
-      <input class="form-input" type="date" name="birthdate" title="¿cuándo naciste?" required>
-      <input class="form-input" type="text" name="occupation" title="¿a qué te dedicas?" placeholder="Tu ocupación">
-      <input class="form-input" type="submit" value="Registrarse">
-   </form>
 
    <footer class="footer-content ">
     <div>

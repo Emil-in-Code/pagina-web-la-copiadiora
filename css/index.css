@@ -4,6 +4,10 @@
     font-family: Baron Neue;
 }
 
+h1 + p {
+    color: rgb(255, 255, 255);
+}
+
 .logo {
     width: 250px; /* Tamaño de la imagen */
     height: auto;
@@ -37,7 +41,16 @@
     
 }
 
+.foto-feature {
+    width: 150px;
+}
 
+/*aside section*/
 
+.imagen-aside {
+    width: 150px;
+}
 
-
+.imagen-debit {
+    width: 300px;
+}

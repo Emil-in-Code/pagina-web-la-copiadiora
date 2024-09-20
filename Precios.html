@@ -12,34 +12,32 @@
   <body class="body">
 
     <!-- SECCIÓN NAVBAR -->
-
-    <div class="header-container">
-      <nav class="navbar">
-        <ul>
-          <li class="links-nav logotipo"><a href="index.html"><span>La Copiadora</span></a></li> <!-- Logo -->
-          <div class="navlinks">
-            <li class="links-nav"><a href="laCopiadoraStore.html" target="_blank">Store</a></li> <!-- Store -->
-            <li class="links-nav"><a href="inicioSesion.html">Inicio Sesión</a></li> <!-- Inicio Sesión -->
-            <li class="links-nav"><a href="Registrarme.html">Registrarme</a></li><!--Registrarme-->
-            <li class="links-nav"><a href="envios.html">Envíos</a></li> <!-- Envíos -->
-            <li class="links-nav"><a href="Precios.html">Precios</a></li> <!-- Precios -->
-            <li class="links-nav"><a href="pedidos.html">Pedidos</a></li> 
-            <li class="links-nav"><a href="linksutiles.html">links útiles</a></li><!--links-->
-          </div>
+      
+    <header class="header-container">
+      <nav class="nav" aria-label="Main Navigation">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__links link--logo" href="index.html"><span>La Copiadora</span></a></li> <!-- Logo -->
+          <li class="nav__item"><a class="nav__links" href="laCopiadoraStore.html" target="_blank">Store</a></li> <!-- Store-->
+          <li class="nav__item"><a class="nav__links" href="envios.html">Envíos</a></li> <!-- Envíos -->
+          <li class="nav__item"><a class="nav__links" href="pedidos.html">Pedidos</a></li> <!--pedidos-->
+          <li class="nav__item"><a class="nav__links" href="/linksutiles.html">links útiles</a></li><!--links-->
+          <li class="nav__item"><a class="nav__links" href="Registrarme.html">Registrarme</a></li><!--Registrarme-->
+          <li class="nav__item"><a class="nav__links link--buton" href="inicioSesion.html">Log in</a></li><!--login-->
         </ul>
       </nav>
-    </div>
+    </header>
 
     <!-- SECCIÓN TARJETAS DE PRECIOS -->
 
     <main class="main">
-      <h1 class="h1precios">Los precios mostrados no incluyen nuestros descuentos.</h1>
+      <h1 class="h1precios">Precios sin descuentos.</h1>
+      <p class="p-h1">Para obtener todos nuestros beneficios deberás <a class="enlace-registrarse" href="Registrarme.html">registrarte</a></p>
 
       <!-- Tarjeta de Copias color -->
       <section class="pricing-cards">
         <div class="tarjeta">
           <div class="fondo-icono">
-            <img src="/assets/precios/copiascolor.svg" alt="Copias a Color" class="imagenes">
+            <img src="/assets/precios/copiascolor.svg" alt="Copias o impresiones a Color" class="imagenes">
           </div>
           <div class="contenido">
             <h2 class="h2precios">COPIAS A COLOR</h2>
@@ -68,7 +66,7 @@
         <!-- Tarjeta de Copias en B/N -->
         <div class="tarjeta">
           <div class="fondo-icono">
-            <img src="/assets/precios/blanco y negro.png" alt="Copias en Blanco y Negro" class="imagenes">
+            <img src="/assets/precios/blanco y negro.png" alt="Copias o impresiones en Blanco y Negro" class="imagenes">
           </div>
           <div class="contenido">
             <h2 class="h2precios">COPIAS<br>EN B/N</h2>
@@ -162,30 +160,24 @@
           </p>
 
        <!-- agenda incial -->
-        <div class="agenda-inicial">
+        <div class="agenda-inicial">  
           <h3 class="h3agendas">INICIAL</h3>
-          <div class="foto"> 
-            <img src="/assets/agenda inicial.jpg" alt="agenda de incial">
-          </div>
+            <img src="/assets/agenda inicial.jpg" alt="agenda de incial" class="foto-agenda">  
         </div>
 
        <!-- agenda primaria -->
         <div class="agenda-primaria">
           <h3 class="h3agendas">PRIMARIA</h3>
-          <div class="foto">
-            <img src="/assets/agenda primaria.jpg" alt="agenda primaria">
-          </div>
+            <img src="/assets/agenda primaria.jpg" alt="agenda primaria" class="foto-agenda">
         </div>
 
        <!-- agenda secundaria -->
         <div class="agenda-secundaria">
           <h3 class="h3agendas">SECUNDARIA</h3>
-          <div class="foto">
-            <img src="/assets/agenda secundaria.jpg" alt="agenda secundaria">
-          </div>
+           <img src="/assets/agenda secundaria.jpg" alt="agenda secundaria" class="foto-agenda">
         </div>
 
-        <button>Comprar agendas</button>
+        <button class="button-presupuesto">Comprar agendas</button>
       </section>
 
       <!--SECCIÓN LIBRERÍA-->
@@ -224,31 +216,31 @@
         <h2>Libros usados</h2>
         <p>Más de 3 mil títulos</p>
         <div class="gallery-item">
-          <img src="/assets/libros usados/benedetti.jpg" alt="benedetti">
+          <img src="assets/libros usados/autoras/la llorona serrano.jpeg" alt="benedetti">
         </div>
 
         <div class="gallery-item">
-          <img src="/assets/libros usados/alfredo bauer.jpg" alt="alfredo bauer">
+          <img src="assets/libros usados/autoras/maria dueñas.jpeg" alt="alfredo bauer">
         </div>
 
         <div class="gallery-item">
-          <img src="/assets/libros usados/el sobre negro.jpg" alt="el sobre negro">
+          <img src="assets/libros usados/autoras/ultimos fuegos.jpeg" alt="el sobre negro">
         </div>
 
         <div class="gallery-item">
-          <img src="/assets/libros usados/factotum.jpg" alt="factotum">
+          <img src="assets/libros usados/autoras/nosotras que nos queremos tanto.jpeg" alt="factotum">
         </div>
 
         <div class="gallery-item">
-          <img src="/assets/libros usados/marquez.jpg" alt="marquez">
+          <img src="assets/libros usados/autoras/waslala.jpeg" alt="marquez">
         </div>
 
         <div class="gallery-item">
-          <img src="/assets/libros usados/torcuato.jpg" alt="torcuato">
+          <img src="assets/libros usados/autoras/tuya.jpeg" alt="torcuato">
         </div>
 
         <p>Esto solo es una galeria, conseguílos en nuestro store</p>
-        <button>Comprar</button>
+        <button class="button-presupuesto" >ir a la tienda</button>
       </section>
     </main>  
 

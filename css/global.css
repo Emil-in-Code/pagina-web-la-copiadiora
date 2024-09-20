@@ -8,6 +8,10 @@
     src: url(/tipografias/Baron\ Neue\ Bold.otf) format("opentype");
 }
 
+.body {
+    background-color: #000;
+    margin: 0;
+}
 
 p {
     color: white;
@@ -36,33 +40,15 @@ h2 {
     font-size: 50px;
 }
 
-.body {
-    background-color: black;
-    margin: 0;
-}
+
+
+/*section navbar*/
 
 .header-container {
     background-color: rgba(255, 206, 6, 1);
-    width: 100vw;
-    height: auto;
-    margin-top: -16px; 
-    margin-left: -7px;
-    
-}
-
-.header-container a { 
-    text-decoration: none; /* Elimina el subrayado de los enlaces */
-    color: black; /* Establece el color de texto de los enlaces */
-   
-}
-
-.links-nav {
-    background-color: aqua;
-    margin: 5px;
-    width: 100px;
-    display: flex;
-    flex-direction: row;
-    padding: 10px;
+    width: 100%;
+    position: fixed;
+    z-index: 10; 
 }
 
 .header-container span {
@@ -73,13 +59,49 @@ h2 {
     text-shadow: 3px 3px 0 black; 
 }
 
-.logotipo {
-    width: 230px;
+
+.nav {
+    float: left;
 }
 
-.link{
-    text-decoration: none;
+.nav__list {
+    list-style: none;
+    overflow: hidden; 
 }
+
+.nav__item {
+    float: left;
+    margin-left: 5px;
+}
+.nav__links {
+    color: black; 
+    font-family: keep Calm;
+    display: block;
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.link--logo {
+    margin-top: 0;
+    padding: 2px;
+}
+
+.link--buton {
+    border: 1px solid #000;
+    border-radius: 7px;
+    padding: 7px 18px;
+    background-color:rgba(254, 239, 180, 1);
+    margin-left: 20px;
+}
+
+.link--buton:hover {
+    background-color: rgba(255, 206, 6, 1);
+}
+
+/*fin de section*/
+
+/*footer section*/
 
 .footer-content {
     background-color: rgba(255, 206, 6, 1);
@@ -99,3 +121,4 @@ h2 {
     justify-content: center;
     margin: auto;
 }
+/*fin de footer*/

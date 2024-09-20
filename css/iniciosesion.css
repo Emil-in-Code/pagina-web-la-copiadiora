@@ -1,7 +1,20 @@
-form {
-    border-radius: 7px;
-    max-width: 600px;
+.container {
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(255, 206, 6, 1);
+    border: 1px solid rgba(255, 206, 6, 1);
+    width: 350px;
     margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 15px; 
+    box-sizing: border-box;
+}
+
+.h2-incioSesion {
+    font-size: 25px;
+    text-align: center;
+    margin-top: 1px;
+    color: rgba(254, 239, 180, 1);
 }
 
 .form-input {
@@ -11,8 +24,27 @@ form {
     padding: 10px 20px;
     margin: 5px;
     font-family: keepCalm;
+    width: 75%;
 }
 
 .form-input:hover {
     box-shadow: -3px 5px 1px rgba(255, 206, 6, 1);
+}
+
+.form-input:invalid {
+  color: #c21010;
+}
+
+.form-input:valid {
+    color: #1a9435;
+}
+
+label {
+    color:rgba(254, 239, 180, 1);
+    font-size: 0.9em;
+    display: block;
+}
+
+.form-input.submit {
+    color: #000;
 }

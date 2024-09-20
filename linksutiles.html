@@ -1,169 +1,204 @@
 <!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Links Útiles</title>
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/links.css">
-</head>
-<body class="body">
-
-    <div class="header-container">
-      <nav class="navbar">
-        <ul>
-          <li class="links-nav logotipo"><a href="index.html"><span>La Copiadora</span></a></li> <!-- Logo -->
-          <li class="links-nav"><a href="inicioSesion.html">Inicio Sesión</a></li> <!-- Inicio Sesión -->
-          <li class="links-nav"><a href="Registrarme.html">Registrarme</a></li><!--Registrarme-->
-          <li class="links-nav"><a href="envios.html">Envíos</a></li> <!-- Envíos -->
-          <li class="links-nav"><a href="Precios.html">Precios</a></li> <!-- Precios -->
-          <li class="links-nav"><a href="pedidos.html">Pedidos</a></li> <!--Pedidos-->
-        </ul>
-      </nav>
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Links Útiles</title>
+      <link rel="stylesheet" href="css/global.css">
+      <link rel="stylesheet" href="css/links.css">
+  </head>
+  <body class="body">
+    <div class="modal">
+      <div class="modal__content">
+        <h2 class="modal__title">Estás por salir</h2>
+        <p class="modal__text">
+          Estos links son útiles pero hacen que <br>
+          abandones nuestra página y todas las interacciones y datos que brindes<br>
+          por fuera de La Copiadora<br>
+          son de tu responsabilidad absoluta.
+        </p>
+        <button class="modal__btn">x</button>
+      </div>
     </div>
 
+
+    <!-- SECCIÓN NAVBAR -->
+      
+    <header class="header-container">
+      <nav class="nav" aria-label="Main Navigation">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__links link--logo" href="index.html"><span>La Copiadora</span></a></li> <!-- Logo -->
+          <li class="nav__item"><a class="nav__links" href="laCopiadoraStore.html" target="_blank">Store</a></li> <!-- Store-->
+          <li class="nav__item"><a class="nav__links" href="envios.html">Envíos</a></li> <!-- Envíos -->
+          <li class="nav__item"><a class="nav__links" href="Precios.html">Precios</a></li> <!-- Precios -->
+          <li class="nav__item"><a class="nav__links" href="pedidos.html">Pedidos</a></li> <!--pedidos-->
+          <li class="nav__item"><a class="nav__links" href="Registrarme.html">Registrarme</a></li><!--Registrarme-->
+          <li class="nav__item"><a class="nav__links link--buton" href="inicioSesion.html">Log in</a></li><!--login-->
+        </ul>
+      </nav>
+    </header>
+
     <main class="main">
-        <h1 class="h1precios">En este apartado encontrarás todo lo necesario para organizar tus materias, tus tiempos y apalancar tus estudios con tecnología.</h1>
+      <h1 class="h1precios">En este apartado encontrarás todo lo necesario para organizar tus materias, tus tiempos y apalancar   tus estudios con tecnología.
+      </h1>
+
+      <section class="links-utiles">
 
         <!-- Tarjeta i love pdf -->
-        <section class="links-utiles">
-          <div class="tarjeta">
-            <div class="fondo-icono">
-              <img src="/assets/links img/ilovepdf.png" alt="i love pdf" class="imagenes">
-            </div>
-            <div class="contenido">
-              <h2 class="h2links">Todo para tus pdf</h2>
-              <p class="ptarjetas">Uní páginas, desbloqueá<br>
-              convertí a pdf<br>
-              comprimí, etc.</p>
-            </div>
-            <div>
-                <a href="https://www.ilovepdf.com/es" target="_blank">
-              <button class="btn-links">ir a la web</button></a>
-            </div>
-          </div>  
+        <div class="tarjeta">
+          <div class="fondo__imagen">
+            <img src="/assets/links img/ilovepdf.png" alt="i love pdf" class="imagen__ilovepdf">
+          </div>
+          <div class="contenido">
+            <h2 class="h2links">Todo para tus pdf</h2>
+            <p class="ptarjetas">Uní páginas, desbloqueá<br>
+            convertí a pdf<br>
+            comprimí, etc.</p>
+          </div>
+          <div>
+              <a href="https://www.ilovepdf.com/es" target="_blank">
+            <button class="btn-links">ir a la web</button></a>
+          </div>
+        </div>  
 
-           <!-- Tarjeta notion -->
+        <!-- Tarjeta notion -->
 
-          <div class="tarjeta">
-            <div class="fondo-icono">
-              <img src="/assets/links img/notion.png" alt="notion, para gestión de proyectos en equipo" class="imagen-notion">
-            </div>
-            <div class="contenido">
-              <h2 class="h2links">Todo para organizarte</h2>
-              <p class="ptarjetas">Gestión de proyectos<br>
-              entre varios<br>
-              miembros</p>
-            </div>
-            <div>
-                <a href="https://www.notion.so/3659ea50e864418a832fbee16a6533ff?v=060dbe90b3a9465db7a55a7573ba217b" target="_blank">
-              <button class="btn-links">ir a la web</button></a>
-            </div>
-          </div> 
+        <div class="tarjeta">
+          <div class="fondo__imagen">
+            <img src="/assets/links img/notion.png" alt="notion, para gestión de proyectos en equipo" class="imagen__notion">
+          </div>
+          <div class="contenido">
+            <h2 class="h2links">Todo para organizarte</h2>
+            <p class="ptarjetas">Gestión de proyectos<br>
+            entre varios<br>
+            miembros</p>
+          </div>
+          <div>
+            <a href="https://www.notion.so/3659ea50e864418a832fbee16a6533ff?v=060dbe90b3a9465db7a55a7573ba217b"   target="_blank">
+            <button class="btn-links">ir a la web</button></a>
+          </div>
+        </div> 
 
-          <!-- Tarjeta airtable -->
+        <!-- Tarjeta airtable -->
 
-          <div class="tarjeta">
-            <div class="fondo-icono">
-              <img src="/assets/links img/airtable.png" alt="airtable, sirve para organizar tu flujo de trabajo" class="imagen-airtable">
-            </div>
-            <div class="contenido">
-              <h2 class="h2links">Excel con poderes</h2>
-              <p class="ptarjetas">Organiza tus<br>
-              flujos<br>
-              de trabajo</p>
-            </div>
-            <div>
-                <a href="https://airtable.com/" target="_blank">
-              <button class="btn-links">ir a la web</button></a>
-            </div>
-          </div> 
+        <div class="tarjeta">
+          <div class="fondo__imagen">
+          <img src="/assets/links img/airtable.png" alt="airtable, sirve para organizar tu flujo de trabajo"  class="imagen__airtable">
+          </div>
+          <div class="contenido">
+            <h2 class="h2links">Excel con poderes</h2>
+            <p class="ptarjetas">Organiza tus<br>
+            flujos<br>
+            de trabajo</p>
+          </div>
+          <div>
+              <a href="https://airtable.com/" target="_blank">
+            <button class="btn-links">ir a la web</button></a>
+          </div>
+        </div> 
 
-          <!-- Tarjeta chatgpt -->
-          
-          <div class="tarjeta">
-            <div class="fondo-icono">
-              <img src="/assets/links img/chatgpt.png" alt="chat gpt" class="imagenes">
-            </div>
-            <div class="contenido">
-              <h2 class="h2links">Chat<br>GPT</h2>
-              <p class="ptarjetas">¿En verdad querés<br>
-              optimizarte<br>
-              sin esto?</p>
-            </div>
-            <div>
-                <a href="https://chatgpt.com/c/66e468fd-55d4-8003-9809-e64785b526a6" target="_blank">
-              <button class="btn-links">ir a la web</button></a>
-            </div>
-          </div> 
-          
-           <!-- Tarjeta Trello -->
+        <!-- Tarjeta chatgpt -->
 
-           <div class="tarjeta">
-            <div class="fondo-icono">
-              <img src="/assets/links img/trello.png" alt="gestor de proyectos que usa tableros y tarjetas" class="imagen-trello">
-            </div>
-            <div class="contenido">
-              <h2 class="h2links">Gestor de proyectos</h2>
-              <p class="ptarjetas">Con tableros y tarjetas<br>
-              para<br>
-              cada materia</p>
-            </div>
-            <div>
-                <a href="https://trello.com/es" target="_blank">
-              <button class="btn-links">ir a la web</button></a>
-            </div>
-          </div> 
+        <div class="tarjeta">
+          <div class="fondo__imagen">
+            <img src="assets/links img/chatgpt.png" alt="chat gpt" class="imagen__chatgpt">
+          </div>
+          <div class="contenido">
+            <h2 class="h2links">Chat<br>GPT</h2>
+            <p class="ptarjetas">¿En verdad querés<br>
+            optimizarte<br>
+            sin esto?</p>
+          </div>
+          <div>
+              <a href="https://chatgpt.com/c/66e468fd-55d4-8003-9809-e64785b526a6" target="_blank">
+            <button class="btn-links">ir a la web</button></a>
+          </div>
+        </div> 
 
-          <!-- Tarjeta Grammarly -->
+         <!-- Tarjeta Trello -->
 
-          <div class="tarjeta">
-            <div class="fondo-icono">
-              <img src="/assets/links img/grammarly.png" alt="Grammarly, para mejorar la escritura" class="imagen-grammarly">
-            </div>
-            <div class="contenido">
-              <h2 class="h2links">Gestor de Gramática</h2>
-              <p class="ptarjetas">Mejora tu gramática<br>
-              y ortografía<br>
-              en tus tp.</p>
-            </div>
-            <div>
-                <a href="https://www.grammarly.com/" target="_blank">
-              <button class="btn-links">ir a la web</button></a>
-            </div>
-          </div> 
-        </section>
+         <div class="tarjeta">
+          <div class="fondo__imagen">
+            <img src="assets/links img/trello.png" alt="gestor de proyectos que usa tableros y tarjetas" class="imagen__trello">
+          </div>
+          <div class="contenido">
+            <h2 class="h2links">Gestor de proyectos</h2>
+            <p class="ptarjetas">Con tableros y tarjetas<br>
+            para<br>
+            cada materia</p>
+          </div>
+          <div>
+              <a href="https://trello.com/es" target="_blank">
+            <button class="btn-links">ir a la web</button></a>
+          </div>
+        </div> 
 
-        <h2 class="h2main-links">Solo recuerda, no existen atajos para llegar a lugares que valen la pena.</h2>
+        <!-- Tarjeta Grammarly -->
+
+        <div class="tarjeta">
+          <div class="fondo__imagen">
+            <img src="assets/links img/grammarly.png" alt="Grammarly, para mejorar la escritura" class="imagen__grammarly">
+          </div>
+          <div class="contenido">
+            <h2 class="h2links">Gestor de Gramática</h2>
+            <p class="ptarjetas">Mejora tu gramática<br>
+            y ortografía<br>
+            en tus tp.</p>
+          </div>
+          <div>
+              <a href="https://www.grammarly.com/" target="_blank">
+            <button class="btn-links">ir a la web</button></a>
+          </div>
+        </div> 
+
+        <!-- Tarjeta tich ai-->
+
+        <div class="tarjeta">
+          <div class="fondo__imagen">
+          <img src="assets/links img/Tichai.png" alt="Tichai,herramienta de inteligencia artificial para aprobar exámenes"  class="imagen__tichai">
+          </div>
+          <div class="contenido">
+            <h2 class="h2links">Gestor de exámenes</h2>
+            <p class="ptarjetas">Mejora y organiza tu<br>
+            rendimiento<br>
+            académico.</p>
+          </div>
+          <div>
+              <a href="https://www.tichacademy.com/sign-in?callbackUrl=%2F" target="_blank">
+            <button class="btn-links">ir a la web</button></a>
+          </div>
+        </div> 
+
+      </section>
+
+      <h2 class="h2main-links">Solo recuerda, no existen atajos para llegar a lugares que valen la pena.</h2>
     </main>
 
-
-
+    <!-- FOOTER -->
 
     <footer class="footer-content ">
-        <div>
-          <!-- Logo -->
-          <div class="footer-logo">
-            <img src="/assets/Logo de la copiadora.png" alt="Logo de La Copiadora" width="100" height="100">
-          </div>
-    
-          <!-- Dirección del negocio -->
-          <div>
-            <p class="p-footer1"><strong>Dirección:</strong> 44 e/ 4 y 5 n496 - La Plata</p>
-          </div>
-    
-          <!-- Contacto -->
-          <div>
-            <p class="p-footer2"><strong>Contacto:</strong></p>
-            <ul>
-              <li><a href="https://wa.me/message/EOKHJIUZOJSKF1">WhatsApp </a></li>
-              <li><a href="https://instagram.com/lacopiadora44" target="_blank">Instagram</a></li>
-              <li><a href="https://facebook.com/lacopiadora44" target="_blank">Facebook</a></li>
-              <li><a href="https://lacopiadora44@gmail.com" target="_blank">Email</a></li>
-            </ul>
-          </div>
+      <div>
+        <!-- Logo -->
+        <div class="footer-logo">
+          <img src="/assets/Logo de la copiadora.png" alt="Logo de La Copiadora" width="100" height="100">
         </div>
-      </footer>
-
-</body>
+  
+        <!-- Dirección del negocio -->
+        <div>
+          <p class="p-footer1"><strong>Dirección:</strong> 44 e/ 4 y 5 n496 - La Plata</p>
+        </div>
+  
+        <!-- Contacto -->
+        <div>
+          <p class="p-footer2"><strong>Contacto:</strong></p>
+          <ul>
+            <li><a href="https://wa.me/message/EOKHJIUZOJSKF1">WhatsApp </a></li>
+            <li><a href="https://instagram.com/lacopiadora44" target="_blank">Instagram</a></li>
+            <li><a href="https://facebook.com/lacopiadora44" target="_blank">Facebook</a></li>
+            <li><a href="https://lacopiadora44@gmail.com" target="_blank">Email</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

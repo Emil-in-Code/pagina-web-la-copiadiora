@@ -20,29 +20,27 @@
   <body class="body">
 
     <!-- SECCIÓN NAVBAR -->
-
-    <div class="header-container">
-      <nav class="navbar">
-        <ul>
-          <li class="links-nav logotipo"><a href="index.html"><span>La Copiadora</span></a></li> <!-- Logo -->
-          <div class="navlinks">
-            <li class="links-nav"><a href="laCopiadoraStore.html" target="_blank">Store</a></li> <!-- Store -->
-            <li class="links-nav"><a href="Registrarme.html">Registrarme</a></li><!--Registrarme-->
-            <li class="links-nav"><a href="inicioSesion.html">Inicio Sesión</a></li> <!-- Inicio Sesión -->
-            <li class="links-nav"><a href="envios.html">Envíos</a></li> <!-- Envíos -->
-            <li class="links-nav"><a href="Precios.html">Precios</a></li> <!-- Precios -->
-            <li class="links-nav"><a href="pedidos.html">Pedidos</a></li> <!--pedidos-->
-            <li class="links-nav"><a href="/linksutiles.html">links útiles</a></li><!--links-->
-          </div>
+      
+    <header class="header-container">
+      <nav class="nav" aria-label="Main Navigation">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__links link--logo" href="index.html"><span>La Copiadora</span></a></li> <!-- Logo -->
+          <li class="nav__item"><a class="nav__links" href="laCopiadoraStore.html" target="_blank">Store</a></li> <!-- Store-->
+          <li class="nav__item"><a class="nav__links" href="envios.html">Envíos</a></li> <!-- Envíos -->
+          <li class="nav__item"><a class="nav__links" href="Precios.html">Precios</a></li> <!-- Precios -->
+          <li class="nav__item"><a class="nav__links" href="pedidos.html">Pedidos</a></li> <!--pedidos-->
+          <li class="nav__item"><a class="nav__links" href="/linksutiles.html">links útiles</a></li><!--links-->
+          <li class="nav__item"><a class="nav__links" href="Registrarme.html">Registrarme</a></li><!--Registrarme-->
+          <li class="nav__item"><a class="nav__links link--buton" href="inicioSesion.html">Log in</a></li><!--login-->
         </ul>
       </nav>
-    </div>
+    </header>
 
     <main>
       <section class="hero">
         <h1>Tus fotocOpias,<br> a tu tiempO</h1>
         <p>Ganá hasta un 70% de tu tiempo evitando filas y desplazamientos.<br> tus copias donde y cuando quieras.‍Rápido, fácil y seguro.</p>
-        <a href="pedidos.html" class="button-presupuesto">Presupuestar Gratis</a>
+        <a href="pedidos.html" class="button-presupuesto"  aria-label="Presupuestar fotocopias gratis">Presupuestar Gratis</a>
         <img src="/assets/Logo de la copiadora.png" alt="logo de la copiadora" class="logo" >
       </section>
 
@@ -50,18 +48,18 @@
         <h2>Pedilas donde quieras, cuando quieras, a la hora que quieras.</h2>
         <div class="grid-container">
           <div class="grid-item">
-            <img src="/assets/leyendo en la playa.jpg" alt="leyendo en la playa" width="150" height="200">
+            <img src="/assets/leyendo en la playa.jpg" alt="Persona leyendo en la playa"  class="foto-feature">
           </div>
           <div class="grid-item">
-            <img src="/assets/plano cenital leyendo.jpg" alt="leyendo en el escritorio" width="150" height="200">
+            <img src="/assets/plano cenital leyendo.jpg" alt="Persona leyendo en el escritorio desde un plano cenital" class="foto-feature">
           </div>
           <div class="grid-item">
-            <img src="/assets/leyendo en la habitacion.jpg" alt="leyendo en la habitación" width="150" height="200">
+            <img src="/assets/leyendo en la habitacion.jpg" alt="Persona leyendo en su cama a la noche"  class="foto-feature">
           </div>
           <div class="grid-item">
-            <img src="/assets/leyendo en kindle.jpg" alt="leyendo en el kindle" width="150" height="200">
+            <img src="/assets/leyendo en kindle.jpg" alt="Persona leyendo en el kindle" class="foto-feature">
           </div>
-          <a href="pedidos.html" class="button-presupuesto">Hacer pedido</a>
+          <a href="pedidos.html" class="button-presupuesto"  aria-label="Hacer un pedido de fotocopias">Hacer pedido</a>
         </div>
       </section>
     </main>
@@ -71,19 +69,19 @@
         <div class="grid-item">
           <h2>¿Cómo funciona?</h2>
           <p>Cargá tus archivos en pdf</p>
-          <img src="/assets/pdf.svg" alt="cargar archivos" width="150" height="200">
+          <img src="/assets/pdf.svg" alt="cargar tus archivos" class="imagen-aside">
         </div>
         <div class="grid-item">
           <p>Seleccioná tus preferencias de impresión</p>
-          <img src="/assets/selección de preferencias.svg" alt="Seleccioná tus preferencias de impresión" width="150" height="200">
+          <img src="assets/precios/pedidos.png" alt="Seleccioná tus preferencias de impresión" class="imagen-aside">
        </div>
         <div class="grid-item">
           <p>Elegí cuando lo querés recibir</p>
-          <img src="/assets/tiempo de entrega.svg" alt="tiempo de entrega" width="150" height="200">
+          <img src="/assets/tiempo de entrega.svg" alt="Elegí tu tiempo de entrega" class="imagen-aside">
         </div>
         <div class="grid-item">
           <p>Abonalo y listo</p>
-          <img src="/assets/debit card.svg" alt="abonalo y listo" width="150" height="200">
+          <img src="/assets/debit card.svg" alt="abonalo y listo" class="imagen-debit">
         </div>
       </div>
     </aside>
@@ -104,10 +102,10 @@
         <div>
           <p class="p-footer2"><strong>Contacto:</strong></p>
           <ul>
-            <li><a href="https://wa.me/message/EOKHJIUZOJSKF1">WhatsApp </a></li>
-            <li><a href="https://instagram.com/lacopiadora44" target="_blank">Instagram</a></li>
-            <li><a href="https://facebook.com/lacopiadora44" target="_blank">Facebook</a></li>
-            <li><a href="https://lacopiadora44@gmail.com" target="_blank">Email</a></li>
+            <li><a href="https://wa.me/message/EOKHJIUZOJSKF1" aria-label="Contactar por WhatsApp">WhatsApp </a></li>
+            <li><a href="https://instagram.com/lacopiadora44" target="_blank" aria-label="Visitar Instagram de La Copiadora">Instag>Instagram</a></li>
+            <li><a href="https://facebook.com/lacopiadora44" target="_blank"  aria-label="Visitar Facebook de La Copiadora">Facebook</a></li>
+            <li><a href="https://lacopiadora44@gmail.com" target="_blank" aria-label="Enviar correo electrónico a La Copiadora">Email</a></li>
           </ul>
         </div>
       </div>
