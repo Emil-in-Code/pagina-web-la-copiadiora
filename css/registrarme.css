@@ -1,11 +1,4 @@
 
-
-.h2-registro {
-    font-size: 25px;
-    text-align: center;
-    margin-top: 1px;
-}
-
 .container {
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(255, 206, 6, 1);
@@ -17,6 +10,13 @@
     padding: 15px; 
     box-sizing: border-box;
 }
+
+.h2-registro {
+    font-size: 25px;
+    text-align: center;
+    margin-top: 1px;
+}
+
 
 label {
     color:aliceblue;

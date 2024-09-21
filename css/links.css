@@ -1,8 +1,8 @@
-.modal {
-    position: absolute;
+dialog {
     background-color: #0009;
     width: 100vw;
     height: 100vh;
+    box-sizing: border-box;
 }
 
 .modal__content {
@@ -17,8 +17,8 @@
 .modal__title {
     margin-top: 10px;
     color: rgba(255, 206, 6, 1);
-    -webkit-text-stroke: 1px black;
-    text-shadow: 3px 3px 0 black; 
+    -webkit-text-stroke: 1px #000;
+    text-shadow: 3px 3px 0 #000; 
     text-align: center;
 }
 
@@ -33,7 +33,7 @@
     padding: 2px 8px;
     background-color:rgba(255, 206, 6, 1);
     margin-left: 20px;
-    font-family: keepCalm;
+    font-family: Baron Neue;
     position: absolute;
     top: 0;
     right: 0;

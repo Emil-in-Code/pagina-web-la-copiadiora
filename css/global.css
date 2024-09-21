@@ -8,9 +8,15 @@
     src: url(/tipografias/Baron\ Neue\ Bold.otf) format("opentype");
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .body {
     background-color: #000;
-    margin: 0;
+    min-height: 100vh;
 }
 
 p {
@@ -48,43 +54,26 @@ h2 {
     background-color: rgba(255, 206, 6, 1);
     width: 100%;
     position: fixed;
-    z-index: 10; 
+    top: 0;
+    left: 0;
+    z-index: 100; 
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.header-container span {
-    color: white;
-    font-size: 40px;
-    font-family: Baron Neue;
-    -webkit-text-stroke: 1px black;
-    text-shadow: 3px 3px 0 black; 
-}
-
-
-.nav {
-    float: left;
-}
-
-.nav__list {
-    list-style: none;
-    overflow: hidden; 
-}
-
-.nav__item {
-    float: left;
-    margin-left: 5px;
-}
 .nav__links {
-    color: black; 
-    font-family: keep Calm;
-    display: block;
-    padding: 10px;
-    margin-top: 10px;
-    text-align: center;
+    font-family: keepCalm;
+    margin-left: 10px;
 }
 
 .link--logo {
-    margin-top: 0;
-    padding: 2px;
+    color: white;
+    font-size: 30px;
+    font-family: Baron Neue;
+    -webkit-text-stroke: 1px black;
+    text-shadow: 2px 2px 0 black; 
 }
 
 .link--buton {

@@ -1,16 +1,18 @@
-main {
+.main__section {
     display: flex;
-    margin-top: 50px;
+    box-sizing: border-box;
+    height: 80vh;
 }
 .sidebar {
     width: 200px;
+    height: 100px;
     background-color: #000000;
-    padding: 20px;
-    box-sizing: border-box;
+    padding: 10px;
+    margin-top: 150px;
 }
 .sidebar button {
     width: 100%;
-    margin-bottom: 15px;
+    margin: 8px;
     display: inline-block;
     padding: 10px 20px;
     background-color: whitesmoke;
@@ -61,21 +63,18 @@ main {
    color: #000000;
 }
 
-.precios-previsualizados {
+.price__preview {
     padding: 10px;
     background-color: #000000;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.footer div {
-    flex-grow: 1;
-    text-align: center;
-}
 
 .p-precios {
     font-size: 15px;
 }
+
 .pagar {
     display: inline-block;
     padding: 10px 20px;

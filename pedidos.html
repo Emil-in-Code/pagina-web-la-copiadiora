@@ -18,23 +18,25 @@
   </head>
     
   <body class="body">
+    
     <!-- SECCIÓN NAVBAR -->
       
     <header class="header-container">
+      <a class="nav__links link--logo" href="index.html">La Copiadora</a> <!-- Logo -->
+
       <nav class="nav" aria-label="Main Navigation">
-        <ul class="nav__list">
-          <li class="nav__item"><a class="nav__links link--logo" href="index.html"><span>La Copiadora</span></a></li> <!-- Logo -->
-          <li class="nav__item"><a class="nav__links" href="laCopiadoraStore.html" target="_blank">Store</a></li> <!-- Store-->
-          <li class="nav__item"><a class="nav__links" href="envios.html">Envíos</a></li> <!-- Envíos -->
-          <li class="nav__item"><a class="nav__links" href="Precios.html">Precios</a></li> <!-- Precios -->
-          <li class="nav__item"><a class="nav__links" href="/linksutiles.html">links útiles</a></li><!--links-->
-          <li class="nav__item"><a class="nav__links" href="Registrarme.html">Registrarme</a></li><!--Registrarme-->
-          <li class="nav__item"><a class="nav__links link--buton" href="inicioSesion.html">Log in</a></li><!--login-->
-        </ul>
+        <a class="nav__links" href="laCopiadoraStore.html" target="_blank">Store</a> <!-- Store-->
+        <a class="nav__links" href="envios.html">Envíos</a> <!-- Envíos -->
+        <a class="nav__links" href="Precios.html">Precios</a> <!-- Precios -->
+        <a class="nav__links" href="pedidos.html">Pedidos</a> <!--pedidos-->
+        <a class="nav__links" href="/linksutiles.html">links útiles</a><!--links-->
+        <a class="nav__links" href="Registrarme.html">Registrarme</a><!--Registrarme-->
+        <a class="nav__links link--buton" href="inicioSesion.html">Log in</a><!--login-->
       </nav>
+      
     </header>
   
-    <main>
+    <main class="main__section">
       
       <div class="sidebar">
         <button>CANTIDAD</button>
@@ -56,13 +58,16 @@
       </div>
     </main>
 
-    <div class="precios-previsualizados">
-      <p class="p-precios">Precio original copias:</p>
-      <p class="p-precios">Precio original anillados:</p>
-      <p class="p-precios">Descuento aplicado:</p>
-      <p class="p-precios">Precio final:</p>
-      <button class="pagar">PAGAR</button>
-    </div>
+    <section class="price__preview"> 
+      <div class="preview--wrapper"></div>
+        <p class="p-precios">Precio original copias:</p>
+        <p class="p-precios">Precio original anillados:</p>
+        <p class="p-precios">Descuento aplicado:</p>
+        <p class="p-precios">Precio final:</p>
+        <button class="pagar">PAGAR</button>
+      </div>
+    </section>
+
 
     <footer class="footer-content ">
       <div>
