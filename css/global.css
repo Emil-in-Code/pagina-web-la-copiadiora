@@ -92,22 +92,53 @@ h2 {
 
 /*footer section*/
 
-.footer-content {
+.footer__content {
     background-color: rgba(255, 206, 6, 1);
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.content--wrapper {
+    margin-left: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
 }
 
 .p-footer1 {
     color: #000000;
+    margin-left: 30px;
+    
 }
 
 .p-footer2 {
     color: #000000;
 }
 
-.links-footer {
+
+.contact {
+    margin-left: 50px;
     display: flex;
-    flex-wrap: wrap-reverse;
-    justify-content: center;
-    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px;
 }
+
+.contact__links {
+    display: flex;
+    flex-direction: row;
+    padding: 2px;
+}
+
+.links--item{
+    margin-left: 20px;
+    font-family: keepCalm;
+    padding: 2px;
+}
+
 /*fin de footer*/

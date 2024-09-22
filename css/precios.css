@@ -1,3 +1,7 @@
+.main {
+    margin-top: 5rem;
+}
+
 .h1precios {
     color: rgba(255, 206, 6, 1);
     text-align: center;
@@ -103,9 +107,9 @@
     background-color:rgba(255, 206, 6, 1);
     color: #000000;
     border:1px solid rgb(0, 0, 0);
- }
+}
 
- .btn-tarjetas{
+.btn-tarjetas{
     display: inline-block;
     padding: 5px 10px;
     background-color: rgba(254, 239, 180, 1);
@@ -116,13 +120,13 @@
     border-radius: 7px;
     font-size: 11px;
     transition: background-color 0.3s ease;
- }
+}
 
- .btn-tarjetas:hover{
+.btn-tarjetas:hover{
     background-color: rgba(255, 206, 6, 1);
     color: #000000;
     border:1px solid rgb(0, 0, 0);
- }
+}
 
 .btn-librosusados {
     margin: 16px;
@@ -159,9 +163,9 @@
 }
 
 .btn-delivery:hover {
-     background-color: rgba(255, 206, 6, 1);
-     color: #000000;
-     border:1px solid rgb(0, 0, 0); 
+    background-color: rgba(255, 206, 6, 1);
+    color: #000000;
+    border:1px solid rgb(0, 0, 0); 
 }
  
 .btn-sad {
@@ -188,6 +192,10 @@
 /*hasta aquí stilos card pricing*/
 
 /*a partir de aquí stiles agenda*/
+
+.agendas {
+    margin-top: 200px;
+}
 
 .h2agendas {
     color: rgba(255, 206, 6, 1);
@@ -225,23 +233,83 @@
 .button-presupuesto:hover {
     background-color: rgba(255, 206, 6, 1);
     color: #000000;
- }
+}
 
 
 /*hasta aquí stiles agenda*/
 
 /*a partir de  aquí stiles gellery libreria*/
 
-.gallery-libreria {
+.gallery__libreria {
     width: 60%;
+    margin: auto;
+}
+
+.container__libreria{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 5px;
+    gap: 15px;
     box-sizing: border-box;
-    margin: auto;
+    margin-top: 30px;
 }
 
 .h2libreria {
     color: rgba(255, 206, 6, 1);
+    text-align: center;
+}
+
+.libreria--item {
+    border: 2px solid rgba(255, 206, 6, 1);
+    border-radius: 8px;
+    
+}
+
+/*hasta aquí stiles agenda*/
+
+
+/*a partir de  aquí libros*/
+
+.gallery {
+    width: 60%;
+    margin: auto;
+}
+
+.gallery--h2{
+    text-align: center;
+    margin-top: 50px;
+    color: rgba(255, 206, 6, 1);
+}
+
+.gallery--p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+
+.container__libros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-sizing: border-box;
+    margin-top: 30px;
+}
+
+.libros--item > img {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0px, 0px, 50px rgba(255, 206, 6, 1);
+    border: 1px solid rgba(255, 206, 6, 1);
+}
+
+.libros--item {
+    display: grid;
+    grid-template-columns: 
+        repeat(
+            auto-fit,
+            minmax(150px, 1fr)
+        );
+    gap: 20px;    
 }
