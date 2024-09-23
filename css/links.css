@@ -10,7 +10,7 @@ dialog {
     padding: 10px;
     width: 50%;
     margin: auto;
-    margin-top: 150px;
+    margin-top: 100px;
     position: relative;
 }
 
@@ -23,6 +23,7 @@ dialog {
 }
 
 .modal__text {
+    margin-top: 20px;
     color: #000;
     text-align: center;
 }
@@ -37,7 +38,7 @@ dialog {
     position: absolute;
     top: 0;
     right: 0;
-
+    transition: background-color 0.8s ease;
 }
 
 .modal__btn:hover {
@@ -45,6 +46,7 @@ dialog {
 }
 
 h1 {
+    margin-top: 9rem;
     font-size: 30px;
     text-align: center;
 }
@@ -58,10 +60,10 @@ h1 {
 .h2links {
     font-size: 20px;
     line-height: 21px;
-    color: white;
+    color: #fff;
     font-family: Baron Neue;
-    -webkit-text-stroke: 1px black;
-    text-shadow: 2px 2px 0 black; 
+    -webkit-text-stroke: 1px #000;
+    text-shadow: 2px 2px 0 #000; 
     margin-top: 5px;
 }
 
@@ -74,6 +76,7 @@ h1 {
     gap: 5px;
     box-sizing: border-box;
     margin: auto;
+    margin-top: 2rem;
     
 }
 
@@ -88,7 +91,7 @@ h1 {
 }
 
 .ptarjetas {
-    color: black;
+    color: #000;
     font-size: 13px;
     line-height: 15px;
     text-align: center;
@@ -155,17 +158,17 @@ h1 {
     display: inline-block;
     padding: 5px 10px;
     background-color: rgba(254, 239, 180, 1);
-    color: black;
+    color: #000;
     text-align: center;
     text-decoration: none;
-    border:1px solid #000000;
+    border:1px solid #000;
     border-radius: 7px;
     font-size: 11px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.5s ease;
 }
 
 .btn-links:hover {
     background-color:rgba(255, 206, 6, 1);
-    color: #000000;
+    color: #000;
     border:1px solid rgb(0, 0, 0);
  }

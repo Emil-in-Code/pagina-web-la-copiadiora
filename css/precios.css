@@ -5,6 +5,7 @@
 .h1precios {
     color: rgba(255, 206, 6, 1);
     text-align: center;
+    margin-top: 10rem;
 }
 
 .enlace-registrarse {
@@ -15,9 +16,11 @@
 
 .p-h1 {
     text-align: center;
+    margin-top: 30px;
+    margin-bottom: 45px;
 }
 
-.h2precios {
+.contenido--title {
     font-size: 20px;
     line-height: 21px;
     color: white;
@@ -27,7 +30,7 @@
     margin-top: 5px;
 }
 
-.pricing-cards {
+.pricing__cards {
     width: 60%;
     display: flex;
     flex-wrap: wrap;
@@ -38,14 +41,15 @@
     
 }
 
-.ptarjetas {
+.contenido--text {
     color: black;
     font-size: 13px;
     line-height: 15px;
     text-align: center;
+    margin-top: 20px;
 }
 
-.tarjeta {
+.card {
     background-color: rgba(254, 239, 180, 1);
     text-align: center;
     width: 180px;
@@ -55,7 +59,7 @@
    
 }
 
-.fondo-icono {
+.fondo--amarillo {
     background-color: rgb(255, 206, 6, 1);
     border-radius: 5px 5px 0 0; 
     border-bottom: 2px solid rgb(0, 0, 0);
@@ -90,7 +94,7 @@
 }
 
 .btn-copiascolor {
-    margin: 6px;
+    margin-top:22px;
     display: inline-block;
     padding: 5px 10px;
     background-color: rgba(254, 239, 180, 1);
@@ -120,6 +124,7 @@
     border-radius: 7px;
     font-size: 11px;
     transition: background-color 0.3s ease;
+    margin-top: 16px;
 }
 
 .btn-tarjetas:hover{
@@ -129,7 +134,7 @@
 }
 
 .btn-librosusados {
-    margin: 16px;
+    margin-top: 32px;
     display: inline-block;
     padding: 5px 10px;
     background-color:  rgba(254, 239, 180, 1);
@@ -149,7 +154,7 @@
 }
 
 .btn-delivery{
-    margin: 20px;
+    margin-top: 38px;
     display: inline-block;
     padding: 5px 10px;
     background-color:rgba(254, 239, 180, 1);
@@ -169,7 +174,7 @@
 }
  
 .btn-sad {
-    margin: 7px;
+    margin-top: 23px;
     display: inline-block;
     padding: 5px 10px;
     background-color:rgba(254, 239, 180, 1);
@@ -194,7 +199,7 @@
 /*a partir de aquí stiles agenda*/
 
 .agendas {
-    margin-top: 200px;
+    margin-top: 100px;
 }
 
 .h2agendas {
@@ -259,12 +264,24 @@
     text-align: center;
 }
 
-.libreria--item {
-    border: 2px solid rgba(255, 206, 6, 1);
+.libreria--item > img {
+    width: 200px;
+    height: auto;
     border-radius: 8px;
-    
+    box-shadow: 0px, 0px, 50px rgba(255, 206, 6, 1);
+    border: 1px solid rgba(255, 206, 6, 1);
+    margin: 8px;
 }
 
+.libreria--item {
+    display: grid;
+    grid-template-columns: 
+        repeat(
+            auto-fit,
+            minmax(150px, 1fr)
+        );
+    gap: 20px;  
+}
 /*hasta aquí stiles agenda*/
 
 
@@ -302,6 +319,7 @@
     border-radius: 8px;
     box-shadow: 0px, 0px, 50px rgba(255, 206, 6, 1);
     border: 1px solid rgba(255, 206, 6, 1);
+    margin: 8px;
 }
 
 .libros--item {
@@ -313,3 +331,8 @@
         );
     gap: 20px;    
 }
+
+.libros--cta {
+    margin-top: 20px;
+}
+
