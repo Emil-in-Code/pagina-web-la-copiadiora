@@ -2,29 +2,45 @@ main {
     margin-top: 5rem;
 }
 
-.hero h1 {
-    color: yellow;
+.hero__container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: start;
+    border: 2px solid rgba(255, 206, 6, 1);
+    margin: auto;
+    width: 78vw;
+}
+
+.hero__container h1 {
+    color: rgba(255, 206, 6, 1);
     font-size: 56px;
     font-family: Baron Neue;
+    margin-top: 30px;
 }
 
 h1 + p {
     color: rgb(255, 255, 255);
+    margin-top: 40px;
+    font-size: 30px;
+    height: 250px;
+    text-wrap: pretty;
 }
 
 .logo {
-    width: 250px; /* Tamaño de la imagen */
+    width: 300px; /* Tamaño de la imagen */
     height: auto;
-    transition: transform 0.5s ease; /* Añade una transición suave */
+    margin-left: 50px;
+    transition: transform 0.5s ease;
 }
 
 .logo:hover {
-    transform: rotate(360deg); /* Gira la imagen 90 grados a la derecha */
+    transform: rotate(360deg); 
 }
 
 .button-presupuesto {
-    display: inline-block;
-    padding: 10px 20px;
+    width: 150px;
+    height: 33px;
+    padding: 6px;
     background-color: #000000;
     color: rgba(255, 206, 6, 1);
     text-align: center;
@@ -40,6 +56,8 @@ h1 + p {
    color: #000000;
 }
 
+/*feature section*/
+
 .grid-container {
     grid-template-columns: auto;
     
@@ -48,6 +66,9 @@ h1 + p {
 .foto-feature {
     width: 150px;
 }
+
+
+/*fin del feature section*/
 
 /*aside section*/
 
@@ -58,3 +79,5 @@ h1 + p {
 .imagen-debit {
     width: 300px;
 }
+
+/*final del aside section*/
