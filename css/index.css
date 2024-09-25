@@ -6,7 +6,7 @@ main {
     display: flex;
     flex-flow: row wrap;
     justify-content: start;
-    border: 2px solid rgba(255, 206, 6, 1);
+    
     margin: auto;
     width: 78vw;
 }
