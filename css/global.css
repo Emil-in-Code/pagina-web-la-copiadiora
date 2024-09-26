@@ -32,12 +32,13 @@ a {
 
 ul {
     list-style-type: none;
+    margin: 0;
 }
 
 h1 {
     font-size: 56px;
     font-family: Baron Neue;
-    color: white;
+    color: rgba(255, 206, 6, 1);
 }
 
 h2 {
@@ -57,24 +58,46 @@ h2 {
     top: 0;
     left: 0;
     z-index: 100; 
-    padding: 20px 100px;
+    padding: 6px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
 }
 
 .nav {
     margin: 0;
+    display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 6px;
 }
 
-.nav__links {
+.nav__ul {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+}
+
+
+.nav__item {
     font-family: keepCalm;
-    margin-left: 10px;
+    margin-right: 20px;
 }
 
-.nav__links--logo {
+.nav__ul--container {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.nav__logo--container {
+    flex-grow: 4;
+    margin-right: 160px;
+    text-align: center;
+}
+
+.nav__logo {
     color: white;
     font-size: 30px;
     font-family: Baron Neue;
@@ -83,15 +106,14 @@ h2 {
     text-align: center;
 }
 
-.link--buton {
+.nav__item--button {
     border: 1px solid #000;
     border-radius: 7px;
-    padding: 7px 18px;
+    padding: 3px 10px;
     background-color:rgba(254, 239, 180, 1);
-    margin-left: 20px;
 }
 
-.link--buton:hover {
+.nav__item--button:hover {
     background-color: rgba(255, 206, 6, 1);
 }
 
