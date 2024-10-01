@@ -13,8 +13,9 @@ main {
     min-width: 100vw;
     min-height: 200px;
     gap: 30px;
-    
 }
+
+
 
 .text__container {
     font-family: Baron Neue;
@@ -111,7 +112,7 @@ h1 + p {
         border-radius: 10px;
         font-size: 10px;
         transition: background-color 0.3s ease;
-        width: 160PX;
+        width: 160px;
         margin-right: 28px;
     }
 
@@ -121,10 +122,11 @@ h1 + p {
 
     .logo {
         margin-right: 50px;
-        border: solid 1px red;
         display: flex;
         align-self: center;
     }
+
+
 }
     
 
@@ -140,9 +142,14 @@ h1 + p {
 .title__feature{
   text-align: center;
 }
-.grid-container {
-    padding: 20px;
-    
+.grid {
+ display: grid;
+}
+
+.grid--item {
+    background-color: #48e;
+    margin: 10px;
+    padding: 5px;
 }
 
 .foto-feature {
