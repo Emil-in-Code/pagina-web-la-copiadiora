@@ -154,8 +154,7 @@ h1 + p {
 
 .grid--item {
     background-color: #48e;
-  
-    
+    text-align: center;
 }
 
 .foto-feature {
