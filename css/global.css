@@ -70,6 +70,7 @@ h2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    
 }
 
 .nav {
@@ -123,6 +124,23 @@ h2 {
 
 .nav__item--button:hover {
     background-color: rgba(255, 206, 6, 1);
+}
+
+/*Queries nav*/
+
+@media screen and (max-width:978px){
+    .header__flex{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header__open-nav-button {
+        color: #000;
+        font-size: 3rem;
+        font-weight: 600px;
+        position: absolute;
+    }
+    
 }
 
 /*fin de section*/
