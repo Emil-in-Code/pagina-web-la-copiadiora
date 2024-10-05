@@ -21,17 +21,27 @@
     
     <!-- SECCIÓN NAVBAR -->
       
-    <header class="header-container">
-      <a class="nav__links link--logo" href="index.html">La Copiadora</a> <!-- Logo -->
-
+    <header class="header">
+      
+      <input type="checkbox" class="header__checkbox" id="open-menu">
+      <label for="open-menu" class="header__open-nav-button" role="button">=</label>
+      <div class="nav__logo--container">
+        <a class="nav__logo" href="index.html">La Copiadora</a> <!-- Logo -->
+      </div>
       <nav class="nav" aria-label="Main Navigation">
-        <a class="nav__links" href="laCopiadoraStore.html" target="_blank">Store</a> <!-- Store-->
-        <a class="nav__links" href="envios.html">Envíos</a> <!-- Envíos -->
-        <a class="nav__links" href="Precios.html">Precios</a> <!-- Precios -->
-        <a class="nav__links" href="pedidos.html">Pedidos</a> <!--pedidos-->
-        <a class="nav__links" href="/linksutiles.html">links útiles</a><!--links-->
-        <a class="nav__links" href="Registrarme.html">Registrarme</a><!--Registrarme-->
-        <a class="nav__links link--buton" href="inicioSesion.html">Log in</a><!--login-->
+
+        <div class="header__nav">
+          <ul class="header__nav--list">
+            <li><a class="nav__item" href="laCopiadoraStore.html" target="_blank">Store</a></li>
+            <li><a class="nav__item" href="envios.html">Envíos</a></li>
+            <li><a class="nav__item" href="Precios.html">Precios</a></li>
+            <li><a class="nav__item" href="pedidos.html">Pedidos</a></li>
+            <li><a class="nav__item" href="/linksutiles.html">Links Útiles</a></li>
+            <li><a class="nav__item" href="Registrarme.html">Registrarme</a></li>
+            <li><a class="nav__item--button" href="inicioSesion.html">Log in</a></li>
+          </ul>
+        </div>
+        
       </nav>
       
     </header>
