@@ -166,7 +166,6 @@ h2 {
   
     .header__nav {
         display: block;
-        position: static;
         width: auto;
         height: auto;
         justify-content: space-between;
@@ -177,9 +176,10 @@ h2 {
     .header__nav--list {
        flex-direction: row;
        height: auto;
-       gap: 20px;
+       gap: 15px;
        margin-top: 10px;
-       margin-right: 50px;
+       margin-left: 300px;
+
     }
 
     .header__open-nav-button {
@@ -192,12 +192,13 @@ h2 {
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        padding: 6px;
+        padding: 10px;
+        flex-grow: 2;
     }
 
     .nav__logo--container {
-        flex-grow: 4;
-        margin-right: 160px;
+        
+        margin-right: 200px;
         text-align: center;
     }
 
