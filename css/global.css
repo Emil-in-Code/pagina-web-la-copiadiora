@@ -13,11 +13,11 @@
 }
 
 .body {
-    background-color:rgba(31, 31, 31, 1);
+    background-color: rgba(31, 31, 31, 1);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 
 }
@@ -162,7 +162,7 @@ h2 {
 
 /* HEADER QUERIES*/
 
-@media  (min-width: 1024px) {
+@media (min-width: 1024px) {
   
     .header__nav {
         display: block;
@@ -216,7 +216,7 @@ h2 {
         font-size: 20px;
         color: rgb(245, 244, 243);
         -webkit-text-stroke: 1px black;
-        text-shadow: 2px 2px 0 black; 
+        text-shadow: 1px 1px 0 black; 
         transition: font-size 0.5s ease, color 0.5s ease;
     }
      
