@@ -19,7 +19,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
 body, div, ul, nav, header, footer, a, li, label {
@@ -162,24 +161,28 @@ h2 {
 
 /* HEADER QUERIES*/
 
+@media screen and (max-width:978px) and (min-width: 360px) {
+    .header{
+        width: 100%;
+    }
+}
+
 @media (min-width: 1024px) {
   
     .header__nav {
-        display: block;
+        display: flex;
         width: auto;
         height: auto;
-        justify-content: space-between;
         background-color: rgba(255, 206, 6, 1);
     }
 
     
     .header__nav--list {
-       flex-direction: row;
-       height: auto;
-       gap: 15px;
-       margin-top: 10px;
-       margin-left: 300px;
-
+        flex-direction: row;
+        height: auto;
+        gap: 15px;
+        margin-top: 10px;
+        margin-left: 300px;
     }
 
     .header__open-nav-button {
@@ -213,7 +216,7 @@ h2 {
 
     .nav__item {
         font-family: keepCalm;
-        font-size: 20px;
+        font-size: 18px;
         color: rgb(245, 244, 243);
         -webkit-text-stroke: 1px black;
         text-shadow: 1px 1px 0 black; 
