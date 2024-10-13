@@ -19,6 +19,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
 }
 
 body, div, ul, nav, header, footer, a, li, label {
@@ -58,26 +59,27 @@ h2 {
 
 /*section navbar*/
 
-.header {
+.header__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 6px;
     background-color: rgba(255, 206, 6, 1);
-    width: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 100; 
-    padding: 6px;
+    width: 100%;
+    z-index: 100;  
+}
+
+.header__logo {
+    flex: 1;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
     align-items: center;
 }
 
-.nav__logo--container {
-   margin:auto;
-   z-index: 2;
-}
-
 .nav__logo {
+    z-index: 3;
     color: white;
     font-size: 30px;
     font-family: Baron Neue;
@@ -87,18 +89,47 @@ h2 {
     margin: 10px 20px;
 }
 
-.header__checkbox {
-  display: none;
+
+.nav {
+    display: none;
+    width: 100%;
+    background-color: rgba(254, 239, 180, 1);
 }
- 
- 
+
+.header__nav--list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 40vh;
+    margin: auto;
+    gap: 10px;
+    margin-top: 20px;
+}
+
 .header__open-nav-button {
+    display: block;
     color: #000;
     font-size: 3rem;
     font-weight: 600;
     position: absolute;
     right: 10px;
-    z-index: 1;
+    top: 10px;
+    cursor: pointer;
+}
+
+.header__checkbox {
+  display: none;
+}
+ 
+/*.header__checkbox:checked ~ nav .header__nav {
+    display: flex;
+}*/
+
+.header__checkbox:checked + .nav {
+    display: flex;
+    flex-direction: column;
 }
  
 .header__nav {
@@ -109,7 +140,6 @@ h2 {
     top: 0;
     height: 60vh;
     width: 100%;
-    
 }
 
 .nav__item {
@@ -126,20 +156,6 @@ h2 {
     
 }
  
-.header__nav--list {
-    display: flex;
-    flex-direction: column;
-    height: 40vh;
-    margin: auto;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.header__checkbox:checked ~ nav .header__nav {
-    display: flex;
-
-}
-
 .nav__item--button {
     border: 1px solid #000;
     border-radius: 7px;

@@ -134,7 +134,7 @@ h1 + p {
 /* FEATURE SECTION  ESTILO GLOBAL */
 
 .gallery__img {
-    width: 100%;
+    max-width: 100%;
     height: 100%;
     object-fit: cover;
 }
@@ -155,6 +155,11 @@ h1 + p {
     width: 160px;
 }
 
+.button-presupuesto--grid:hover {
+    background-color: rgba(255, 206, 6, 1);
+    color: #000000;
+}
+
 .feature{
     margin: auto;  
     width: 90vw; 
@@ -171,61 +176,22 @@ h1 + p {
 
 /*MOBILE*/
 
-@media screen and (min-width: 360px) and (max-width: 620px) {
+@media screen and (min-width: 360px) and (max-width: 977px) {
     .gallery__container{
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
     }
 
-
+    .gallery__img {
+        max-width: 50vw;
+        height: auto;
+        object-fit: cover;
+    }
 }
 
-@media  (max-width:977px) {
-
-    
-    .gallery__container {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(9, 1fr);
-        gap: 8px;
-    }
-    
-    
-    .gallery--item:first-child { /*titulo*/
-        grid-column: span 4 / span 4;
-    }
-    .gallery--item:nth-child(2){ /*playa*/
-        grid-column: span 2 / span 2;
-        grid-row: span 5 / span 5;
-        grid-column-start: 3;
-        grid-row-start: 2;
-    }
-    .gallery--item:nth-child(3) { /*cenital*/
-        grid-column: span 2 / span 2;
-        grid-row: span 2 / span 2;
-        grid-column-start: 3;
-        grid-row-start: 7;
-    }
-    
-    .gallery--item:nth-child(4) { /*kindle*/
-        grid-column: span 2 / span 2;
-        grid-row: span 2 / span 2;
-        grid-column-start: 1;
-        grid-row-start: 7;
-    }
-    
-    .gallery--item:nth-child(5) { /*habitacion*/
-        grid-column: span 2 / span 2;
-        grid-row: span 5 / span 5;
-        grid-column-start: 1;
-        grid-row-start: 2;
-    }
-    
-    .gallery--item:last-child { /*cta*/
-        grid-row-start: 9;
-    }
-}
 
 
 
