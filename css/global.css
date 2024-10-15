@@ -61,8 +61,8 @@ h2 {
 
 .header__container {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: center;
     background-color: rgba(255, 206, 6, 1);
     padding: 10px 30px;
     position: fixed;
@@ -78,7 +78,6 @@ h2 {
     cursor: pointer;
     display: inline-block;
     z-index: 2;
-    margin-left: auto;
 }
 
 .header__checkbox {
@@ -108,22 +107,15 @@ h2 {
     display: none;
     flex-direction: column;
     justify-content: space-between; 
-    align-items: center;
+    align-items: flex-end;
     z-index: 1;
 }
 
-.header__nav {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
-}
 
 .header__nav--list {
     padding: 0;
     margin-top: 50px;
-    text-align: center;
+    text-align: end;
 }
 
 .header__nav--list li {
