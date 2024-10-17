@@ -1,5 +1,5 @@
 main {
-    margin-top: 4rem;
+    margin-top: 10rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -93,6 +93,14 @@ h1 + p {
 }
 
 @media screen and (max-width:978px) and (min-width: 360px) {
+   
+    main {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
     .hero__flexbox {
         flex-direction: column;
         justify-content: center;
