@@ -25,16 +25,6 @@ main {
     margin: auto;
 }
 
-
-
-h1 + p {
-    margin-top: 40px;
-    font-size: 2rem;
-    letter-spacing: .01em;
-    line-height: 1.35;
-    text-wrap: pretty; 
-}
-
 .cta__container {
     display: flex;
     justify-content: start;
@@ -93,12 +83,15 @@ h1 + p {
 }
 
 @media screen and (max-width:978px) and (min-width: 360px) {
+
+    
    
     main {
-        margin-top: 1rem;
+        margin-top: 3rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items:center;
     }
 
     .hero__flexbox {
@@ -107,6 +100,23 @@ h1 + p {
         align-items: center;
         text-align: center;
         margin: auto;
+    }
+
+    .indexh1{
+        font-size: 2rem;
+        font-size: 2rem;
+        letter-spacing: 0;
+        line-height: 1.1;
+        font-family: Baron Neue;
+        color: rgba(255, 206, 6, 1);
+    }
+
+    h1 + p {
+        margin-top: 40px;
+        font-size: 20px;
+        letter-spacing: .01em;
+        line-height: 1.35;
+        text-wrap: pretty; 
     }
 
     .button-presupuesto2 {
