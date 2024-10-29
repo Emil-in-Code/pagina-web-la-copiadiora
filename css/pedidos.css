@@ -1,17 +1,17 @@
-.main__section {
+#main__section {
     display: flex;
     box-sizing: border-box;
     height: 80vh;
     margin-top: 100px;
 }
-.sidebar {
+#sidebar {
     width: 200px;
-    height: 100px;
+    height: 80vh;
     background-color: #000000;
     padding: 10px;
-    margin-top: 150px;
+    margin-top: 60px;
 }
-.sidebar button {
+#sidebar button {
     width: 100%;
     margin: 8px;
     display: inline-block;
@@ -26,7 +26,7 @@
     transition: background-color 0.3s ease;
 }
 
-.sidebar button:hover {
+#sidebar button:hover {
     background-color: rgba(255, 206, 6, 1);
     color: #000000;
 }

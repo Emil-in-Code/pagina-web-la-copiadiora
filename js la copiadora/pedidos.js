@@ -1,4 +1,37 @@
-//Función para leer el PDF y calcular el costo
+let precioPorHoja = 100;
+let cantidadPaginas = 0;
+
+// Determinar si la cantidad de hojas es par o impar
+let tipoCantidadPaginas = (cantidadPaginas % 2 === 0) ? 'par' : 'impar';
+
+let calculoArchivo;
+
+switch (tipoCantidadPaginas) {
+  case 'par':
+    // Si la cantidad de hojas es par
+    calculoArchivo = (cantidadPaginas / 2) * precioPorHoja;
+    break;
+  case 'impar':
+    // Si la cantidad de hojas es impar
+    calculoArchivo = ((cantidadPaginas + 1) / 2) * precioPorHoja;
+    break;
+  default:
+    // En caso de un valor inesperado, aunque no es necesario aquí
+    console.log('Error: Tipo de cantidad de hojas desconocido');
+    break;
+}
+
+console.log(`El costo total es: ${calculoArchivo.toLocaleString('es-ES')} Ars.`);
+
+
+function seleccionDePreferencias() {
+  let preferencias = document.getElementById ("preferencias");
+  seleccionDePreferencias();
+}
+
+
+
+/*//Función para leer el PDF y calcular el costo
 function calculateCost(productId) {
   let fileInput = document.getElementById("file" + productId);
   let file = fileInput.files[0];
@@ -61,7 +94,9 @@ document.addEventListener('DOMContentLoaded', function() {
   handleFileUpload(1);
   handleFileUpload(2);
   // Si tienes más productos, repite esta línea para cada uno
-});*/
+});//*/
+
+
 
 
 

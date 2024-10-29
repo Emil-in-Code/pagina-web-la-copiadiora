@@ -424,7 +424,7 @@ main {
         flex-direction: column;
         align-items: center;
         background-color: rgba(254, 239, 180, 1);
-        width: 300px;
+        width: 230px;
         height: 350px;
         margin: 10px;
         border-radius: 7px;
@@ -442,7 +442,7 @@ main {
     }
 
     .imagen-aside {
-        width: 200px;
+        width: 230px;
         padding: 20px;
     }
 
@@ -453,16 +453,16 @@ main {
 
     .imagen-aside.preferencias {
         margin-top: 25px;
-        width: 300px;
+        width: 230px;
     }
 
     .imagen-aside.recibir {
-        width: 250px;
+        width: 230px;
         padding: 20px;
     }
 
     .imagen-aside.debit {
-        width: 250px;
+        width: 230px;
         margin-top: 30px;
     }
 
@@ -473,7 +473,7 @@ main {
 
     .imagen-aside.heart {
         margin-top: 20px;
-        width: 250px;
+        width: 230px;
     }
 
     .container-item + .imagen__aside--copias {
@@ -486,10 +486,10 @@ main {
         border-radius: 7px 7px 0px 0px;
         border-bottom: 2px solid rgb(0, 0, 0);
         height: 60px;
-        width: 300px;
+        width: 230px;
     }
     .subtitle {
-        width: 300px;
+        width: 230px;
         color: rgb(255, 255, 255);
         font-family: KeepCalm;
         -webkit-text-stroke: 0.5px rgb(0, 0, 0);
