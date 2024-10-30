@@ -4,15 +4,18 @@
     height: 80vh;
     margin-top: 100px;
 }
-#sidebar {
+.sidebar {
     width: 200px;
     height: 80vh;
-    background-color: #000000;
-    padding: 10px;
-    margin-top: 60px;
+    background-color: #ac4848;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-#sidebar button {
-    width: 100%;
+
+.sidebar button {
+    width: 60%;
     margin: 8px;
     display: inline-block;
     padding: 10px 20px;
@@ -26,9 +29,45 @@
     transition: background-color 0.3s ease;
 }
 
-#sidebar button:hover {
+.sidebar button:hover {
     background-color: rgba(255, 206, 6, 1);
     color: #000000;
+}
+
+.cantidad--texto{
+    text-align: center;
+    color: rgba(255, 206, 6, 1);
+    margin-bottom: 1px
+}
+
+#cantidad-de-copias-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+}
+
+#decremento {
+    margin-right: 1px;
+    
+}
+
+#cantidad-valor {
+    display: inline-block;
+    padding: 10px 20px;
+    height: 41px;
+    background-color: whitesmoke;
+    color: #000000;
+    text-align: center;
+    text-decoration: none;
+    border-left: solid rgba(255, 206, 6, 1);
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+#incremento {
+    margin-left: 1px
 }
 
 .upload-area {

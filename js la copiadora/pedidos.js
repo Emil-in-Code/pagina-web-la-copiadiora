@@ -1,3 +1,34 @@
+//SELECTOR DE PREFERENCIAS
+
+function seleccionDePreferencias() {
+  const cantidadValor = document.getElementById("cantidad-valor");
+  const incrementarBtn = document.getElementById("incremento");
+  const decrementarBtn = document.getElementById("decremento");
+  
+  let cantidad = 1; // Valor inicial de la cantidad
+
+  // Incrementar cantidad
+  incrementarBtn.addEventListener("click", () => {
+    cantidad++;
+    cantidadValor.innerText = cantidad;
+  });
+
+  // Decrementar cantidad
+  decrementarBtn.addEventListener("click", () => {
+    if (cantidad > 1) { // Evitar que la cantidad sea menor que 1
+      cantidad--;
+      cantidadValor.innerText = cantidad;
+    }
+  });
+}
+
+// Llamamos a la función para activar los eventos en cada botón
+seleccionDePreferencias();
+
+
+
+//PRESUPUESTO PDF SIN ANILLADOS
+
 let precioPorHoja = 100;
 let cantidadPaginas = 0;
 
@@ -8,15 +39,12 @@ let calculoArchivo;
 
 switch (tipoCantidadPaginas) {
   case 'par':
-    // Si la cantidad de hojas es par
     calculoArchivo = (cantidadPaginas / 2) * precioPorHoja;
     break;
   case 'impar':
-    // Si la cantidad de hojas es impar
     calculoArchivo = ((cantidadPaginas + 1) / 2) * precioPorHoja;
     break;
   default:
-    // En caso de un valor inesperado, aunque no es necesario aquí
     console.log('Error: Tipo de cantidad de hojas desconocido');
     break;
 }
@@ -24,10 +52,7 @@ switch (tipoCantidadPaginas) {
 console.log(`El costo total es: ${calculoArchivo.toLocaleString('es-ES')} Ars.`);
 
 
-function seleccionDePreferencias() {
-  let preferencias = document.getElementById ("preferencias");
-  seleccionDePreferencias();
-}
+
 
 
 

@@ -15,7 +15,6 @@
     <meta property="og:title" content="La Copiadora">
     <meta property="og:description" content="Servicios de Fotocopiado de Alta Calidad">
     <meta property="og:share_count" content="true">
-    <script src="/js la copiadora/pedidos.js"></script>
   </head>
     
   <body class="body">
@@ -55,7 +54,12 @@
     <main id="main__section">
       
       <div id="preferencias" class="sidebar">
-        <button id="cantidad-de-copias">CANTIDAD</button>
+        <p class="cantidad--texto">Juegos</p>
+        <div id="cantidad-de-copias-container">
+          <button id="decremento">-</button>
+          <span id="cantidad-valor">1</span>
+          <button id="incremento">+</button>
+        </div>
         <button id="doble-faz">DOBLE FAZ</button>
         <button id="simple-faz">SIMPLE FAZ</button>
         <button id="anillado">ANILLADO</button>
@@ -111,6 +115,6 @@
       </div>
     </footer>
 
-    
+    <script src="/js la copiadora/pedidos.js"></script> 
   </body>  
 </html>
