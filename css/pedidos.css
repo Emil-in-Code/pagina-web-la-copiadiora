@@ -7,24 +7,31 @@
 .sidebar {
     width: 200px;
     height: 80vh;
-    background-color: #ac4848;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    padding: 10px 15px;
+    border-radius: 7px;
+    box-shadow: -8px -5px 3px rgba(255, 2255, 255, .7),
+          10px 10px 100px rgba(0, 0, 0, .2),
+          inset 1px 2px 5px rgba(255, 255, 255, .7),
+          inset 5px 2px 2px rgba(0, 0, 0, .2);
+    justify-content: space-between;
     align-items: center;
 }
 
 .sidebar button {
-    width: 60%;
-    margin: 8px;
+    width: 100%;
     display: inline-block;
     padding: 10px 20px;
-    background-color: whitesmoke;
-    color: #000000;
-    text-align: center;
-    text-decoration: none;
-    border-left: solid rgba(255, 206, 6, 1);
-    border-radius: 10px;
+    box-shadow: -8px -5px 300px rgba(255, 2255, 255, 7),
+          10px 10px 10px rgba(0, 0, 0, .2),
+          inset 1px 2px 5px rgba(255, 255, 255, .7),
+          inset 5px 2px 2px rgba(0, 0, 0, .2);
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .2);
+    color: rgba(255, 206, 6, 1);
+    border-radius: 7px;
     font-size: 16px;
     transition: background-color 0.3s ease;
 }
@@ -34,38 +41,44 @@
     color: #000000;
 }
 
+
+
 .cantidad--texto{
     text-align: center;
     color: rgba(255, 206, 6, 1);
-    -webkit-text-stroke: 1px black;
-    text-shadow: 2px 2px 0 black; 
-    margin-bottom: 1px
-    
+    background-color: aqua;
+  
 }
 
 #cantidad-de-copias-container{
     width: 100%;
     display: flex;
-    justify-content: center;
+    flex-flow: wrap;
+    padding: 10px 15px;
+    border-radius: 7px;
+    box-shadow: -8px -5px 300px rgba(255, 2255, 255, 7),
+          10px 10px 10px rgba(0, 0, 0, .2),
+          inset 1px 2px 5px rgba(255, 255, 255, .7),
+          inset 5px 2px 2px rgba(0, 0, 0, .2);
+    justify-content: space-between;
     align-items: center;
-    background-color: aqua;
 }
 
 #decremento {
     margin-right: 1px;
-    
 }
 
 #cantidad-valor {
     display: inline-block;
-    padding: 10px 20px;
     height: 41px;
-    background-color: whitesmoke;
-    color: #000000;
+    padding: 10px 15px;
+    border-radius: 7px;
+    box-shadow: -8px -5px 300px rgba(255, 2255, 255, 7),
+          10px 10px 10px rgba(0, 0, 0, .2),
+          inset 1px 2px 5px rgba(255, 255, 255, .7),
+          inset 5px 2px 2px rgba(0, 0, 0, .2);
+    color: rgba(255, 206, 6, 1);
     text-align: center;
-    text-decoration: none;
-    border-left: solid rgba(255, 206, 6, 1);
-    border-radius: 10px;
     font-size: 16px;
     font-family: KeepCalm;
 }
@@ -75,14 +88,17 @@
 }
 
 
+
+
 .switch-holder {
     display: flex;
-    padding: 10px 20px;
-    border-radius: 10px;
-    box-shadow: -8px -8px 15px rgba(255, 255, 255, .7),
+    flex-direction: column;
+    padding: 10px 15px;
+    border-radius: 7px;
+    box-shadow: -8px -5px 300px rgba(255, 2255, 255, 7),
           10px 10px 10px rgba(0, 0, 0, .2),
-          inset 8px 8px 15px rgba(255, 255, 255, .7),
-          inset 10px 10px 10px rgba(0, 0, 0, .2);
+          inset 1px 2px 5px rgba(255, 255, 255, .7),
+          inset 5px 2px 2px rgba(0, 0, 0, .2);
     justify-content: space-between;
     align-items: center;
 }
@@ -93,10 +109,8 @@
   
 .switch-text {
     font-family: KeepCalm;
-    font-size: 16px;
+    font-size: 1em;
     color: rgba(255, 206, 6, 1);
-    -webkit-text-stroke: 1px black;
-    text-shadow: 1px 1px 0 black; 
 }
   
 .switch-toggle {
@@ -117,8 +131,8 @@
     border-radius: 20px;
     margin: 0;
     cursor: pointer;
-    box-shadow: inset -8px -8px 15px rgba(255, 255, 255, .6),
-          inset 10px 10px 10px rgba(124, 129, 158, 0.25);
+    box-shadow: inset -3px -3px 8px rgba(255, 206, 6, 7),
+          inset 3px 3px 8px rgba(254, 239, 180, 7);
 }
   
 .switch-toggle input[type="checkbox"]+label::before {
@@ -134,9 +148,9 @@
     height: 25px;
     border-radius: 20px;
     background-color: #eeeeee;
-    box-shadow: -3px -3px 5px rgba(255, 255, 255, .5),
+    box-shadow: -3px -3px 5px rgba(254, 239, 180, 1),
           3px 3px 5px rgba(0, 0, 0, .25);
-    transition: .3s ease-in-out;
+    transition: .7s ease-in-out;
 }
   
 .switch-toggle input[type="checkbox"]:checked+label::before {

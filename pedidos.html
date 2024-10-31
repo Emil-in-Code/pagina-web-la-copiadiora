@@ -55,13 +55,13 @@
       
       <div id="preferencias" class="sidebar">
 
-        <p class="cantidad--texto">Juegos</p>
-        <div id="cantidad-de-copias-container">         
+        
+        <div id="cantidad-de-copias-container"> 
+          <p class="cantidad--texto">Juegos</p>        
           <button id="decremento">-</button>         
           <span id="cantidad-valor">1</span>
           <button id="incremento">+</button>         
         </div>
-
         
         <div class="switch-holder">
 
@@ -75,17 +75,30 @@
           </div>
         </div>
 
-       <!-- <div>
-          <button id="doble-faz">DOBLE FAZ</button>
-          <input type="radio">
-          <input type="radio">
-        </div>-->
+        <div class="switch-holder">
 
+          <div class="switch-label">
+            <span class="switch-text">¿Anillado?</span>
+          </div>
 
-        <button id="simple-faz">SIMPLE FAZ</button>
-        <button id="anillado">ANILLADO</button>
-        <button id="color">COLOR</button>
-        <button id="b/n">B/N</button>
+          <div class="switch-toggle">
+            <input type="checkbox" id="bluetooth">
+            <label for="bluetooth"></label>
+          </div>
+        </div>
+
+        <div class="switch-holder">
+
+          <div class="switch-label">
+            <span class="switch-text">¿A color?</span>
+          </div>
+
+          <div class="switch-toggle">
+            <input type="checkbox" id="bluetooth">
+            <label for="bluetooth"></label>
+          </div>
+        </div>
+
       </div>
 
       <div class="upload-area">
