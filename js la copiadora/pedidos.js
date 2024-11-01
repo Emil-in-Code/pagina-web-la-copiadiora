@@ -1,7 +1,7 @@
 //SELECTOR DE PREFERENCIAS
 
-function seleccionDePreferencias() {
-  const cantidadValor = document.getElementById("cantidad-valor");
+function seleccionDePreferenciasCopias() {
+  const cantidadValor = document.getElementById("cantidad__valor--copias");
   const incrementarBtn = document.getElementById("incremento");
   const decrementarBtn = document.getElementById("decremento");
   
@@ -22,8 +22,30 @@ function seleccionDePreferencias() {
   });
 }
 
-// Llamamos a la función para activar los eventos en cada botón
-seleccionDePreferencias();
+function seleccionDePreferenciasAnillados() {
+  const cantidadValor = document.getElementById("cantidad__valor--anillados");
+  const incrementarBtn = document.getElementById("incremento--anillados");
+  const decrementarBtn = document.getElementById("decremento--anillados");
+  
+  let cantidad = 1; // Valor inicial de la cantidad
+
+  // Incrementar cantidad
+  incrementarBtn.addEventListener("click", () => {
+    cantidad++;
+    cantidadValor.innerText = cantidad;
+  });
+
+  // Decrementar cantidad
+  decrementarBtn.addEventListener("click", () => {
+    if (cantidad > 1) { // Evitar que la cantidad sea menor que 1
+      cantidad--;
+      cantidadValor.innerText = cantidad;
+    }
+  });
+}
+
+seleccionDePreferenciasCopias();
+seleccionDePreferenciasAnillados();
 
 
 

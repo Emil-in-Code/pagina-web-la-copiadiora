@@ -52,54 +52,6 @@
       
   
     <main id="main__section">
-      
-      <div id="preferencias" class="sidebar">
-
-        
-        <div id="cantidad-de-copias-container"> 
-          <p class="cantidad--texto">Cantidad de copias</p>        
-          <button id="decremento">-</button>         
-          <span id="cantidad-valor">1</span>
-          <button id="incremento">+</button>         
-        </div>
-        
-        <div class="switch-holder">
-
-          <div class="switch-label">
-            <span class="switch-text">¿Doble faz?</span>
-          </div>
-
-          <div class="switch-toggle">
-            <input type="checkbox" id="bluetooth">
-            <label for="bluetooth"></label>
-          </div>
-        </div>
-
-        <div class="switch-holder">
-
-          <div class="switch-label">
-            <span class="switch-text">¿Anillado?</span>
-          </div>
-
-          <div class="switch-toggle">
-            <input type="checkbox" id="bluetooth">
-            <label for="bluetooth"></label>
-          </div>
-        </div>
-
-        <div class="switch-holder">
-
-          <div class="switch-label">
-            <span class="switch-text">¿A color?</span>
-          </div>
-
-          <div class="switch-toggle">
-            <input type="checkbox" id="bluetooth">
-            <label for="bluetooth"></label>
-          </div>
-        </div>
-
-      </div>
 
       <div class="upload-area">
         <label for="file-upload">
@@ -110,15 +62,77 @@
           </form>
         </label>
       </div>
+      
+      <div id="preferencias" class="sidebar">
+
+        
+        <div id="cantidades-container"> 
+
+          <p class="cantidad--texto">Cantidad de copias</p> 
+          <div class="cantidad__wrapper">       
+            <button id="decremento">-</button>         
+            <span id="cantidad__valor--copias">1</span>
+            <button id="incremento">+</button>
+          </div>   
+                  
+        </div>
+        
+        <div class="switch-holder">
+
+          <div class="switch-label">
+            <span class="switch-text">¿Doble faz?</span>
+          </div>
+
+          <div class="switch-toggle">
+            <input type="checkbox" id="doble_faz">
+            <label for="doble_faz"></label>
+          </div>
+        </div>
+
+        <div id="cantidades-container"> 
+
+          <p class="cantidad--texto">Cantidad de anillados</p> 
+          <div class="cantidad__wrapper">       
+            <button id="decremento--anillados">-</button>         
+            <span id="cantidad__valor--anillados">1</span>
+            <button id="incremento--anillados">+</button>
+          </div>   
+                  
+        </div>
+
+        <div class="switch-holder">
+
+          <div class="switch-label">
+            <span class="switch-text">¿A color?</span>
+          </div>
+
+          <div class="switch-toggle">
+            <input type="checkbox" id="color">
+            <label for="color"></label>
+          </div>
+        </div>
+
+        <div class="nota-especificacion">
+          <label for="nota">Notas o especificaciones:</label>
+          <textarea id="nota" rows="4" placeholder="Para especificaciones concretas,prohibido dar vueltas, si lo hacen esta opción se eliminará de la página"></textarea>
+        </div>
+
+      </div>
+
+      
     </main>
 
-    <section class="price__preview"> 
+    <section class="price__preview--section"> 
       <div class="preview--wrapper"></div>
+
+
         <p class="p-precios">Precio original copias:</p>
         <p class="p-precios">Precio original anillados:</p>
         <p class="p-precios">Descuento aplicado:</p>
         <p class="p-precios">Precio final:</p>
         <button class="pagar">PAGAR</button>
+
+
       </div>
     </section>
 
