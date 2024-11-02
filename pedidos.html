@@ -58,7 +58,7 @@
           <img src="path_to_cloud_image.png" alt="Icono de carga">
           <span>Sube tu archivo</span>
           <form>
-              <input id="file-upload" class="btn-archivos" type="file">
+            <input id="file-upload" class="btn-archivos" type="file" multiple>
           </form>
         </label>
       </div>
@@ -94,7 +94,7 @@
           <p class="cantidad--texto">Cantidad de anillados</p> 
           <div class="cantidad__wrapper">       
             <button id="decremento--anillados">-</button>         
-            <span id="cantidad__valor--anillados">1</span>
+            <span id="cantidad__valor--anillados">0</span>
             <button id="incremento--anillados">+</button>
           </div>   
                   
@@ -126,9 +126,10 @@
       <div class="preview--wrapper"></div>
 
 
-        <p class="p-precios">Precio original copias:</p>
-        <p class="p-precios">Precio original anillados:</p>
-        <p class="p-precios">Descuento aplicado:</p>
+        <p class="p-precios">Precio copias:</p>
+        <p class="p-precios">Precio anillados:</p>
+        <p class="p-precios">Precio color Simple Faz:</p>
+        <p class="p-precios">Precio color Doble Faz:</p>
         <p class="p-precios">Precio final:</p>
         <button class="pagar">PAGAR</button>
 
@@ -164,5 +165,7 @@
     </footer>
 
     <script src="/js la copiadora/pedidos.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+
   </body>  
 </html>
