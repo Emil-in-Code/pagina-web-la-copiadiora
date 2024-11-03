@@ -1,96 +1,56 @@
-let precioPorHoja = 120; // Precio por hoja
-let precioPorAnillado = 2500; // Precio por anillado
-let cantidadPaginasTotal = 0; // Total de páginas acumuladas
-let cantidadCopias = 1; // Cantidad de copias seleccionadas
-let cantidadAnillados = 0; // Cantidad de anillados
-let esDobleFaz = false; // Doble faz activado
-let esColor = false; // Color activado
+// Precios base
+let precioPorHoja = 120;
+let precioPorAnillado = 2500;
+let precioColorSimpleFaz = 200;
+let precioColorDobleFaz = 250;
 
-// Elementos del DOM para mostrar los precios
+// Valores iniciales
+let cantidadPaginas = 0;
+let cantidadCopias = 1;
+let cantidadAnillados = 0;
+let esDobleFaz = false;
+let esColor = false;
+
+// Elementos del DOM
 const cantidadValorCopias = document.getElementById("cantidad__valor--copias");
 const cantidadValorAnillados = document.getElementById("cantidad__valor--anillados");
 const checkboxDobleFaz = document.getElementById("doble_faz");
 const checkboxColor = document.getElementById("color");
 
 // Elementos para mostrar los precios
-const precioCopiasElement = document.querySelector(".price__preview--section .p-precios:nth-of-type(1)");
-const precioAnilladosElement = document.querySelector(".price__preview--section .p-precios:nth-of-type(2)");
-const precioColorSimpleElement = document.querySelector(".price__preview--section .p-precios:nth-of-type(3)");
-const precioColorDobleElement = document.querySelector(".price__preview--section .p-precios:nth-of-type(4)");
-const precioFinalElement = document.querySelector(".price__preview--section .p-precios:nth-of-type(5)");
-
-// Función para actualizar la cantidad total de páginas
-function actualizarCantidadPaginas(paginas) {
-  cantidadPaginasTotal += paginas; // Sumar las páginas del nuevo archivo
-  calcularCostoTotal(); // Recalcular el costo total después de actualizar
-}
+const precioCopias = document.querySelector(".price__preview--section .p-precios:nth-of-type(1)");
+const precioAnillados = document.querySelector(".price__preview--section .p-precios:nth-of-type(2)");
+const precioColorSimple = document.querySelector(".price__preview--section .p-precios:nth-of-type(3)");
+const precioColorDoble = document.querySelector(".price__preview--section .p-precios:nth-of-type(4)");
+const precioFinal = document.querySelector(".price__preview--section .p-precios:nth-of-type(5)");
 
 // Función para calcular el costo total y actualizar la vista
 function calcularCostoTotal() {
-  // Cálculo del costo total por hojas
-  let costoHojas = (cantidadPaginasTotal % 2 === 0) 
-    ? (cantidadPaginasTotal / 2) * precioPorHoja // Si es par
-    : ((cantidadPaginasTotal + 1) / 2) * precioPorHoja; // Si es impar, suma 1 antes de dividir
-  
+  let calculoArchivo = cantidadPaginas * precioPorHoja;
+
   // Ajuste por Doble faz
   if (esDobleFaz) {
-    costoHojas /= 2; // Reduce el costo si es doble faz
+    calculoArchivo /= 2;
   }
 
-  // Multiplicar por la cantidad de copias
-  costoHojas *= cantidadCopias;
+  // Ajuste por Color
+  let precioColorTotal = esColor ? (esDobleFaz ? precioColorDobleFaz : precioColorSimpleFaz) * cantidadPaginas : 0;
+  calculoArchivo += precioColorTotal;
+
+  // Multiplicar por el número de copias
+  calculoArchivo *= cantidadCopias;
 
   // Cálculo del precio por anillado
   let precioAnillados = cantidadAnillados * precioPorAnillado;
-
-  // Cálculo del precio total final
-  let precioFinal = costoHojas + precioAnillados;
+  let precioFinal = calculoArchivo + precioAnillados;
 
   // Actualizar elementos de precio en la interfaz
-  precioCopiasElement.innerText = `Precio copias: ${costoHojas.toLocaleString('es-ES')} Ars`;
-  precioAnilladosElement.innerText = `Precio anillados: ${precioAnillados.toLocaleString('es-ES')} Ars`;
-  precioColorSimpleElement.innerText = `Precio  color Simple Faz: ${esColor && !esDobleFaz ? (cantidadPaginasTotal * precioPorHoja).toLocaleString('es-ES') : '0'} Ars`;
-  precioColorDobleElement.innerText = `Precio color Doble Faz: ${esColor && esDobleFaz ? (cantidadPaginasTotal * precioPorHoja).toLocaleString('es-ES') : '0'} Ars`;
-  precioFinalElement.innerText = `Precio final: ${precioFinal.toLocaleString('es-ES')} Ars`;
+  precioCopias.innerText = `Precio copias: ${calculoArchivo.toLocaleString('es-ES')} Ars`;
+  precioAnillados.innerText = `Precio anillados: ${precioAnillados.toLocaleString('es-ES')} Ars`;
+  precioColorSimple.innerText = `Precio color Simple Faz: ${esColor && !esDobleFaz ? precioColorTotal.toLocaleString('es-ES') : '0'} Ars`;
+  precioColorDoble.innerText = `Precio color Doble Faz: ${esColor && esDobleFaz ? precioColorTotal.toLocaleString('es-ES') : '0'} Ars`;
+  precioFinal.innerText = `Precio final: ${precioFinal.toLocaleString('es-ES')} Ars`;
 }
-
-// Función para cargar los archivos PDF y contar las páginas
-document.getElementById("file-upload").addEventListener("change", async function (event) {
-  const files = event.target.files; // Obtener todos los archivos subidos
-  cantidadPaginasTotal = 0; // Reiniciar el total de páginas al cargar nuevos archivos
-
-  for (const file of files) {
-    if (file && file.type === "application/pdf") {
-      const fileReader = new FileReader();
-
-      fileReader.onload = async function () {
-        const typedarray = new Uint8Array(this.result);
-        const pdf = await pdfjsLib.getDocument(typedarray).promise;
-        
-        // Sumar las páginas de cada archivo
-        let paginasArchivo = pdf.numPages;
-        
-        // Actualizar la cantidad total de páginas usando la nueva función
-        actualizarCantidadPaginas(paginasArchivo);
-      };
-
-      fileReader.readAsArrayBuffer(file);
-    } else {
-      alert("Por favor, sube archivos PDF válidos.");
-    }
-  }
-});
-
-// Listeners para opciones de doble faz y color
-checkboxDobleFaz.addEventListener("change", () => {
-  esDobleFaz = checkboxDobleFaz.checked;
-  calcularCostoTotal();
-});
-
-checkboxColor.addEventListener("change", () => {
-  esColor = checkboxColor.checked;
-  calcularCostoTotal();
-});
 
 // Listeners para botones de cantidad de copias
 document.getElementById("incremento").addEventListener("click", () => {
@@ -120,4 +80,36 @@ document.getElementById("decremento--anillados").addEventListener("click", () =>
     cantidadValorAnillados.innerText = cantidadAnillados;
     calcularCostoTotal();
   }
+});
+
+// Función para cargar el archivo PDF y contar las páginas
+document.getElementById("file-upload").addEventListener("change", async function (event) {
+  const file = event.target.files[0];
+  if (file && file.type === "application/pdf") {
+    const fileReader = new FileReader();
+
+    fileReader.onload = async function () {
+      const typedarray = new Uint8Array(this.result);
+      const pdf = await pdfjsLib.getDocument(typedarray).promise;
+      cantidadPaginas = pdf.numPages;
+
+      // Actualizar los cálculos después de obtener la cantidad de páginas
+      calcularCostoTotal();
+    };
+
+    fileReader.readAsArrayBuffer(file);
+  } else {
+    alert("Por favor, sube un archivo PDF válido.");
+  }
+});
+
+// Listeners para opciones de doble faz y color
+checkboxDobleFaz.addEventListener("change", () => {
+  esDobleFaz = checkboxDobleFaz.checked;
+  calcularCostoTotal();
+});
+
+checkboxColor.addEventListener("change", () => {
+  esColor = checkboxColor.checked;
+  calcularCostoTotal();
 });

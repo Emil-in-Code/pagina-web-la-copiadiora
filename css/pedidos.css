@@ -387,6 +387,11 @@
     align-items: center;
 }
 
+.preview--wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
 .p-precios {
     font-size: 15px;
 }

@@ -57,10 +57,13 @@
         <label for="file-upload">
           <img src="path_to_cloud_image.png" alt="Icono de carga">
           <span>Sube tu archivo</span>
-          <form>
-            <input id="file-upload" class="btn-archivos" type="file" multiple>
-          </form>
-        </label>
+        </label>  
+          
+            <input id="file-upload" class="btn-archivos" type="file" multiple accept="application/pdf">
+            <p id="pageCount"></p>
+            <canvas id="pdfPreview" width="100" height="200"></canvas>
+            <p id="totalCost"></p>
+        
       </div>
       
       <div id="preferencias" class="sidebar">
@@ -124,16 +127,12 @@
 
     <section class="price__preview--section"> 
       <div class="preview--wrapper"></div>
-
-
         <p class="p-precios">Precio copias:</p>
         <p class="p-precios">Precio anillados:</p>
         <p class="p-precios">Precio color Simple Faz:</p>
         <p class="p-precios">Precio color Doble Faz:</p>
         <p class="p-precios">Precio final:</p>
         <button class="pagar">PAGAR</button>
-
-
       </div>
     </section>
 
