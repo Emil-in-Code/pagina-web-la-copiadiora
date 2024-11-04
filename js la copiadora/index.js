@@ -1,19 +1,17 @@
-// laCopiadoraDefinitivo.js
 
-// Función para decrementar la cantidad
-function decrement(productId) {
-    let quantityInput = document.getElementById('quantity-' + productId);
-    let currentValue = parseInt(quantityInput.value, 10);
+const presupuestarBtn = document.getElementById('presupuestar-btn');
 
-    if (currentValue > 1) {
-        quantityInput.value = currentValue - 1;
-        updateCost(productId); // Actualiza el costo basado en la nueva cantidad
+presupuestarBtn.addEventListener('mouseover', function() {
+  if (presupuestarBtn.textContent === 'Presupuestar Gratis') {
+    presupuestarBtn.textContent = 'Tu tiempo es hoy';
+  } else {
+    presupuestarBtn.textContent = 'Presupuestar Gratis';
+  }
+});
+
+presupuestarBtn.addEventListener('mouseout', function() {
+    if (presupuestarBtn.textContent === 'Tu tiempo es hoy') {
+      presupuestarBtn.textContent = 'Presupuestar Gratis';
     }
-}
+});
 
-// Función para incrementar la cantidad
-function increment(productId) {
-    let quantityInput = document.getElementById('quantity-' + productId);
-    let currentValue = parseInt(quantityInput.value, 10);
-
-    quantityInput.value = 
