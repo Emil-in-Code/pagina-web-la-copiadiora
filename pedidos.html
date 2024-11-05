@@ -73,9 +73,9 @@
 
           <p class="cantidad--texto">Cantidad de copias</p> 
           <div class="cantidad__wrapper">       
-            <button id="decremento">-</button>         
+            <button id="decrementarCopias">-</button>         
             <span id="cantidad__valor--copias">1</span>
-            <button id="incremento">+</button>
+            <button id="incrementarCopias">+</button>
           </div>   
                   
         </div>
@@ -96,9 +96,9 @@
 
           <p class="cantidad--texto">Cantidad de anillados</p> 
           <div class="cantidad__wrapper">       
-            <button id="decremento--anillados">-</button>         
+            <button id="decrementarAnillados">-</button>         
             <span id="cantidad__valor--anillados">0</span>
-            <button id="incremento--anillados">+</button>
+            <button id="incrementarAnillados">+</button>
           </div>   
                   
         </div>
@@ -127,12 +127,10 @@
 
     <section class="price__preview--section"> 
       <div class="preview--wrapper"></div>
-        <p class="p-precios">Precio copias:</p>
-        <p class="p-precios">Precio anillados:</p>
-        <p class="p-precios">Precio color Simple Faz:</p>
-        <p class="p-precios">Precio color Doble Faz:</p>
-        <p class="p-precios">Precio final:</p>
-        <button class="pagar">PAGAR</button>
+        <p id="subtotal" class="p-precios">Subtotal:</p>
+        <p id="descuentoCantidad" class="p-precios">Descuento por cantidad:</p>
+        <p id="precioFinal" class="p-precios">Precio final:</p>
+        <button id="pagar-pedido" class="pagar">PAGAR</button>
       </div>
     </section>
 
