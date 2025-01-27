@@ -24,9 +24,25 @@ document.getElementById('file-upload').addEventListener('change', async function
     calcularCosto(pageCounts);
 });
 
-// Función para calcular el costo total
+// Incrementar y decrementar cantidades de copias
+document.getElementById('incrementarCopias').addEventListener('click', function() {
+    let cantidad = parseInt(document.getElementById('cantidad__valor--copias').innerText);
+    document.getElementById('cantidad__valor--copias').innerText = cantidad + 1;
+    calcularCosto([pageCount]); // Recalcular el costo
+});
+
+document.getElementById('decrementarCopias').addEventListener('click', function() {
+    let cantidad = parseInt(document.getElementById('cantidad__valor--copias').innerText,);
+    if (cantidad > 1) {
+        document.getElementById('cantidad__valor--copias').innerText = cantidad - 1;
+        calcularCosto([pageCount]); // Recalcular el costo
+    }
+});
+
+
+/*// Función para calcular el costo total
 function calcularCosto(pageCounts) {
-    const cantidadCopias = parseInt(document.getElementById('cantidad__valor--copias').innerText, 10);
+    const cantidadCopias = parseInt(document.getElementById('cantidad__valor--copias').innerText, 1);
     const cantidadAnillados = parseInt(document.getElementById('cantidad__valor--anillados').innerText, 10);
     const dobleFaz = document.getElementById('doble_faz').checked;
 
@@ -48,20 +64,9 @@ function calcularCosto(pageCounts) {
     document.getElementById('precioFinal').innerText = `Precio final: $${totalCost}`;
 }
 
-// Incrementar y decrementar cantidades de copias
-document.getElementById('incrementarCopias').addEventListener('click', function() {
-    let cantidad = parseInt(document.getElementById('cantidad__valor--copias').innerText, 10);
-    document.getElementById('cantidad__valor--copias').innerText = cantidad + 1;
-    calcularCosto([pageCount]); // Recalcular el costo
-});
 
-document.getElementById('decrementarCopias').addEventListener('click', function() {
-    let cantidad = parseInt(document.getElementById('cantidad__valor--copias').innerText, 10);
-    if (cantidad > 1) {
-        document.getElementById('cantidad__valor--copias').innerText = cantidad - 1;
-        calcularCosto([pageCount]); // Recalcular el costo
-    }
-});
+
+
 
 // Incrementar y decrementar cantidades de anillados
 document.getElementById('incrementarAnillados').addEventListener('click', function() {
@@ -77,3 +82,4 @@ document.getElementById('decrementarAnillados').addEventListener('click', functi
         calcularCosto([pageCount]); // Recalcular el costo
     }
 });
+*/
