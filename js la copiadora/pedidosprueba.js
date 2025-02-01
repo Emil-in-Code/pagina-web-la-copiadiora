@@ -1,32 +1,53 @@
 let precioPorHoja = 120;
-let precioAnillado
-let cantidadHojas = 1;
+let precioAnillado = 2500;
+let cantidadPaginas =325;
 
 let sectionPricePreview = document.getElementById ("price__preview--section");
 
 let parrafoSubTotal = document.getElementById("subtotal")
 
-
+let botonIncremento= document.getElementById ("incremento-decremento") 
 
 function seleccionDeCantidad (){
-    let botonIncremento= document.getElementById ("incremento-decremento") 
+    
     botonIncremento.addEventListener ("click", incrementoDecremento);
 
+    if(incrementoDecremento ===1 ){
+        precio()
+    }else {
+        console.log("elegi un pdf")
+    }
 }
 
+function mostrarsubtotal (subtotal){
+    let pricePreviewSection
+}
+
+
 function precio(){
+   
+
+    // Determinar si la cantidad de hojas es par o impar
+    let tipoCantidadPaginas = (cantidadPaginas % 2 === 0) ? 'par' : 'impar';
 
     let calculoArchivo;
 
-    
-    if (cantidadHojas % 2 === 0) {
-    // Si la cantidad de hojas es par
-    calculoArchivo = cantidadHojas / 2 * precioPorHoja;
-    parrafoSubTotal.innerHTML = "subtotal"
-    } else {
-    // Si la cantidad de hojas es impar
-    calculoArchivo = (cantidadHojas + 1) / 2 * precioPorHoja;
+    switch (tipoCantidadPaginas) {
+      case 'par':
+        // Si la cantidad de hojas es par
+        calculoArchivo = (cantidadPaginas / 2) * precioPorHoja * seleccionDeCantidad();
+        break;
+      case 'impar':
+        // Si la cantidad de hojas es impar
+        calculoArchivo = ((cantidadPaginas + 1) / 2) * precioPorHoja * seleccionDeCantidad();
+        break;
+      default:
+        // En caso de un valor inesperado, aunque no es necesario aquí
+        console.log('Error: Tipo de cantidad de hojas desconocido');
+        break;
     }
+
+    console.log(`El costo total es: ${calculoArchivo.toLocaleString('es-ES')} Ars.`);
 
 }
 
