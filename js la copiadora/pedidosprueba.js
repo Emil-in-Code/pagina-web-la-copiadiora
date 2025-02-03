@@ -1,45 +1,64 @@
 let precioPorHoja = 120;
 let precioAnillado = 2500;
-let cantidadPaginas =325;
+let numPagesPDF= 0;
 
 let sectionPricePreview = document.getElementById ("price__preview--section");
 
-let parrafoSubTotal = document.getElementById("subtotal")
+let botonCalcular = document.getElementById("calcular").addEventListener("input", calcular);
 
-let botonIncremento= document.getElementById ("incremento-decremento") 
 
-function seleccionDeCantidad (){
-    
-    botonIncremento.addEventListener ("click", incrementoDecremento);
+function leerPDF(){
+    const input = document.getElementById("archivo");
+    const cantidadJuegos = parseInt(document.getElementById("cantidad").value) || 1;
+    const archivo = input.files[0];
 
-    if(incrementoDecremento ===1 ){
-        precio()
-    }else {
-        console.log("elegi un pdf")
+    if (archivo) {
+        const reader = new FileReader();
+        reader.readAsArrayBuffer(archivo);
+
+        reader.onload = function(event) {
+            const arrayBuffer = event.target.result;
+            procesarPDF(arrayBuffer, cantidadJuegos);
+        };
+        reader.onerror = function(){
+            console.error("error al leer el archivo")
+        };
+    } else {
+        alert("selecciona un pdf");
     }
 }
 
-function mostrarsubtotal (subtotal){
-    let pricePreviewSection
+function procesarPDF(arrayBuffer) {
+    const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
+    loadingTask.promise.then(pdf => {
+        console.log("Número de páginas:", pdf.numPages);
+        numPagesPDF = pdf.numPages;  // Guardamos el número de páginas en la variable global
+        alert(`El PDF tiene ${numPagesPDF} páginas.`);  // Solo mostramos el número de páginas
+    }).catch(error => {
+        console.error("Error al procesar el PDF:", error);
+        alert("Hubo un error al procesar el archivo PDF.");
+    });
 }
 
+// Llamamos a la función leerPDF cuando el archivo cambia
+document.getElementById("archivo").addEventListener("change", leerPDF);
 
 function precio(){
    
 
     // Determinar si la cantidad de hojas es par o impar
-    let tipoCantidadPaginas = (cantidadPaginas % 2 === 0) ? 'par' : 'impar';
+    let tipoCantidadPaginas = (numPagesPDF % 2 === 0) ? 'par' : 'impar';
 
     let calculoArchivo;
 
     switch (tipoCantidadPaginas) {
       case 'par':
         // Si la cantidad de hojas es par
-        calculoArchivo = (cantidadPaginas / 2) * precioPorHoja * seleccionDeCantidad();
+        calculoArchivo = (tipoCantidadPaginas / 2) * precioPorHoja * cantidad();
         break;
       case 'impar':
         // Si la cantidad de hojas es impar
-        calculoArchivo = ((cantidadPaginas + 1) / 2) * precioPorHoja * seleccionDeCantidad();
+        calculoArchivo = ((tipoCantidadPaginas + 1) / 2) * precioPorHoja * cantidad();
         break;
       default:
         // En caso de un valor inesperado, aunque no es necesario aquí
@@ -51,6 +70,9 @@ function precio(){
 
 }
 
+function cantidad (){
+    let botonCantidad = document.getElementById ("cantidad");
+}
 
 
 /*const precioCopiaBLancoNegro = 120;
@@ -75,4 +97,4 @@ function incrementarCopias() {
 
 function decrementarCopias() {
     
-}
+}*/
