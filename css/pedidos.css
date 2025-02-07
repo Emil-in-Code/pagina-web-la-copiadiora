@@ -378,8 +378,7 @@
 }
 
 /*PREVISUALIZACIÓN DE PRECIOS*/
-
-.price__preview--section {
+#price__preview--section {
     padding: 10px;
     background-color: #000;
     display: flex;

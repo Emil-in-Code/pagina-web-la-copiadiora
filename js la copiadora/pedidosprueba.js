@@ -2,7 +2,7 @@ let precioPorHoja = 120;
 let precioAnillado = 2500;
 let numPagesPDF= 0;
 
-let sectionPricePreview = document.getElementById ("price__preview--section");
+
 
 let botonCalcular = document.getElementById("calcular").addEventListener("input", calcular);
 
@@ -44,7 +44,7 @@ function procesarPDF(arrayBuffer) {
 document.getElementById("archivo").addEventListener("change", leerPDF);
 
 function precio(){
-   
+    document.getElementById ("subtotal").innerHTML=calculoArchivo;
 
     // Determinar si la cantidad de hojas es par o impar
     let tipoCantidadPaginas = (numPagesPDF % 2 === 0) ? 'par' : 'impar';
@@ -54,11 +54,11 @@ function precio(){
     switch (tipoCantidadPaginas) {
       case 'par':
         // Si la cantidad de hojas es par
-        calculoArchivo = (tipoCantidadPaginas / 2) * precioPorHoja * cantidad();
+        calculoArchivo = (tipoCantidadPaginas / 2) * precioPorHoja //* cantidad();
         break;
       case 'impar':
         // Si la cantidad de hojas es impar
-        calculoArchivo = ((tipoCantidadPaginas + 1) / 2) * precioPorHoja * cantidad();
+        calculoArchivo = ((tipoCantidadPaginas + 1) / 2) * precioPorHoja //* cantidad();
         break;
       default:
         // En caso de un valor inesperado, aunque no es necesario aquí
