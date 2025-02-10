@@ -15,6 +15,8 @@
   <meta property="og:title" content="La Copiadora">
   <meta property="og:description" content="Servicios de Fotocopiado de Alta Calidad">
   <meta property="og:share_count" content="true">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+
 </head>
     
 <body class="body">
@@ -58,9 +60,10 @@
         
       <input type="file" id="archivo" class="btn-archivos"  multiple accept="application/pdf">
       <p id="pageCount"></p>
-      <canvas id="pdfPreview" width="100" height="200"></canvas>
+      <canvas id="pdfPreview"></canvas>
       <p id="numero-de-paginas"></p>
-      <button onclick="precio()">calcular</button>
+      <!--<button id="calcular">calcular</button>  -->
+      
       
     </div>
     
@@ -71,7 +74,7 @@
         <div class="cantidad__wrapper">       
                   
           
-          <input id="canitdad" type="number" value="0" min="0">
+          <input id="canitdad" type="number" value="1" min="1">
           
           
         </div>   
@@ -144,7 +147,7 @@
      </div>
     </div>
   </footer>
-  <script src="/js la copiadora/pedidosprueba.js"></script> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+  <script src="/js la copiadora/pedidosprueba.js"></script> 
 </body>  
 </html>
