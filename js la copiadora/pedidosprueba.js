@@ -2,9 +2,9 @@ let precioPorHoja = 120;
 let precioAnillado = 2500;
 let numPagesPDF = 0;
 let pdfDoc = null; 
+let cantidad = 0;
 
 
-// Función para leer el PDF seleccionado
 function leerPDF() {
     const input = document.getElementById("archivo");
     const archivo = input.files[0];
@@ -27,7 +27,6 @@ function leerPDF() {
     };
 }
 
-// Función para procesar el PDF y obtener el número de páginas
 function procesarPDF(arrayBuffer, callback) {
     const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
     loadingTask.promise.then(pdf => {
@@ -40,8 +39,14 @@ function procesarPDF(arrayBuffer, callback) {
     });
 }
 
+function preferencias(){
+    let inputCantidad = document.getElementById("cantidad").value;
+    let numero = parseFloat(inputCantidad);
+    let catidadJuegos = numero * 2;
+    
+   
+}
 
-// Función para calcular el precio
 function calcularPrecio() {
     if (numPagesPDF === 0) {
         alert("Primero selecciona un PDF válido.");
@@ -53,8 +58,18 @@ function calcularPrecio() {
 
     let esDobleFaz = document.getElementById("doble_faz").checked;
 
-    
-    if (paginas === 1) {
+    if (esDobleFaz) {
+        if (paginas === 1) {
+            calculoArchivo = precioPorHoja;
+        } else if (paginas % 2 === 0) {
+            calculoArchivo = (paginas / 2) * precioPorHoja;
+        } else {
+            calculoArchivo = ((paginas + 1) / 2) * precioPorHoja;
+        }
+    } else {
+        calculoArchivo = paginas * precioPorHoja; // Cada página se cuenta de forma independiente
+    }
+    /*if (paginas === 1) {
         calculoArchivo = precioPorHoja;  
     } else if (paginas % 2 === 0) {
         calculoArchivo = (paginas / 2) * precioPorHoja; 
@@ -65,7 +80,7 @@ function calcularPrecio() {
 
     if (esDobleFaz && paginas > 1) {
         calculoArchivo *= 2;  
-    }
+    } else if*/
 
     document.getElementById("numero-de-paginas").innerHTML = `Tu pdf tiene ${numPagesPDF} páginas`
 
