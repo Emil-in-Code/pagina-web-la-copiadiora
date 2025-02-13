@@ -62,29 +62,6 @@ function preferencias() {
     return { juegos: cantidadJuegos, anillados: numeroDeAnillados };
 }
 
-/*function preferencias(){
-    let inputCantidad = document.getElementById("cantidad").value;
-    let numero = parseFloat(inputCantidad);
-  
-    if (isNaN(numero) || numero <= 0) {
-        alert("por favor selecciona al menos 1 juego para imprimir");
-        return 0;
-    }
-    
-    let cantidadJuegos = numero; 
-    return cantidadJuegos * 1; 
-
-    let inputCantidadAnillos = document.getElementById("cantidad-anillados").value;
-    let numeroDeAnillados = parseFloat(inputCantidadAnillos);
-
-    if(isNaN(numeroDeAnillados)){
-        numeroDeAnillados = 0;
-    }
-
-    return { juegos: cantidadJuegos, anillados: numeroDeAnillados };
-
-}*/
-
 function calcularPrecio() {
     if (numPagesPDF === 0) {
         alert("Primero selecciona un PDF válido.");
@@ -108,7 +85,7 @@ function calcularPrecio() {
         calculoArchivo = paginas * precioPorHoja; // Cada página se cuenta de forma independiente
     }
 
-    let cantidadJuegos = preferencias();
+    //let cantidadJuegos = preferencias();
 
     let { juegos, anillados } = preferencias();
 
@@ -131,6 +108,32 @@ document.getElementById("cantidad").addEventListener("input", calcularPrecio);
 document.getElementById("archivo").addEventListener("change", leerPDF);
 
 document.getElementById("doble_faz").addEventListener("change", calcularPrecio);
+
+
+
+/*function preferencias(){
+    let inputCantidad = document.getElementById("cantidad").value;
+    let numero = parseFloat(inputCantidad);
+  
+    if (isNaN(numero) || numero <= 0) {
+        alert("por favor selecciona al menos 1 juego para imprimir");
+        return 0;
+    }
+    
+    let cantidadJuegos = numero; 
+    return cantidadJuegos * 1; 
+
+    let inputCantidadAnillos = document.getElementById("cantidad-anillados").value;
+    let numeroDeAnillados = parseFloat(inputCantidadAnillos);
+
+    if(isNaN(numeroDeAnillados)){
+        numeroDeAnillados = 0;
+    }
+
+    return { juegos: cantidadJuegos, anillados: numeroDeAnillados };
+
+}*/
+
 
 /* if (paginas % 2 === 0) {
         calculoArchivo = (paginas / 2) * precioPorHoja;
