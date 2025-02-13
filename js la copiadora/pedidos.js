@@ -1,81 +1,177 @@
-// Variables globales
-let precioCopiaBlancoNegro = 120; // Precio por copia en blanco y negro
-let precioAnillado = 2500; // Precio por anillado
-let totalCost = 0; // Costo total
-let pageCount = 0; // Cantidad de páginas
+let precioPorHoja = 120;
+let precioAnillado = 2500;
+let numPagesPDF = 0;
+let pdfDoc = null; 
 
-// Función para contar las páginas de un PDF
-async function contarPaginas(pdfFile) {
-    const pdf = await pdfjsLib.getDocument(pdfFile).promise;
-    return pdf.numPages;
+
+function leerPDF() {
+    const input = document.getElementById("archivo");
+    const archivo = input.files[0];
+
+    if (!archivo) {
+        alert("Selecciona un PDF primero.");
+        return;
+    }
+
+    const reader = new FileReader();
+    reader.readAsArrayBuffer(archivo);
+
+    reader.onload = function(event) {
+        const arrayBuffer = event.target.result;
+        procesarPDF(arrayBuffer, calcularPrecio);
+    };
+
+    reader.onerror = function() {
+        console.error("Error al leer el archivo");
+    };
 }
 
-// Manejar la carga de archivos PDF
-document.getElementById('file-upload').addEventListener('change', async function(event) {
-    const files = event.target.files;
-    const pageCounts = [];
-
-    for (const file of files) {
-        const count = await contarPaginas(file);
-        pageCounts.push(count);
-    }
-
-    // Calcular el costo total
-    calcularCosto(pageCounts);
-});
-
-// Incrementar y decrementar cantidades de copias
-document.getElementById('incrementarCopias').addEventListener('click', function() {
-    let cantidad = parseInt(document.getElementById('cantidad__valor--copias').innerText, 10);
-    document.getElementById('cantidad__valor--copias').innerText = cantidad + 1;
-    calcularCosto([pageCount]); // Recalcular el costo
-});
-
-document.getElementById('decrementarCopias').addEventListener('click', function() {
-    let cantidad = parseInt(document.getElementById('cantidad__valor--copias').innerText, 10);
-    if (cantidad > 1) {
-        document.getElementById('cantidad__valor--copias').innerText = cantidad - 1;
-        calcularCosto([pageCount]); // Recalcular el costo
-    }
-});
-
-// Incrementar y decrementar cantidades de anillados
-document.getElementById('incrementarAnillados').addEventListener('click', function() {
-    let cantidad = parseInt(document.getElementById('cantidad__valor--anillados').innerText, 10);
-    document.getElementById('cantidad__valor--anillados').innerText = cantidad + 1;
-    calcularCosto([pageCount]); // Recalcular el costo
-});
-
-document.getElementById('decrementarAnillados').addEventListener('click', function() {
-    let cantidad = parseInt(document.getElementById('cantidad__valor--anillados').innerText, 10);
-    if (cantidad > 0) {
-        document.getElementById('cantidad__valor--anillados').innerText = cantidad - 1;
-        calcularCosto([pageCount]); // Recalcular el costo
-    }
-});
-
-
-
-// Función para calcular el costo total
-function calcularCosto(pageCounts) {
-    const cantidadCopias = parseInt(document.getElementById('cantidad__valor--copias').innerText, 10);
-    const cantidadAnillados = parseInt(document.getElementById('cantidad__valor--anillados').innerText, 1);
-    const dobleFaz = document.getElementById('doble_faz').checked;
-
-    pageCounts.forEach(pages => {
-        let copiesCost = pages * cantidadCopias * precioCopiaBlancoNegro;
-
-        // Ajustar el conteo de páginas si se elige doble faz
-        if (dobleFaz) {
-            pages = Math.ceil(pages / 2); // Redondea hacia arriba para impar
-        }
-
-        totalCost += copiesCost;
+function procesarPDF(arrayBuffer, callback) {
+    const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
+    loadingTask.promise.then(pdf => {
+        numPagesPDF = pdf.numPages;
+        document.getElementById("numero-de-paginas").innerHTML = `Tu PDF tiene ${numPagesPDF} páginas`;
+        pdfDoc = pdf;
+        mostrarPortada(pdf);
+        if (callback) callback();
+    }).catch(error => {
+        console.error("Error al procesar el PDF:", error);
+        alert("Hubo un error al procesar el archivo PDF.");
     });
-
-    // Agregar costo de anillados
-    totalCost += cantidadAnillados * precioAnillado;
-
-    // Actualizar el precio final en el HTML
-    document.getElementById('precioFinal').innerText = `Precio final: $${totalCost}`;
 }
+
+function mostrarPortada(pdf) {
+    pdf.getPage(1).then(page => {
+        let canvas = document.getElementById("pdfPreview");
+        let context = canvas.getContext("2d");
+        let desiredWidth = 110;
+        let desiredHeight =180;
+        let viewport = page.getViewport({ scale: 1 });
+        let scale = Math.min(desiredWidth / viewport.width, desiredHeight / viewport.height);
+        viewport = page.getViewport({ scale });
+        canvas.width = desiredWidth;
+        canvas.height = desiredHeight;
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        let renderContext = {
+            canvasContext: context,
+            viewport: viewport
+        };
+        page.render(renderContext);
+    });
+}
+function preferencias() {
+    let inputCantidad = document.getElementById("cantidad").value;
+    let numero = parseFloat(inputCantidad);
+  
+    if (isNaN(numero) || numero <= 0) {
+        alert("Por favor selecciona al menos 1 juego para imprimir");
+        return { juegos: 1, anillados: 0 }; 
+    }
+    
+    let cantidadJuegos = numero; 
+
+    // Obtener la cantidad de anillados, puede estar vacío o 0
+    let inputCantidadAnillos = document.getElementById("cantidad-anillados").value;
+    let numeroDeAnillados = parseFloat(inputCantidadAnillos);
+
+    // Si no se ingresa un número válido, asumimos que es 0
+    if (isNaN(numeroDeAnillados) || numeroDeAnillados < 0) {
+        numeroDeAnillados = 0;
+    }
+
+    return { juegos: cantidadJuegos, anillados: numeroDeAnillados };
+}
+
+
+function calcularPrecio() {
+    if (numPagesPDF === 0) {
+        alert("Primero selecciona un PDF válido.");
+        return;
+    }
+
+    let paginas = numPagesPDF;
+    let calculoArchivo;
+
+    let esDobleFaz = document.getElementById("doble_faz").checked;
+
+    if (esDobleFaz) {
+        if (paginas === 1) {
+            calculoArchivo = precioPorHoja;
+        } else if (paginas % 2 === 0) {
+            calculoArchivo = (paginas / 2) * precioPorHoja;
+        } else {
+            calculoArchivo = ((paginas + 1) / 2) * precioPorHoja;
+        }
+    } else {
+        calculoArchivo = paginas * precioPorHoja; // Cada página se cuenta de forma independiente
+    }
+
+    //let cantidadJuegos = preferencias();
+
+    let { juegos, anillados } = preferencias();
+
+    costoJuegos = (juegos - 1) * calculoArchivo;
+
+    let costoAnillados = anillados * precioAnillado;
+
+    let subtotalConPreferencias = calculoArchivo + costoJuegos + costoAnillados;
+
+    document.getElementById("numero-de-paginas").innerHTML = `Tu pdf tiene ${numPagesPDF} páginas`
+
+
+    document.getElementById("subtotal").innerHTML = `subtotal: ${subtotalConPreferencias.toLocaleString('es-ES')} Ars.`;
+
+
+    console.log(`el subtotal es: ${calculoArchivo.toLocaleString('es-ES')} Ars.`);
+}
+
+document.getElementById("cantidad").addEventListener("input", calcularPrecio);
+document.getElementById("cantidad-anillados").addEventListener("input", calcularPrecio);
+document.getElementById("archivo").addEventListener("change", leerPDF);
+document.getElementById("doble_faz").addEventListener("change", calcularPrecio);
+
+
+
+
+/*function preferencias(){
+    let inputCantidad = document.getElementById("cantidad").value;
+    let numero = parseFloat(inputCantidad);
+  
+    if (isNaN(numero) || numero <= 0) {
+        alert("por favor selecciona al menos 1 juego para imprimir");
+        return 0;
+    }
+    
+    let cantidadJuegos = numero; 
+    return cantidadJuegos * 1; 
+
+    let inputCantidadAnillos = document.getElementById("cantidad-anillados").value;
+    let numeroDeAnillados = parseFloat(inputCantidadAnillos);
+
+    if(isNaN(numeroDeAnillados)){
+        numeroDeAnillados = 0;
+    }
+
+    return { juegos: cantidadJuegos, anillados: numeroDeAnillados };
+
+}*/
+
+
+/* if (paginas % 2 === 0) {
+        calculoArchivo = (paginas / 2) * precioPorHoja;
+    } else {
+        calculoArchivo = ((paginas + 1) / 2) * precioPorHoja;
+    } */
+
+
+/*function procesarPDF(arrayBuffer, callback) {
+    const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
+    loadingTask.promise.then(pdf => {
+        numPagesPDF = pdf.numPages;
+        //alert(`El PDF tiene ${numPagesPDF} páginas.`);
+        if (callback) callback(); // Llama al cálculo del precio después de obtener el número de páginas
+    }).catch(error => {
+        console.error("Error al procesar el PDF:", error);
+        alert("Hubo un error al procesar el archivo PDF.");
+    });
+}*/        
