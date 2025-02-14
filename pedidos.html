@@ -56,7 +56,7 @@
     <div class="upload-area">
       <label for="file-upload">
         <img src="path_to_cloud_image.png" alt="Icono de carga">
-        <span>Sube tu archivo</span>
+        <p>Arrastra tus archivos</p>
       </label>  
         
       <input type="file" id="archivo" class="btn-archivos"  multiple accept="application/pdf">
@@ -69,63 +69,65 @@
       
       
     </div>
+  </main>  
     
-    <div id="preferencias" class="sidebar">
-      
+  <section id="preferencias">
+    
+    <div id="cantidades-container"> 
+      <p class="cantidad--texto">Cantidad de copias</p> 
+      <div class="cantidad__wrapper">        
+        <input id="cantidad" type="number" value="1" min="1">
+      </div>   
+    
+    </div>
+    
+    <div class="switch-holder">
+      <div class="switch-label">
+        <span class="switch-text">¿Doble faz?</span>
+      </div>
+      <div class="switch-toggle">
+        <input type="checkbox" id="doble_faz">
+        <label for="doble_faz"></label>
+      </div>
+    </div>
+
+    <div id="cantidades-container"> 
       <div id="cantidades-container"> 
-        <p class="cantidad--texto">Cantidad de copias</p> 
+        <p class="cantidad--texto">Cantidad de anillados</p> 
 
         <div class="cantidad__wrapper">        
-          <input id="cantidad" type="number" value="1" min="1">
+          <input id="cantidad-anillados" type="number" value="0" min="0">
         </div>   
       
       </div>
-      
-      <div class="switch-holder">
-        <div class="switch-label">
-          <span class="switch-text">¿Doble faz?</span>
-        </div>
-        <div class="switch-toggle">
-          <input type="checkbox" id="doble_faz">
-          <label for="doble_faz"></label>
-        </div>
-      </div>
-      <div id="cantidades-container"> 
-
-        <div id="cantidades-container"> 
-          <p class="cantidad--texto">Cantidad de anillados</p> 
-  
-          <div class="cantidad__wrapper">        
-            <input id="cantidad-anillados" type="number" value="0" min="0">
-          </div>   
-        
-        </div>
-
-
-        <!--<p class="cantidad--texto">Cantidad de anillados</p> 
-        <div class="cantidad__wrapper">       
-          <button id="decrementarAnillados">-</button>         
-          <span id="cantidad__valor--anillados">0</span>
-          <button id="incrementarAnillados">+</button>
-        </div>-->
+      <!--<p class="cantidad--texto">Cantidad de anillados</p> 
+      <div class="cantidad__wrapper">       
+        <button id="decrementarAnillados">-</button>         
+        <span id="cantidad__valor--anillados">0</span>
+        <button id="incrementarAnillados">+</button>
+      </div>-->
                 
+    </div>
+
+    <div class="switch-holder">
+      <div class="switch-label">
+        <span class="switch-text">¿A color?</span>
       </div>
-      <div class="switch-holder">
-        <div class="switch-label">
-          <span class="switch-text">¿A color?</span>
-        </div>
-        <div class="switch-toggle">
-          <input type="checkbox" id="color">
-          <label for="color"></label>
-        </div>
+
+      <div class="switch-toggle">
+         <input type="checkbox" id="color">
+        <label for="color"></label>
       </div>
-      <div class="nota-especificacion">
-        <label for="nota">Notas o especificaciones:</label>
-        <textarea id="nota" rows="4" placeholder="Para especificaciones concretas,prohibido dar vueltas, si lo hacen esta opción se eliminará de la página"></textarea>
-      </div>
+
+    </div>
+
+    <div class="nota-especificacion">
+      <label for="nota">Notas o especificaciones:</label>
+      <textarea id="nota" rows="4" placeholder="Para especificaciones concretas,prohibido dar vueltas, si lo hacen esta opción se eliminará de la página"></textarea>
     </div>
     
-  </main>
+  </section>
+ 
   <section id="price__preview--section"> 
     <div class="preview--wrapper"></div>
       <p id="subtotal" class="p-precios"><span id="subtotal">Subtotal:</span></p>
@@ -134,6 +136,7 @@
       <button id="pagar-pedido" class="pagar">PAGAR</button>
     </div>
   </section>
+
   <footer class="footer__content ">
     <div class="content--wrapper">
       <!-- Logo -->
