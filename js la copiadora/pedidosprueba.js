@@ -3,6 +3,11 @@ let precioAnillado = 2500;
 let numPagesPDF = 0;
 let pdfDocs = []; // Ahora manejamos varios PDFs
 
+document.getElementById("cantidad").addEventListener("input", calcularPrecio);
+document.getElementById("cantidad-anillados").addEventListener("input", calcularPrecio);
+document.getElementById("archivo").addEventListener("change", leerPDF);
+document.getElementById("doble_faz").addEventListener("change", calcularPrecio);
+
 function leerPDF() {
     const input = document.getElementById("archivo");
     const archivos = input.files;
@@ -133,7 +138,21 @@ function calcularPrecio() {
     document.getElementById("subtotal").innerHTML = `Subtotal: ${totalCalculo.toLocaleString('es-ES')} Ars.`;
 }
 
-document.getElementById("cantidad").addEventListener("input", calcularPrecio);
-document.getElementById("cantidad-anillados").addEventListener("input", calcularPrecio);
-document.getElementById("archivo").addEventListener("change", leerPDF);
-document.getElementById("doble_faz").addEventListener("change", calcularPrecio);
+function calcularDescuento() {
+
+    if (pdfDocs.length === 0) {
+        alert("Primero selecciona al menos un PDF.");
+        return;
+    }
+
+    let totalPaginas = pdfDocs.reduce((acc, pdf) => acc + pdf.numPages, 0);
+    let descuentoAplicado = 1; // Factor de descuento (1 = sin descuento)
+
+    if (totalPaginas >= 4) {
+        descuentoAplicado = 0.9; // 10% de descuento
+    }
+
+    let precioFinal = totalPaginas * precioPorHoja * descuentoAplicado;
+
+    document.getElementById("descuento").innerHTML = `pŕecio${precioFinal.toLocaleString('es-ES')} Ars.`;
+}
