@@ -75,7 +75,7 @@
     
   <section id="preferencias">
     
-    <div id="cantidades-container"> 
+    <div class="cantidades-container"> 
       <p class="cantidad--texto">Cantidad de copias</p> 
       <div class="cantidad__wrapper">        
         <input id="cantidad" type="number" value="1" min="1">
@@ -83,7 +83,7 @@
     
     </div>
     
-    <div class="switch-holder">
+    <div class="cantidades-container">
       <div class="switch-label">
         <span class="switch-text">¿Doble faz?</span>
       </div>
@@ -93,39 +93,22 @@
       </div>
     </div>
 
-    <div id="cantidades-container"> 
-      <div id="cantidades-container"> 
-        <p class="cantidad--texto">Cantidad de anillados</p> 
+    
+    <div class="cantidades-container"> 
 
-        <div class="cantidad__wrapper">        
-          <input id="cantidad-anillados" type="number" value="0" min="0">
-        </div>   
-      
-      </div>
-      <!--<p class="cantidad--texto">Cantidad de anillados</p> 
-      <div class="cantidad__wrapper">       
-        <button id="decrementarAnillados">-</button>         
-        <span id="cantidad__valor--anillados">0</span>
-        <button id="incrementarAnillados">+</button>
-      </div>-->
+      <p class="cantidad--texto">Cantidad de anillados</p> 
+      <div class="cantidad__wrapper">        
+        <input id="cantidad-anillados" type="number" value="0" min="0">
+      </div>   
+    
+    </div>
                 
-    </div>
+    
 
-    <div class="switch-holder">
-      <div class="switch-label">
-        <span class="switch-text">¿A color?</span>
-      </div>
-
-      <div class="switch-toggle">
-         <input type="checkbox" id="color">
-        <label for="color"></label>
-      </div>
-
-    </div>
 
     <div class="nota-especificacion">
       <label for="nota">Notas o especificaciones:</label>
-      <textarea id="nota" rows="4" placeholder="Para especificaciones concretas,prohibido dar vueltas, si lo hacen esta opción se eliminará de la página"></textarea>
+      <textarea id="nota" rows="4" placeholder="Acá podés especificar qué libro o apunte deseas anillar y el orden, o cosas de ese estilo"></textarea>
     </div>
     
   </section>
@@ -141,15 +124,18 @@
 
   <footer class="footer__content ">
     <div class="content--wrapper">
+
       <!-- Logo -->
       <div class="footer__logo--container">
         <img src="/assets/Logo de la copiadora.png" alt="Logo de La Copiadora" class="logo-footer">
       </div>
+
       <!-- Dirección del negocio -->
       <div class="title__footer--container">
         <h3 class="title__footer">Dirección:</h3>
         <p class="p__footer"> 44 e/ 4 y 5 n496 - La Plata</p>
       </div>
+
       <!-- Contacto -->
       <div class="title__footer--container">
         <h3 class="title__footer">Contacto:</h3>
@@ -160,6 +146,7 @@
           <li class="links--item"><a href="https://lacopiadora44@gmail.com" target="_blank">Email</a></li>
         </ul>
      </div>
+
     </div>
   </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>

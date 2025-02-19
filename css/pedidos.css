@@ -91,11 +91,11 @@
 }
 
 
-#cantidades-container{
-    width: 40%;
+.cantidades-container{
+    width: 350px;
     display: flex;
     flex-flow: wrap;
-    padding: 10px 15px;
+    padding: 20px 15px;
     border-radius: 7px;
     box-shadow: 
           10px 10px 10px rgba(0, 0, 0, .2),
@@ -120,81 +120,7 @@
     gap: 3px;
 }
 
-#decremento {
-    box-shadow: inset -1px -1px 1px rgba(255, 206, 6, 1),
-                inset 1px 1px 1px rgba(255, 206, 6, 1);
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-}
-
-#cantidad__valor--copias {
-    display: flex;
-    align-items: center;
-    height: 40px;
-    padding: 8px 10px;
-    border-radius: 7px;
-    background-color: rgb(255, 255, 255);
-    color: rgba(255, 206, 6, 1);
-    -webkit-text-stroke: 1px black;
-    text-shadow: 1px 1px 0 black; 
-    text-align: center;
-    font-size: 16px;
-    font-family: KeepCalm;       
-}
-
-#cantidad__valor--anillados{
-    display: flex;
-    align-items: center;
-    height: 40px;
-    padding: 8px 10px;
-    border-radius: 7px;
-    background-color: rgb(255, 255, 255);
-    color: rgba(255, 206, 6, 1);
-    -webkit-text-stroke: 1px black;
-    text-shadow: 1px 1px 0 black; 
-    text-align: center;
-    font-size: 16px;
-    font-family: KeepCalm;       
-}
-
-#incremento{
-    box-shadow: inset -1px -1px 1px rgba(255, 206, 6, 1),
-                inset 1px 1px 2px rgba(255, 206, 6, 1);
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-}
-
-#incremento--anillados{
-    box-shadow: inset -1px -1px 1px rgba(255, 206, 6, 1),
-                inset 1px 1px 2px rgba(255, 206, 6, 1);
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-}
-
-#decremento--anillados{
-    box-shadow: inset -1px -1px 1px rgba(255, 206, 6, 1),
-                inset 1px 1px 2px rgba(255, 206, 6, 1);
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-}
-
-.switch-holder {
+/*.switch-holder {
     display: flex;
     flex-direction: column;
     padding: 10px 15px;
@@ -206,7 +132,7 @@
     justify-content: space-between;
     align-items: center;
     width: 40%;
-}
+}*/
   
 .switch-label {
     padding: 0 30px 0 10px
@@ -332,7 +258,7 @@
     }
     
     
-    .switch-holder {
+   /* .switch-holder {
         display: flex;  
         flex-direction: row;
         justify-content: center;
@@ -343,7 +269,7 @@
               inset 1px 2px 5px rgba(255, 206, 6, 1),
               inset 5px 2px 2px rgba(0, 0, 0, .2);
         width: 40%;
-    }
+    }*/
       
     .switch-label {
         padding: 0 30px 0 10px
@@ -405,6 +331,16 @@
         background-color: rgba(255, 206, 6, 1);
         box-shadow: -1px -1px 1px rgb(0, 0, 0),
               2px 2px 5px rgba(255, 206, 6, 1);
+    }
+
+    #cantidad {
+        background-color: #eeeeee;
+        font-family: KeepCalm;
+        color: rgba(255, 206, 6, 1);
+        -webkit-text-stroke: 1px black;
+        text-shadow: 1px 1px 0 black;
+        font-size: 16px;
+       
     }
 
     #nota {

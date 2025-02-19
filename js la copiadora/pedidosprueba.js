@@ -1,4 +1,4 @@
-let precioPorHoja = 120;
+let precioPorHoja = 130;
 let precioAnillado = 2500;
 let numPagesPDF = 0;
 let pdfDocs = []; // Ahora manejamos varios PDFs
@@ -138,7 +138,7 @@ function calcularPrecio() {
     document.getElementById("subtotal").innerHTML = `Subtotal: ${totalCalculo.toLocaleString('es-ES')} Ars.`;
 }
 
-function calcularDescuento() {
+/*function calcularDescuento() {
 
     if (pdfDocs.length === 0) {
         alert("Primero selecciona al menos un PDF.");
@@ -155,4 +155,4 @@ function calcularDescuento() {
     let precioFinal = totalPaginas * precioPorHoja * descuentoAplicado;
 
     document.getElementById("descuento").innerHTML = `pŕecio${precioFinal.toLocaleString('es-ES')} Ars.`;
-}
+}*/
