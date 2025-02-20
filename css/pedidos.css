@@ -58,38 +58,6 @@
 }
 
 
-.sidebar {
-    width: 93%;
-    height: auto;
-    display: flex;
-    flex-flow: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    padding: 10px 15px;
-    border-radius: 7px;
-    box-shadow: -1px -1px 5px rgba(255, 206, 6, 1),
-    10px 10px 10px rgba(0, 0, 0, .2),
-    inset 1px 2px 5px rgba(255, 206, 6, 1),
-    inset 5px 2px 2px rgba(0, 0, 0, .2);
-    margin: auto;
-}
-
-.sidebar button {
-    padding: 10px 15px;
-    align-items: center;
-    background-color: rgba(0, 0, 0, .2);
-    color: rgba(255, 206, 6, 1);
-    border-radius: 7px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-.sidebar button:hover {
-    background-color: rgba(255, 206, 6, 1);
-    color: rgba(0, 0, 0, 7);; 
-}
-
 
 .cantidades-container{
     width: 350px;
@@ -244,7 +212,7 @@
         width: 96.5%;
         height: auto;
         display: flex;
-        flex-flow: wrap;
+        flex-direction: row;
         justify-content: center;
         align-items: center;
         gap: 5px;
@@ -333,6 +301,22 @@
               2px 2px 5px rgba(255, 206, 6, 1);
     }
 
+    .cantidades-container{
+        width: 350px;
+        height: 90px ;
+        display: flex;
+        flex-flow: wrap;
+        padding: 20px 15px;
+        border-radius: 7px;
+        box-shadow: 
+              10px 10px 10px rgba(0, 0, 0, .2),
+              inset 1px 2px 5px rgba(255, 206, 6, 1),
+              inset 5px 2px 2px rgba(0, 0, 0, .2);
+        justify-content: center;
+        align-items: center;
+        margin: 5px;
+    }
+
     #cantidad {
         background-color: #eeeeee;
         font-family: KeepCalm;
@@ -340,7 +324,19 @@
         -webkit-text-stroke: 1px black;
         text-shadow: 1px 1px 0 black;
         font-size: 16px;
+        
        
+    }
+
+    .notas-container {
+        width: 300px;
+        height: 90px;
+        border-radius: 7px;
+        box-shadow: 
+              10px 10px 10px rgba(0, 0, 0, .2),
+              inset 1px 2px 5px rgba(255, 206, 6, 1),
+              inset 5px 2px 2px rgba(0, 0, 0, .2);
+        text-align: center;
     }
 
     #nota {
@@ -349,11 +345,15 @@
           10px 10px 10px rgba(0, 0, 0, .2),
           inset 1px 2px 3px rgba(255, 206, 6, 1),
           inset 5px 2px 2px rgba(0, 0, 0, .2);
-        background-color: #000;
-        margin: 5px;
-        color: rgb(248, 248, 246);
+        background-color: #f0e9e9;
+        color: rgb(235, 235, 15);
         font-family: KeepCalm;
-        width: 100%;
+        width:90%;
+        height: 90%; 
+        box-sizing: border-box; 
+        resize: none; /* Evita que el usuario lo redimensione */
+        vertical-align: middle; /* Asegura alineación con otros elementos */
+        padding: 5px;
     }
 }
 
