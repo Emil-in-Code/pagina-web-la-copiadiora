@@ -1,12 +1,14 @@
 let precioPorHoja = 130;
-let precioAnillado = 2500;
+let precioAnillado = 3000;
 let numPagesPDF = 0;
 let pdfDocs = []; // Ahora manejamos varios PDFs
+let descuento = 0;
 
 document.getElementById("cantidad").addEventListener("input", calcularPrecio);
 document.getElementById("cantidad-anillados").addEventListener("input", calcularPrecio);
 document.getElementById("archivo").addEventListener("change", leerPDF);
 document.getElementById("doble_faz").addEventListener("change", calcularPrecio);
+document.getElementById("descuento");
 
 function leerPDF() {
     const input = document.getElementById("archivo");
@@ -102,6 +104,8 @@ function preferencias() {
     return { juegos: cantidadJuegos, anillados: numeroDeAnillados };
 }
 
+
+
 function calcularPrecio() {
     if (pdfDocs.length === 0) {
         alert("Primero selecciona al menos un PDF.");
@@ -138,21 +142,17 @@ function calcularPrecio() {
     document.getElementById("subtotal").innerHTML = `Subtotal: ${totalCalculo.toLocaleString('es-ES')} Ars.`;
 }
 
-/*function calcularDescuento() {
 
-    if (pdfDocs.length === 0) {
-        alert("Primero selecciona al menos un PDF.");
-        return;
+function calcularDescuento() {
+    let paginas = pdf.numPages;
+    let total = paginas * precioPorPagina;
+    let descuento = 0;
+
+    if (paginas <20) {
+        alert("A partir de las 21 hojas tenés descuentos")
+    }else if(paginas >= 21 && paginas <= 40) {
+        descuento = total * 0.1; // descuento del 10%
+
+    document.getElementById("descuento").innerHTML = `Descuento: ${descuento.toLocaleString('es-ES')} Ars.`;
     }
-
-    let totalPaginas = pdfDocs.reduce((acc, pdf) => acc + pdf.numPages, 0);
-    let descuentoAplicado = 1; // Factor de descuento (1 = sin descuento)
-
-    if (totalPaginas >= 4) {
-        descuentoAplicado = 0.9; // 10% de descuento
-    }
-
-    let precioFinal = totalPaginas * precioPorHoja * descuentoAplicado;
-
-    document.getElementById("descuento").innerHTML = `pŕecio${precioFinal.toLocaleString('es-ES')} Ars.`;
-}*/
+}
