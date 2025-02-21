@@ -140,19 +140,38 @@ function calcularPrecio() {
 
     document.getElementById("numero-de-paginas").innerHTML = `Total de páginas: ${pdfDocs.reduce((acc, pdf) => acc + pdf.numPages, 0)}`;
     document.getElementById("subtotal").innerHTML = `Subtotal: ${totalCalculo.toLocaleString('es-ES')} Ars.`;
+
+   
 }
 
+function calcularDescuento(totalPaginas, totalCalculo) {
+    console.log("Ejecutando calcularDescuento con:", totalPaginas, totalCalculo);
 
-function calcularDescuento() {
-    let paginas = pdf.numPages;
-    let total = paginas * precioPorPagina;
     let descuento = 0;
+    let descuentoElemento = document.getElementById("descuento");
+    let precioFinalElemento = document.getElementById("precio-final");
 
-    if (paginas <20) {
-        alert("A partir de las 21 hojas tenés descuentos")
-    }else if(paginas >= 21 && paginas <= 40) {
-        descuento = total * 0.1; // descuento del 10%
 
-    document.getElementById("descuento").innerHTML = `Descuento: ${descuento.toLocaleString('es-ES')} Ars.`;
+    if (totalPaginas < 21) {
+        descuentoElemento.innerHTML = "El descuento se aplica a partir de las 21 hojas o 42 páginas";
+        precioFinalElemento.innerHTML = `Precio final: ${totalCalculo.toLocaleString('es-ES')} Ars.`;
+        return; // Salimos porque no hay descuento
+    } 
+
+    if (totalPaginas >= 21 && totalPaginas <= 40) {
+        descuento = totalCalculo * 0.10; // 10% de descuento
+    } else if (totalPaginas >= 41 && totalPaginas <= 60) {
+        descuento = totalCalculo * 0.15; // 15% de descuento
+    } else if (totalPaginas > 60) {
+        descuento = totalCalculo * 0.20; // 20% de descuento
     }
+
+    let totalConDescuento = totalCalculo - descuento;
+
+    descuentoElemento.innerHTML = `Descuento: ${descuento.toLocaleString('es-ES')} Ars.`;
+    precioFinalElemento.innerHTML = `Precio final: ${totalConDescuento.toLocaleString('es-ES')} Ars.`;
 }
+
+window.onload = function() {
+    calcularDescuento(); // Se ejecuta solo cuando todo el DOM está listo
+};

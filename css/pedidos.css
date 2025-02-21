@@ -371,7 +371,7 @@
     flex-direction: column;
 }
 
-.p-precios {
+#precio-final, #descuento, #subtotal {
     font-size: 15px;
 }
 
