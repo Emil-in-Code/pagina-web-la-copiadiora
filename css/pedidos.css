@@ -359,26 +359,27 @@
 
 /*PREVISUALIZACIÓN DE PRECIOS*/
 #price__preview--section {
-    padding: 10px;
+    margin-top: 50px;
     background-color: #000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
 }
 
 .preview--wrapper {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
 }
+
 
 #precio-final, #descuento, #subtotal {
     font-size: 15px;
+    padding: 10px;
 }
 
 
-.pagar {
+#pagar-pedido {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 0 20px;
     color: rgba(255, 206, 6, 1);
     box-shadow: 
           10px 10px 1px rgba(0, 0, 0, .2),
@@ -389,10 +390,11 @@
     text-align: center;
     font-size: 16px;
     transition: background-color 0.3s ease;
+    height: 50px;
 }
 
-.pagar:hover {
+#pagar-pedido:hover {
     background-color: rgba(255, 206, 6, 1);
-   color: #000000;
+    color: #000000;
 }
 

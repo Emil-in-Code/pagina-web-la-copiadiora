@@ -9,6 +9,8 @@ document.getElementById("cantidad-anillados").addEventListener("input", calcular
 document.getElementById("archivo").addEventListener("change", leerPDF);
 document.getElementById("doble_faz").addEventListener("change", calcularPrecio);
 document.getElementById("descuento");
+document.getElementById("descuento");
+document.getElementById("precio-final");
 
 function leerPDF() {
     const input = document.getElementById("archivo");
