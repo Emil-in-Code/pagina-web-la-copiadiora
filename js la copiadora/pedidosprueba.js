@@ -2,15 +2,14 @@ let precioPorHoja = 130;
 let precioAnillado = 3000;
 let numPagesPDF = 0;
 let pdfDocs = []; // Ahora manejamos varios PDFs
-let descuento = 0;
 
 document.getElementById("cantidad").addEventListener("input", calcularPrecio);
 document.getElementById("cantidad-anillados").addEventListener("input", calcularPrecio);
 document.getElementById("archivo").addEventListener("change", leerPDF);
 document.getElementById("doble_faz").addEventListener("change", calcularPrecio);
-document.getElementById("descuento");
-document.getElementById("descuento");
-document.getElementById("precio-final");
+document.getElementById("subtotal").innerHTML = "subtotal:";
+document.getElementById("descuento").innerHTML = "descuento:";
+document.getElementById("precio-final").innerHTML = "precio final:";
 
 function leerPDF() {
     const input = document.getElementById("archivo");
@@ -143,37 +142,54 @@ function calcularPrecio() {
     document.getElementById("numero-de-paginas").innerHTML = `Total de páginas: ${pdfDocs.reduce((acc, pdf) => acc + pdf.numPages, 0)}`;
     document.getElementById("subtotal").innerHTML = `Subtotal: ${totalCalculo.toLocaleString('es-ES')} Ars.`;
 
-   
+
+
+
 }
 
-function calcularDescuento(totalPaginas, totalCalculo) {
-    console.log("Ejecutando calcularDescuento con:", totalPaginas, totalCalculo);
-
-    let descuento = 0;
-    let descuentoElemento = document.getElementById("descuento");
-    let precioFinalElemento = document.getElementById("precio-final");
 
 
-    if (totalPaginas < 21) {
-        descuentoElemento.innerHTML = "El descuento se aplica a partir de las 21 hojas o 42 páginas";
-        precioFinalElemento.innerHTML = `Precio final: ${totalCalculo.toLocaleString('es-ES')} Ars.`;
-        return; // Salimos porque no hay descuento
-    } 
 
-    if (totalPaginas >= 21 && totalPaginas <= 40) {
-        descuento = totalCalculo * 0.10; // 10% de descuento
-    } else if (totalPaginas >= 41 && totalPaginas <= 60) {
-        descuento = totalCalculo * 0.15; // 15% de descuento
-    } else if (totalPaginas > 60) {
-        descuento = totalCalculo * 0.20; // 20% de descuento
+let subtotal = calculoArchivo;
+let descuento = 0;
+let total = 0;
+let porcentajeDescuento = 0; 
+
+function calcularDescuento() {
+    if (subtotal >= 104130) {
+        porcentajeDescuento = 40 + " off"; // 40% de descuento
+        descuento = subtotal * 0.4;
+    } else if (subtotal >= 65130) {
+        porcentajeDescuento = 35 + " off"; // 35% de descuento
+        descuento = subtotal * 0.35;
+    } else if (subtotal >= 39130){
+        porcentajeDescuento = 30 + " off"; // 30% de descuento
+        descuento = subtotal * 0.3;
+    } else if (subtotal >= 26130){
+        porcentajeDescuento = 25 + " off"; // 25% de descuento
+        descuento = subtotal * 0.25;
+    } else if (subtotal >= 13130){
+        porcentajeDescuento = 20 + " off"; // 20% de descuento
+        descuento = subtotal * 0.2;
+    } else if (subtotal >= 5330){
+        porcentajeDescuento = 15 + " off"; // 15% de descuento
+        descuento = subtotal * 0.15;
+    } else if (subtotal >= 2730){
+        porcentajeDescuento = 10 + " off"; // 10% de descuento
+        descuento = subtotal * 0.1;
+    }else  {
+        porcentajeDescuento = 0; 
+        descuento = 0;
     }
 
-    let totalConDescuento = totalCalculo - descuento;
+    total = subtotal - descuento;
 
-    descuentoElemento.innerHTML = `Descuento: ${descuento.toLocaleString('es-ES')} Ars.`;
-    precioFinalElemento.innerHTML = `Precio final: ${totalConDescuento.toLocaleString('es-ES')} Ars.`;
+    document.getElementById("subtotal").innerHTML = `Subtotal: ${subtotal.toLocaleString('es-ES')} Ars.`;
+    document.getElementById("descuento").innerHTML = `Descuento: ${descuento.toLocaleString('es-ES')} Ars. (${porcentajeDescuento}%)`;
+    document.getElementById("total").innerHTML = `Total: ${total.toLocaleString('es-ES')} Ars.`;
 }
 
-window.onload = function() {
-    calcularDescuento(); // Se ejecuta solo cuando todo el DOM está listo
-};
+// Llamar a la función para que se actualicen los valores al cargar la página
+calcularDescuento();
+console.log(`Descuento aplicado: ${descuento} Ars. (${porcentajeDescuento}%)`);
+console.log(`Total a pagar: ${total}`);
