@@ -2,14 +2,18 @@ let precioPorHoja = 130;
 let precioAnillado = 3000;
 let numPagesPDF = 0;
 let pdfDocs = []; // Ahora manejamos varios PDFs
+let subtotal = 0; // Declarar subtotal aquí
+let descuento = 0;
+let total = 0;
+let porcentajeDescuento = 0;
 
 document.getElementById("cantidad").addEventListener("input", calcularPrecio);
 document.getElementById("cantidad-anillados").addEventListener("input", calcularPrecio);
 document.getElementById("archivo").addEventListener("change", leerPDF);
 document.getElementById("doble_faz").addEventListener("change", calcularPrecio);
-document.getElementById("subtotal").innerHTML = "subtotal:";
-document.getElementById("descuento").innerHTML = "descuento:";
-document.getElementById("precio-final").innerHTML = "precio final:";
+document.getElementById("subtotal").innerHTML = "Subtotal:";
+document.getElementById("descuento").innerHTML = "Descuento:";
+document.getElementById("precio-final").innerHTML = "Precio final:";
 
 function leerPDF() {
     const input = document.getElementById("archivo");
@@ -42,7 +46,7 @@ function procesarPDF(arrayBuffer, callback) {
         numPagesPDF = pdf.numPages;
         pdfDocs.push(pdf); // Guardamos el PDF procesado
         document.getElementById("numero-de-paginas").innerHTML = `Tu PDF tiene ${numPagesPDF} páginas`;
-
+        
         // Mostrar la portada
         mostrarPortada(pdf, pdfDocs.length); // Pasamos el índice para manejar múltiples previsualizaciones
         if (callback) callback();
@@ -52,36 +56,29 @@ function procesarPDF(arrayBuffer, callback) {
     });
 }
 
-function mostrarPortada(pdf, index) {
+function mostrarPortada(pdf, _index) {
     const previewContainer = document.getElementById("pdfPreviews");
     const canvas = document.createElement("canvas");
     const context = canvas.getContext("2d");
 
-    // Determinar el tamaño de la previsualización basado en la cantidad de PDFs
-    let totalDocs = pdfDocs.length;
-    let desiredWidth = Math.max(110, 110 - totalDocs * 10);  // Reducir el tamaño según el número de PDFs
-    let desiredHeight = 180;
-
     pdf.getPage(1).then(page => {
-        let viewport = page.getViewport({ scale: 1 });
-        let scale = Math.min(desiredWidth / viewport.width, desiredHeight / viewport.height);
-        viewport = page.getViewport({ scale });
-        canvas.width = desiredWidth;
-        canvas.height = desiredHeight;
-        context.clearRect(0, 0, canvas.width, canvas.height);
+        let viewport = page.getViewport({ scale: 0.5 }); // Ajustamos el tamaño de la previsualización
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+
         let renderContext = {
             canvasContext: context,
             viewport: viewport
         };
-        page.render(renderContext);
 
-        // Crear un contenedor para cada previsualización
-        let previewDiv = document.createElement("div");
-        previewDiv.classList.add("pdf-preview");
-        previewDiv.appendChild(canvas);
-        
-        // Agregar el contenedor al área de previsualizaciones
-        previewContainer.appendChild(previewDiv);
+        page.render(renderContext).promise.then(() => {
+            let previewDiv = document.createElement("div");
+            previewDiv.classList.add("pdf-preview");
+            previewDiv.appendChild(canvas);
+            previewContainer.appendChild(previewDiv);
+        });
+    }).catch(error => {
+        console.error("Error al renderizar la portada del PDF:", error);
     });
 }
 
@@ -105,8 +102,6 @@ function preferencias() {
     return { juegos: cantidadJuegos, anillados: numeroDeAnillados };
 }
 
-
-
 function calcularPrecio() {
     if (pdfDocs.length === 0) {
         alert("Primero selecciona al menos un PDF.");
@@ -123,37 +118,25 @@ function calcularPrecio() {
         let esDobleFaz = document.getElementById("doble_faz").checked;
 
         if (esDobleFaz) {
-            if (paginas === 1) {
-                calculoArchivo = precioPorHoja;
-            } else if (paginas % 2 === 0) {
-                calculoArchivo = (paginas / 2) * precioPorHoja;
-            } else {
-                calculoArchivo = ((paginas + 1) / 2) * precioPorHoja;
-            }
+            calculoArchivo = Math.ceil(paginas / 2) * precioPorHoja; // Se usa Math.ceil() en lugar de sumar 1 manualmente
         } else {
             calculoArchivo = paginas * precioPorHoja;
         }
 
         let costoJuegos = (juegos - 1) * calculoArchivo;
-        let costoAnillados = anillados * precioAnillado;
-        totalCalculo += calculoArchivo + costoJuegos + costoAnillados;
+        totalCalculo += calculoArchivo + costoJuegos;
     });
 
+    let costoAnillados = anillados * precioAnillado; 
+    totalCalculo += costoAnillados;
+
+
+    subtotal = totalCalculo; // Actualizar el subtotal
     document.getElementById("numero-de-paginas").innerHTML = `Total de páginas: ${pdfDocs.reduce((acc, pdf) => acc + pdf.numPages, 0)}`;
-    document.getElementById("subtotal").innerHTML = `Subtotal: ${totalCalculo.toLocaleString('es-ES')} Ars.`;
+    document.getElementById("subtotal").innerHTML = `Subtotal: ${subtotal.toLocaleString('es-ES')} Ars.`;
 
-
-
-
+    calcularDescuento(); // Llamar a calcularDescuento después de actualizar el subtotal
 }
-
-
-
-
-let subtotal = calculoArchivo;
-let descuento = 0;
-let total = 0;
-let porcentajeDescuento = 0; 
 
 function calcularDescuento() {
     if (subtotal >= 104130) {
@@ -162,31 +145,31 @@ function calcularDescuento() {
     } else if (subtotal >= 65130) {
         porcentajeDescuento = 35 + " off"; // 35% de descuento
         descuento = subtotal * 0.35;
-    } else if (subtotal >= 39130){
+    } else if (subtotal >= 39130) {
         porcentajeDescuento = 30 + " off"; // 30% de descuento
         descuento = subtotal * 0.3;
-    } else if (subtotal >= 26130){
+    } else if (subtotal >= 26130) {
         porcentajeDescuento = 25 + " off"; // 25% de descuento
         descuento = subtotal * 0.25;
-    } else if (subtotal >= 13130){
+    } else if (subtotal >= 13130) {
         porcentajeDescuento = 20 + " off"; // 20% de descuento
         descuento = subtotal * 0.2;
-    } else if (subtotal >= 5330){
+    } else if (subtotal >= 5330) {
         porcentajeDescuento = 15 + " off"; // 15% de descuento
         descuento = subtotal * 0.15;
-    } else if (subtotal >= 2730){
+    } else if (subtotal >= 2730) {
         porcentajeDescuento = 10 + " off"; // 10% de descuento
         descuento = subtotal * 0.1;
-    }else  {
+    } else {
         porcentajeDescuento = 0; 
-        descuento = 0;
+        total = subtotal;
+
     }
 
     total = subtotal - descuento;
 
-    document.getElementById("subtotal").innerHTML = `Subtotal: ${subtotal.toLocaleString('es-ES')} Ars.`;
-    document.getElementById("descuento").innerHTML = `Descuento: ${descuento.toLocaleString('es-ES')} Ars. (${porcentajeDescuento}%)`;
-    document.getElementById("total").innerHTML = `Total: ${total.toLocaleString('es-ES')} Ars.`;
+    document.getElementById("descuento").innerHTML = `Descuento: ${descuento.toLocaleString('es-ES')} Ars. (${porcentajeDescuento} %)`;
+    document.getElementById("precio-final").innerHTML = `Total: ${total.toLocaleString('es-ES')} Ars.`;
 }
 
 // Llamar a la función para que se actualicen los valores al cargar la página

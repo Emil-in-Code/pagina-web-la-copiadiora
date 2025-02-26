@@ -37,16 +37,7 @@
     font-size: 0.8rem;
 }
 
-.card--title {
-    text-align: center;
-    color: #000000;
-    background-color: rgba(255, 206, 6, 1);
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
-    width: 100%;
-}
-
-.cards-zones {
+.cards-container {
     border-radius: 7px;
     max-width: 600px;  
     display: flex;
@@ -57,7 +48,22 @@
     margin: auto;
 }
 
-.zone {
+.card {
+    background-color:  rgba(254, 239, 180, 1);
+
+}
+
+.card--title {
+    text-align: center;
+    color: #000000;
+    background-color: rgba(255, 206, 6, 1);
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    width: 100%;
+    margin-top: 0;
+}
+
+.card--body {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -73,7 +79,7 @@
 ul {
     color: #000000;
     text-align:left;
-    padding-bottom: 20px;
+
 }
 
 .parrafo-final-envios {
@@ -122,18 +128,27 @@ ul {
         text-align: center;
         font-size: 1rem;
     }
-    
-    .card--title {
-        text-align: center;
-        color: #000000;
-        background-color: rgba(255, 206, 6, 1);
-        border-top-left-radius: 7px;
-        border-top-right-radius: 7px;
-        width: 100%;
+
+    .cards-container {
+        border-radius: 7px;
+        max-width: 600px;  
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+        box-sizing: border-box;
+        margin: auto;
     }
     
-    .cards-zones {
+    .card {
+        text-align: center;
+        color: #000000;
+        background-color:  rgba(254, 239, 180, 1);
         border-radius: 7px;
+    }
+    
+    .card--title {
+        border-top: 7px;
         max-width: 600px;  
         display: flex;
         flex-wrap: wrap;
@@ -142,16 +157,21 @@ ul {
         box-sizing: border-box;
         margin: auto;
     }
+
+    .special-title {
+        font-size: 12px;
+        font-weight:bold;
+        color: #000;
+    }
     
-    .zone {
+    .card--body {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        color: white;
-        background-color:  rgba(254, 239, 180, 1);
         border-radius: 7px; 
-        width: 35%;
+        width: 150px;
+        overflow: hidden;
         text-align: center;
         margin: 15px;
     }
