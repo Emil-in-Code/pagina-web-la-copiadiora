@@ -1,17 +1,13 @@
-<<<<<<< Updated upstream
 .container {
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(255, 206, 6, 1);
     border: 1px solid rgba(255, 206, 6, 1);
     width: 350px;
-=======
-
+}
 
 form {
     border-radius: 7px;
     max-width: 600px;
->>>>>>> Stashed changes
-    margin: auto;
     margin-top: 2rem;
     margin-bottom: 2rem;
     padding: 15px; 

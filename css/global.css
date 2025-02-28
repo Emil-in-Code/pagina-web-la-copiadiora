@@ -236,58 +236,61 @@ h4 {
 
 /*footer section Mobile*/
 
-.footer__content {
-    background-color: rgba(255, 206, 6, 1);
-    width: 100vw;
+@media  (min-width: 300px) {
 
-}
+    .footer__content {
+        background-color: rgba(255, 206, 6, 1);
+        width: 100vw;
+        margin-top: 2rem;
+    }
 
-.logo-footer{
-    width: 100px;
-    height: 100px;
-}
+    .logo-footer{
+        width: 100px;
+        height: 100px;
+    }
 
-.content--wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-    margin: auto;
-    gap: 5px;
-}
+    .content--wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        margin: auto;
+        gap: 5px;
+    }
 
-.title__footer--container{
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+    .title__footer--container{
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
-.title__footer{
-    font-size: 25px;
-    text-align: center;
-    font-family: Baron Neue;
-}
+    .title__footer{
+        font-size: 25px;
+        text-align: center;
+        font-family: Baron Neue;
+    }
 
-.p__footer {
-    color: rgb(0, 0, 0);
-    font-size: 16px;
-}
+    .p__footer {
+        color: rgb(0, 0, 0);
+        font-size: 16px;
+    }
 
-.links__footer--container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    .links__footer--container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
-    
-}
-.links--item{
-    font-family: keepCalm;
-    padding: 10px;
-    text-align: center;
+
+    }
+    .links--item{
+        font-family: keepCalm;
+        padding: 10px;
+        text-align: center;
+    }
 }
 
 /*footer section tablet y desktop*/
@@ -352,3 +355,4 @@ h4 {
 
 }
 /*fin de footer*/
+

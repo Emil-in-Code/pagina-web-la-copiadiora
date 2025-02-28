@@ -49,44 +49,46 @@
       
     </header>
 
+    <main>
+      <div class="container">
+        <form>
+          <h2 class="h2-incioSesion">Iniciá Sesión</h2>
 
-    <div class="container">
-      <form>
-        <h2 class="h2-incioSesion">Iniciá Sesión</h2>
+          <label for="username">User name:</label>
+          <input id="username" class="form-input" type="text" name="username" placeholder="mi usuario es" required>
 
-        <label for="username">User name:</label>
-        <input id="username" class="form-input" type="text" name="username" placeholder="mi usuario es" required>
+          <label for="email">Correo:</label>
+          <input id="email" class="form-input" type="email" name="email" placeholder="El mail con el que te registraste" required>
 
-        <label for="email">Correo:</label>
-        <input id="email" class="form-input" type="email" name="email" placeholder="El mail con el que te registraste" required>
+          <label for="password">password:</label>
+          <input id="password" class="form-input" type="password" name="password" placeholder="Tu super contraseña secreta" required>
 
-        <label for="password">password:</label>
-        <input id="password" class="form-input" type="password" name="password" placeholder="Tu super contraseña secreta" required>
+          <input class="form-input submit" type="submit" value="iniciar sesion">
+        </form>
+      </div>
+    </main>
 
-        <input class="form-input submit" type="submit" value="iniciar sesion">
-      </form>
-    </div>
-    
-    <footer class="footer-content ">
-      <div>
+    <footer class="footer__content ">
+      <div class="content--wrapper">
         <!-- Logo -->
-        <div class="footer-logo">
-          <img src="/assets/Logo de la copiadora.png" alt="Logo de La Copiadora" width="100" height="100">
+        <div class="footer__logo--container">
+          <img src="/assets/Logo de la copiadora.png" alt="Logo de La Copiadora" class="logo-footer">
         </div>
-
+  
         <!-- Dirección del negocio -->
-        <div>
-          <p class="p-footer1"><strong>Dirección:</strong> 44 e/ 4 y 5 n496 - La Plata</p>
+        <div class="title__footer--container">
+          <h3 class="title__footer">Dirección:</h3>
+          <p class="p__footer"> 44 e/ 4 y 5 n496 - La Plata</p>
         </div>
-
+  
         <!-- Contacto -->
-        <div>
-          <p class="p-footer2"><strong>Contacto:</strong></p>
-          <ul>
-            <li><a href="https://wa.me/message/EOKHJIUZOJSKF1">WhatsApp </a></li>
-            <li><a href="https://instagram.com/lacopiadora44" target="_blank">Instagram</a></li>
-            <li><a href="https://facebook.com/lacopiadora44" target="_blank">Facebook</a></li>
-            <li><a href="https://lacopiadora44@gmail.com" target="_blank">Email</a></li>
+        <div class="title__footer--container">
+          <h3 class="title__footer">Contacto:</h3>
+          <ul class="contact__links">
+            <li class="links--item"><a href="https://wa.me/message/EOKHJIUZOJSKF1">WhatsApp </a></li>
+            <li class="links--item"><a href="https://instagram.com/lacopiadora44" target="_blank">Instagram</a></li>
+            <li class="links--item"><a href="https://facebook.com/lacopiadora44" target="_blank">Facebook</a></li>
+            <li class="links--item"><a href="https://lacopiadora44@gmail.com" target="_blank">Email</a></li>
           </ul>
         </div>
       </div>
