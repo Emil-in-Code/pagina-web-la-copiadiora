@@ -44,7 +44,7 @@ form {
 }
 
 .form-input:invalid {
-  color: #c21010;
+  color: #fc0404;
 }
 
 .form-input:valid {
