@@ -62,7 +62,7 @@ function mostrarPortada(pdf, _index) {
     const context = canvas.getContext("2d");
 
     pdf.getPage(1).then(page => {
-        let viewport = page.getViewport({ scale: 0.5 }); // Ajustamos el tamaño de la previsualización
+        let viewport = page.getViewport({ scale: 0.5 }); 
         canvas.width = viewport.width;
         canvas.height = viewport.height;
 
