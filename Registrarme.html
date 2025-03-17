@@ -55,9 +55,13 @@
         <form id="formulario">
 
           <h2 class="h2-registro">Forumalario de registro</h2>
-
-          <label for="username">Nombre:</label>
-          <input id="username" class="form-input" type="text" name="username" placeholder="Fulanito" required minlength="3">
+          
+          <div class="form__group" id="group__username">
+            <label for="username">Nombre:</label>
+            <div class="formulario__grupo-input">
+              <input id="username" class="form-input" type="text" name="username" placeholder="Fulanito" required minlength="3">
+            </div>
+          </div>
 
           <label for="lastname">Apellido:</label>
           <input id="lastname" class="form-input" type="text" name="lastname" placeholder="Cosme" required minlength="3">
@@ -66,7 +70,7 @@
           <input id="email" class="form-input" type="email" name="email" placeholder="cosmefulanito@mail.com" required>
 
           <label for="whatsApp">WhatsApp:</label>
-          <input id="whatsApp" class="form-input" type="number" name="whatsApp" placeholder="221-660-1934" required>
+          <input id="whatsApp" class="form-input" type="number" name="whatsApp" placeholder="2216601934" required>
 
           <label for="birthdate">Fecha de nacimiento:</label>
           <input id="birthdate" class="form-input" type="date" name="birthdate" title="¿cuándo naciste?" required>
