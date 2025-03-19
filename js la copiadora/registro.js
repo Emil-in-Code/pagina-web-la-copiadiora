@@ -14,7 +14,11 @@ const expresiones = {
 const validarFormulario = (e) => {
     switch (e.target.name) {
         case "username":
-            if(expresiones.username.test())
+            if(expresiones.username.test(e.target.value)){
+
+            }else {
+                document.getElementById("group__username").classList
+            }
         break;
 
         case "lastname":
