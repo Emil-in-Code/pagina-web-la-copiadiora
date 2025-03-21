@@ -17,7 +17,7 @@ const validarFormulario = (e) => {
             if(expresiones.username.test(e.target.value)){
 
             }else {
-                document.getElementById("group__username").classList
+                document.getElementById("grupo__username").classList
             }
         break;
 
