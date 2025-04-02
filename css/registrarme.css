@@ -5,7 +5,6 @@ main{
 
 .container {
     border-radius: 7px;
-    /*box-shadow: 0px 0px 10px rgba(255, 206, 6, 1);*/
     border: 1px solid rgba(255, 206, 6, 1);
     width: 350px;
     margin: auto;
@@ -37,6 +36,10 @@ label {
     display: block;
 }
 
+.formulario__grupo-input {
+	position: relative;
+}
+
 .form-input {
     border-radius: 7px;
     border: none;
@@ -49,4 +52,38 @@ label {
 
 .form-input:hover {
     box-shadow: 3px 5px 1px rgb(14, 13, 13);
+}
+
+.formulario__input-error {
+	font-size: 12px;
+	margin-bottom: 0;
+	display: none;
+}
+
+.formulario__input-error-activo {
+	display: block;
+}
+
+
+.formulario__validacion-estado {
+    position: absolute;
+    right: 18px; 
+    top: 50%;  
+    transform: translateY(-50%); /* Centra verticalmente */
+    width: 20px;
+    opacity: 0; 
+    z-index: 100;
+}
+
+.formulario__grupo-correcto .formulario__validacion-estado {
+    color:rgba(255, 206, 6, 1);
+}
+
+.formulario__grupo-incorrecto .formulario__label{
+    color: #bb2929;
+}
+
+.formulario__grupo-incorrecto .formulario__validacion-estado {
+    color: #bb2929;
+    opacity: 1;
 }

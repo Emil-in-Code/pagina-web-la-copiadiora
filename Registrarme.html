@@ -52,33 +52,67 @@
     <main>
 
       <div class="container">
-        <form id="formulario">
+
+        <form action="" class="formulario" id="formulario">
 
           <h2 class="h2-registro">Forumalario de registro</h2>
           
           <div class="form__group" id="grupo__username">
-            <label for="username">Nombre:</label>
+            <label for="username" class="formulario__label">Nombre:</label>
             <div class="formulario__grupo-input">
               <input id="username" class="form-input" type="text" name="username" placeholder="Fulanito" required minlength="3">
+              <img src="assets/error.svg" class="formulario__validacion-estado"></img>
+            </div>
+            <p class="formulario__input-error">
+              El nombre solo puede contener un mímino de 3 letras.
+            </p>
+          </div>
+
+          <div class="form__group" id="grupo__lastname">
+            <label for="lastname">Apellido:</label>
+            <div class="formulario__grupo-input">
+              <input id="lastname" class="form-input" type="text" name="lastname" placeholder="Cosme" required minlength="3">
+              <img src="assets/error.svg" class="formulario__validacion-estado"></img>
+            </div>
+
+          </div>
+
+          <div class="form__group" id="grupo__mail">
+            <label for="email">Correo electrónico:</label>
+            <div class="formulario__grupo-input">
+              <input id="email" class="form-input" type="email" name="email" placeholder="cosmefulanito@mail.com" required>
+              <img src="assets/error.svg" class="formulario__validacion-estado"></img>
             </div>
           </div>
 
-          <label for="lastname">Apellido:</label>
-          <input id="lastname" class="form-input" type="text" name="lastname" placeholder="Cosme" required minlength="3">
+          
+          <div class="form__group" id="grupo__wp">
+            <label for="whatsApp">WhatsApp:</label>
+            <div class="formulario__grupo-input">
+              <input id="whatsApp" class="form-input" type="number" name="whatsApp" placeholder="2216601934" required>
+              <img src="assets/error.svg" class="formulario__validacion-estado"></img>
+            </div>
+          </div>
 
-          <label for="email">Correo electrónico:</label>
-          <input id="email" class="form-input" type="email" name="email" placeholder="cosmefulanito@mail.com" required>
+          <div class="form__group" id="grupo__birthdate">
+            <label for="birthdate">Fecha de nacimiento:</label>
+            <div class="formulario__grupo-input">
+              <input id="birthdate" class="form-input" type="date" name="birthdate" title="¿cuándo naciste?" required>
+              <img src="assets/error.svg" class="formulario__validacion-estado"></img>
+            </div>
+          </div>
 
-          <label for="whatsApp">WhatsApp:</label>
-          <input id="whatsApp" class="form-input" type="number" name="whatsApp" placeholder="2216601934" required>
+          <div class="form__group" id="grupo__contraseña">
+            <label for="contraseña">Contraseña:</label>
+            <div class="formulario__grupo-input">
+              <input id="contraseña" class="form-input" type="password" name="contraseña" placeholder="tu super contraseña secreta" required>
+              <img src="assets/error.svg" class="formulario__validacion-estado"></img>
+            </div>
+          </div>
 
-          <label for="birthdate">Fecha de nacimiento:</label>
-          <input id="birthdate" class="form-input" type="date" name="birthdate" title="¿cuándo naciste?" required>
-
-          <label for="contraseña">Contraseña:</label>
-          <input id="contraseña" class="form-input" type="password" name="contraseña" placeholder="tu super contraseña secreta" required>
-
-          <input class="form-input" type="submit" value="Registrarse">
+          <div class="form__group" id="grupo__submit">
+            <input class="form-input" type="submit" value="Registrarse">
+          </div>
 
         </form>
       </div>
@@ -112,6 +146,6 @@
     </footer>
 
     <script src="/js la copiadora/registro.js"></script>
-
+    
   </body>
 </html>
