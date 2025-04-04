@@ -15,9 +15,11 @@ const validarFormulario = (e) => {
     switch (e.target.name) {
         case "username":
             if(expresiones.username.test(e.target.value)){
-
+                document.getElementById("grupo__username").classList.remove("formulario__grupo-incorrecto");
+                document.getElementById("grupo__username").classList.add("formulario__grupo-correcto");
+                
             }else {
-                document.getElementById("grupo__username").classList
+                document.getElementById("grupo__username").classList.add("formulario__grupo-incorrecto")
             }
         break;
 

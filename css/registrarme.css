@@ -76,7 +76,11 @@ label {
 }
 
 .formulario__grupo-correcto .formulario__validacion-estado {
-    color:rgba(255, 206, 6, 1);
+    color:#1ed12d;
+    opacity: 1;
+}
+.formulario__grupo-correcto .formulario__label{
+    color: #1ed12d;
 }
 
 .formulario__grupo-incorrecto .formulario__label{
