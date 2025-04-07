@@ -19,7 +19,8 @@ const validarFormulario = (e) => {
                 document.getElementById("grupo__username").classList.add("formulario__grupo-correcto");
                 
             }else {
-                document.getElementById("grupo__username").classList.add("formulario__grupo-incorrecto")
+                document.getElementById("grupo__username").classList.add("formulario__grupo-incorrecto");
+                document.getElementById("grupo__username").classList.remove("formulario__grupo-correcto");
             }
         break;
 

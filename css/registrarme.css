@@ -75,10 +75,6 @@ label {
     z-index: 100;
 }
 
-.formulario__grupo-correcto .formulario__validacion-estado {
-    color:#1ed12d;
-    opacity: 1;
-}
 .formulario__grupo-correcto .formulario__label{
     color: #1ed12d;
 }
@@ -87,7 +83,3 @@ label {
     color: #bb2929;
 }
 
-.formulario__grupo-incorrecto .formulario__validacion-estado {
-    color: #bb2929;
-    opacity: 1;
-}
