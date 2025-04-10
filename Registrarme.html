@@ -56,63 +56,37 @@
         <form action="" class="formulario" id="formulario">
 
           <h2 class="h2-registro">Forumalario de registro</h2>
-          
-          <div class="form__group" id="grupo__username">
-            <label for="username" class="formulario__label">Nombre:</label>
-            <div class="formulario__grupo-input">
-              <input id="username" class="form-input" type="text" name="username" placeholder="Fulanito" required minlength="3">
-              <img src="assets/error.svg" class="formulario__validacion-estado"></img>
-            </div>
-            <p class="formulario__input-error">
-              El nombre solo puede contener un mímino de 3 letras.
-            </p>
-          </div>
-
-          <div class="form__group" id="grupo__lastname">
-            <label for="lastname">Apellido:</label>
-            <div class="formulario__grupo-input">
-              <input id="lastname" class="form-input" type="text" name="lastname" placeholder="Cosme" required minlength="3">
-              <img src="assets/error.svg" class="formulario__validacion-estado"></img>
+        
+            <label for="nombre" class="formulario__label">Nombre:</label>           
+            <input id="nombre" class="form-input" type="text" name="nombre" placeholder="Cosme" required minlength="3">
+                       
+            <label for="apellido" class="formulario__label">Apellido:</label>           
+            <input id="apellido" class="form-input" type="text" name="apellido" placeholder="Fulanito" required minlength="3">
+            <div>
+              <p class="mensaje-error">
+                El apellido debe tener un mínino de 3 letras.
+              </p>
             </div>
 
-          </div>
-
-          <div class="form__group" id="grupo__mail">
-            <label for="email">Correo electrónico:</label>
-            <div class="formulario__grupo-input">
-              <input id="email" class="form-input" type="email" name="email" placeholder="cosmefulanito@mail.com" required>
-              <img src="assets/error.svg" class="formulario__validacion-estado"></img>
+            <label for="email" class="formulario__label">Mail:</label>           
+            <input id="email" class="form-input" type="email" name="mail" placeholder="lacopiadora44@gmail.com" required minlength="3">
+            <div>
+              <p class="mensaje-error">
+                Wachi el mail debe tener formato mail
+              </p>
             </div>
-          </div>
 
-          
-          <div class="form__group" id="grupo__wp">
-            <label for="whatsApp">WhatsApp:</label>
-            <div class="formulario__grupo-input">
-              <input id="whatsApp" class="form-input" type="number" name="whatsApp" placeholder="2216601934" required>
-              <img src="assets/error.svg" class="formulario__validacion-estado"></img>
+            <label for="password" class="formulario__label">Contraseña:</label>           
+            <input id="password" class="form-input" type="password" name="password" placeholder="Micontraseña1" required minlength="3">
+            <div>
+              <p class="mensaje-error">
+                La contraseña debe tener una mayúscula y un número
+              </p>
             </div>
-          </div>
 
-          <div class="form__group" id="grupo__birthdate">
-            <label for="birthdate">Fecha de nacimiento:</label>
-            <div class="formulario__grupo-input">
-              <input id="birthdate" class="form-input" type="date" name="birthdate" title="¿cuándo naciste?" required>
-              <img src="assets/error.svg" class="formulario__validacion-estado"></img>
+            <div class="form__group" id="grupo__submit">
+              <input class="form-input" type="submit" value="Registrarse">
             </div>
-          </div>
-
-          <div class="form__group" id="grupo__contraseña">
-            <label for="contraseña">Contraseña:</label>
-            <div class="formulario__grupo-input">
-              <input id="contraseña" class="form-input" type="password" name="contraseña" placeholder="tu super contraseña secreta" required>
-              <img src="assets/error.svg" class="formulario__validacion-estado"></img>
-            </div>
-          </div>
-
-          <div class="form__group" id="grupo__submit">
-            <input class="form-input" type="submit" value="Registrarse">
-          </div>
 
         </form>
       </div>
