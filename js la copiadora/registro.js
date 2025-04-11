@@ -1,20 +1,32 @@
-const inputNombre = document.getElementById("nombre");
-const inputApellido = document.getElementById("apellido");
-const inputMail = document.getElementById("email");
-const inputPassword = document.getElementById("password");
-console.log(inputNombre,inputApellido,inputMail,inputPassword);
+const nombreField = document.getElementById("nombre");
+const apellidoField = document.getElementById("apellido");
+const mailField = document.getElementById("email");
+const passwordField = document.getElementById("password");
+console.log(nombreField);
 
-inputNombre.addEventListener("blur", function(e){
-    const nombreValue = e.target.value;
-    if (nombreValue.length === 0) {
-        console.log("pone el nombre")
+const validateEmptyField = (e) => {
+    const field = e.target;
+    const fieldValue = e.target.value;
+    if (fieldValue.length === 0) {
+        field.classList.add("invalid");
+        field.nextElementSibling.classList.add("error");
+        field.nextElementSibling.innerText = ' ${field.name} is required';
+        
+    } else{
+        field.classList.remove("invalid");
+        field.nextElementSibling.classList.remove("error");
+        field.nextElementSibling.innerText =""
     }
       
-})
+}
 
+nombreField.addEventListener("blur", validateEmptyField);
+apellidoField.addEventListener("blur", validateEmptyField);
+mailField.addEventListener("blur", validateEmptyField);
+passwordField.addEventListener("blur", validateEmptyField);
 
 const expresiones = {
-    nombre: /^[a-zA-ZÀ-ÿ]+(?:\s[a-zA-ZÀ-ÿ]+)*$/,
+    inputNombre: /^[a-zA-ZÀ-ÿ]+(?:\s[a-zA-ZÀ-ÿ]+)*$/,
 	lastname:  /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras, espacios y acentos
     email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 	contraseña: /^.{4,12}$/, // 4 a 12 digitos.

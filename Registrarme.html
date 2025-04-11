@@ -57,36 +57,33 @@
 
           <h2 class="h2-registro">Forumalario de registro</h2>
         
-            <label for="nombre" class="formulario__label">Nombre:</label>           
+          <label for="nombre" class="formulario__label">
+            <em>Nombre:</em>        
             <input id="nombre" class="form-input" type="text" name="nombre" placeholder="Cosme" required minlength="3">
-                       
-            <label for="apellido" class="formulario__label">Apellido:</label>           
+            <span></span>
+          </label>
+
+          <label for="apellido" class="formulario__label">
+            <em>Apellido:</em>           
             <input id="apellido" class="form-input" type="text" name="apellido" placeholder="Fulanito" required minlength="3">
-            <div>
-              <p class="mensaje-error">
-                El apellido debe tener un mínino de 3 letras.
-              </p>
-            </div>
+            <span></span>
+          </label>
 
-            <label for="email" class="formulario__label">Mail:</label>           
+          <label for="email" class="formulario__label">
+            <em>Mail:</em>          
             <input id="email" class="form-input" type="email" name="mail" placeholder="lacopiadora44@gmail.com" required minlength="3">
-            <div>
-              <p class="mensaje-error">
-                Wachi el mail debe tener formato mail
-              </p>
-            </div>
+            <span></span>
+          </label> 
 
-            <label for="password" class="formulario__label">Contraseña:</label>           
+          <label for="password" class="formulario__label">
+            <em>Contraseña:</em>          
             <input id="password" class="form-input" type="password" name="password" placeholder="Micontraseña1" required minlength="3">
-            <div>
-              <p class="mensaje-error">
-                La contraseña debe tener una mayúscula y un número
-              </p>
-            </div>
+            <span></span>
+          </label> 
 
-            <div class="form__group" id="grupo__submit">
-              <input class="form-input" type="submit" value="Registrarse">
-            </div>
+          <div class="form__group" id="grupo__submit">
+            <input class="form-input" type="submit" value="Registrarse">
+          </div>
 
         </form>
       </div>

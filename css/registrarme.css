@@ -36,10 +36,6 @@ label {
     display: block;
 }
 
-.formulario__grupo-input {
-	position: relative;
-}
-
 .form-input {
     border-radius: 7px;
     border: none;
@@ -50,7 +46,16 @@ label {
     width: 90%;
 }
 
-.form-input:hover {
-    box-shadow: 3px 5px 1px rgb(14, 13, 13);
-}
 
+.invalid{
+    border: solid 1px #b10505;
+    box-shadow: 0 0 10px #b10505;
+}
+.error{
+    font-family:sans-serif;
+    display: block;
+    font-size: 10px;
+    color: #b10505;
+    -webkit-text-stroke: 0;
+    text-shadow: 0px 0px 0 black;
+}
