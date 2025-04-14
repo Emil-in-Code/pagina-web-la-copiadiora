@@ -118,10 +118,17 @@ function calcularPrecio() {
         let esDobleFaz = document.getElementById("doble_faz").checked;
 
         if (esDobleFaz) {
-            calculoArchivo = Math.ceil(paginas / 2) * precioPorHoja; // Se usa Math.ceil() en lugar de sumar 1 manualmente
+            if (paginas % 2 !== 0) paginas += 1; // Si es impar, sumo 1
+            calculoArchivo = (paginas / 2) * precioPorHoja;
         } else {
             calculoArchivo = paginas * precioPorHoja;
         }
+
+        /*if (esDobleFaz) {
+            calculoArchivo = Math.ceil(paginas / 2) * precioPorHoja; // Se usa Math.ceil() en lugar de sumar 1 manualmente
+        } else {
+            calculoArchivo = paginas * precioPorHoja;
+        }*/
 
         let costoJuegos = (juegos - 1) * calculoArchivo;
         totalCalculo += calculoArchivo + costoJuegos;
