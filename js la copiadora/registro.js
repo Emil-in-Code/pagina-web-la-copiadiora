@@ -7,7 +7,7 @@ console.log(nombreField);
 const validateEmptyField = (message, e) => {
     const field = e.target;
     const fieldValue = e.target.value;
-    if (fieldValue.length === 0) {
+    if (fieldValue.trim().length === 0) {
         field.classList.add("invalid");
         field.nextElementSibling.classList.add("error");
         field.nextElementSibling.innerText = message;
