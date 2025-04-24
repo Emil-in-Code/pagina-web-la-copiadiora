@@ -169,7 +169,7 @@ function calcularDescuento() {
         descuento = subtotal * 0.1;
     } else {
         porcentajeDescuento = 0; 
-        total = subtotal;
+        total = total;
 
     }
 

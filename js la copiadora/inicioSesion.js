@@ -1,0 +1,1 @@
+const mailField = document.getElementById("email");
