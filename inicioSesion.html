@@ -1,94 +1,104 @@
 <!DOCTYPE html>
 <html lang="es-AR">
-  <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-   <title>Fotocopiadora</title>
-   <link rel="stylesheet" href="css/iniciosesion.css">
-   <link rel="stylesheet" href="css/global.css">
-   <meta name="description" content="Fotocopias rápidas y de alta calidad, con envíos a domicilio, atención por WhatsApp, y descuentos por cantidad.">
-   <meta name="keywords" content="fotocopias,anillados,impresiones,impresion,copias,apuntes,fotocopias baratas,escaneos">
-   <meta name="author" content="Emilio Flor">
-   <meta name="robots" content="index, follow">
-   <meta property="og:title" content="La Copiadora">
-   <meta property="og:description" content="Servicios de Fotocopiado de Alta Calidad">
-   <meta property="og:share_count" content="true">
- </head>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <title>Fotocopiadora</title>
+  <link rel="stylesheet" href="css/iniciosesion.css">
+  <link rel="stylesheet" href="css/global.css">
+  <meta name="description" content="Fotocopias rápidas y de alta calidad, con envíos a domicilio, atención por WhatsApp, y descuentos por cantidad.">
+  <meta name="keywords" content="fotocopias,anillados,impresiones,impresion,copias,apuntes,fotocopias baratas,escaneos">
+  <meta name="author" content="Emilio Flor">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="La Copiadora">
+  <meta property="og:description" content="Servicios de Fotocopiado de Alta Calidad">
+  <meta property="og:share_count" content="true">
+</head>
+<body class="body">
 
-  <body class="body">
+  <!-- SECCIÓN NAVBAR -->
+    
+  <header class="header__container">
+    
+    
+    <div class="logo__container--nav">
+      <a class="nav__logo" href="index.html">La Copiadora</a> <!-- Logo -->
+    </div>
+    
+    <input type="checkbox" class="header__checkbox" id="open-menu">
+    <label for="open-menu" class="header__open-nav-button" role="button">☰</label>
 
-    <!-- SECCIÓN NAVBAR -->
-      
-    <header class="header__container">
-      
-      
-      <div class="logo__container--nav">
-        <a class="nav__logo" href="index.html">La Copiadora</a> <!-- Logo -->
+    <nav class="nav" aria-label="Main Navigation">
+
+      <div class="header__nav">
+        <ul class="header__nav--list">
+          <li><a class="nav__item" href="laCopiadoraStore.html" target="_blank">Store</a></li>
+          <li><a class="nav__item" href="envios.html">Envíos</a></li>
+          <li><a class="nav__item" href="Precios.html">Precios</a></li>
+          <li><a class="nav__item" href="pedidos.html">Pedidos</a></li>
+          <li><a class="nav__item" href="/linksutiles.html">Links Útiles</a></li>
+          <li><a class="nav__item" href="Registrarme.html">Registrarme</a></li>
+          <li><a class="nav__item--button" href="inicioSesion.html">Log in</a></li>
+        </ul>
       </div>
       
-      <input type="checkbox" class="header__checkbox" id="open-menu">
-      <label for="open-menu" class="header__open-nav-button" role="button">☰</label>
+    </nav>
+    
+  </header>
 
-      <nav class="nav" aria-label="Main Navigation">
+  <main>
+    <div class="container">
+      <form action="" class="formulario" id="formulario">
 
-        <div class="header__nav">
-          <ul class="header__nav--list">
-            <li><a class="nav__item" href="laCopiadoraStore.html" target="_blank">Store</a></li>
-            <li><a class="nav__item" href="envios.html">Envíos</a></li>
-            <li><a class="nav__item" href="Precios.html">Precios</a></li>
-            <li><a class="nav__item" href="pedidos.html">Pedidos</a></li>
-            <li><a class="nav__item" href="/linksutiles.html">Links Útiles</a></li>
-            <li><a class="nav__item" href="Registrarme.html">Registrarme</a></li>
-            <li><a class="nav__item--button" href="inicioSesion.html">Log in</a></li>
-          </ul>
+        <h2 class="h2-incioSesion">Iniciá Sesión</h2>
+
+        <label for="email" class="formulario__label">
+          <em>Mail:</em>          
+          <input id="email" class="form-input" type="email" name="mail" placeholder="Tu mail" required minlength="3">
+          <span></span>
+        </label>
+
+        <label for="password" class="formulario__label">
+          <em>Contraseña:</em>          
+          <input id="password" class="form-input" type="password" name="password" placeholder="Tu super contraseña" required minlength="3">
+          <span></span>            
+        </label> 
+
+        <div class="form__group" id="grupo__submit">
+          <input class="form-input submit" type="submit" value="iniciar sesion">
         </div>
         
-      </nav>
-      
-    </header>
+      </form>
+    </div>
+  </main>
 
-    <main>
-      <div class="container">
-        <form>
-          <h2 class="h2-incioSesion">Iniciá Sesión</h2>
-
-          <label for="email">Correo:</label>
-          <input id="email" class="form-input" type="email" name="email" placeholder="Tu mail" required>
-
-          <label for="password">password:</label>
-          <input id="password" class="form-input" type="password" name="password" placeholder="Tu super contraseña secreta" required>
-
-          <input class="form-input submit" type="submit" value="iniciar sesion">
-        </form>
+  <footer class="footer__content ">
+    <div class="content--wrapper">
+      <!-- Logo -->
+      <div class="footer__logo--container">
+        <img src="/assets/Logo de la copiadora.png" alt="Logo de La Copiadora" class="logo-footer">
       </div>
-    </main>
 
-    <footer class="footer__content ">
-      <div class="content--wrapper">
-        <!-- Logo -->
-        <div class="footer__logo--container">
-          <img src="/assets/Logo de la copiadora.png" alt="Logo de La Copiadora" class="logo-footer">
-        </div>
-  
-        <!-- Dirección del negocio -->
-        <div class="title__footer--container">
-          <h3 class="title__footer">Dirección:</h3>
-          <p class="p__footer"> 44 e/ 4 y 5 n496 - La Plata</p>
-        </div>
-  
-        <!-- Contacto -->
-        <div class="title__footer--container">
-          <h3 class="title__footer">Contacto:</h3>
-          <ul class="contact__links">
-            <li class="links--item"><a href="https://wa.me/message/EOKHJIUZOJSKF1">WhatsApp </a></li>
-            <li class="links--item"><a href="https://instagram.com/lacopiadora44" target="_blank">Instagram</a></li>
-            <li class="links--item"><a href="https://facebook.com/lacopiadora44" target="_blank">Facebook</a></li>
-            <li class="links--item"><a href="https://lacopiadora44@gmail.com" target="_blank">Email</a></li>
-          </ul>
-        </div>
+      <!-- Dirección del negocio -->
+      <div class="title__footer--container">
+        <h3 class="title__footer">Dirección:</h3>
+        <p class="p__footer"> 44 e/ 4 y 5 n496 - La Plata</p>
       </div>
-    </footer>
-  </body>
+
+      <!-- Contacto -->
+      <div class="title__footer--container">
+        <h3 class="title__footer">Contacto:</h3>
+        <ul class="contact__links">
+          <li class="links--item"><a href="https://wa.me/message/EOKHJIUZOJSKF1">WhatsApp </a></li>
+          <li class="links--item"><a href="https://instagram.com/lacopiadora44" target="_blank">Instagram</a></li>
+          <li class="links--item"><a href="https://facebook.com/lacopiadora44" target="_blank">Facebook</a></li>
+          <li class="links--item"><a href="https://lacopiadora44@gmail.com" target="_blank">Email</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <script src="/js la copiadora/inicioSesion.js"></script>
+</body>
 </html>

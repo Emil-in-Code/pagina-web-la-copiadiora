@@ -12,7 +12,7 @@
 }
 
 form {
-    border-radius: 7px;
+    border-radius: 0px;
     max-width: 600px;
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -43,24 +43,29 @@ form {
     box-shadow: 3px 5px 1px rgb(14, 13, 13);
 }
 
-.form-input:invalid {
-  color: #fc0404;
-}
-
-.form-input:valid {
-    color: #1a9435;
-}
-
 label {
     font-family: KeepCalm;
     font-size: 1em;
     font-weight: 500;
     color: #fff;
-    -webkit-text-stroke: 1px black;
+    -webkit-text-stroke: 1px rgb(106, 106, 106);
     text-shadow: 1px 1px 0 black;
     display: block;
 }
 
 .form-input.submit {
     color: #000;
+}
+
+.invalid{
+    border: solid 1px #b10505;
+    box-shadow: 0 0 10px #b10505;
+}
+.error{
+    font-family:sans-serif;
+    display: block;
+    font-size: 10px;
+    color: #b10505;
+    -webkit-text-stroke: 0;
+    text-shadow: 0px 0px 0 black;
 }
