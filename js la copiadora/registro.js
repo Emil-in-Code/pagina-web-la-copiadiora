@@ -11,7 +11,6 @@ const expresiones = {
     contraseña: /^(?=.*[A-Z])(?=.*\d).{4,12}$/, // entre 4 y 12 caracteres, al menos 1 mayúscula y 1 número
 };
 
-
 const setupSingleValidation = (input, regex, mensajeError) => {
     input.addEventListener("blur", () => {
         const value = input.value.trim();

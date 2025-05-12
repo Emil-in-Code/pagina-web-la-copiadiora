@@ -8,16 +8,16 @@ app.use(express.json());
 
 // Ruta para registro
 app.post('/registro', (req, res) => {
-  const { nombre, email, contraseña } = req.body;
-  console.log('Registro recibido:', { nombre, email, contraseña });
+  const { nombre,apellido, email, password } = req.body;
+  console.log('Registro recibido:', { nombre,apellido, email, password });
   res.json({ mensaje: 'Registro exitoso' });
 });
 
 // Ruta para login
-app.post('/login', (req, res) => {
-  const { email, contraseña } = req.body;
-  console.log('Login recibido:', { email, contraseña });
-  res.json({ mensaje: 'Login exitoso' });
+app.post('/inicioSesion', (req, res) => {
+  const { email, password } = req.body;
+  console.log('Inicio de sesión recibido:', { email, password });
+  res.json({ mensaje: 'Inicio de sesión exitoso' });
 });
 
 // Ruta para pedidos
