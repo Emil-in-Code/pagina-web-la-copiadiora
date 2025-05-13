@@ -65,11 +65,40 @@ form.addEventListener("submit", (e) => {
         passwordField.nextElementSibling.innerText = "La contraseña debe tener una MAYUS y un Número";
     }
 
-    if (validNombre && validApellido && validEmail && validPassword) {
+    /*if (validNombre && validApellido && validEmail && validPassword) {
         alert("Formulario enviado con éxito ✅");
         form.submit(); // o fetch/AJAX si estás haciendo algo más dinámico
     } else {
         alert("Revisá los campos marcados en rojo ❌");
+    }*/
+     
+    if (validNombre && validApellido && validEmail && validPassword) {
+        // Enviar datos al backend con fetch
+        fetch("http://localhost:3000/registro", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                nombre: nombreField.value.trim(),
+                apellido: apellidoField.value.trim(),
+                email: mailField.value.trim(),
+                password: passwordField.value.trim()
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            alert("✅ " + data.mensaje);
+            console.log("📦 Respuesta del servidor:", data);
+            form.reset(); // Limpiar formulario si querés
+        })
+        .catch(err => {
+            console.error("❌ Error al enviar los datos:", err);
+            alert("Hubo un error al registrar el usuario");
+        });
+    } else {
+        alert("Revisá los campos marcados en rojo ❌");
     }
+     
 });
 
