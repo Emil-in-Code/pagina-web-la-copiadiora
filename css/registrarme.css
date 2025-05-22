@@ -1,11 +1,9 @@
-
 main{
     padding: 40px;
 }
 
 .container {
     border-radius: 7px;
-    /*box-shadow: 0px 0px 10px rgba(255, 206, 6, 1);*/
     border: 1px solid rgba(255, 206, 6, 1);
     width: 350px;
     margin: auto;
@@ -32,7 +30,7 @@ label {
     font-size: 1em;
     font-weight: 500;
     color: #fff;
-    -webkit-text-stroke: 1px black;
+    -webkit-text-stroke: 1px rgb(106, 106, 106);
     text-shadow: 1px 1px 0 black;
     display: block;
 }
@@ -47,10 +45,18 @@ label {
     width: 90%;
 }
 
-.form-input:hover {
-    box-shadow: 3px 5px 1px rgb(14, 13, 13);
+.invalid{
+    border: solid 1px #b10505;
+    box-shadow: 0 0 10px #b10505;
+}
+.error{
+    font-family:sans-serif;
+    display: block;
+    font-size: 10px;
+    color: #b10505;
+    -webkit-text-stroke: 0;
+    text-shadow: 0px 0px 0 black;
 }
 
-.form__group-correcto .formulario__validacion-estado {
 
-}
+  
