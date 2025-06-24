@@ -74,7 +74,7 @@ form.addEventListener("submit", (e) => {
      
     if (validNombre && validApellido && validEmail && validPassword) {
         // Enviar datos al backend con fetch
-        fetch("http://localhost:3000/registro", {
+        fetch("http://localhost:3000/api/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
