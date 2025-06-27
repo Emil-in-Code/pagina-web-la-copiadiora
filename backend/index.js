@@ -10,11 +10,11 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname,'..')));
 
 // Rutas
-//const loginRoute = require('./routes/login');
+const loginRoute = require('./routes/login');
 const registerRoute = require('./routes/register');
 //const pedidosRoute = require('./routes/pedidos');
 
-//app.use('/api/login',loginRoute);
+app.use('/api/login',loginRoute);
 app.use('/api/register',registerRoute);
 //app.use('/api/pedidos',pedidosRoute);
 

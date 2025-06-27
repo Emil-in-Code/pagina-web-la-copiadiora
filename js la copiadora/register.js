@@ -3,6 +3,16 @@ const nombreField = document.getElementById("nombre");
 const apellidoField = document.getElementById("apellido");
 const mailField = document.getElementById("email");
 const passwordField = document.getElementById("password");
+const mensajeBox = document.getElementById("mensaje");
+
+const mostrarMensaje = (texto, tipo) => {
+  mensajeBox.innerText = texto;
+  mensajeBox.className = "mensaje-estado" + tipo;
+  mensajeBox.style.display = "block";
+  setTimeout(() => {
+    mensajeBox.style.display ="none";
+  }, 4000);
+}
 
 const expresiones = {
     inputNombre: /^[a-zA-ZÀ-ÿ]+(?:\s[a-zA-ZÀ-ÿ]+)*$/,
@@ -88,16 +98,16 @@ form.addEventListener("submit", (e) => {
         })
         .then(res => res.json())
         .then(data => {
-            alert("✅ " + data.mensaje);
+            mostrarMensaje("✅ " + data.mensaje, "exito");
             console.log("📦 Respuesta del servidor:", data);
             form.reset(); // Limpiar formulario si querés
         })
         .catch(err => {
             console.error("❌ Error al enviar los datos:", err);
-            alert("Hubo un error al registrar el usuario");
+            mostrarMensaje("❌ Hubo un error al registrarte");
         });
     } else {
-        alert("Revisá los campos marcados en rojo ❌");
+        mostrarMensaje("Revisá los campos marcados en rojo ❌");
     }
      
 });

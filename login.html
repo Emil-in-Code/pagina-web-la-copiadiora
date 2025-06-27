@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
   <title>Fotocopiadora</title>
-  <link rel="stylesheet" href="css/iniciosesion.css">
+  <link rel="stylesheet" href="css/login.css">
   <link rel="stylesheet" href="css/global.css">
   <meta name="description" content="Fotocopias rápidas y de alta calidad, con envíos a domicilio, atención por WhatsApp, y descuentos por cantidad.">
   <meta name="keywords" content="fotocopias,anillados,impresiones,impresion,copias,apuntes,fotocopias baratas,escaneos">
@@ -39,8 +39,8 @@
           <li><a class="nav__item" href="Precios.html">Precios</a></li>
           <li><a class="nav__item" href="pedidos.html">Pedidos</a></li>
           <li><a class="nav__item" href="/linksutiles.html">Links Útiles</a></li>
-          <li><a class="nav__item" href="Registrarme.html">Registrarme</a></li>
-          <li><a class="nav__item--button" href="inicioSesion.html">Log in</a></li>
+          <li><a class="nav__item" href="Register.html">Registrarme</a></li>
+          <li><a class="nav__item--button" href="login.html">Log in</a></li>
         </ul>
       </div>
       
@@ -50,24 +50,25 @@
 
   <main>
     <div class="container">
-      <form action="" class="formulario" id="formulario">
+      <form action="" class="formulario" id="formLogin">
 
         <h2 class="h2-incioSesion">Iniciá Sesión</h2>
 
         <label for="email" class="formulario__label">
           <em>Mail:</em>          
-          <input id="email" class="form-input" type="email" name="mail" placeholder="Tu mail" required minlength="3">
+          <input id="emailLogin" class="form-input" type="email" name="mail" placeholder="Tu mail" required minlength="3">
           <span></span>
         </label>
 
         <label for="password" class="formulario__label">
           <em>Contraseña:</em>          
-          <input id="password" class="form-input" type="password" name="password" placeholder="Tu super contraseña" required minlength="3">
+          <input id="passwordLogin" class="form-input" type="password" name="password" placeholder="Tu super contraseña" required minlength="3">
           <span></span>            
         </label> 
 
         <div class="form__group" id="grupo__submit">
           <input class="form-input submit" type="submit" value="iniciar sesion">
+          <div id="mensajeLogin" class="mensaje-estado"></div>
         </div>
         
       </form>
@@ -99,6 +100,6 @@
       </div>
     </div>
   </footer>
-  <script src="/js la copiadora/inicioSesion.js"></script>
+  <script src="/js la copiadora/login.js"></script>
 </body>
 </html>
