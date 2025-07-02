@@ -214,10 +214,11 @@
 }
 
 .h3agendas {
-    color: rgba(255, 206, 6, 1);
-    margin: 0;
-    padding: 0;
-    background-color: black;
+  color: rgba(255, 206, 6, 1);
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  font-family: Baron Neue; 
 }
 
 .container-agenda > img > .h3agendas{
