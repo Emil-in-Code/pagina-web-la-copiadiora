@@ -1,3 +1,5 @@
+//navbar global
+
 fetch('/components/navbar.html')
   .then(res => res.text())
   .then(html => {
@@ -21,4 +23,19 @@ fetch('/components/navbar.html')
           span.textContent = `👤 ${usuario.nombre} ${usuario.apellido}`;
       }
     }
+
+    if (usuarioGuardado) {
+      const registerLink = document.querySelector('a[href="Register.html"]');
+      const loginLink = document.querySelector('a[href="login.html"]');
+      if (registerLink) registerLink.closest('li').style.display = 'none';
+      if (loginLink) loginLink.closest('li').style.display = 'none';
+    }
+  });
+
+//footer global
+
+fetch('/components/footer.html')
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById('footer').innerHTML = html;
   });

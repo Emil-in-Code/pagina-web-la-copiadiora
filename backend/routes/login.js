@@ -1,35 +1,40 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const router = express.Router();
-
-// 🔐 Lista simulada de usuarios ya registrados
-const usuarios = [
-  {
-    email: 'juan@example.com',
-    password: '$2b$10$CLiFzR8l4sKZlg8BLzGuUeKoUXCmBoRdrFKchqFohRf1WDPTUVyq2', // hash de 'Hola123'
-  },
-  {
-    email: 'laura@correo.com',
-    password: '$2b$10$dpjB/XzQOJ6cE7lh2uw8BeSz7D1CJuyMI2Nkj7A.8HzYHZm6Eda56', // hash de 'ClaveSegura1'
-  }
-];
+const db = require('../db');
 
 router.post('/', async (req, res) => {
   const { email, password } = req.body;
 
-  const usuario = usuarios.find(u => u.email === email);
+  // Buscar al usuario en la base de datos
+  db.get('SELECT * FROM clientes WHERE email = ?', [email], async (err, row) => {
+    if (err) {
+      console.error('❌ Error al buscar usuario en DB:', err.message);
+      return res.status(500).json({ error: 'Error en el servidor' });
+    }
 
-  if (!usuario) {
-    return res.status(400).json({ error: 'Usuario no encontrado' });
-  }
+    if (!row) {
+      return res.status(401).json({ error: 'Usuario no encontrado' });
+    }
 
-  const coincide = await bcrypt.compare(password, usuario.password);
+    // Verificar contraseña
+    const coincide = await bcrypt.compare(password, row.password);
 
-  if (!coincide) {
-    return res.status(401).json({ error: 'Contraseña incorrecta' });
-  }
+    if (!coincide) {
+      return res.status(401).json({ error: 'Contraseña incorrecta' });
+    }
 
-  res.json({ mensaje: 'Login exitoso 💥' });
+    // Login exitoso: responder con datos del usuario
+    const usuario = {
+      id: row.id_usuario,
+      nombre: row.nombre,
+      apellido: row.apellido,
+      email: row.email
+    };
+
+    console.log('✅ Login exitoso de:', usuario.email);
+    res.status(200).json({ mensaje: 'Login exitoso', usuario });
+  });
 });
 
 module.exports = router;

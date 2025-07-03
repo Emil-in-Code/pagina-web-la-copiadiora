@@ -74,7 +74,9 @@ formLogin.addEventListener("submit", (e) => {
       if (data.mensaje) {
         mostrarMensaje("✅ " + data.mensaje, "exito");
         console.log("✔️ Login OK:", data);
-        formLogin.reset();
+        localStorage.setItem("usuario", JSON.stringify(data.usuario));
+
+        window.location.href = "/pedidos.html"
       } else {
         mostrarMensaje("❌ " + data.error, "error");
         console.warn("⚠️ Error login:", data);
