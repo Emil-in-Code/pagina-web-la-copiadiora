@@ -18,18 +18,40 @@ fetch('/components/navbar.html')
     const usuarioGuardado = localStorage.getItem('usuario');
     if (usuarioGuardado) {
       const usuario = JSON.parse(usuarioGuardado);
-      const span = document.getElementById('usuario-navbar');
-      if (span) {
-          span.textContent = `👤 ${usuario.nombre} ${usuario.apellido}`;
+
+      const liUsuario = document.getElementById('usuario-navbar');
+      const spanNombre = document.getElementById('nombre-usuario');
+      const dropdown = document.getElementById('dropdown-menu');
+      const logoutLink = document.getElementById('logout-link');
+
+      if (liUsuario && spanNombre && dropdown && logoutLink) {
+        liUsuario.classList.remove('oculto');
+        spanNombre.textContent = `👤 ${usuario.nombre}`;
+
+        //toggle del dropdown
+        spanNombre.addEventListener('click',() => {
+          dropdown.classList.toggle('oculto');
+        });
+
+        //cierre de sesión 
+        logoutLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          localStorage.removeItem('usuario');
+          window.location.href = 'login.html';
+        });
+
+        //ocultar links
+
+        const registerLink = document.querySelector('a[href="Register.html"]');
+        const loginLink = document.querySelector('a[href="login.html"]');
+        if (registerLink) registerLink.closest('li').classList.add('oculto');
+        if (loginLink) loginLink.closest('li').classList.add('oculto');
+        
+
       }
     }
-
-    if (usuarioGuardado) {
-      const registerLink = document.querySelector('a[href="Register.html"]');
-      const loginLink = document.querySelector('a[href="login.html"]');
-      if (registerLink) registerLink.closest('li').style.display = 'none';
-      if (loginLink) loginLink.closest('li').style.display = 'none';
-    }
+      
+   
   });
 
 //footer global

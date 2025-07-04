@@ -130,6 +130,35 @@ h4 {
     margin: auto;
 }
 
+#logout-link{
+font-family: keepCalm;
+  color: #fff;
+  -webkit-text-stroke: 1px black;
+  text-shadow: 1px 1px 0 black;
+  font-size: 18px;
+}
+
+.oculto {
+display: none !important
+}
+
+.dropdown-menu {
+  background-color:transparent;
+  left: 0;
+  list-style: none;
+  padding: 0px;
+}
+
+.dropdown-menu li {
+  padding: 10px;
+  text-align: left;
+}
+
+.dropdown-menu li a {
+  text-decoration: none;
+  color: black;
+  font-family: KeepCalm;
+}
 
 .header__nav--list {
     padding: 0;
@@ -148,7 +177,8 @@ h4 {
     text-shadow: 1px 1px 0 black;
     font-size: 18px;
 }
-  
+
+
 .header__checkbox:checked ~ .nav {
     display: flex;
 }

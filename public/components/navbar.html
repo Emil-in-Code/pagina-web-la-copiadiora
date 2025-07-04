@@ -18,8 +18,14 @@
           <li><a class="nav__item" href="pedidos.html">Pedidos</a></li>
           <li><a class="nav__item" href="linksutiles.html">Links Útiles</a></li>
           <li><a class="nav__item" href="Register.html">Registrarme</a></li>
-          <li><a class="nav__item--button" href="login.html">Log in</a></li>
-          <li id ="usuario-navbar" class="nav__item usuario-navbar"></li>
+          <li><a class="nav__item nav__item--button" href="login.html">Log-in</a></li>
+          <li id="usuario-navbar" class="nav__item usuario-navbar oculto" style="position: relative;">
+            <span id="nombre-usuario">👤</span>
+            <ul id="dropdown-menu" class="dropdown-menu oculto">
+              <li><a href="#" id="logout-link">Cerrar sesión</a></li>
+            </ul>
+          </li>
+
         </ul>
       </div>
       
