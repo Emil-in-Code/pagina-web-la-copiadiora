@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import workerSrc from './pdf-worker';
-
+import styles from './PedidoCard.module.css';
 pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
 
 const precioPorHoja = 130;
@@ -74,26 +74,12 @@ export default function PedidoCard({ archivo, onRemove, onSubtotalChange }) {
   };
 
   return ( 
-    <div style={{
-      border: '1px solid #ddd',
-      padding: '1rem',
-      borderRadius: '10px',
-      width: '240px',
-      boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-      backgroundColor: '#ffce'
-    }}>
+    <div className= {styles.card}>
       {/* Botón de eliminar */}
-      <div style={{ textAlign: 'right', marginBottom: '0.5rem', color:'#000' }}>
+      <div className= {styles.removeContainer}>
         <button 
-          onClick={handleRemove}
-          style={{
-            background: 'none',
-            border: 'none',
-            fontSize: '18px',
-            cursor: 'pointer',
-            color: '#000',
-            padding: '0'
-          }}
+          onClick={handleRemove} 
+          className={styles.removebtn}
           title="Eliminar archivo"
         >
           ✕
@@ -101,14 +87,9 @@ export default function PedidoCard({ archivo, onRemove, onSubtotalChange }) {
       </div>
 
       {/* Preview del PDF */}
-      <div style={{ 
-        maxHeight: '120px', 
-        overflow: 'hidden', 
-        borderRadius: '7px',
-        marginBottom: '1rem'
-      }}>
+      <div className= {styles.previewPdf}>
         <Document file={url} onLoadSuccess={handleLoadSuccess}>
-          <Page pageNumber={1} width={200} />
+          <Page pageNumber={1} width={260} />
         </Document>
       </div>
 
