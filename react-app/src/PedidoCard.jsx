@@ -94,7 +94,7 @@ export default function PedidoCard({ archivo, onRemove, onSubtotalChange }) {
       </div>
 
       {/* Información del archivo */}
-      <div style={{ marginBottom: '1rem' }}>
+      <div clas={{ marginBottom: '1rem' }}>
         <h4 style={{ 
           margin: '0 0 0.5rem 0', 
           fontSize: '14px',
@@ -102,27 +102,24 @@ export default function PedidoCard({ archivo, onRemove, onSubtotalChange }) {
           color:'#000'
         }}>
           {archivo.name.length > 20 ? archivo.name.slice(0, 20) + '...' : archivo.name}
-        </h4>
-        <p style={{ margin: '0', fontSize: '12px', color: '#000' }}>
-          {formatFileSize(archivo.size)} • {numPages} páginas
+        </h4> <p style={{ margin: '0', fontSize: '12px', color: '#000' }}> {formatFileSize(archivo.size)} • {numPages} páginas
         </p>
       </div>
 
       {/* Controles */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem',color: '#000' }}>
-        <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '14px' }}>
-          Juegos:
+      <div className={styles.controlers}>
+        <label className={styles.label}>
+          Juegos: 
           <input 
             type="number"
             min="1"
             max="100"
             value={juegos}
             onChange={(e) => setJuegos(Math.max(1, parseInt(e.target.value) || 1))}
-            style={{ width: '60px', padding: '0.25rem' }}
           />
-        </label>  
+        </label>
 
-        <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '14px' }}>
+        <label className={styles.label}>
           Anillados:
           <input
             type="number"
@@ -130,17 +127,17 @@ export default function PedidoCard({ archivo, onRemove, onSubtotalChange }) {
             max="100"
             value={anillados}
             onChange={(e) => setAnillados(Math.max(0, parseInt(e.target.value) || 0))}
-            style={{ width: '60px', padding: '0.25rem' }}
           /> 
         </label>
 
-        <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '14px' }}>
+        <label className={styles.label}>
+          Doble Faz
           <input
             type="checkbox"
             checked={dobleFaz}
             onChange={() => setDobleFaz(prev => !prev)}
           />
-          Doble faz
+         
         </label>  
       </div>
 
