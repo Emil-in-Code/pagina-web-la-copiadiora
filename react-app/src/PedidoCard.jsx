@@ -107,7 +107,7 @@ export default function PedidoCard({ archivo, onRemove, onSubtotalChange }) {
       </div>
 
       {/* Controles */}
-      <div className={styles.controlers}>
+      <div className={styles.containerControlers}>
         <label className={styles.label}>
           Juegos: 
           <input 
@@ -116,6 +116,7 @@ export default function PedidoCard({ archivo, onRemove, onSubtotalChange }) {
             max="100"
             value={juegos}
             onChange={(e) => setJuegos(Math.max(1, parseInt(e.target.value) || 1))}
+            className={styles.inputNumero}
           />
         </label>
 
@@ -127,18 +128,23 @@ export default function PedidoCard({ archivo, onRemove, onSubtotalChange }) {
             max="100"
             value={anillados}
             onChange={(e) => setAnillados(Math.max(0, parseInt(e.target.value) || 0))}
+            className={styles.inputNumero}
           /> 
         </label>
 
-        <label className={styles.label}>
-          Doble Faz
-          <input
+         
+        <div className={styles.switchToggle}>
+          Doble faz
+          <input 
             type="checkbox"
+            id={`switch-${archivo.name}`} // ID único por archivo
             checked={dobleFaz}
             onChange={() => setDobleFaz(prev => !prev)}
+            className={styles.switchCheckbox}
           />
-         
-        </label>  
+          <label htmlFor={`switch-${archivo.name}`} className={styles.switchLabel}></label>
+        </div>
+   
       </div>
 
       {/* Subtotal */}

@@ -1,4 +1,4 @@
-.card { 
+.card {
   border: 1px solid #ffce06;
   padding: 1rem;
   padding-top:1px;
@@ -33,28 +33,104 @@
 {/*Controles*/}
 
 .label{  
-  font-size: 1em;
+  font-size: 1.3em;
   text-align: center;
-  color: #000;
+  color: #f0ece3;
+  -webkit-text-stroke: 0.4px #000;
   margin-top: 1px;
   margin-bottom: 1px;
   margin-right: 5px; 
-  width: 60px;
+  width: 30px;
   padding: 0.25rem;
+  font-family: KeepCalm;
 }
 
-.controlers{
+.containerControlers{
   width: 200px;
   display: flex;
   flex-direction: column;
   padding: 20px 15px;
   border-radius: 7px;
-  box-shadow: 
-          10px 10px 10px rgba(0, 0, 0, .2),
-          inset 1px 2px 5px rgba(255, 206, 6, 1),
-          inset 5px 2px 2px rgba(0, 0, 0, .2);
   align-items: start;
-  margin: 5px;
+  gap:5px;
 }
 
+.inputNumero {
+  width: 150px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 10px 15px;
+  border-radius: 7px;
+  box-shadow: -2px 5px 5px #1e1e1e,
+    1px 1px 10px rgba(30, 30, 30, 1),
+    inset 1px 2px 5px rgba(30, 30, 30, 1);
+
+  margin-top:5px;
+  background: #f3ebdf;
+  color: #000;
+  font-size:17px;
+}
+
+
+.switchToggle {
+  height: 40px;
+  position: relative;
+  padding: 0 30px 0 10px;
+  color: ffce06;
+}
+
+.switchCheckbox {
+  position: absolute;
+  opacity: 0;
+  z-index: -2;
+}
+
+.switchLabel {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 40px;
+  border-radius: 7px;
+  margin: 0;
+  cursor: pointer;
+  box-shadow: inset -1px -1px 5px rgba(255, 206, 6, 0.7),
+              inset 2px 2px 5px rgba(254, 239, 180, 0.7);
+  background:#1e1e1e;
+}
+
+/* Before */
+.switchLabel::before {
+  position: absolute;
+  content: 'NO';
+  font-family: KeepCalm;
+  color: rgba(255, 206, 6, 1);
+ -webkit-text-stroke: 0.1px black;
+  text-shadow: 1px 1px 0 black;
+  font-size: 18px;
+  text-align: center;
+  line-height: 30px;
+  top: 8px;
+  left: 8px;
+  width: 45px;
+  height: 25px;
+  border-radius: 7px;
+  background:none;
+  box-shadow: -3px -3px 5px #f0ece3,
+              3px 3px 5px rgba(0, 0, 0, 0.5);
+  transition: .5s ease-in-out;
+}
+
+/* Checked */
+.switchCheckbox:checked + .switchLabel::before {
+  left: 50%;
+  content: 'SI';
+  color: rgba(0, 0, 0, 1);
+  background-color: rgba(255, 206, 6, 1);
+  box-shadow: -1px -1px 1px rgb(0, 0, 0),
+              2px 2px 5px rgba(255, 206, 6, 1);
+}
 
