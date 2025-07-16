@@ -4,53 +4,53 @@ import workerSrc from './pdf-worker';
 import styles from './PedidoCard.module.css';
 pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
 
-const precioPorHoja = 130;
-const precioAnillado = 3000;
+const pricePerPage = 130;
+const bindingPrice = 3000;
 
-export default function PedidoCard({ archivo, onRemove, onSubtotalChange }) {
+export default function PedidoCard({ file, onRemove, onSubtotalChange }) {
   const [numPages, setNumPages] = useState(0);
-  const [juegos, setJuegos] = useState(1);
-  const [anillados, setAnillados] = useState(0);
+  const [copies, setCopies] = useState(1);
+  const [bindings, setBindings] = useState(0);
   const [subtotal, setSubtotal] = useState(0);
-  const [dobleFaz, setDobleFaz] = useState(false);
-  const [url, setUrl] = useState('');
+  const [doubleSided, setDoubleSided] = useState(false);
+  const [fileUrl, setFileUrl] = useState('');
 
   
   useEffect(() => {
-    setUrl(URL.createObjectURL(archivo));
-  }, [archivo]);
+    setFileUrl(URL.createObjectURL(file));
+  }, [file]);
 
   useEffect(() => {
-    calcularPrecio();
-  }, [numPages, juegos, anillados, dobleFaz]);
+    calculateSubtotal();
+  }, [numPages, copies, bindings, doubleSided]);
 
   // Notificar cambios de subtotal al componente padre
   useEffect(() => {
     if (onSubtotalChange) {
       onSubtotalChange(subtotal);
     }
-  }, [subtotal, onSubtotalChange]);
+  }, [subtotal]);
 
-  const calcularPrecio = () => {
+  const calculateSubtotal = () => {
     if (!numPages) return;
 
-    let costoPorArchivo;
+    let baseCost;
 
-    if (dobleFaz) {
+    if (doubleSided) {
       if (numPages === 1) {
-        costoPorArchivo = precioPorHoja;
+        baseCost = pricePerPage;
       } else if (numPages % 2 === 0) {
-        costoPorArchivo = (numPages / 2) * precioPorHoja;
+        baseCost = (numPages / 2) * pricePerPage;
       } else {
-        costoPorArchivo = ((numPages + 1) / 2) * precioPorHoja;
+        baseCost = ((numPages + 1) / 2) * pricePerPage;
       }
     } else {
-      costoPorArchivo = numPages * precioPorHoja;
+      baseCost = numPages * pricePerPage;
     }
     
-    const costoJuegosExtra = (juegos - 1) * costoPorArchivo;
-    const costoAnillado = anillados * precioAnillado;
-    const total = costoPorArchivo + costoJuegosExtra + costoAnillado;
+    const extraCopiesCost = (copies - 1) * baseCost;
+    const totalBindingCost = bindings * bindingPrice;
+    const total = baseCost + extraCopiesCost + totalBindingCost;
 
     setSubtotal(total);
   };
@@ -88,21 +88,23 @@ export default function PedidoCard({ archivo, onRemove, onSubtotalChange }) {
 
       {/* Preview del PDF */}
       <div className= {styles.previewPdf}>
-        <Document file={url} onLoadSuccess={handleLoadSuccess}>
+        <Document file={fileUrl} onLoadSuccess={handleLoadSuccess}>
           <Page pageNumber={1} width={260} />
         </Document>
       </div>
 
       {/* Información del archivo */}
-      <div clas={{ marginBottom: '1rem' }}>
+      <div className="file-info" style = {{ marginBottom: '1rem' }}>
         <h4 style={{ 
           margin: '0 0 0.5rem 0', 
           fontSize: '14px',
           fontWeight: 'bold',
           color:'#000'
         }}>
-          {archivo.name.length > 20 ? archivo.name.slice(0, 20) + '...' : archivo.name}
-        </h4> <p style={{ margin: '0', fontSize: '12px', color: '#000' }}> {formatFileSize(archivo.size)} • {numPages} páginas
+          {file.name.length > 20 ? file.name.slice(0, 20) + '...' : file.name}
+        </h4>
+        <p style={{ margin: '0', fontSize: '12px', color: '#000' }}>
+          {formatFileSize(file.size)} • {numPages} pages
         </p>
       </div>
 
@@ -114,8 +116,8 @@ export default function PedidoCard({ archivo, onRemove, onSubtotalChange }) {
             type="number"
             min="1"
             max="100"
-            value={juegos}
-            onChange={(e) => setJuegos(Math.max(1, parseInt(e.target.value) || 1))}
+            value={copies}
+            onChange={(e) => setCopies(Math.max(1, parseInt(e.target.value) || 1))}
             className={styles.inputNumero}
           />
         </label>
@@ -126,8 +128,8 @@ export default function PedidoCard({ archivo, onRemove, onSubtotalChange }) {
             type="number"
             min="0"
             max="100"
-            value={anillados}
-            onChange={(e) => setAnillados(Math.max(0, parseInt(e.target.value) || 0))}
+            value={bindings}
+            onChange={(e) => setBindings(Math.max(0, parseInt(e.target.value) || 0))}
             className={styles.inputNumero}
           /> 
         </label>
@@ -137,26 +139,23 @@ export default function PedidoCard({ archivo, onRemove, onSubtotalChange }) {
           Doble faz
           <input 
             type="checkbox"
-            id={`switch-${archivo.name}`} // ID único por archivo
-            checked={dobleFaz}
-            onChange={() => setDobleFaz(prev => !prev)}
+            id={`switch-${file.name}`} // ID único por archivo
+            checked={doubleSided}
+            onChange={() => setDoubleSided(prev => !prev)}
             className={styles.switchCheckbox}
           />
-          <label htmlFor={`switch-${archivo.name}`} className={styles.switchLabel}></label>
+          <label htmlFor={`switch-${file.name}`} className={styles.switchLabel}></label>
         </div>
    
       </div>
 
       {/* Subtotal */}
-      <div style={{ 
-        marginTop: '1rem', 
-        padding: '0.75rem',
-        backgroundColor: '#f8f9fa',
-        borderRadius: '5px',
-        textAlign: 'center'
-      }}>
-        <p style={{ margin: '0', fontSize: '16px', fontWeight: 'bold', color: '#000' }}>
-          Subtotal: ${subtotal.toLocaleString('es-AR')}
+      <div className= {styles.subtotal}>
+        <p className= {styles.subtotalLabel}>
+          Subtotal:
+        </p>
+        <p className= {styles.subtotalCash}>
+          ${subtotal.toLocaleString('es-AR')}
         </p>
       </div>
     </div>

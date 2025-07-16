@@ -1,0 +1,54 @@
+
+.fileInputHidden{
+  position: absolute;
+  opacity:0;
+  width:0;
+  height:0;
+  pointer-events: none;
+}
+
+.uploadBtn{
+  display: inline-block;
+  padding: 2px 10px;
+  background: linear-gradient(to bottom, #B19005 40%, #E5C53F 60%, #ffce06 100%);
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'KeepCalm';
+}
+
+.cardsContainer{
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.totalContainer{
+  display: flex;
+  align-items: baseline;
+  padding: 0.5rem;
+  border: 2px solid #000;
+  border-radius: 7px;
+  width:fit-content;
+  background: #ffc;
+  position: fixed;
+  top: 2rem;
+  right: 1rem;
+}
+
+.totalLabel{
+  color: #000;
+}
+
+.totalCashLabel{
+  font-family: KeepCalm;
+  color:#37971c;
+  font-weight: bold;
+  font-size: 18px;
+  text-shadow: 1.5px 1px 1px #000;
+  margin: 0 2px 0 2px;
+}

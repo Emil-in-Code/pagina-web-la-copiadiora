@@ -3,9 +3,9 @@
   padding: 1rem;
   padding-top:1px;
   border-radius: 10px;
-  width: 240px;
+  width: fit-content;;
   box-shadow: 0 2px 4px rgba(255,255,266,1);
-  background: linear-gradient(to top right, #B19005 0%, #E5C53F 50%, #ffce06 100%); 
+  background: linear-gradient(to bottom, #B19005 40%, #E5C53F 60%, #ffce06 100%);
 }
 
 .removeContainer{
@@ -33,54 +33,54 @@
 {/*Controles*/}
 
 .label{  
-  font-size: 1.3em;
+  font-size: 0.7em;
   text-align: center;
-  color: #f0ece3;
-  -webkit-text-stroke: 0.4px #000;
   margin-top: 1px;
   margin-bottom: 1px;
   margin-right: 5px; 
   width: 30px;
-  padding: 0.25rem;
+  padding: 0;
   font-family: KeepCalm;
+  color: #000;
 }
 
 .containerControlers{
-  width: 200px;
+  width: 230px;
+  height: 230px;
   display: flex;
-  flex-direction: column;
-  padding: 20px 15px;
+  flex-direction:column;
+  padding: 1px 5px;
   border-radius: 7px;
-  align-items: start;
-  gap:5px;
+  justify-content: start;
+  margin-top:7px;
 }
 
 .inputNumero {
-  width: 150px;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-  padding: 10px 15px;
+  width: 5.5rem; 
+  padding: 7px 5px 1px 8px; 
   border-radius: 7px;
   box-shadow: -2px 5px 5px #1e1e1e,
     1px 1px 10px rgba(30, 30, 30, 1),
     inset 1px 2px 5px rgba(30, 30, 30, 1);
 
   margin-top:5px;
-  background: #f3ebdf;
+  margin-bottom:10px;
+  background: #e1e1e1;
   color: #000;
   font-size:17px;
+  font-family: Baron Neue;
 }
 
 
 .switchToggle {
-  height: 40px;
+  height: 5rem;
   position: relative;
-  padding: 0 30px 0 10px;
-  color: ffce06;
+  color: #000;
+  font-family: KeepCalm;
+  font-size:0.7em;
+  display: flex;
+  flex-direction: column;
+  text-align:start;
 }
 
 .switchCheckbox {
@@ -97,9 +97,9 @@
   border-radius: 7px;
   margin: 0;
   cursor: pointer;
-  box-shadow: inset -1px -1px 5px rgba(255, 206, 6, 0.7),
-              inset 2px 2px 5px rgba(254, 239, 180, 0.7);
-  background:#1e1e1e;
+  box-shadow: inset -1px -1px 5px #000,
+              inset 2px 2px 5px #000;
+  background:#e1e1e1;
 }
 
 /* Before */
@@ -107,8 +107,8 @@
   position: absolute;
   content: 'NO';
   font-family: KeepCalm;
-  color: rgba(255, 206, 6, 1);
- -webkit-text-stroke: 0.1px black;
+  color:#f0ece3;
+ -webkit-text-stroke: 0.1px #f0ece3;
   text-shadow: 1px 1px 0 black;
   font-size: 18px;
   text-align: center;
@@ -118,19 +118,61 @@
   width: 45px;
   height: 25px;
   border-radius: 7px;
-  background:none;
-  box-shadow: -3px -3px 5px #f0ece3,
-              3px 3px 5px rgba(0, 0, 0, 0.5);
+  background:#1e1e1e;
+  box-shadow: -3px -5px 5px #1e1e1e,
+              3px 5px 7px rgba(0, 0, 0, 0.5);
   transition: .5s ease-in-out;
 }
 
 /* Checked */
 .switchCheckbox:checked + .switchLabel::before {
   left: 50%;
+  font-size: 18px;
+  
   content: 'SI';
-  color: rgba(0, 0, 0, 1);
-  background-color: rgba(255, 206, 6, 1);
-  box-shadow: -1px -1px 1px rgb(0, 0, 0),
-              2px 2px 5px rgba(255, 206, 6, 1);
+  font-family: KeepCalm;
+  color: #ffce06 ;
+  text-shadow: 2px 2px 0 #000;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 30px;
+  background-color: none;
+  box-shadow: 1px -1px 5px #1e1e1e,
+              3px 5px 5px rgba(0, 0, 0, 1);
 }
 
+.subtotal{
+  display: flex;
+  align-items: baseline;
+  margin-top: 1rem;
+  padding: 0.6rem;
+  background-color: #ffce;
+  border-radius: 5px;
+  text-align: center;
+  width: fit-content;
+}
+
+.subtotalLabel{
+  font-family: KeepCalm;
+  color: #000;
+  margin:0 8px 0 20px;
+}
+
+.subtotalCash{
+  font-family: KeepCalm;
+  color:#37971c;
+  font-weight: bold;
+  font-size: 18px;
+  text-shadow: 1.5px 1px 1px #000;
+  margin: 0 2px 0 2px;
+}
+
+.totalContainer{
+  border: 1px solid #000;
+  
+}
+
+.totalLabel {
+  color: #e1e1e1;
+}

@@ -4,8 +4,8 @@ import ListaPedidos from './ListaPedidos';
 function App() {
   
   return (
-    <div className = "App">
-      <h1> Subí tus archivos PDF</h1>
+    <div>
+      <h1 className="titulo"> Subí tus archivos en PDF</h1>
       <ListaPedidos />
     </div>
   ); 
