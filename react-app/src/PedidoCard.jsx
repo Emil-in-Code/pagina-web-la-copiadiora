@@ -6,6 +6,8 @@ pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
 
 const pricePerPage = 130;
 const bindingPrice = 3000;
+const priceColor = 300;
+const priceColorD = 350;
 
 export default function PedidoCard({ file, onRemove, onSubtotalChange }) {
   const [numPages, setNumPages] = useState(0);
@@ -13,6 +15,7 @@ export default function PedidoCard({ file, onRemove, onSubtotalChange }) {
   const [bindings, setBindings] = useState(0);
   const [subtotal, setSubtotal] = useState(0);
   const [doubleSided, setDoubleSided] = useState(false);
+  const [color, setColor] = useState(false); 
   const [fileUrl, setFileUrl] = useState('');
 
   
@@ -22,7 +25,7 @@ export default function PedidoCard({ file, onRemove, onSubtotalChange }) {
 
   useEffect(() => {
     calculateSubtotal();
-  }, [numPages, copies, bindings, doubleSided]);
+  }, [numPages, copies, bindings, doubleSided, color]);
 
   // Notificar cambios de subtotal al componente padre
   useEffect(() => {
@@ -46,6 +49,22 @@ export default function PedidoCard({ file, onRemove, onSubtotalChange }) {
       }
     } else {
       baseCost = numPages * pricePerPage;
+    }
+    
+    let colorCost;
+
+    if (color) {
+      if (doubleSided) {
+        if (numPages === 1) {
+          baseCost = priceColor;
+        } else if (numPages % 2 === 0) {
+         baseCost = (numPages /2) * priceColorD;
+        } else {
+         baseCost = ((numPages + 1) /2) * priceColorD;
+        }
+      } else {
+         baseCost = numPages * priceColor;
+      } 
     }
     
     const extraCopiesCost = (copies - 1) * baseCost;
@@ -110,43 +129,61 @@ export default function PedidoCard({ file, onRemove, onSubtotalChange }) {
 
       {/* Controles */}
       <div className={styles.containerControlers}>
-        <label className={styles.label}>
-          Juegos: 
-          <input 
-            type="number"
-            min="1"
-            max="100"
-            value={copies}
-            onChange={(e) => setCopies(Math.max(1, parseInt(e.target.value) || 1))}
-            className={styles.inputNumero}
-          />
-        </label>
 
-        <label className={styles.label}>
-          Anillados:
-          <input
-            type="number"
-            min="0"
-            max="100"
-            value={bindings}
-            onChange={(e) => setBindings(Math.max(0, parseInt(e.target.value) || 0))}
-            className={styles.inputNumero}
-          /> 
-        </label>
+        <div className={styles.row}>
+          <div className={styles.switchToggle}>
+            <label className={styles.label}>
+              Color: 
+              <input 
+                type="checkbox"
+                id={`color-switch-${file.name}`} // ID único por archivo
+                checked={color}
+                onChange={() => setColor(prev => !prev)}
+                className={styles.switchCheckbox}
+              />
+              <label htmlFor={`color-switch-${file.name}`} className={styles.switchLabel}></label>
+            </label>
+          </div>
+        
 
-         
-        <div className={styles.switchToggle}>
-          Doble faz
-          <input 
-            type="checkbox"
-            id={`switch-${file.name}`} // ID único por archivo
-            checked={doubleSided}
-            onChange={() => setDoubleSided(prev => !prev)}
-            className={styles.switchCheckbox}
-          />
-          <label htmlFor={`switch-${file.name}`} className={styles.switchLabel}></label>
+          <div className={styles.switchToggle}>
+            Doble faz
+            <input 
+              type="checkbox"
+              id={`switch-${file.name}`} // ID único por archivo
+              checked={doubleSided}
+              onChange={() => setDoubleSided(prev => !prev)}
+              className={styles.switchCheckbox}
+            />
+            <label htmlFor={`switch-${file.name}`} className={styles.switchLabel}></label>
+          </div>
         </div>
-   
+
+        <div className={styles.row}>
+          <label className={styles.label}>
+            Juegos: 
+            <input 
+              type="number"
+              min="1"
+              max="100"
+              value={copies}
+              onChange={(e) => setCopies(Math.max(1, parseInt(e.target.value) || 1))}
+              className={styles.inputNumero}
+            />
+          </label>
+
+          <label className={styles.label}>
+            Anillados:
+            <input
+              type="number"
+              min="0"
+              max="100"
+              value={bindings}
+              onChange={(e) => setBindings(Math.max(0, parseInt(e.target.value) || 0))}
+              className={styles.inputNumero}
+            /> 
+          </label>
+        </div>
       </div>
 
       {/* Subtotal */}
