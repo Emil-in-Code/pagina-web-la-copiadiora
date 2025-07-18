@@ -32,35 +32,31 @@
 
 {/*Controles*/}
 
-.label{  
-  font-size: 0.7em;
+.label{ 
+  display:flex;
+  flex-direction: column;
   text-align: center;
   margin-top: 1px;
-  width: 30px;
-  padding: 0;
-  font-family: KeepCalm;
+  width: 80%;
   color: #000;
+  font-family: KeepCalm;
+  font-size:15px;
+  text-align:start;
 }
 
 .containerControlers{
-  width: 230px;
+  width: 290px;
   height: 230px;
   display: flex;
-  flex-direction: column;
-  justify-content:center;
-  align-content: center;
   padding: 1px 5px;
   border-radius: 7px;
   margin-top:7px;
-  background: #f2f;
-  gap: 10px;
 }
 
 .row{
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid #000;
+  display: grid;
+  grid-tamplate-columns: 1fr 1fr;
   margin-bottom: 10px;
 }
 
@@ -82,14 +78,13 @@
 
 
 .switchToggle {
-  height: 5rem;
+  height: 6rem;
   position: relative;
-  color: #000;
   font-family: KeepCalm;
-  font-size:0.7em;
   display: flex;
-  flex-direction: column;
-  text-align:start;
+  flex-direction:column;
+  align-items:start;
+  justify-content:start;
 }
 
 .switchCheckbox {

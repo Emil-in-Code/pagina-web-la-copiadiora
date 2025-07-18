@@ -132,22 +132,20 @@ export default function PedidoCard({ file, onRemove, onSubtotalChange }) {
 
         <div className={styles.row}>
           <div className={styles.switchToggle}>
-            <label className={styles.label}>
-              Color: 
-              <input 
-                type="checkbox"
-                id={`color-switch-${file.name}`} // ID único por archivo
-                checked={color}
-                onChange={() => setColor(prev => !prev)}
-                className={styles.switchCheckbox}
-              />
-              <label htmlFor={`color-switch-${file.name}`} className={styles.switchLabel}></label>
-            </label>
+            <span className={styles.label}>color:</span> 
+            <input 
+              type="checkbox"
+              id={`color-switch-${file.name}`} // ID único por archivo
+              checked={color}
+              onChange={() => setColor(prev => !prev)}
+              className={styles.switchCheckbox}
+            />
+            <label htmlFor={`color-switch-${file.name}`} className={styles.switchLabel}></label>
           </div>
         
 
           <div className={styles.switchToggle}>
-            Doble faz
+            <span className= {styles.label}>Doble faz:</span>
             <input 
               type="checkbox"
               id={`switch-${file.name}`} // ID único por archivo
