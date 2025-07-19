@@ -132,7 +132,7 @@ export default function PedidoCard({ file, onRemove, onSubtotalChange }) {
 
         <div className={styles.row}>
           <div className={styles.switchToggle}>
-            <span className={styles.label}>color:</span> 
+            <span className={styles.label}>Color:</span> 
             <input 
               type="checkbox"
               id={`color-switch-${file.name}`} // ID único por archivo

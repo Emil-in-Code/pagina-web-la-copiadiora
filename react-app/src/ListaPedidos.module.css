@@ -30,8 +30,7 @@
 .totalContainer{
   display: flex;
   align-items: baseline;
-  padding: 0.5rem;
-  border: 2px solid #000;
+  padding: 2px;
   border-radius: 7px;
   width:fit-content;
   background: #ffc;
@@ -50,5 +49,5 @@
   font-weight: bold;
   font-size: 18px;
   text-shadow: 1.5px 1px 1px #000;
-  margin: 0 2px 0 2px;
+  margin: 0 3px 0 2px;
 }
