@@ -39,11 +39,34 @@
   right: 1rem;
 }
 
+.descuentoContainer{
+  display: flex;
+  align-items: baseline;
+  padding: 2px;
+  border-radius: 7px;
+  width:fit-content;
+  background: #ffc;
+  position: fixed;
+  top: 7rem;
+  right: 1rem;
+}
+
+.totalFinalContainer{
+  display: flex;
+  align-items: baseline;
+  padding: 2px;
+  border-radius: 7px;
+  width:fit-content;
+  background: #ffc;
+  position: fixed;
+  top: 12rem;
+  right: 1rem;}
+
 .totalLabel{
   color: #000;
 }
 
-.totalCashLabel{
+.totalCashLabel, .descuentoLabel, .totalFinalLabel{
   font-family: KeepCalm;
   color:#37971c;
   font-weight: bold;
@@ -51,3 +74,5 @@
   text-shadow: 1.5px 1px 1px #000;
   margin: 0 3px 0 2px;
 }
+
+

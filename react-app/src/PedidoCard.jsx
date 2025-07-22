@@ -9,7 +9,7 @@ const bindingPrice = 3000;
 const priceColor = 300;
 const priceColorD = 350;
 
-export default function PedidoCard({ file, onRemove, onSubtotalChange }) {
+export default function PedidoCard({ file, onRemove, onSubtotalChange, globalDoubleSided, globalBindings, globalColor}) {
   const [numPages, setNumPages] = useState(0);
   const [copies, setCopies] = useState(1);
   const [bindings, setBindings] = useState(0);
@@ -26,6 +26,18 @@ export default function PedidoCard({ file, onRemove, onSubtotalChange }) {
   useEffect(() => {
     calculateSubtotal();
   }, [numPages, copies, bindings, doubleSided, color]);
+
+  useEffect(()=> {
+    setDoubleSided(globalDoubleSided);
+  }, [globalDoubleSided]);
+
+  useEffect(() => {
+    setBindings(globalBindings);
+  }, [globalBindings]);
+
+  useEffect(()=> {
+    setColor(globalColor);
+  }, [globalColor]);
 
   // Notificar cambios de subtotal al componente padre
   useEffect(() => {
