@@ -171,3 +171,17 @@
 .totalLabel {
   color: #e1e1e1;
 }
+
+.warningBox {
+  margin-top:1rem;
+  padding:10px;
+  background-color: #ffce;
+  border-radius: 7px;
+  text-align: left;
+}
+
+.warningText {
+  font-size: 0.9rem;
+  color: #1e1e1e;
+  margin: 0;
+}

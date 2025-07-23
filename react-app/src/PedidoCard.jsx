@@ -17,7 +17,7 @@ export default function PedidoCard({ file, onRemove, onSubtotalChange, onPageCha
   const [doubleSided, setDoubleSided] = useState(false);
   const [color, setColor] = useState(false); 
   const [fileUrl, setFileUrl] = useState('');
-
+  const [showWarning, setShowWarning] = useState(false);
   
   useEffect(() => {
     setFileUrl(URL.createObjectURL(file));
@@ -25,6 +25,15 @@ export default function PedidoCard({ file, onRemove, onSubtotalChange, onPageCha
 
   useEffect(() => {
     calculateSubtotal();
+
+    const totalSheets = numPages * copies;
+    const maxSheets = doubleSided ? 800 : 400;
+
+    if (bindings === 1 && totalSheets > maxSheets) { 
+      setShowWarning(true);
+    } else { 
+      setShowWarning(false);
+    }
   }, [numPages, copies, bindings, doubleSided, color]);
 
   useEffect(()=> {
@@ -34,7 +43,6 @@ export default function PedidoCard({ file, onRemove, onSubtotalChange, onPageCha
   useEffect(()=> {
     const maxPages = doubleSided ? 800 : 400;
     if (bindings && numPages > maxPages) {
-      alert("Excede la cantidad, se debe anillar por separado");
       setBindings(0);
     }
   }, [doubleSided, numPages, bindings]);
@@ -222,6 +230,16 @@ export default function PedidoCard({ file, onRemove, onSubtotalChange, onPageCha
           ${subtotal.toLocaleString('es-AR')}
         </p>
       </div>
+  
+      {showWarning && (
+        <div className={styles.warningBox}>
+          <p className={styles.warningText}>
+           ⚠️Se necesitan al menos 2 anillados para esta cantidad de hojas. 
+           Si solo deseas 1 anillado, se anillará al máximo y el resto quedará sin anillar.
+          </p>
+        </div>
+      )}
+
     </div>
   );
 }
