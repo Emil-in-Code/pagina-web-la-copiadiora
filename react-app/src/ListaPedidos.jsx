@@ -52,19 +52,19 @@ export default function ListaPedidos() {
   const calcularDescuento = (total) => {
     let porcentaje = 0;
 
-    if (totalAmount >= 104130) {
+    if (total >= 104130) {
       porcentaje = 40;
-    } else if (totalAmount >= 65130) {
+    } else if (total >= 65130) {
       porcentaje = 35;
-    } else if (totalAmount >= 39130) {
+    } else if (total >= 39130) {
       porcentaje = 30;
-    } else if (totalAmount >= 26130) {
+    } else if (total >= 26130) {
       porcentaje = 25;
-    } else if (totalAmount >= 13130) {
+    } else if (total >= 13130) {
       porcentaje = 20;
-    } else if (totalAmount >= 5330) {
+    } else if (total >= 5330) {
       porcentaje = 15;
-    } else if (totalAmount >= 2730) {
+    } else if (total >= 2730) {
       porcentaje = 10;
     }
 
@@ -81,10 +81,6 @@ export default function ListaPedidos() {
   const totalAmount = Object.values(subtotals).reduce((sum,value) => sum + value, 0);
   const totalPages = Object.values(pagesPerFile).reduce((sum,value)=> sum + value, 0);
 
-  if (globalBindings && totalPages > 800) {
-    alert ("Excede la cantidad de páginas")
-  }
-
   const totalWithBinding = globalBindings
     ? totalAmount + bindingPrice
     : totalAmount;
@@ -92,86 +88,95 @@ export default function ListaPedidos() {
   const { porcentaje, descuento, totalFinal } = calcularDescuento(totalWithBinding) 
 
   return (
-	<div className= {styles.filesContainer}>
+	  <div className= {styles.filesContainer}>
 
-    <input
+      <input
         type="file"
         accept="application/pdf"
         multiple
         onChange={handleFileUpload}
         className={styles.fileInputHidden}
         id="fileInput"
-    />
+      />
 
-    <label htmlFor="fileInput" className= {styles.uploadBtn}>
+      <label htmlFor="fileInput" className= {styles.uploadBtn}>
        Seleccionar
-    </label>
+      </label>
 
-    {files.length > 0 && (
-      <div className={styles.globalControls}>
-        <label>
-          <input
-            type="checkbox"
-            checked={globalDoubleSided}
-            onChange={(e) => {
+      {files.length > 0 && (
+        <div className={styles.globalControls}>
+          <label>
+            <input
+              type="checkbox"
+              checked={globalDoubleSided}
+              onChange={(e) => {
               const checked = e.target.checked;
               setGlobalDoubleSided(checked);
               if (!checked) setGlobalBindings(0);
-            }}
-          />
-          Doble faz global
-        </label>
+              }}
+            />
+            Doble faz global
+          </label>
 
-        <label>
-          <input
-            type="checkbox"
-            checked={globalColor}
-            onChange={(e) => setGlobalColor(e.target.checked)}
-          />
-          color global
-        </label>
+          <label>
+            <input
+              type="checkbox"
+              checked={globalColor}
+              onChange={(e) => setGlobalColor(e.target.checked)}
+            />
+            color global
+          </label>
 
-        <label>
-          <input
-            type="checkbox"
-            checked={globalBindings}
-            onChange={(e) => setGlobalBindings(e.target.checked)}
-            disabled={files.length === 0}
-          />
-          Anillar todo en 1
-        </label>
-      </div>
-    )}
+          <label>
+            <input
+              type="checkbox"
+              checked={globalBindings}
+              onChange={(e) => {
+                const checked = e.target.checked;
+                const maxPages = globalDoubleSided ? 800 : 400;
 
-    <div className = {styles.cardsContainer}>
+                if (totalPages > maxPages) {
+                  alert ("Excede la cantidad, se debe anillar por separado");
+                  setGlobalBindings(false);
+                } else {
+                  setGlobalBindings(checked);
+                }
+              }}
+              disabled={files.length === 0}
+            />
+            Anillar todo en 1
+          </label>
+        </div>
+      )}
+
+      <div className = {styles.cardsContainer}>
         {files.map((file, index) => (
           <PedidoCard
             key={index}
             file={file}
             onRemove={() => handleRemoveFile(index)}
             onSubtotalChange ={(subtotal) => handleSubtotalChange(index, subtotal)}
+            onPageChange={(numPages) => handlePagesChange(index, numPages)}
             globalDoubleSided = {globalDoubleSided}
             globalBindings = {false}
             globalColor = {globalColor}
             numPages = {pagesPerFile[index] || 0}
           />
         ))}
-    </div>
+      </div>
 
-    {files.length > 0 && (() => {
-      const { porcentaje, descuento, totalFinal} = calcularDescuento(totalAmount);
-      return (
+      {files.length > 0 && (
         <>
-           <div className= {styles.totalContainer}>
-              <h3 className= {styles.totalLabel}>Total:</h3>
-              <p className= {styles.totalCashLabel}>${totalWithBinding.toLocaleString('es-AR')}</p>
-           </div>
+          <div className= {styles.totalContainer}>
+            <h3 className= {styles.totalLabel}>Total:</h3>
+            <p className= {styles.totalCashLabel}>${totalWithBinding.toLocaleString('es-AR')}</p>
+          </div>
 
           {porcentaje > 0 && (
             <div className={styles.descuentoContainer}>
               <h3 className= {styles.totalLabel}>{porcentaje}% off:</h3>
               <p className={styles.descuentoLabel}>
-                 -${descuento.toLocaleString('es-AR')}
+                -${descuento.toLocaleString('es-AR')}
               </p>
             </div>
           )}
@@ -185,8 +190,7 @@ export default function ListaPedidos() {
             </div>
           )}
         </>
-      );
-    })()}
-  </div>
+      )}
+    </div>
   );
 }

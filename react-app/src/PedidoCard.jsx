@@ -9,7 +9,7 @@ const bindingPrice = 3000;
 const priceColor = 300;
 const priceColorD = 350;
 
-export default function PedidoCard({ file, onRemove, onSubtotalChange, globalDoubleSided, globalBindings, globalColor}) {
+export default function PedidoCard({ file, onRemove, onSubtotalChange, onPageChange, globalDoubleSided, globalBindings, globalColor}) {
   const [numPages, setNumPages] = useState(0);
   const [copies, setCopies] = useState(1);
   const [bindings, setBindings] = useState(0);
@@ -30,6 +30,14 @@ export default function PedidoCard({ file, onRemove, onSubtotalChange, globalDou
   useEffect(()=> {
     setDoubleSided(globalDoubleSided);
   }, [globalDoubleSided]);
+
+  useEffect(()=> {
+    const maxPages = doubleSided ? 800 : 400;
+    if (bindings && numPages > maxPages) {
+      alert("Excede la cantidad, se debe anillar por separado");
+      setBindings(0);
+    }
+  }, [doubleSided, numPages, bindings]);
 
   useEffect(() => {
     setBindings(globalBindings);
@@ -88,6 +96,15 @@ export default function PedidoCard({ file, onRemove, onSubtotalChange, globalDou
 
   const handleLoadSuccess = ({ numPages }) => {
     setNumPages(numPages);
+    
+    if (onPageChange) {
+      onPageChange(numPages);
+    }
+    const maxPages = doubleSided ? 800 : 400;
+    if (bindings && numPages > maxPages) {
+      alert("demasiadas hojas para 1 solo anillado")
+      setBindings(0);
+    }
   };
 
   const handleRemove = () => {
@@ -128,13 +145,13 @@ export default function PedidoCard({ file, onRemove, onSubtotalChange, globalDou
       <div className="file-info" style = {{ marginBottom: '1rem' }}>
         <h4 style={{ 
           margin: '0 0 0.5rem 0', 
-          fontSize: '14px',
+          fontSize: '10px',
           fontWeight: 'bold',
           color:'#000'
         }}>
           {file.name.length > 20 ? file.name.slice(0, 20) + '...' : file.name}
         </h4>
-        <p style={{ margin: '0', fontSize: '12px', color: '#000' }}>
+        <p style={{ margin: '0', fontSize: '10px', color: '#e1e1e1' }}>
           {formatFileSize(file.size)} • {numPages} pages
         </p>
       </div>
