@@ -60,7 +60,8 @@
   background: #ffc;
   position: fixed;
   top: 12rem;
-  right: 1rem;}
+  right: 1rem;
+}
 
 .totalLabel{
   color: #000;
@@ -75,4 +76,22 @@
   margin: 0 3px 0 2px;
 }
 
+.globalControls{
+  display: flex;
+  width: fit-content;
+  height:8rem;
+  flex-direction: column;
+  justify-content:center;
+  align-items: flex-start;
+  gap:10px;
+  padding:10px;
+  border-radius:7px;
+  background: #ffc;
+  color:#000;
+  font-size:13px;
+  position:fixed;
+  left:1px;
+  top:2rem;;
+  z-index:1;
+}
 

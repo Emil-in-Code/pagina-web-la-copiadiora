@@ -124,7 +124,7 @@ export default function ListaPedidos() {
               checked={globalColor}
               onChange={(e) => setGlobalColor(e.target.checked)}
             />
-            color global
+            Color global
           </label>
 
           <label>

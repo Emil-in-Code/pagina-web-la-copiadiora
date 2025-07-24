@@ -175,13 +175,15 @@
 .warningBox {
   margin-top:1rem;
   padding:10px;
-  background-color: #ffce;
+  background-color: #ffc;
   border-radius: 7px;
   text-align: left;
 }
 
 .warningText {
-  font-size: 0.9rem;
-  color: #1e1e1e;
+  font-size: 0.6rem;
+  color: #ff0000;
   margin: 0;
 }
+
+
