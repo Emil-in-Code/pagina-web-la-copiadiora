@@ -1,0 +1,1 @@
+import{j as o,c as r}from"../public/client-3DVn_WlK.js";const t=()=>o.jsx("nav",{children:o.jsx("div",{children:"footer en desarrollo..."})}),e=document.getElementById("footer-root");e?r.createRoot(e).render(o.jsx(t,{})):console.warn("No se encontró #footer-root para montar el footer");

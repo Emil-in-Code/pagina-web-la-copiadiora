@@ -1,0 +1,1 @@
+import{j as e,c as o}from"../public/client-3DVn_WlK.js";const r=()=>e.jsxs("div",{children:[e.jsx("h1",{children:"Panel de Administración"}),e.jsx("p",{children:"En desarrollo..."})]}),n=document.getElementById("admin-root");n?o.createRoot(n).render(e.jsx(r,{})):console.warn("No se encontó #admin-root para montar el dashboard");

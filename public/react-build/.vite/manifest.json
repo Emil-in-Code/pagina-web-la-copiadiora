@@ -1,0 +1,45 @@
+{
+  "_client-3DVn_WlK.js": {
+    "file": "public/client-3DVn_WlK.js",
+    "name": "client"
+  },
+  "src/main-admin.jsx": {
+    "file": "admin/admin-rpBPx_UB.js",
+    "name": "admin",
+    "src": "src/main-admin.jsx",
+    "isEntry": true,
+    "imports": [
+      "_client-3DVn_WlK.js"
+    ]
+  },
+  "src/main-public.jsx": {
+    "file": "public/public-08DKJXJi.js",
+    "name": "public",
+    "src": "src/main-public.jsx",
+    "isEntry": true,
+    "imports": [
+      "_client-3DVn_WlK.js"
+    ],
+    "css": [
+      "assets/public-8orjGPVh.css"
+    ]
+  },
+  "src/widgets/mountFooter.jsx": {
+    "file": "widgets/footer.js",
+    "name": "footer",
+    "src": "src/widgets/mountFooter.jsx",
+    "isEntry": true,
+    "imports": [
+      "_client-3DVn_WlK.js"
+    ]
+  },
+  "src/widgets/mountNavbar.jsx": {
+    "file": "widgets/navbar.js",
+    "name": "navbar",
+    "src": "src/widgets/mountNavbar.jsx",
+    "isEntry": true,
+    "imports": [
+      "_client-3DVn_WlK.js"
+    ]
+  }
+}

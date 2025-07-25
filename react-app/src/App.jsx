@@ -1,4 +1,4 @@
-import ListaPedidos from './ListaPedidos';
+import ListaPedidos from './public/ListaPedidos.jsx';
 
 
 function App() {
