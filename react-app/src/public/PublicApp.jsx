@@ -1,5 +1,6 @@
 import React, {useEffect, useState } from 'react'
 import ListaPedidos from './ListaPedidos.jsx'
+import styles from './ListaPedidos.module.css'
 
 export default function PublicApp() {
   const [pedidos, setPedidos] = useState ([])

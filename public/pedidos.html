@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es-AR">
 <head>
@@ -6,8 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
   <title>Estás imprimiendo</title>
-  <link rel="stylesheet" href="css/pedidos.css">
+  
+  <!-- CSS global de tu sitio -->
   <link rel="stylesheet" href="css/global.css">
+
   <meta name="description" content="Fotocopias rápidas y de alta calidad, con envíos a domicilio, atención por WhatsApp, y descuentos por cantidad.">
   <meta name="keywords" content="fotocopias,anillados,impresiones,impresion,copias,apuntes,fotocopias baratas,escaneos">
   <meta name="author" content="Emilio Flor">
@@ -15,88 +18,24 @@
   <meta property="og:title" content="La Copiadora">
   <meta property="og:description" content="Servicios de Fotocopiado de Alta Calidad">
   <meta property="og:share_count" content="true">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
-
 </head>
     
 <body class="body">
-  
   <!-- SECCIÓN NAVBAR -->
-   
   <div id="navbar"></div>  
 
+  <!-- Aquí se monta la app React -->
   <main id="main__section">
-
-    <div class="upload-area">
-      <label for="file-upload">
-        <img src="path_to_cloud_image.png" alt="Icono de carga">
-        <p>Arrastra tus archivos</p>
-      </label>  
-        
-      <input type="file" id="archivo" class="btn-archivos"  multiple accept="application/pdf">
-      <p id="pageCount"></p>
-      
-      <canvas id="pdfPreview"></canvas>
-      <div id="previews"></div>
-
-      
-      <p id="numero-de-paginas"></p>
-      
-      
-      
-    </div>
+    <div id="public-root"></div>
   </main>  
-    
-  <section id="preferencias">
-    
-    <div class="cantidades-container"> 
-      <p class="cantidad--texto">Cantidad de copias</p> 
-      <div class="cantidad__wrapper">        
-        <input id="cantidad" type="number" value="1" min="1">
-      </div>   
-    
-    </div>
-    
-    <div class="cantidades-container">
-      <div class="switch-label">
-        <span class="switch-text">¿Doble faz?</span>
-      </div>
-      <div class="switch-toggle">
-        <input type="checkbox" id="doble_faz">
-        <label for="doble_faz"></label>
-      </div>
-    </div>
 
-    
-    <div class="cantidades-container"> 
-
-      <p class="cantidad--texto">Cantidad de anillados</p> 
-      <div class="cantidad__wrapper">        
-        <input id="cantidad-anillados" type="number" value="0" min="0">
-      </div> 
-    
-    </div>
-              
-    <div class="notas-container">
-      <textarea id="nota" rows="4" placeholder="Acá podés especificar qué libro o apunte deseas anillar y el orden, o cosas de ese estilo"></textarea>
-    </div>
-    
-  </section>
- 
-  <section id="price__preview--section"> 
-
-    <div class="preview--wrapper">
-
-      <p id="subtotal"><span>Subtotal:</span></p>
-      <p id="descuento"><span>Descuento por cantidad:</span></p>
-      <p id="precio-final"><span>Precio final:</span></p>
-      <button id="pagar-pedido">PAGAR</button>
-
-    </div> 
-  </section>
   <div id="footer"></div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
-  <script src="/js la copiadora/pedidosprueba.js"></script> 
+
+  <!-- JS global de tu sitio -->
   <script src="/js/global.js"></script>
+  
+  <!-- Bundle generado por Vite para la app pública (main-public.jsx) -->
+  <script type="module" src="/react-build/public/public-08DKJXJi.js"></script>
 </body>  
 </html>
+

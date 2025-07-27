@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import styles from './PedidoCard.module.css';
 
-pdfjs.GlobalWorkerOptions.workerSrc = new URL('@/pdf-worker.js', import.meta.url).href;
+ pdfjs.GlobalWorkerOptions.workerSrc = new URL('../pdf-worker.js', import.meta.url).href;
 //pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
 
 const pricePerPage = 130;

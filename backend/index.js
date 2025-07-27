@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000
 // --- Paths base ---
 const PUBLIC_DIR = path.resolve(__dirname, '../public')
 const REACT_BUILD_DIR = path.join(PUBLIC_DIR, 'react-build')
-const MANIFEST_PATH = path.join(REACT_BUILD_DIR, 'manifest.json')
+const MANIFEST_PATH = path.join(REACT_BUILD_DIR, '.vite', 'manifest.json')
 
 // --- Middlewares base ---
 app.use(cors())
@@ -24,9 +24,20 @@ try {
   console.warn('⚠️ No se encontró manifest.json. ¿Ya corriste `npm run build:react`?')
 }
 
-// Helper para obtener el archivo compilado de una entry de Vite
+// Helper para obtener la entrada completa de Vite
+function getEntry(name) {
+  for (const [key, entry] of Object.entries(manifest)) {
+    if (entry.name === name) {
+      return entry
+    }
+  }
+  return null
+}
+
+// Helper para obtener el archivo compilado de una entry de Vite (mantener para compatibilidad)
 function entryFile(name) {
-  return manifest?.[name]?.file || null
+  const entry = getEntry(name)
+  return entry?.file || null
 }
 
 // --- Rutas API ---
@@ -70,12 +81,16 @@ app.get('/admin', (req, res) => {
 
 // --- Página pública en React (por ahora en /react/pedidos para no romper tu pedidos.html actual) ---
 app.get('/react/pedidos', (req, res) => {
-  const publicJs = entryFile('public')
-  if (!publicJs) {
+  const publicEntry = getEntry('public')
+  if (!publicEntry) {
     return res
       .status(500)
       .send('<p>Falta build de React para la parte pública (entry "public"). Ejecuta `npm run build:react`.</p>')
   }
+
+  // Generar tags de CSS
+  const cssLinks = publicEntry.css ? 
+    publicEntry.css.map(css => `<link rel="stylesheet" href="/react-build/${css}">`).join('\n    ') : ''
 
   res.send(`<!doctype html>
 <html lang="es">
@@ -83,10 +98,11 @@ app.get('/react/pedidos', (req, res) => {
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <title>Pedidos (React) - La Copiadora</title>
+    ${cssLinks}
   </head>
   <body>
     <div id="public-root"></div>
-    <script type="module" src="/react-build/${publicJs}"></script>
+    <script type="module" src="/react-build/${publicEntry.file}"></script>
   </body>
 </html>`)
 })
@@ -111,4 +127,3 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`🚀 Servidor escuchando en http://localhost:${PORT}`)
 })
-
