@@ -3,6 +3,10 @@
     "file": "public/client-3DVn_WlK.js",
     "name": "client"
   },
+  "node_modules/pdfjs-dist/build/pdf.worker.min.mjs": {
+    "file": "assets/pdf.worker.min-BFAMBS4k.mjs",
+    "src": "node_modules/pdfjs-dist/build/pdf.worker.min.mjs"
+  },
   "src/main-admin.jsx": {
     "file": "admin/admin-rpBPx_UB.js",
     "name": "admin",
@@ -13,7 +17,7 @@
     ]
   },
   "src/main-public.jsx": {
-    "file": "public/public-C333Rx4S.js",
+    "file": "public/public-BpeVhxZP.js",
     "name": "public",
     "src": "src/main-public.jsx",
     "isEntry": true,

@@ -12,7 +12,7 @@ export default defineConfig({
       '@': resolve(__dirname, 'src'),
     }
   },
-  base: '/',
+  base: '/react-build/',
   build: {
     outDir: '../public/react-build',
     assetsDir: 'assets',

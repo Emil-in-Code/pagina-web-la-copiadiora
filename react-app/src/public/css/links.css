@@ -1,0 +1,178 @@
+dialog {
+    background-color: #0009;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.modal__content {
+    background-color: rgba(254, 239, 180, 1);
+    padding: 10px;
+    width: 50%;
+    margin: auto;
+    margin-top: 100px;
+    position: relative;
+}
+
+.modal__title {
+    margin-top: 10px;
+    color: rgba(255, 206, 6, 1);
+    -webkit-text-stroke: 1px #000;
+    text-shadow: 3px 3px 0 #000; 
+    text-align: center;
+}
+
+.modal__text {
+    margin-top: 20px;
+    color: #000;
+    text-align: center;
+}
+
+.modal__btn {
+    border: 1px solid #000;
+    border-radius: 3px;
+    padding: 2px 8px;
+    background-color:rgba(255, 206, 6, 1);
+    margin-left: 20px;
+    font-family: Baron Neue;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: background-color 0.8s ease;
+}
+
+.modal__btn:hover {
+    background-color: rgba(254, 239, 180, 1);
+}
+
+main {
+    margin-bottom: 15rem;
+}
+
+h1 {
+    margin-top: 9rem;
+    font-size: 30px;
+    text-align: center;
+}
+
+.h2main-links {
+    color: rgba(255, 206, 6, 1);
+    font-size: 25px;
+    text-align: center;
+}
+
+.h2links {
+    font-size: 20px;
+    line-height: 21px;
+    color: #fff;
+    font-family: Baron Neue;
+    -webkit-text-stroke: 1px #000;
+    text-shadow: 2px 2px 0 #000; 
+    margin-top: 5px;
+}
+
+
+.links-utiles{
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    box-sizing: border-box;
+    margin: auto;
+    margin-top: 2rem;
+    
+}
+
+.tarjeta {
+    background-color: rgba(254, 239, 180, 1);
+    text-align: center;
+    width: 180px;
+    height: 250px;
+    margin: 10px; /*margen entre todas las cards*/
+    border-radius: 5px;
+   
+}
+
+.ptarjetas {
+    color: #000;
+    font-size: 13px;
+    line-height: 15px;
+    text-align: center;
+    margin:5px;
+}
+
+
+.fondo__imagen {
+    background-color: rgb(255, 206, 6, 1);
+    border-radius: 5px 5px 0 0; 
+    border-bottom: 2px solid rgb(0, 0, 0);
+    width: 100%;
+    height: 40%;
+}
+
+
+.imagen__ilovepdf,
+.imagen__chatgpt {
+    width: 60px;
+    height: 70px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    /*los margenes son dentro del fondo amarillo que actua como contenedor*/
+}
+
+.imagen__notion {
+    width: 50px;
+    height: auto;
+    margin: 30px;
+}
+
+.imagen__airtable {
+    width: 100px;
+}
+
+.imagen__trello {
+    width: 100px;
+    margin: 30px;
+}
+
+.imagen__grammarly {
+    width: 170px;
+    height: auto;
+    margin: 10px;
+
+}
+
+.imagen__tichai {
+
+    width: 80%;
+    height: auto;
+    margin-top: 40px;
+    margin-right: 10px;
+}
+
+.contenido {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn-links {
+    margin: auto;
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: rgba(254, 239, 180, 1);
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+    border:1px solid #000;
+    border-radius: 7px;
+    font-size: 11px;
+    transition: background-color 0.5s ease;
+}
+
+.btn-links:hover {
+    background-color:rgba(255, 206, 6, 1);
+    color: #000;
+    border:1px solid rgb(0, 0, 0);
+}

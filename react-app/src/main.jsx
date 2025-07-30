@@ -1,11 +1,10 @@
-import { StrictMode } from 'react'
+import React from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import './App.css';
+import PublicApp from './public/PublicApp.jsx'
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+const el = document.getElementById('root')
+if (el) {
+createRoot (el).render(<PublicApp/>)
+} else {
+  console.warn('No se econtró #public-root para montar la app publica') 
+}

@@ -1,0 +1,79 @@
+main{
+    padding: 40px;
+}
+
+.container {
+    border-radius: 7px;
+    border: 1px solid rgba(255, 206, 6, 1);
+    width: 350px;
+    margin: auto;
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+    padding: 40px; 
+    box-sizing: border-box;
+    background: linear-gradient(to top right,#B19005 20%, #ffce06 50%, #E5C53F 80%);
+}
+
+.h2-registro {
+    margin-top: 1px;
+    font-family: Baron Neue;
+    color: #fff;
+    -webkit-text-stroke: 1px black;
+    text-shadow: 1px 3px 0 black;
+    font-size: 2em;
+    text-align: center;
+}
+
+
+label {
+    font-family: KeepCalm;
+    font-size: 1em;
+    font-weight: 500;
+    color: #fff;
+    -webkit-text-stroke: 1px rgb(106, 106, 106);
+    text-shadow: 1px 1px 0 black;
+    display: block;
+}
+
+.form-input {
+    border-radius: 7px;
+    border: none;
+    border-left: solid rgba(255, 206, 6, 1);
+    padding: 10px 20px;
+    margin: 10px;
+    display: inline-block;
+    width: 90%;
+}
+
+.invalid{
+    border: solid 1px #b10505;
+    box-shadow: 0 0 10px #b10505;
+}
+.error{
+    font-family:sans-serif;
+    display: block;
+    font-size: 10px;
+    color: #b10505;
+    -webkit-text-stroke: 0;
+    text-shadow: 0px 0px 0 black;
+}
+
+.mensaje-estado{
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  display:none;
+}
+
+.mensaje-estado.exito{
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.mensaje-estado.error{
+  background-color: #f8d7da;
+  color: #721c21;
+  border: 1px solid #f5c6cb;
+}

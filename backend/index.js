@@ -80,7 +80,7 @@ app.get('/admin', (req, res) => {
 })
 
 // --- Página pública en React (por ahora en /react/pedidos para no romper tu pedidos.html actual) ---
-app.get('/react/pedidos', (req, res) => {
+app.get('/pedidos', (req, res) => {
   const publicEntry = getEntry('public')
   if (!publicEntry) {
     return res
