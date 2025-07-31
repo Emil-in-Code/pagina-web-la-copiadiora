@@ -1,1 +1,0 @@
-import{j as r,c as n}from"../public/client-3DVn_WlK.js";const o=()=>r.jsx("nav",{children:r.jsx("div",{children:"Navbar en desarrollo..."})}),e=document.getElementById("navbar-root");e?n.createRoot(e).render(r.jsx(o,{})):console.warn("No se encontró #navar-root para montar el nav");
