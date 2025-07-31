@@ -8,12 +8,12 @@
 
 @font-face {
   font-family: 'KeepCalm';
-  src: url('./assets/tipografias/KeepCalm-Medium.ttf') format('truetype');
+  src: url('../assets/tipografias/KeepCalm-Medium.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Baron Neue Bold';
-  src: url('./assets/fonts/Baron Neue Bold.otf') format('opentype');
+  src: url('../assets/fonts/Baron Neue Bold.otf') format('opentype');
 }
 
 

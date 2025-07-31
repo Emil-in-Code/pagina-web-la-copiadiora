@@ -1,6 +1,6 @@
 import Navbar from '../widgets/navbar'
 import Footer from '../widgets/footer'
-import './css/precios.css'
+import "../styles/precios.css"
 
 export default function Princing(){
   return (

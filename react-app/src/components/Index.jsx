@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom"
 import Navbar from "../widgets/navbar"
 import Footer from "../widgets/footer"
-import "./Index.css"
-import "./global.css"
+import "../styles/Index.css"
+import "../styles/global.css"
+import "../styles/index.css"
+import logo from '../assets/logo-copiadora.png'
 
 export default function Index() {
   return (
@@ -18,18 +20,18 @@ export default function Index() {
               Que imprimirlo sea<br /> rápido, fácil y seguro
             </p>
             <div className="cta__container">
-              <Link to="/pedidos" id="presupuestar-btn" className="button-presupuesto" aria-label="Presupuestar fotocopias gratis">
+              <Link to="./Pedidos" id="presupuestar-btn" className="button-presupuesto" aria-label="Presupuestar fotocopias gratis">
                 Presupuestar Gratis
               </Link>
             </div>
           </div>
 
           <div className="logo__container">
-            <img src="/assets/features/features/Logo-copiadora.png" alt="logo de la copiadora" className="logo" />
+            <img src={logo} alt="logo de la copiadora" className="logo" />
           </div>
 
           <div className="cta__container2">
-            <Link to="/pedidos" className="button-presupuesto2" aria-label="Presupuestar fotocopias gratis">
+            <Link to="./Pedidos" className="button-presupuesto2" aria-label="Presupuestar fotocopias gratis">
               Presupuestar Ahora
             </Link>
           </div>

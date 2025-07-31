@@ -1,5 +1,5 @@
-import "../../public/css/global.css";
-import "../../public/css/links.css";
+import "../styles/global.css";
+import "../styles/links.css";
 
 export default function LinksUtiles() {
   return (

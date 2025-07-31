@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import ListaPedidos from './ListaPedidos.jsx'
-import styles from './ListaPedidos.module.css'
+import '../styles/pedidos.css'
 
 export default function Pedidos() {
   const [pedidos, setPedidos] = useState([])

@@ -1,6 +1,6 @@
 import React from 'react'
-import "../../public/css/global.css";
-import "../../public/css/envios.css";
+import "../styles/global.css";
+import "../styles/envios.css";
 import Navbar from "../widgets/navbar";
 import Footer from "../widgets/footer"
 
