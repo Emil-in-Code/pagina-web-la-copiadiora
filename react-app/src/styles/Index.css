@@ -222,7 +222,7 @@ main {
 
 .button-presupuesto--grid:hover {
     background-color: rgba(255, 206, 6, 1);
-    color: rgb(0, 0, 0);
+    color: #000;
 }
 
 .feature{

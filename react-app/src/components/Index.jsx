@@ -3,8 +3,6 @@ import Navbar from "../widgets/navbar"
 import Footer from "../widgets/footer"
 import "../styles/Index.css"
 import "../styles/global.css"
-import "../styles/index.css"
-import logo from '../assets/logo-copiadora.png'
 
 export default function Index() {
   return (
@@ -27,7 +25,7 @@ export default function Index() {
           </div>
 
           <div className="logo__container">
-            <img src={logo} alt="logo de la copiadora" className="logo" />
+            <img src="/assets/logo-copiadora.png" alt="logo de la copiadora" className="logo" />
           </div>
 
           <div className="cta__container2">
@@ -47,19 +45,19 @@ export default function Index() {
             </div>
 
             <div className="gallery--item">
-              <img src="/assets/features/leyendo en la playa.jpg" alt="Persona leyendo en la playa" className="gallery__img" />
+              <img src="/assets/leyendo en la playa.jpg" alt="Persona leyendo en la playa" className="gallery__img" />
             </div>
 
             <div className="gallery--item">
-              <img src="/assets/features/catedral.webp" alt="Persona leyendo en el escritorio desde un plano cenital" className="gallery__img" />
+              <img src="/assets/catedral.webp" alt="Persona leyendo en el escritorio desde un plano cenital" className="gallery__img" />
             </div>
 
             <div className="gallery--item">
-              <img src="/assets/features/leyendo en kindle.jpg" alt="Persona leyendo en el kindle" className="gallery__img" />
+              <img src="/assets/leyendo en kindle.jpg" alt="Persona leyendo en el kindle" className="gallery__img" />
             </div>
 
             <div className="gallery--item">
-              <img src="/assets/features/leyendo en la habitacion.jpg" alt="Persona leyendo en su cama a la noche" className="gallery__img" />
+              <img src="/assets/leyendo en la habitacion.jpg" alt="Persona leyendo en su cama a la noche" className="gallery__img" />
             </div>
 
             <div className="gallery--item">
@@ -81,42 +79,42 @@ export default function Index() {
             <div className="subtitle__container">
               <h3 className="subtitle">1. Cargá tus archivos en pdf</h3>
             </div>
-            <img src="/assets/features/pdf.svg" alt="cargar tus archivos" className="imagen-aside copias" />
+            <img src="/assets/pdf.svg" alt="cargar tus archivos" className="imagen-aside copias" />
           </div>
 
           <div className="container-item">
             <div className="subtitle__container">
               <h3 className="subtitle">2. Tus preferencias</h3>
             </div>
-            <img src="/assets/features/preferenciaselector.png" alt="Seleccioná tus preferencias de impresión" className="imagen-aside preferencias" />
+            <img src="/assets/preferenciaselector.png" alt="Seleccioná tus preferencias de impresión" className="imagen-aside preferencias" />
           </div>
 
           <div className="container-item">
             <div className="subtitle__container">
               <h3 className="subtitle">3. Manejá tus tiempos</h3>
             </div>
-            <img src="/assets/features/tiempo de entrega.svg" alt="Elegí tu tiempo de entrega" className="imagen-aside recibir" />
+            <img src="/assets/tiempo de entrega.svg" alt="Elegí tu tiempo de entrega" className="imagen-aside recibir" />
           </div>
 
           <div className="container-item">
             <div className="subtitle__container">
               <h3 className="subtitle">4. Abonalo</h3>
             </div>
-            <img src="/assets/features/tarjetasinfondo.png" alt="abonalo y listo" className="imagen-aside debit" />
+            <img src="/assets/tarjetasinfondo.png" alt="abonalo y listo" className="imagen-aside debit" />
           </div>
 
           <div className="container-item">
             <div className="subtitle__container">
               <h3 className="subtitle">5. recibilo</h3>
             </div>
-            <img src="/assets/features/precios/delivery.svg" alt="abonalo y listo" className="imagen-aside box" />
+            <img src="/assets/precios/delivery.svg" alt="abonalo y listo" className="imagen-aside box" />
           </div>
 
           <div className="container-item">
             <div className="subtitle__container">
               <h3 className="subtitle">6. Disfrutalo</h3>
             </div>
-            <img src="/assets/features/orgiamiheart.png" alt="abonalo y listo" className="imagen-aside heart" />
+            <img src="/assets/orgiamiheart.png" alt="abonalo y listo" className="imagen-aside heart" />
           </div>
         </div>
 

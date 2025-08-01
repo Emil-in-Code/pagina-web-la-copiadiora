@@ -1,3 +1,17 @@
+:root {
+  font-family: KeepCalm, Baron Neue;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #1e1e1e;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+
 @font-face {
     font-family: "keepCalm";
     src: url(../assets/tipografias/KeepCalm-Medium.ttf) format("truetype");
@@ -13,18 +27,13 @@
 }
 
 .body {
-    background-color:  #1e1e1e;
-    min-height: 100vh;
-    display: block;
-    margin: 0;
-    padding: 0;
-    /*    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    margin: auto;
-    overflow: auto;*/
+  background-color:  #1e1e1e;
+  min-height: 100vh;
+  display: block;
+  margin: 0;
+  padding: 0;
+  place-items: center;
+  min-width: 320px;
 }
 
 div, ul, header, footer, a, li, label {
