@@ -12,7 +12,7 @@ export default function Index() {
       <main>
         <section className="hero__flexbox">
           <div className="text__container">
-            <h1 className="indexh1">Tu carrera, tu futuro,<br />tu tiempo.</h1>
+            <h1 className="indexh1">Tu carrera, tu futurO,<br />tu tiempO.</h1>
             <p>
               Leer todo lo que te piden ya es complicado.<br />
               Que imprimirlo sea<br /> rápido, fácil y seguro
@@ -39,8 +39,8 @@ export default function Index() {
           <div className="gallery__container">
             <div className="gallery--item">
               <h2 className="title__feature">
-                Pedilas donde quieras, cuando quieras.<br />
-                a la hora que quieras.
+                Pedilas donde quieras, cuandO quieras.<br />
+                a la hOra que quieras.
               </h2>
             </div>
 
