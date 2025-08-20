@@ -159,23 +159,25 @@ export default function Princing(){
              y todo lo que vas a necesitar para organizar tu carrera.
             </p>
 
-         {/*agenda incial */}
-          <div className="container-agenda">  
-            <h3 className="h3agendas">INICIAL</h3>
-            <img src="/assets/agenda inicial.jpg" alt="agenda de incial"/> 
-          </div>
+          <div className="agendas-wrapper">
+            {/*agenda incial */}
+            <div className="container-agenda">  
+              <h3 className="h3agendas">INICIAL</h3>
+              <img src="/assets/agenda inicial.jpg" alt="agenda de incial"/> 
+            </div>
 
-         {/*agenda primaria */}
-          <div className="container-agenda">
-            <h3 className="h3agendas">PRIMARIA</h3>
-            <img src="/assets/agenda primaria.jpg" alt="agenda primaria"/>
-          </div>
+            {/*agenda primaria */}
+            <div className="container-agenda">
+              <h3 className="h3agendas">PRIMARIA</h3>
+              <img src="/assets/agenda primaria.jpg" alt="agenda primaria"/>
+            </div>
 
-          {/*agenda secundaria*/}
-          <div className="container-agenda">
-            <h3 className="h3agendas">SECUNDARIA</h3>
-            <img src="/assets/agenda secundaria.jpg" alt="agenda secundaria"/>
-          </div>
+            {/*agenda secundaria*/}
+            <div className="container-agenda">
+              <h3 className="h3agendas">SECUNDARIA</h3>
+              <img src="/assets/agenda secundaria.jpg" alt="agenda secundaria"/>
+            </div>
+          </div> 
 
           <div>
             <ul>

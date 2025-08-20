@@ -3,6 +3,9 @@ import "../styles/links.css";
 
 export default function LinksUtiles() {
   return (
+    <>
+         <Navbar />
+
     <div className="body">
       {/* MODAL AVISO */}
       <dialog open>
@@ -56,6 +59,8 @@ export default function LinksUtiles() {
         </h2>
       </main>
     </div>
+
+    </>  
   );
 }
 
