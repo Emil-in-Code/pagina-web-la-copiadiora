@@ -39,7 +39,7 @@ export default function Index() {
           <div className="gallery__container">
             <div className="gallery--item">
               <h2 className="title__feature">
-                Pedilas donde quieras, cuandO quieras.<br />
+                Pedilas donde quieras, cuando quieras.<br />
                 a la hOra que quieras.
               </h2>
             </div>
@@ -71,7 +71,7 @@ export default function Index() {
 
       <aside className="aside__wrapper">
         <div className="container-title">
-          <h2 className="title__aside">¿CÓmo hago mi pedido?</h2>
+          <h2 className="title__aside">¿Cómo hago mi pedido?</h2>
         </div>
 
         <div className="flex-container">

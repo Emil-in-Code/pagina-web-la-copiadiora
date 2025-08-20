@@ -9,9 +9,15 @@
 }
 
 .enlace-registrarse {
-    color: rgba(255, 206, 6, 1);
-    text-align: center;
-    text-decoration:underline;
+  display:inline-block;
+  color:#000;
+  background:#ffce;
+  border-radius:3px;
+  transition: background-color 0.3s ease;
+}
+.enlace-registrarse:hover {
+  background: none;
+  color: #ffce06;
 }
 
 .p-h1 {
@@ -234,7 +240,7 @@
 .button-presupuesto {
     display: inline-block;
     padding: 10px 20px;
-    background-color:#000;
+    background-color:none;
     color: rgba(255, 206, 6, 1);
     text-align: center;
     text-decoration: none;
@@ -269,6 +275,7 @@
     gap: 15px;
     box-sizing: border-box;
     margin-top: 30px;
+    pointer-events:none;
 }
 
 .h2libreria {

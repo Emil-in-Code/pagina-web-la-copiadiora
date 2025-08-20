@@ -9,7 +9,7 @@ export default function Princing(){
 
       <main className="main">
         <h1 className="h1precios">Precios sin descuentos.</h1>
-        <p className="p-h1">Para obtener todos nuestros beneficios deberás <a className="enlace-registrarse" href="Register.html">registrarte</a></p>
+        <p className="p-h1">Para obtener todos nuestros beneficios deberás <a className="enlace-registrarse" to="Register.html">registrarte</a></p>
 
         {/*Tarjeta de Copias color*/}
         <section className="pricing__cards--section">
@@ -17,7 +17,7 @@ export default function Princing(){
           <div className="card-container">
 
             <div className="card__fondo--amarillo">
-              <img src="/assets/features/precios/copiascolor.svg" alt="Copias o impresiones a Color" className="imagenes"/>
+              <img src="/assets/precios/copiascolor.svg" alt="Copias o impresiones a Color" className="imagenes"/>
             </div>
 
             <div className="container-contenido">
@@ -36,7 +36,7 @@ export default function Princing(){
           {/*Tarjeta de Anillados*/}
           <div className="card-container">
             <div className="card__fondo--amarillo">
-              <img src="/assets/features/precios/anillado.svg" alt="Anillados" className="imagenes"/>
+              <img src="/assets/precios/anillado.svg" alt="Anillados" className="imagenes"/>
             </div>
 
             <div className="conteiner-contenido">
@@ -50,7 +50,7 @@ export default function Princing(){
           {/*Tarjeta de Copias en B/N*/}
           <div className="card-container">
             <div className="card__fondo--amarillo">
-              <img src="/assets/features/precios/blanco y negro.png" alt="Copias o impresiones en Blanco y Negro" className="imagenes"/>
+              <img src="/assets/precios/blanco y negro.png" alt="Copias o impresiones en Blanco y Negro" className="imagenes"/>
             </div>
             <div className="conteiner-contenido">
               <h2 className="contenido--title">COPIAS<br/>EN B/N</h2>
@@ -66,7 +66,7 @@ export default function Princing(){
           {/*Tarjeta de artículos de libreria*/} 
           <div className="card-container">
             <div className="card__fondo--amarillo">
-              <img src="/assets/features/precios/libreria.svg" alt="Arículos de Librería" className="imagenes-lapiz"/>
+              <img src="/assets/precios/libreria.svg" alt="Arículos de Librería" className="imagenes-lapiz"/>
             </div>
             <div className="conteiner-contenido">
               <h2 className="contenido--title">Artículos de librería</h2>
@@ -81,7 +81,7 @@ export default function Princing(){
           {/*Tarjeta de agendas docentes*/}
           <div className="card-container">
             <div className="card__fondo--amarillo">
-              <img src="/assets/features/precios/Agendas.svg" alt="Agendas docentes" className="imagenes-agenda"/>
+              <img src="/assets/precios/Agendas.svg" alt="Agendas docentes" className="imagenes-agenda"/>
             </div>
             <div className="conteiner-contenido">
               <h2 className="contenido--title">Agendas docentes</h2>
@@ -96,7 +96,7 @@ export default function Princing(){
           {/*Tarjeta de Delivery*/}
           <div className="card-container">
             <div className="card__fondo--amarillo">
-              <img src="/assets/features/precios/delivery.svg" alt="Delivery" className="imagenes"/>
+              <img src="/assets/precios/delivery.svg" alt="Delivery" className="imagenes"/>
             </div>
             <div className="conteiner-contenido">
               <h2 className="contenido--title">Delivery</h2>
@@ -111,7 +111,7 @@ export default function Princing(){
           {/*Tarjeta libros usados
           <div className="card-container">
             <div className="card__fondo--amarillo">
-              <img src="/assets/features/precios/libros opcion1.svg" alt="Libros usados" className="imagenes">
+              <img src="/assets/precios/libros opcion1.svg" alt="Libros usados" className="imagenes">
             </div>
             <div className="conteiner-contenido">
               <h2 className="contenido--title">Libros<br/>usados</h2>
@@ -126,7 +126,7 @@ export default function Princing(){
           {/*Tarjeta de plastificados*/}
           <div className="card-container">
             <div className="card__fondo--amarillo">
-              <img src="/assets/features/precios/plastificad.svg" alt="plastificados" className="imagenes"/>
+              <img src="/assets/precios/plastificad.svg" alt="plastificados" className="imagenes"/>
             </div>
             <div className="conteiner-contenido">
               <h2 className="contenido--title">Plastificados</h2>
@@ -137,7 +137,7 @@ export default function Princing(){
           {/*Tarjeta material sad*/}
           <div className="card-container">
             <div className="card__fondo--amarillo">
-              <img src="/assets/features/precios/sad.svg" alt="Material secretaría de asuntos docentes" className="imagenes"/>
+              <img src="/assets/precios/sad.svg" alt="Material secretaría de asuntos docentes" className="imagenes"/>
             </div>
             <div className="conteiner-contenido">
               <h2 className="contenido--title">S.A.D</h2>
@@ -162,19 +162,19 @@ export default function Princing(){
          {/*agenda incial */}
           <div className="container-agenda">  
             <h3 className="h3agendas">INICIAL</h3>
-            <img src="/assets/features/agenda inicial.jpg" alt="agenda de incial"/> 
+            <img src="/assets/agenda inicial.jpg" alt="agenda de incial"/> 
           </div>
 
          {/*agenda primaria */}
           <div className="container-agenda">
             <h3 className="h3agendas">PRIMARIA</h3>
-            <img src="/assets/features/agenda primaria.jpg" alt="agenda primaria"/>
+            <img src="/assets/agenda primaria.jpg" alt="agenda primaria"/>
           </div>
 
           {/*agenda secundaria*/}
           <div className="container-agenda">
             <h3 className="h3agendas">SECUNDARIA</h3>
-            <img src="/assets/features/agenda secundaria.jpg" alt="agenda secundaria"/>
+            <img src="/assets/agenda secundaria.jpg" alt="agenda secundaria"/>
           </div>
 
           <div>
@@ -193,27 +193,27 @@ export default function Princing(){
           <div className="container__libreria">
 
             <div className="libreria--item">
-              <img src="/assets/features/precios/sacapuntas.jpeg" alt="sacapuntas"/>
+              <img src="/assets/precios/sacapuntas.jpeg" alt="sacapuntas"/>
             </div>
           
             <div className="libreria--item">
-              <img src="/assets/features/precios/folios.jpeg" alt="folios"/>
+              <img src="/assets/precios/folios.jpeg" alt="folios"/>
             </div>
           
             <div className="libreria--item">
-              <img src="/assets/features/precios/sobre madera.jpeg" alt="sobre de papel madera"/>
+              <img src="/assets/precios/sobre madera.jpeg" alt="sobre de papel madera"/>
             </div>
           
             <div className="libreria--item">
-              <img src="/assets/features/precios/lapicera.jpeg" alt="lapiceras"/>
+              <img src="/assets/precios/lapicera.jpeg" alt="lapiceras"/>
             </div>
           
             <div className="libreria--item">
-              <img src="/assets/features/precios/resaltador.jpeg" alt="resaltadores"/>
+              <img src="/assets/precios/resaltador.jpeg" alt="resaltadores"/>
             </div>
           
             <div className="libreria--item">
-              <img src="/assets/features/precios/postit.jpeg" alt="post it"/>
+              <img src="/assets/precios/postit.jpeg" alt="post it"/>
             </div>
           </div>
           
