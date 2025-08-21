@@ -206,6 +206,17 @@
   width: 80%;
   justify-content: center;
   align-items: center;
+  background-color:blue;
+}
+
+.title-section {
+  color: rgba(255, 206, 6, 1);
+  text-align: center;
+}
+
+.description-section {
+  text-align: center;
+  margin-top:0;
 }
 
 .agendas-wrapper{
@@ -213,33 +224,50 @@
   flex-direction:column;
   justify-content:center;
   align-items:center;
+  gap:10px;
 }
 
-.h2agendas {
-  color: rgba(255, 206, 6, 1);
-  text-align: center;
-}
-
-.p-agendas {
-  text-align: center;
-}
-
-.h3agendas {
-  color: rgba(255, 206, 6, 1);
-  margin: 0;
-  padding: 0;
-  font-family: Baron Neue; 
-  
+.container-agenda{
+  width: 70vw;
+  height: 300px;
+  display:flex;
+  justify-content:center;
+  background-color: red;
 }
 
 .container-agenda > img {
-  width: 250px;
-  height: auto;
+  width: 190px;
+  height: 80px;
   border-radius: 8px;
   box-shadow: 0px, 0px, 50px rgba(255, 206, 6, 1);
   border: 1px solid rgba(255, 206, 6, 1);
   transform: rotate(-90deg);
   pointer-events:none;
+  background-color:grey;
+}
+
+.text-container{
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  margin
+}
+
+.title-agenda{
+  color:#ffce06;
+  font-family:Baron Neue;
+  font-size: 400;
+}
+
+.subtitle-agenda {
+  color: #e1e1e1;
+  margin: 0;
+  padding: 0;
+  font-family: Baron Neue; 
+}
+
+.description-agenda{
+  font-size:16px;
 }
 
 .button-presupuesto {

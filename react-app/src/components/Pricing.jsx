@@ -153,29 +153,56 @@ export default function Princing(){
         {/*SECCIÓN AGENDAS*/}
 
         <section className="agendas-section">
-          <h2 className="h2agendas">Agendas Docentes</h2>
-            <p className="p-agendas">Las agendas son únicamente para uso docente.<br/>
-             contienen:<br/> cursos, asistencias, calificaciones,  designaciones, licencias<br/>
-             y todo lo que vas a necesitar para organizar tu carrera.
-            </p>
+          <h2 className="title-section">Agendas</h2>
+          <p className="description-section">Tenemos la agenda que estás buscando.</p>
 
           <div className="agendas-wrapper">
             {/*agenda incial */}
-            <div className="container-agenda">  
-              <h3 className="h3agendas">INICIAL</h3>
-              <img src="/assets/agenda inicial.jpg" alt="agenda de incial"/> 
+            <div className="container-agenda">
+              <img src="/assets/agenda inicial.jpg" alt="agenda de incial"/>
+              <div className="text-container">
+                <h3 className="title-agenda">Agenda docente</h3>
+                <h4 className="subtitle-agenda">Nivel inicial</h4>
+                <p className="description-agenda">Calendario y cronograma mensual,lista de alumnos <br/>
+                  designaciones y suplencias, licencias, entrevistas y más...
+                </p> 
+              </div>
+              <div className="buy-section">
+                <p className="price">$25.000</p>
+                <a href="https://wa.me/message/EOKHJIUZOJSKF1" className="btn-whatsapp">Comprar</a> 
+              </div>
+            
             </div>
 
             {/*agenda primaria */}
             <div className="container-agenda">
-              <h3 className="h3agendas">PRIMARIA</h3>
               <img src="/assets/agenda primaria.jpg" alt="agenda primaria"/>
+              <div className="text-container">
+                <h3 className="subtitle-agenda">PRIMARIA</h3> 
+                <p className="description-agenda">Calendario y cronograma mensual,lista de alumnos <br/>
+                  designaciones y suplencias, licencias, entrevistas y más... 
+                </p>
+              </div>
+              <div className="buy-section">
+                <p className="price">$25.000</p>
+                <a href="https://wa.me/message/EOKHJIUZOJSKF1" className="btn-whatsapp">Comprar</a> 
+              </div> 
+              
             </div>
 
             {/*agenda secundaria*/}
             <div className="container-agenda">
-              <h3 className="h3agendas">SECUNDARIA</h3>
               <img src="/assets/agenda secundaria.jpg" alt="agenda secundaria"/>
+              <div className="text-container">
+                <h3 className="subtitle-agenda">SECUNDARIA</h3>
+                <p className="description-agenda">Calendario y cronograma mensual,lista de alumnos <br/>
+                  designaciones y suplencias, licencias, entrevistas y más... 
+                </p>
+              </div>
+              <div className="buy-section">
+                  <p className="price">$25.000</p>
+                  <a href="https://wa.me/message/EOKHJIUZOJSKF1" className="btn-whatsapp">Comprar</a> 
+              </div>
             </div>
           </div> 
 

@@ -22,12 +22,12 @@ export default function Envios() {
 
       <div className="cards-container">
         {[
-          { zona: "Casco urbano Platense", precios: ["32 a 72 - $1.500", "1 a 131 - $1.500"] },
+          { zona: "Casco urbano/ Platense", precios: ["32 a 72 - $1.500", "1 a 131 - $1.500"] },
           { zona: "Los Hornos/San Carlos", precios: ["131 a 137 - $1.500", "137 a 143 - $2.000", "143 a 149 - $2.500"] },
           { zona: "RINGUELET/ TOLOSA", precios: ["32 a 526 - $1.500"] },
           { zona: "VILLA ELVIRA/ Altos de San L.", precios: ["131 a 137 - $1.500"], special: true },
           { zona: "City Bell", precios: ["131 a 137 - $1.500", "131 a 137 - $1.500", "131 a 137 - $1.500"] },
-          { zona: "Olmos", precios: ["131 a 137 - $1.500", "131 a 137 - $1.500", "131 a 137 - $1.500"] },
+          { zona: "olmos", precios: ["131 a 137 - $1.500", "131 a 137 - $1.500", "131 a 137 - $1.500"] },
           { zona: "Abasto", precios: ["131 a 137 - $1.500", "131 a 137 - $1.500", "131 a 137 - $1.500"] },
           { zona: "Villa Elisa", precios: ["131 a 137 - $1.500", "131 a 137 - $1.500", "131 a 137 - $1.500"] },
           { zona: "Ensenada", precios: ["131 a 137 - $1.500", "131 a 137 - $1.500", "131 a 137 - $1.500"] },
