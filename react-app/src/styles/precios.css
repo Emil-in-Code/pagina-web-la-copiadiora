@@ -231,26 +231,27 @@
   width: 70vw;
   height: 300px;
   display:flex;
-  justify-content:center;
+  justify-content:space-between;
   background-color: red;
+  position: relative;
 }
 
 .container-agenda > img {
   width: 190px;
-  height: 80px;
+  height: 120px;
   border-radius: 8px;
   box-shadow: 0px, 0px, 50px rgba(255, 206, 6, 1);
   border: 1px solid rgba(255, 206, 6, 1);
   transform: rotate(-90deg);
   pointer-events:none;
-  background-color:grey;
+  margin-top: 80px;
 }
 
 .text-container{
   display: flex;
   flex-direction: column;
-  justify-content:center;
-  margin
+  justify-content:space-between;
+  position:relative;
 }
 
 .title-agenda{
@@ -261,37 +262,21 @@
 
 .subtitle-agenda {
   color: #e1e1e1;
-  margin: 0;
-  padding: 0;
-  font-family: Baron Neue; 
+  font-family: Baron Neue;
+  position:absolute;
+  top:20px;
 }
 
 .description-agenda{
   font-size:16px;
+
 }
 
-.button-presupuesto {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color:none;
-  color: rgba(255, 206, 6, 1);
-  text-align: center;
-  text-decoration: none;
-  border:1px solid rgba(255, 206, 6, 1);
-  border-radius: 10px;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
+.buy-section{
+  display:flex;
+  flex-direction:column;
+  justify-content: space-between;
 }
-
-.button-presupuesto:hover {
-  background-color: rgba(255, 206, 6, 1);
-  color: #000000;
-}
-
-.button-presupuesto a {
-  color: inherit;
-}
-
 /*hasta aquí stiles agenda*/
 
 /*a partir de  aquí stiles gellery libreria*/

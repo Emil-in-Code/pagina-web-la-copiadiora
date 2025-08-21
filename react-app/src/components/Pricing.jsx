@@ -157,6 +157,7 @@ export default function Princing(){
           <p className="description-section">Tenemos la agenda que estás buscando.</p>
 
           <div className="agendas-wrapper">
+
             {/*agenda incial */}
             <div className="container-agenda">
               <img src="/assets/agenda inicial.jpg" alt="agenda de incial"/>
@@ -164,23 +165,23 @@ export default function Princing(){
                 <h3 className="title-agenda">Agenda docente</h3>
                 <h4 className="subtitle-agenda">Nivel inicial</h4>
                 <p className="description-agenda">Calendario y cronograma mensual,lista de alumnos <br/>
-                  designaciones y suplencias, licencias, entrevistas y más...
-                </p> 
+                designaciones y suplencias, licencias,<br/> entrevistas y más...
+              </p> 
               </div>
               <div className="buy-section">
                 <p className="price">$25.000</p>
                 <a href="https://wa.me/message/EOKHJIUZOJSKF1" className="btn-whatsapp">Comprar</a> 
-              </div>
-            
+              </div>           
             </div>
 
             {/*agenda primaria */}
             <div className="container-agenda">
               <img src="/assets/agenda primaria.jpg" alt="agenda primaria"/>
               <div className="text-container">
-                <h3 className="subtitle-agenda">PRIMARIA</h3> 
+                <h3 className="title-agenda">Agenda docente</h3>
+                <h4 className="subtitle-agenda">Nivel Primario</h4>
                 <p className="description-agenda">Calendario y cronograma mensual,lista de alumnos <br/>
-                  designaciones y suplencias, licencias, entrevistas y más... 
+                  designaciones y suplencias, licencias,<br/> entrevistas y más... 
                 </p>
               </div>
               <div className="buy-section">
@@ -194,7 +195,8 @@ export default function Princing(){
             <div className="container-agenda">
               <img src="/assets/agenda secundaria.jpg" alt="agenda secundaria"/>
               <div className="text-container">
-                <h3 className="subtitle-agenda">SECUNDARIA</h3>
+                <h3 className="title-agenda">Agenda docente</h3>
+                <h4 className="subtitle-agenda">Nivel Secundario</h4>
                 <p className="description-agenda">Calendario y cronograma mensual,lista de alumnos <br/>
                   designaciones y suplencias, licencias, entrevistas y más... 
                 </p>
@@ -203,14 +205,9 @@ export default function Princing(){
                   <p className="price">$25.000</p>
                   <a href="https://wa.me/message/EOKHJIUZOJSKF1" className="btn-whatsapp">Comprar</a> 
               </div>
-            </div>
+            </div> 
           </div> 
 
-          <div>
-            <ul>
-              <li className="button-presupuesto"><a href="https://wa.me/message/EOKHJIUZOJSKF1">Comprar agendas</a></li>
-            </ul>
-          </div>
         </section>
 
         {/*SECCIÓN LIBRERÍA*/}
