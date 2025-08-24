@@ -114,41 +114,45 @@ h1 {
 
 .imagen__ilovepdf,
 .imagen__chatgpt {
-    width: 60px;
-    height: 70px;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    /*los margenes son dentro del fondo amarillo que actua como contenedor*/
+  width: 60px;
+  height: 70px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  pointer-events: none;
+  /*los margenes son dentro del fondo amarillo que actua como contenedor*/
 }
 
 .imagen__notion {
-    width: 50px;
-    height: auto;
-    margin: 30px;
+  width: 50px;
+  height: auto;
+  margin: 30px;
+  pointer-events: none;
 }
 
 .imagen__airtable {
-    width: 100px;
+  width: 100px;
+  pointer-events: none;
 }
 
 .imagen__trello {
-    width: 100px;
-    margin: 30px;
+  width: 100px;
+  margin: 30px;
+  pointer-events:none;
 }
 
 .imagen__grammarly {
-    width: 170px;
-    height: auto;
-    margin: 10px;
-
+  width: 170px;
+  height: auto;
+  margin: 10px;
+  pointer-events:none;
 }
 
 .imagen__tichai {
-
-    width: 80%;
-    height: auto;
-    margin-top: 40px;
-    margin-right: 10px;
+  width: 80%;
+  height: auto;
+  margin-top: 40px;
+  margin-right: 10px;
+  pointer-events:none;
 }
 
 .contenido {

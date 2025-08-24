@@ -1,6 +1,6 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import PublicApp from './components/PublicApp.jsx'
+import PublicApp from './pages/PublicApp.jsx'
 
 const el = document.getElementById('root')
 if (el) {

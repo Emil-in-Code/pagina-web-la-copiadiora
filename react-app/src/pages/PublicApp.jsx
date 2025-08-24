@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Index from './Index'
+import Home from './Home'
 import Pricing from './Pricing'
 import Envios from './Envios'
 import LinksUtiles from './LinksUtiles'
@@ -9,7 +9,7 @@ export default function PublicApp() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Index />} />
+        <Route path="/" element={<Home />} />
         <Route path="/precios" element={<Pricing />} />
         <Route path="/envios" element={<Envios />} />
         <Route path="/links-utiles" element={<LinksUtiles />} />

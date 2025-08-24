@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom"
 import Navbar from "../widgets/navbar"
 import Footer from "../widgets/footer"
-import "../styles/Index.css"
+import "../styles/Home.css"
 import "../styles/global.css"
+import CtaButton from "../components/ui/CtaButton.jsx"
 
 export default function Index() {
   return (
@@ -17,11 +18,14 @@ export default function Index() {
               Leer todo lo que te piden ya es complicado.<br />
               Que imprimirlo sea<br /> rápido, fácil y seguro
             </p>
-            <div className="cta__container">
-              <Link to="./Pedidos" id="presupuestar-btn" className="button-presupuesto" aria-label="Presupuestar fotocopias gratis">
-                Presupuestar Gratis
-              </Link>
-            </div>
+            <div className ="cta__container">
+              <CtaButton
+                to="./Pedidos"
+                text="Presupuestar gratis"
+                id="presupuestar-btn"
+                className="button-presupuesto"
+              />
+            </div> 
           </div>
 
           <div className="logo__container">
@@ -29,9 +33,12 @@ export default function Index() {
           </div>
 
           <div className="cta__container2">
-            <Link to="./Pedidos" className="button-presupuesto2" aria-label="Presupuestar fotocopias gratis">
-              Presupuestar Ahora
-            </Link>
+            <CtaButton
+              to="./Pedidos" 
+              className="button-presupuesto2" 
+              aria-label="Presupuestar fotocopias gratis"
+              text="Presupuestar Ahora"
+            />
           </div>
         </section>
 
@@ -61,9 +68,12 @@ export default function Index() {
             </div>
 
             <div className="gallery--item">
-              <Link to="/registrarme" className="button-presupuesto--grid" aria-label="Crear una cuenta">
-                Crear una cuenta
-              </Link>
+              <CtaButton
+                to="/registrarme" 
+                className="button-presupuesto--grid" 
+                aria-label="Crear una cuenta"
+                text= "Crear una cuenta"
+              />
             </div>
           </div>
         </section>
@@ -119,9 +129,12 @@ export default function Index() {
         </div>
 
         <div className="aside__cta">
-          <Link to="/registrarme" className="button-presupuesto--grid" aria-label="Crear una cuenta">
-            Quiero mis copias
-          </Link>
+          <CtaButton
+            to="/registrarme" 
+            className="button-presupuesto--grid" 
+            aria-label="Crear una cuenta"
+            text="Quiero mis copias"
+          />
         </div>
       </aside>
 

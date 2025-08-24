@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import ListaPedidos from './ListaPedidos.jsx'
+import ListaPedidos from '../components/ListaPedidos.jsx'
 import '../styles/pedidos.css'
 
 export default function Pedidos() {

@@ -1,5 +1,7 @@
 import "../styles/global.css";
 import "../styles/links.css";
+import Navbar from "../widgets/navbar";
+import Footer from "../widgets/footer"
 
 export default function LinksUtiles() {
   return (
@@ -67,7 +69,7 @@ export default function LinksUtiles() {
 // Datos de cada tarjeta
 const cards = [
   {
-    img: "/assets/features/links img/ilovepdf.png",
+    img: "/assets/links img/ilovepdf.png",
     alt: "i love pdf",
     className: "imagen__ilovepdf",
     title: "Todo para tus pdf",
@@ -75,7 +77,7 @@ const cards = [
     url: "https://www.ilovepdf.com/es",
   },
   {
-    img: "/assets/features/links img/notion.png",
+    img: "/assets/links img/notion.png",
     alt: "notion",
     className: "imagen__notion",
     title: "Todo para organizarte",
@@ -83,7 +85,7 @@ const cards = [
     url: "https://www.notion.so/3659ea50e864418a832fbee16a6533ff?v=060dbe90b3a9465db7a55a7573ba217b",
   },
   {
-    img: "/assets/features/links img/airtable.png",
+    img: "/assets/links img/airtable.png",
     alt: "airtable",
     className: "imagen__airtable",
     title: "Excel con poderes",
@@ -91,7 +93,7 @@ const cards = [
     url: "https://airtable.com/",
   },
   {
-    img: "/assets/features/links img/chatgpt.png",
+    img: "/assets/links img/chatgpt.png",
     alt: "chat gpt",
     className: "imagen__chatgpt",
     title: "Chat\nGPT",
@@ -99,7 +101,7 @@ const cards = [
     url: "https://chatgpt.com/c/66e468fd-55d4-8003-9809-e64785b526a6",
   },
   {
-    img: "/assets/features/links img/trello.png",
+    img: "/assets/links img/trello.png",
     alt: "trello",
     className: "imagen__trello",
     title: "Gestor de proyectos",
@@ -107,7 +109,7 @@ const cards = [
     url: "https://trello.com/es",
   },
   {
-    img: "/assets/features/links img/grammarly.png",
+    img: "/assets/links img/grammarly.png",
     alt: "grammarly",
     className: "imagen__grammarly",
     title: "Gestor de Gramática",
@@ -115,7 +117,7 @@ const cards = [
     url: "https://www.grammarly.com/",
   },
   {
-    img: "/assets/features/links img/Tichai.png",
+    img: "/assets/links img/Tichai.png",
     alt: "tichai",
     className: "imagen__tichai",
     title: "Gestor de exámenes",
