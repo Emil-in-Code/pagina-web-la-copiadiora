@@ -3,7 +3,7 @@ import Navbar from "../widgets/navbar"
 import Footer from "../widgets/footer"
 import "../styles/Home.css"
 import "../styles/global.css"
-import CtaButton from "../components/ui/CtaButton.jsx"
+import CtaButton from "../components/CtaButton/CtaButton.jsx"
 
 export default function Index() {
   return (

@@ -1,6 +1,7 @@
 import Navbar from '../widgets/navbar'
 import Footer from '../widgets/footer'
 import "../styles/precios.css"
+import CtaButton from "../components/CtaButton/CtaButton.jsx"
 
 export default function Princing(){
   return (
@@ -23,14 +24,18 @@ export default function Princing(){
             <div className="container-contenido">
               <h2 className="contenido--title">COPIAS A COLOR</h2>
               <p className="contenido--text">Papel A4 de 75 gr.<br/>
-              $150 simple faz<br/>
-              $200 doble faz</p>
+              $300 simple faz<br/>
+              $350 doble faz</p>
             </div>
 
             <div>
-              <button className="btn-copiascolor">Hacer pedido</button>
-            </div>
-
+              <CtaButton
+                to="./Pedidos"
+                text="Hacer pedido"
+                className="btn-copiascolor"
+              />
+            </div> 
+ 
           </div>  
 
           {/*Tarjeta de Anillados*/}
@@ -58,9 +63,12 @@ export default function Princing(){
             </div>
 
             <div>
-              <button className="btn-tarjetas">Hacer pedido</button>
-            </div>
-
+              <CtaButton
+                to="./Pedidos"
+                text="Hacer pedido"
+                className="btn-tarjetas"
+              />
+            </div> 
           </div>
 
           {/*Tarjeta de artículos de libreria*/} 
@@ -74,8 +82,13 @@ export default function Princing(){
             </div>
 
             <div>
-              <button className="btn-tarjetas">Ver Artículos</button>
-            </div>
+              <CtaButton
+                to="#"
+                text="Hacer pedido"
+                className="btn-tarjetas"
+              />
+            </div> 
+
           </div>
 
           {/*Tarjeta de agendas docentes*/}

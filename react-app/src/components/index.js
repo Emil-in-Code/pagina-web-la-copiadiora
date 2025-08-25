@@ -6,7 +6,7 @@ export { default as InicioHero } from "./InicioHero"; // si lo renombraste así
 
 // UI
 export { default as AddCartButton } from "./ui/AddCartButton";
-export { default as CtaButton } from "./ui/CtaButton";
+export { default as CtaButton } from "./CtaButton/CtaButton.jsx";
 export { default as InfoCard } from "./ui/InfoCard";
 export { default as ProductCard } from "./ui/ProductCard";
 

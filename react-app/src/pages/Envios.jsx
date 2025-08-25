@@ -3,7 +3,7 @@ import "../styles/global.css";
 import "../styles/envios.css";
 import Navbar from "../widgets/navbar";
 import Footer from "../widgets/footer"
-import CtaButton from "../components/ui/CtaButton.jsx"
+import CtaButton from "../components/CtaButton/CtaButton.jsx"
 
 export default function Envios() {
   return (
