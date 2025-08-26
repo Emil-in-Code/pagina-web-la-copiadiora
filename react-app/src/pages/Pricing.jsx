@@ -2,6 +2,7 @@ import Navbar from '../widgets/navbar'
 import Footer from '../widgets/footer'
 import "../styles/precios.css"
 import CtaButton from "../components/CtaButton/CtaButton.jsx"
+import InfoCard from "../components/InforCard/InfoCard.jsx"
 
 export default function Princing(){
   return (
@@ -14,62 +15,43 @@ export default function Princing(){
 
         {/*Tarjeta de Copias color*/}
         <section className="pricing__cards--section">
-
-          <div className="card-container">
-
-            <div className="card__fondo--amarillo">
-              <img src="/assets/precios/copiascolor.svg" alt="Copias o impresiones a Color" className="imagenes"/>
-            </div>
-
-            <div className="container-contenido">
-              <h2 className="contenido--title">COPIAS A COLOR</h2>
-              <p className="contenido--text">Papel A4 de 75 gr.<br/>
-              $300 simple faz<br/>
-              $350 doble faz</p>
-            </div>
-
-            <div>
-              <CtaButton
-                to="./Pedidos"
-                text="Hacer pedido"
-                className="btn-copiascolor"
-              />
-            </div> 
- 
-          </div>  
+            
+          <InfoCard
+            imgSrc="/assets/precios/copiascolor.svg"
+            imgAlt="Copias o impresiones a Color"
+            title="Copias a color"
+            text={"Papel A4 de 75gr \n$300 simple faz\n $350 doble faz"}
+          >
+            <CtaButton
+              to="./Pedidos.jsx"
+              text="Hacer pedido"
+              className="btn-copiascolor"
+            />
+          </InfoCard>
 
           {/*Tarjeta de Anillados*/}
-          <div className="card-container">
-            <div className="card__fondo--amarillo">
-              <img src="/assets/precios/anillado.svg" alt="Anillados" className="imagenes"/>
-            </div>
 
-            <div className="conteiner-contenido">
-              <h2 className="contenido--title">ANILLADOS</h2>
-              <p className="contenido--text">En A4<br/> con tapas y anillos de plástico.<br/>
-              $2.000<br/>
-              Se hacen en el acto.</p>
-            </div>
-          </div>
-
+          <InfoCard
+            imgSrc="/assets/precios/anillado.svg"
+            imgAlt="Anillados"
+            title="Anillados"
+            text={"En A4 con tapas y anillos de plástico.\n$3.000 \nSe anilla en el acto."}
+          ></InfoCard>
+           
           {/*Tarjeta de Copias en B/N*/}
-          <div className="card-container">
-            <div className="card__fondo--amarillo">
-              <img src="/assets/precios/blanco y negro.png" alt="Copias o impresiones en Blanco y Negro" className="imagenes"/>
-            </div>
-            <div className="conteiner-contenido">
-              <h2 className="contenido--title">COPIAS<br/>EN B/N</h2>
-              <p className="contenido--text">Papel A4 de 75 gr.<br/>$100</p>
-            </div>
 
-            <div>
-              <CtaButton
-                to="./Pedidos"
-                text="Hacer pedido"
-                className="btn-tarjetas"
-              />
-            </div> 
-          </div>
+          <InfoCard
+            imgSrc="/assets/precios/blanco y negro.png"
+            imgAlt="Copias o impresiones en blanco y negro"
+            title="Copias en B&N"
+            text={"En papel A4 de 75gr \n$150 \n\n"}
+          >
+            <CtaButton
+              to="./Pedidos.jsx"
+              text="Hacer pedido"
+              className="btn-tarjetas"
+            />
+          </InfoCard>
 
           {/*Tarjeta de artículos de libreria*/} 
           <div className="card-container">
