@@ -4,6 +4,7 @@ import Footer from "../widgets/footer"
 import "../styles/Home.css"
 import "../styles/global.css"
 import CtaButton from "../components/CtaButton/CtaButton.jsx"
+import InfoCard from "../components/InforCard/InfoCard.jsx"
 
 export default function Index() {
   return (
@@ -13,7 +14,7 @@ export default function Index() {
       <main>
         <section className="hero__flexbox">
           <div className="text__container">
-            <h1 className="indexh1">Tu carrera, tu futurO,<br />tu tiempO.</h1>
+            <h1 className="indexh1">Tu caRRera, tu futuRO,<br />tu tiempO.</h1>
             <p>
               Leer todo lo que te piden ya es complicado.<br />
               Que imprimirlo sea<br /> rápido, fácil y seguro
@@ -84,48 +85,44 @@ export default function Index() {
           <h2 className="title__aside">¿Cómo hago mi pedido?</h2>
         </div>
 
-        <div className="flex-container">
-          <div className="container-item">
-            <div className="subtitle__container">
-              <h3 className="subtitle">1. Cargá tus archivos en pdf</h3>
-            </div>
-            <img src="/assets/pdf.svg" alt="cargar tus archivos" className="imagen-aside copias" />
-          </div>
+         <div className="flex-container">
+            <InfoCard
+              imgSrc="/assets/pdf.svg"
+              imgAlt="1.Carga tus pdf"
+              title="1. Cargá tus archivos"
+              text={"Solo aceptamos PDF"}
+            ></InfoCard>  
+            <InfoCard
+              imgSrc="/assets/preferencias.png"
+              imgAlt="2.Elegí tus preferencias de impresión"
+              title="2. Preferencias"
+              text={"Seleccioná tus preferencias de impresión"}
+            ></InfoCard>          
+            <InfoCard
+              imgSrc="/assets/tiempo de entrega.svg"
+              imgAlt="3.Te diremos en cuanto tiempo estará tu pedido"
+              title="3.Tiempo"
+              text={"Te diremos en cuánto tiempo estará tu pedido"}
+            ></InfoCard>  
+            <InfoCard
+              imgSrc="/assets/tarjetasinfondo.png"
+              imgAlt="4.Abonar con tarjeta de débito"
+              title="4.Abonalo"
+              text={"te enviaremos la confirmación por WhatsApp"}
+            ></InfoCard>
+            <InfoCard
+              imgSrc="/assets/precios/delivery.svg"
+              imgAlt="5.Recibilo en casa o retiralo por sucursal"
+              title="5. Recibilo"
+              text={"Recibilo en casa o retiralo en tienda"}
+            ></InfoCard>
+            <InfoCard
+              imgSrc="/assets/orgiamiheart.png"
+              imgAlt="6.Ya puedes disfrutar tu pedido"
+              title="6.Disfrutalo"
+              text={"Tu educación es la mejor inversión"}
+            ></InfoCard>
 
-          <div className="container-item">
-            <div className="subtitle__container">
-              <h3 className="subtitle">2. Tus preferencias</h3>
-            </div>
-            <img src="/assets/preferenciaselector.png" alt="Seleccioná tus preferencias de impresión" className="imagen-aside preferencias" />
-          </div>
-
-          <div className="container-item">
-            <div className="subtitle__container">
-              <h3 className="subtitle">3. Manejá tus tiempos</h3>
-            </div>
-            <img src="/assets/tiempo de entrega.svg" alt="Elegí tu tiempo de entrega" className="imagen-aside recibir" />
-          </div>
-
-          <div className="container-item">
-            <div className="subtitle__container">
-              <h3 className="subtitle">4. Abonalo</h3>
-            </div>
-            <img src="/assets/tarjetasinfondo.png" alt="abonalo y listo" className="imagen-aside debit" />
-          </div>
-
-          <div className="container-item">
-            <div className="subtitle__container">
-              <h3 className="subtitle">5. recibilo</h3>
-            </div>
-            <img src="/assets/precios/delivery.svg" alt="abonalo y listo" className="imagen-aside box" />
-          </div>
-
-          <div className="container-item">
-            <div className="subtitle__container">
-              <h3 className="subtitle">6. Disfrutalo</h3>
-            </div>
-            <img src="/assets/orgiamiheart.png" alt="abonalo y listo" className="imagen-aside heart" />
-          </div>
         </div>
 
         <div className="aside__cta">

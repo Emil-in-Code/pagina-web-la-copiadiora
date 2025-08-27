@@ -12,7 +12,7 @@ export default function Envios() {
       <Navbar /> 
 
       <div className="title__container">
-        <h2 className="title">TUS APUNTES Y LIBROS DIRECTO A TU PUERTA</h2>
+        <h2 className="title">TuS APuNTES Y LIBROS DIRECTo A TU PuERTA</h2>
         <p className="subtitle">
           que la distancia no sea una perdida de tiempo, Recibí tu pedido en un abrir y cerrar de ojos.
           <br />Sí, así de fácil y rápido te la hacemos.

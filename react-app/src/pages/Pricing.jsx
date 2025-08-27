@@ -25,7 +25,7 @@ export default function Princing(){
             <CtaButton
               to="./Pedidos.jsx"
               text="Hacer pedido"
-              className="btn-copiascolor"
+              className="btn-tarjetas"
             />
           </InfoCard>
 
@@ -54,95 +54,89 @@ export default function Princing(){
           </InfoCard>
 
           {/*Tarjeta de artículos de libreria*/} 
-          <div className="card-container">
-            <div className="card__fondo--amarillo">
-              <img src="/assets/precios/libreria.svg" alt="Arículos de Librería" className="imagenes-lapiz"/>
-            </div>
-            <div className="conteiner-contenido">
-              <h2 className="contenido--title">Artículos de librería</h2>
-              <p className="contenido--text">Cuadernos, folios, Lapiceras...</p>
-            </div>
 
-            <div>
-              <CtaButton
-                to="#"
-                text="Hacer pedido"
-                className="btn-tarjetas"
-              />
-            </div> 
+          <InfoCard
+            imgSrc="/assets/precios/libreria.svg"
+            imgAlt="Artículos de librería"
+            title="Art. de libreria"
+            text={"Cuadernos, folios, Lapiceras...\n\n"}
+          >
+            <CtaButton
+              to="#"
+              text="Ver artículos"
+              className="btn-tarjetas"
+            />
+          </InfoCard>
 
-          </div>
 
           {/*Tarjeta de agendas docentes*/}
-          <div className="card-container">
-            <div className="card__fondo--amarillo">
-              <img src="/assets/precios/Agendas.svg" alt="Agendas docentes" className="imagenes-agenda"/>
-            </div>
-            <div className="conteiner-contenido">
-              <h2 className="contenido--title">Agendas docentes</h2>
-              <p className="contenido--text">Para inicial, primaria y secundaria</p>
-            </div>
 
-            <div>
-              <button className="btn-tarjetas">Ver Agendas</button>
-            </div>
-          </div>
+          <InfoCard
+            imgSrc="/assets/precios/Agendas.svg"
+            imgAlt="Agendas docentes"
+            title="Agendas"
+            text={"Para inicial,\n primaria y secundaria\n\n"}
+          >
+            <CtaButton
+              to="#"
+              text="Ver Agendas"
+              className="btn-tarjetas"
+            />
+          </InfoCard>
+
 
           {/*Tarjeta de Delivery*/}
-          <div className="card-container">
-            <div className="card__fondo--amarillo">
-              <img src="/assets/precios/delivery.svg" alt="Delivery" className="imagenes"/>
-            </div>
-            <div className="conteiner-contenido">
-              <h2 className="contenido--title">Delivery</h2>
-              <p className="contenido--text">Llegamos en el día y al mejor precio</p>
-            </div>
+          <InfoCard
+            imgSrc="/assets/precios/delivery.svg"
+            imgAlt="Delivery"
+            title={"Delivery\n"}
+            text={"Llegamos en el día y al mejor precio \n\n"}
+          >
+            <CtaButton
+              to="./Envios.jsx"
+              text="Ver Zonas"
+              className="btn-tarjetas"
+            />
+          </InfoCard>          
 
-            <div>
-              <button className="btn-delivery">Ver Zonas</button>
-            </div>
-          </div>
 
-          {/*Tarjeta libros usados
-          <div className="card-container">
-            <div className="card__fondo--amarillo">
-              <img src="/assets/precios/libros opcion1.svg" alt="Libros usados" className="imagenes">
-            </div>
-            <div className="conteiner-contenido">
-              <h2 className="contenido--title">Libros<br/>usados</h2>
-              <p className="contenido--text">En excelente estado</p>
-            </div>
-
-            <div>
-              <button className="btn-librosusados">Ver Libros</button>
-            </div>
-          </div>*/}
+          {/*Tarjeta libros usados*/}
+          <InfoCard
+            imgSrc="/assets/precios/libros opcion1.svg"
+            imgAlt="Libros usados"
+            title="Libros usados"
+            text={"En excelentes condiciones\n\n"}
+          >
+            <CtaButton
+              to="./Envios.jsx"
+              text="Ver Libros"
+              className="btn-tarjetas"
+            />
+          </InfoCard>         
 
           {/*Tarjeta de plastificados*/}
-          <div className="card-container">
-            <div className="card__fondo--amarillo">
-              <img src="/assets/precios/plastificad.svg" alt="plastificados" className="imagenes"/>
-            </div>
-            <div className="conteiner-contenido">
-              <h2 className="contenido--title">Plastificados</h2>
-              <p className="contenido--text">En calor<br/>tamaño carnet y A4</p>
-            </div>
-          </div>
+          <InfoCard
+            imgSrc="/assets/precios/plastificad.svg"
+            imgAlt="plastificados"
+            title="plastificados"
+            text={"En calor\ntamaño carnet y A4\n"}
+          ></InfoCard>          
 
           {/*Tarjeta material sad*/}
-          <div className="card-container">
-            <div className="card__fondo--amarillo">
-              <img src="/assets/precios/sad.svg" alt="Material secretaría de asuntos docentes" className="imagenes"/>
-            </div>
-            <div className="conteiner-contenido">
-              <h2 className="contenido--title">S.A.D</h2>
-              <p className="contenido--text">Declaraciones juradas,<br/>obleas Inscripciones y más... </p>
-            </div>
 
-            <div>
-              <button className="btn-sad">Consultar</button>
-            </div>
-          </div>
+          <InfoCard
+            imgSrc="/assets/precios/sad.svg"
+            imgAlt="Material de secretaría de asuntos docentes"
+            title="S.A.D"
+            text={"Declaraciones juradas,\nobleas,inscripciones y más...\n"}
+          >
+            <CtaButton
+              href="https://wa.me/message/EOKHJIUZOJSKF1" 
+              text="consultar"
+              className="btn-tarjetas"
+            />
+          </InfoCard>         
+
         </section>
 
         {/*SECCIÓN AGENDAS*/}
