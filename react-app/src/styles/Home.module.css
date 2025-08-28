@@ -71,7 +71,7 @@ main {
         color: #000;
     }
 
-    #presupuestar-btn{
+    .presupuestar-btn{
         display: none;
     }
 
@@ -144,7 +144,7 @@ main {
         margin-bottom: 8px;
     }
       
-    #presupuestar-btn{
+    .presupuestar-btn{
         display: block;
         padding: 10px;
         color: rgba(255, 206, 6, 1);
@@ -159,7 +159,7 @@ main {
         transition: background-color 0.8s ease;
     }
     
-    #presupuestar-btn:hover {
+    .presupuestar-btn:hover {
         background-color: rgba(255, 206, 6, 1);
         color: #000;
     }
@@ -332,92 +332,13 @@ main {
     gap: 5px;
 }
 
-.container-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgba(254, 239, 180, 1);
-    width: 150px;
-    height: 250px;
-    margin: 10px;
-    border-radius: 7px;
-}
-
-.container-title {
-    display: flex;
-    justify-content: center;
-}
-
 .title__aside{
     text-align: center;
     line-height: 1.3;
     color: rgb(255, 206, 1);
     font-size: 2rem;
 }
-
-.imagen-aside {
-    width: 50px;
-    padding: 10px;
-}
-
-
-.imagen-aside.copias {
-    margin-top: 40px;
-    width: 75px;
-}
-
-.imagen-aside.preferencias {
-    margin-top: 25px;
-    width: 150px;
-}
-
-.imagen-aside.recibir {
-    width: 180px;
-    padding: 10px;
-}
-
-.imagen-aside.debit {
-    width: 125px;
-    margin-top: 30px;
-}
-
-.imagen-aside.box {
-    margin-top: 40px;
-    width: 100px;
-}
-
-.imagen-aside.heart {
-    margin-top: 20px;
-    width: 125px;
-}
-
-.container-item + .imagen__aside--copias {
-    display: flex;
-    align-items: center;
-}
-
-.subtitle__container {
-    background-color: rgb(255, 206, 1);
-    border-radius: 7px 7px 0px 0px;
-    border-bottom: 2px solid rgb(0, 0, 0);
-    width: 150px;
-    height: 60px;
-    display:flex;
-    justify-content:center;
-}
-
-.subtitle {
-    width: fit-content;
-    color: rgb(255, 255, 255);   
-    font-family: KeepCalm;
-    -webkit-text-stroke: 0.5px black;
-    text-shadow: 0.5px 0.5px 0 black; 
-    text-align: center;
-    line-height: 1.3;
-    font-size: 16px;
-    margin-top: 0.5rem;
-}    
-
+    
 .aside__cta{
     display: flex;
     justify-content: center;
@@ -442,87 +363,11 @@ main {
       flex-wrap: wrap;
       justify-content:center;
       align-items: stretch;
+      pointer-events:none;
   }
 
-  .container-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: rgba(254, 239, 180, 1);
-      width: 230px;
-      height: 350px;
-      margin: 10px;
-      border-radius: 7px;
-  }
-
-  .container-title {
-      display: flex;
-      justify-content: center;
-  }
-
-  .title__aside{
-      text-align: center;
-      line-height: 1.3;
-      color: rgb(255, 206, 1);
-  }
-
-  .imagen-aside {
-      width: 230px;
-      padding: 20px;
-  }
-
-  .imagen-aside.copias {
-      margin-top: 40px;
-      width: 150px;
-  }
-
-  .imagen-aside.preferencias {
-      margin-top: 25px;
-      width: 230px;
-  }
-
-  .imagen-aside.recibir {
-      width: 230px;
-      padding: 20px;
-  }
-
-  .imagen-aside.debit {
-      width: 230px;
-      margin-top: 30px;
-  }
-
-  .imagen-aside.box {
-      margin-top: 40px;
-      width: 200px;
-  }
-
-  .imagen-aside.heart {
-      margin-top: 20px;
-      width: 230px;
-  }
-
-  .container-item + .imagen__aside--copias {
-      display: flex;
-      align-items: center;
-  }
-
-  .subtitle__container {
-      background-color: rgb(255, 206, 1);
-      border-radius: 7px 7px 0px 0px;
-      border-bottom: 2px solid rgb(0, 0, 0);
-      height: 80px;
-      width: 230px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-  }
-  .subtitle {
-      width: 230px;
-      color: #1e1e1;
-      margin-top: 30px;
-      font-family: KeepCalm;
-      -webkit-text-stroke: 0.5px rgb(0, 0, 0);
-      text-shadow: 0.5px 0.5px 0 rgb(0, 0, 0);
+  .card-image {
+   width:150px;
   }
 
   .aside__cta{

@@ -1,20 +1,22 @@
 import Navbar from '../widgets/navbar'
 import Footer from '../widgets/footer'
-import "../styles/precios.css"
+import styles from "../styles/pricing.module.css"
 import CtaButton from "../components/CtaButton/CtaButton.jsx"
-import InfoCard from "../components/InforCard/InfoCard.jsx"
+import InfoCard from "../components/InfoCard/InfoCard.jsx"
 
 export default function Princing(){
   return (
     <>
       <Navbar />
 
-      <main className="main">
-        <h1 className="h1precios">Precios sin descuentos.</h1>
-        <p className="p-h1">Para obtener todos nuestros beneficios deberás <a className="enlace-registrarse" to="Register.html">registrarte</a></p>
+      <main className={styles["main"]}>
+        <h1 className={styles["h1precios"]}>Precios sin descuentos.</h1>
+        <p className={styles["p-h1"]}>Para obtener todos nuestros beneficios deberás
+          <a className={styles["enlace-registrarse"]} to="Register.html">registrarte</a>
+        </p>
 
         {/*Tarjeta de Copias color*/}
-        <section className="pricing__cards--section">
+        <section className={styles["pricing__cards--section"]}>
             
           <InfoCard
             imgSrc="/assets/precios/copiascolor.svg"
@@ -25,7 +27,7 @@ export default function Princing(){
             <CtaButton
               to="./Pedidos.jsx"
               text="Hacer pedido"
-              className="btn-tarjetas"
+              className={styles["btn-tarjetas"]}
             />
           </InfoCard>
 
@@ -49,7 +51,7 @@ export default function Princing(){
             <CtaButton
               to="./Pedidos.jsx"
               text="Hacer pedido"
-              className="btn-tarjetas"
+              className={styles["btn-tarjetas"]}
             />
           </InfoCard>
 
@@ -64,7 +66,7 @@ export default function Princing(){
             <CtaButton
               to="#"
               text="Ver artículos"
-              className="btn-tarjetas"
+              className={styles["btn-tarjetas"]}
             />
           </InfoCard>
 
@@ -80,7 +82,7 @@ export default function Princing(){
             <CtaButton
               to="#"
               text="Ver Agendas"
-              className="btn-tarjetas"
+              className={styles["btn-tarjetas"]}
             />
           </InfoCard>
 
@@ -95,7 +97,7 @@ export default function Princing(){
             <CtaButton
               to="./Envios.jsx"
               text="Ver Zonas"
-              className="btn-tarjetas"
+              className={styles["btn-tarjetas"]}
             />
           </InfoCard>          
 
@@ -110,7 +112,7 @@ export default function Princing(){
             <CtaButton
               to="./Envios.jsx"
               text="Ver Libros"
-              className="btn-tarjetas"
+              className={styles["btn-tarjetas"]}
             />
           </InfoCard>         
 
@@ -133,7 +135,7 @@ export default function Princing(){
             <CtaButton
               href="https://wa.me/message/EOKHJIUZOJSKF1" 
               text="consultar"
-              className="btn-tarjetas"
+              className={styles["btn-tarjetas"]}
             />
           </InfoCard>         
 
@@ -141,35 +143,38 @@ export default function Princing(){
 
         {/*SECCIÓN AGENDAS*/}
 
-        <section className="agendas-section">
-          <h2 className="title-section">Agendas</h2>
-          <p className="description-section">Tenemos la agenda que estás buscando.</p>
+        <section className={styles["agendas-section"]}>
+          <h2 className={styles["title-section"]}>Agendas</h2>
+          <p className={styles["description-section"]}>Tenemos la agenda que estás buscando.</p>
 
-          <div className="agendas-wrapper">
+          <div className={styles["agendas-wrapper"]}>
 
             {/*agenda incial */}
-            <div className="container-agenda">
+            <div className={styles["container-agenda"]}>
               <img src="/assets/agenda inicial.jpg" alt="agenda de incial"/>
-              <div className="text-container">
-                <h3 className="title-agenda">Agenda docente</h3>
-                <h4 className="subtitle-agenda">Nivel inicial</h4>
-                <p className="description-agenda">Calendario y cronograma mensual,lista de alumnos <br/>
-                designaciones y suplencias, licencias,<br/> entrevistas y más...
-              </p> 
+              <div className={styles["text-container"]}>
+                <h3 className={styles["title-agenda"]}>Agenda docente</h3>
+                <h4 className={styles["subtitle-agenda"]}>Nivel inicial</h4>
+                <p className={styles["description-agenda"]}>
+                  Calendario y cronograma mensual,lista de alumnos <br/>
+                  designaciones y suplencias, licencias,<br/> entrevistas y más...
+                </p> 
               </div>
-              <div className="buy-section">
-                <p className="price">$25.000</p>
-                <a href="https://wa.me/message/EOKHJIUZOJSKF1" className="btn-whatsapp">Comprar</a> 
+              <div className={styles["buy-section"]}>
+                <p className={styles["price"]}>$25.000</p>
+                <a href="https://wa.me/message/EOKHJIUZOJSKF1"
+                  className={styles["btn-whatsapp"]}>Comprar</a> 
               </div>           
             </div>
 
             {/*agenda primaria */}
-            <div className="container-agenda">
+            <div className={styles["container-agenda"]}>
               <img src="/assets/agenda primaria.jpg" alt="agenda primaria"/>
-              <div className="text-container">
-                <h3 className="title-agenda">Agenda docente</h3>
-                <h4 className="subtitle-agenda">Nivel Primario</h4>
-                <p className="description-agenda">Calendario y cronograma mensual,lista de alumnos <br/>
+              <div className={styles["text-container"]}>
+                <h3 className={styles["title-agenda"]}>Agenda docente</h3>
+                <h4 className={styles["subtitle-agenda"]}>Nivel Primario</h4>
+                <p className={styles["description-agenda"]}>
+                  Calendario y cronograma mensual,lista de alumnos <br/>
                   designaciones y suplencias, licencias,<br/> entrevistas y más... 
                 </p>
               </div>
@@ -181,18 +186,20 @@ export default function Princing(){
             </div>
 
             {/*agenda secundaria*/}
-            <div className="container-agenda">
+            <div className={styles["container-agenda"]}>
               <img src="/assets/agenda secundaria.jpg" alt="agenda secundaria"/>
-              <div className="text-container">
-                <h3 className="title-agenda">Agenda docente</h3>
-                <h4 className="subtitle-agenda">Nivel Secundario</h4>
-                <p className="description-agenda">Calendario y cronograma mensual,lista de alumnos <br/>
+              <div className={styles["text-container"]}>
+                <h3 className={styles["title-agenda"]}>Agenda docente</h3>
+                <h4 className={styles["subtitle-agenda"]}>Nivel Secundario</h4>
+                <p className={styles["description-agenda"]}>
+                  Calendario y cronograma mensual,lista de alumnos <br/>
                   designaciones y suplencias, licencias, entrevistas y más... 
                 </p>
               </div>
-              <div className="buy-section">
-                  <p className="price">$25.000</p>
-                  <a href="https://wa.me/message/EOKHJIUZOJSKF1" className="btn-whatsapp">Comprar</a> 
+              <div className={styles["buy-section"]}>
+                  <p className={styles["price"]}>$25.000</p>
+                  <a href="https://wa.me/message/EOKHJIUZOJSKF1" 
+                    className={styles["btn-whatsapp"]}>Comprar</a> 
               </div>
             </div> 
           </div> 
