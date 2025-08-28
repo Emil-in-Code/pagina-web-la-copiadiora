@@ -35,7 +35,25 @@
   box-sizing: border-box;
   margin: auto;
 }
-/*hasta aquí stilos card pricing*/
+
+.btn-tarjetas{
+  display: inline-block;
+  padding: 5px;
+  background-color: rgba(254, 239, 180, 1);
+  color: #000000;
+  text-align: center;
+  text-decoration: none;
+  border:1px solid #000000;
+  border-radius: 7px;
+  font-size: 11px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-tarjetas:hover{
+  background-color: rgba(255, 206, 6, 1);
+  color: #000000;
+  border:1px solid rgb(0, 0, 0);
+}/*hasta aquí stilos card pricing*/
 
 /*a partir de aquí stiles agenda*/
 

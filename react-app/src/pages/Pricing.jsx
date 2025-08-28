@@ -3,6 +3,8 @@ import Footer from '../widgets/footer'
 import styles from "../styles/pricing.module.css"
 import CtaButton from "../components/CtaButton/CtaButton.jsx"
 import InfoCard from "../components/InfoCard/InfoCard.jsx"
+import AgendasCard from "../components/AgendasCard/AgendasCard.jsx"
+import styles from "../components/AgendasCard/AgendasCard.module.css"
 
 export default function Princing(){
   return (
