@@ -8,6 +8,7 @@ export { default as InicioHero } from "./InicioHero"; // si lo renombraste así
 export { default as AddCartButton } from "./ui/AddCartButton";
 export { default as CtaButton } from "./CtaButton/CtaButton.jsx";
 export { default as InfoCard } from "./InfoCard/InfoCard.jsx";
+export { default as AgendasCard } from "./AgendasCard/AgendasCard.jsx"
 export { default as ProductCard } from "./ui/ProductCard";
 
 // (Opcional) Re-exportar widgets para importarlos desde el mismo lugar

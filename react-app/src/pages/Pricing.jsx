@@ -3,10 +3,11 @@ import Footer from '../widgets/footer'
 import styles from "../styles/pricing.module.css"
 import CtaButton from "../components/CtaButton/CtaButton.jsx"
 import InfoCard from "../components/InfoCard/InfoCard.jsx"
+import infoCardstyles from "../components/InfoCard/InfoCard.module.css"
 import AgendasCard from "../components/AgendasCard/AgendasCard.jsx"
-import styles from "../components/AgendasCard/AgendasCard.module.css"
+import AgendasCardstyles from "../components/AgendasCard/AgendasCard.module.css"
 
-export default function Princing(){
+export default function Pricing(){
   return (
     <>
       <Navbar />
@@ -146,66 +147,61 @@ export default function Princing(){
         {/*SECCIÓN AGENDAS*/}
 
         <section className={styles["agendas-section"]}>
-          <h2 className={styles["title-section"]}>Agendas</h2>
-          <p className={styles["description-section"]}>Tenemos la agenda que estás buscando.</p>
 
+          <div className={styles["wrap-titles"]}>
+            <h2 className={styles["title-section"]}>Agendas</h2>
+            <p className={styles["description-section"]}>Tenemos la agenda que estás buscando.</p>
+          </div>
           <div className={styles["agendas-wrapper"]}>
 
             {/*agenda incial */}
-            <div className={styles["container-agenda"]}>
-              <img src="/assets/agenda inicial.jpg" alt="agenda de incial"/>
-              <div className={styles["text-container"]}>
-                <h3 className={styles["title-agenda"]}>Agenda docente</h3>
-                <h4 className={styles["subtitle-agenda"]}>Nivel inicial</h4>
-                <p className={styles["description-agenda"]}>
-                  Calendario y cronograma mensual,lista de alumnos <br/>
-                  designaciones y suplencias, licencias,<br/> entrevistas y más...
-                </p> 
-              </div>
-              <div className={styles["buy-section"]}>
-                <p className={styles["price"]}>$25.000</p>
-                <a href="https://wa.me/message/EOKHJIUZOJSKF1"
-                  className={styles["btn-whatsapp"]}>Comprar</a> 
-              </div>           
-            </div>
-
+            <AgendasCard
+              imgSrc="/assets/agenda inicial.jpg"
+              imgAlt="Agenda de nivel incial"
+              title="Agenda Docente"
+              subtitle="Nivel inicial"
+            description={"Cronograma mensual\ncalendario, lista de alumnos\n designaciones y suplencias,\nlicencias, entrevistas y más..."}
+              price="$25.000"
+              imgClassName={styles["imagen-agenda"]}
+            >
+              <CtaButton
+                href="https://wa.me/message/EOKHJIUZOJSKF1"
+                text="Comprar"
+                className={styles["presupuestar-btn"]}
+              />
+            </AgendasCard>
             {/*agenda primaria */}
-            <div className={styles["container-agenda"]}>
-              <img src="/assets/agenda primaria.jpg" alt="agenda primaria"/>
-              <div className={styles["text-container"]}>
-                <h3 className={styles["title-agenda"]}>Agenda docente</h3>
-                <h4 className={styles["subtitle-agenda"]}>Nivel Primario</h4>
-                <p className={styles["description-agenda"]}>
-                  Calendario y cronograma mensual,lista de alumnos <br/>
-                  designaciones y suplencias, licencias,<br/> entrevistas y más... 
-                </p>
-              </div>
-              <div className="buy-section">
-                <p className="price">$25.000</p>
-                <a href="https://wa.me/message/EOKHJIUZOJSKF1" className="btn-whatsapp">Comprar</a> 
-              </div> 
-              
-            </div>
-
+            <AgendasCard
+              imgSrc="/assets/agenda primaria.jpg"
+              imgAlt="Agenda de nivel primaria"
+              title="Agenda Docente"
+              subtitle="Nivel Primaria"
+              description={"Cronograma mensual\ncalendario, lista de alumnos\n designaciones y suplencias,\nlicencias, entrevistas y más..."}
+              price="$25.000"
+              imgClassName={styles["imagen-agenda"]}            >
+              <CtaButton
+                href="https://wa.me/message/EOKHJIUZOJSKF1"
+                text="Comprar"
+                className={styles["presupuestar-btn"]}
+              />
+            </AgendasCard>
+           
             {/*agenda secundaria*/}
-            <div className={styles["container-agenda"]}>
-              <img src="/assets/agenda secundaria.jpg" alt="agenda secundaria"/>
-              <div className={styles["text-container"]}>
-                <h3 className={styles["title-agenda"]}>Agenda docente</h3>
-                <h4 className={styles["subtitle-agenda"]}>Nivel Secundario</h4>
-                <p className={styles["description-agenda"]}>
-                  Calendario y cronograma mensual,lista de alumnos <br/>
-                  designaciones y suplencias, licencias, entrevistas y más... 
-                </p>
-              </div>
-              <div className={styles["buy-section"]}>
-                  <p className={styles["price"]}>$25.000</p>
-                  <a href="https://wa.me/message/EOKHJIUZOJSKF1" 
-                    className={styles["btn-whatsapp"]}>Comprar</a> 
-              </div>
-            </div> 
+            <AgendasCard
+              imgSrc="/assets/agenda secundaria.jpg"
+              imgAlt="Agenda de nivel secundaria"
+              title="Agenda Docente"
+              subtitle="Nivel secundaria"
+              description={"Cronograma mensual\ncalendario, lista de alumnos\n designaciones y suplencias,\nlicencias, entrevistas y más..."}
+              price="$25.000"
+              imgClassName={styles["imagen-agenda"]}            >
+              <CtaButton
+                href="https://wa.me/message/EOKHJIUZOJSKF1"
+                text="Comprar"
+                className={styles["presupuestar-btn"]}
+              />
+            </AgendasCard>          
           </div> 
-
         </section>
 
         {/*SECCIÓN LIBRERÍA*/}
@@ -213,12 +209,37 @@ export default function Princing(){
         <section className="gallery__libreria">
           
           <h2 className="h2libreria">Artículos de librería</h2>
-          
+
+          <InfoCard
+            imgSrc="/assets/precios/sacapuntas.jpeg"
+            imgAlt="sacapuntas"
+            title="Sacapuntas"
+            text={"Maped, tipo igloo de plástico\n\n$1900"}
+          >
+          </InfoCard>         
+          <InfoCard
+            imgSrc="/assets/precios/folios.jpeg"
+            imgAlt="folio plástico A4"
+            title="Folios A4"
+            text={"Folios de plástico de 100 micrones\n\n$500 c/u"}
+          >
+          </InfoCard>         
+          <InfoCard
+            imgSrc="/assets/precios/sobre madera.jpeg"
+            imgAlt="sobre de papel madera"
+            title="Sobres A4"
+            text={"Manila color natural\n\n$1900"}
+          >
+          </InfoCard>         
+          <InfoCard
+            imgSrc="/assets/precios/folios.jpeg"
+            imgAlt="folio plástico A4"
+            title="Folios A4"
+            text={"Folios de plástico de 100 micrones\n\n$500 c/u"}
+          >
+          </InfoCard>          
           <div className="container__libreria">
 
-            <div className="libreria--item">
-              <img src="/assets/precios/sacapuntas.jpeg" alt="sacapuntas"/>
-            </div>
           
             <div className="libreria--item">
               <img src="/assets/precios/folios.jpeg" alt="folios"/>
