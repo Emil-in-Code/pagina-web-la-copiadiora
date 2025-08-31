@@ -1,13 +1,9 @@
-main{
-    padding: 40px;
-}
-
 .container {
     border-radius: 7px;
     border: 1px solid rgba(255, 206, 6, 1);
     width: 350px;
     margin: auto;
-    margin-top: 10rem;
+    margin-top: 1rem;
     margin-bottom: 10rem;
     padding: 40px; 
     box-sizing: border-box;
@@ -35,20 +31,41 @@ label {
     display: block;
 }
 
-.form-input {
+.form-input { 
+    background: #fff;
     border-radius: 7px;
     border: none;
-    border-left: solid rgba(255, 206, 6, 1);
+    border-left: solid 1px rgba(255, 206, 6, 1);
     padding: 10px 20px;
     margin: 10px;
     display: inline-block;
     width: 90%;
+    color: #000;
+}
+
+.btn-submit{
+    background: #fff;
+    border-radius: 7px;
+    border: none;
+    border-left: solid 1px rgba(255, 206, 6, 1);
+    padding: 10px 20px;
+    margin: 10px;
+    display: inline-block;
+    width: 90%;
+    color: #000;
+    font-family: KeepCalm;
 }
 
 .invalid{
     border: solid 1px #b10505;
     box-shadow: 0 0 10px #b10505;
 }
+
+.valid{
+  border: solid 1px #00ff00;
+  box-shadow:0 0 10px #00ff00;
+}
+
 .error{
     font-family:sans-serif;
     display: block;
