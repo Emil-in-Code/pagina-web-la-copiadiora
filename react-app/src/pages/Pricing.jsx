@@ -160,7 +160,7 @@ export default function Pricing(){
               imgAlt="Agenda de nivel incial"
               title="Agenda Docente"
               subtitle="Nivel inicial"
-            description={"Cronograma mensual\ncalendario, lista de alumnos\n designaciones y suplencias,\nlicencias, entrevistas y más..."}
+              description={"Cronograma mensual\ncalendario, lista de alumnos\n designaciones y suplencias,\nlicencias, entrevistas y más..."}
               price="$25.000"
               imgClassName={styles["imagen-agenda"]}
             >
@@ -206,60 +206,53 @@ export default function Pricing(){
 
         {/*SECCIÓN LIBRERÍA*/}
 
-        <section className="gallery__libreria">
-          
-          <h2 className="h2libreria">Artículos de librería</h2>
+        <section className={styles["gallery__libreria"]}>
 
-          <InfoCard
-            imgSrc="/assets/precios/sacapuntas.jpeg"
-            imgAlt="sacapuntas"
-            title="Sacapuntas"
-            text={"Maped, tipo igloo de plástico\n\n$1900"}
-          >
-          </InfoCard>         
-          <InfoCard
-            imgSrc="/assets/precios/folios.jpeg"
-            imgAlt="folio plástico A4"
-            title="Folios A4"
-            text={"Folios de plástico de 100 micrones\n\n$500 c/u"}
-          >
-          </InfoCard>         
-          <InfoCard
-            imgSrc="/assets/precios/sobre madera.jpeg"
-            imgAlt="sobre de papel madera"
-            title="Sobres A4"
-            text={"Manila color natural\n\n$1900"}
-          >
-          </InfoCard>         
-          <InfoCard
-            imgSrc="/assets/precios/folios.jpeg"
-            imgAlt="folio plástico A4"
-            title="Folios A4"
-            text={"Folios de plástico de 100 micrones\n\n$500 c/u"}
-          >
-          </InfoCard>          
-          <div className="container__libreria">
+          <div className={styles["container__libreria"]}>
+         
+            <h2 className={styles["h2libreria"]}>Artículos de librería</h2>
 
-          
-            <div className="libreria--item">
-              <img src="/assets/precios/folios.jpeg" alt="folios"/>
-            </div>
-          
-            <div className="libreria--item">
-              <img src="/assets/precios/sobre madera.jpeg" alt="sobre de papel madera"/>
-            </div>
-          
-            <div className="libreria--item">
-              <img src="/assets/precios/lapicera.jpeg" alt="lapiceras"/>
-            </div>
-          
-            <div className="libreria--item">
-              <img src="/assets/precios/resaltador.jpeg" alt="resaltadores"/>
-            </div>
-          
-            <div className="libreria--item">
-              <img src="/assets/precios/postit.jpeg" alt="post it"/>
-            </div>
+            <InfoCard
+              imgSrc="/assets/precios/sacapuntas.jpeg"
+              imgAlt="sacapuntas"
+              title="Sacapuntas"
+              text={"Maped, tipo igloo de plástico\n\n$1900"}
+            ></InfoCard>         
+            
+            <InfoCard
+              imgSrc="/assets/precios/folios.jpeg"
+              imgAlt="folio plástico A4"
+              title="Folios A4"
+              text={"Folios de plástico de 100 micrones\n\n$500 c/u"}
+            ></InfoCard>         
+            
+            <InfoCard
+              imgSrc="/assets/precios/sobre madera.jpeg"
+              imgAlt="sobre de papel madera"
+              title="Sobres A4"
+              text={"Manila color natural\n\n$1900"}
+            ></InfoCard>         
+            
+            <InfoCard
+              imgSrc="/assets/precios/lapicera.jpeg"
+              imgAlt="Lapiceras"
+              title="Lapiceras"
+              text={"Trazo fino en negro o\n azul\n\n$1200 c/u"}
+            ></InfoCard>
+            
+            <InfoCard
+              imgSrc="/assets/precios/resaltador.jpeg"
+              imgAlt="Resaltadores"
+              title="Resaltadores"
+              text={"Flúo y pastel\ntodos los colores\n\n$1200 c/u"}
+            ></InfoCard>
+
+            <InfoCard
+              imgSrc="/assets/precios/postit.jpeg"
+              imgAlt="postit"
+              title="Postit"
+              text={"Block de notas\n adhesivas\ntodos los colores\n\n$1200 c/u"}
+            ></InfoCard>         
           </div>
           
         </section>

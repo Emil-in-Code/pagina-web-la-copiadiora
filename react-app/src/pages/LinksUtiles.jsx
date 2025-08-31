@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import "../styles/global.css";
 import "../styles/links.css";
 import Navbar from "../widgets/navbar";
@@ -8,59 +9,61 @@ export default function LinksUtiles() {
     <>
          <Navbar />
 
-    <div className="body">
-      {/* MODAL AVISO */}
-      <dialog open>
-        <div className="modal__content">
-          <h2 className="modal__title">Estás por salir</h2>
-          <p className="modal__text">
-            Estos links son útiles pero hacen que <br />
-            abandones nuestra página y todas las interacciones y datos que
-            brindes<br />
-            por fuera de La Copiadora<br />
-            son de tu responsabilidad absoluta.
-          </p>
-          <form method="dialog">
-            <button className="modal__btn">X</button>
-          </form>
-        </div>
-      </dialog>
+      <div className="body">
+        {/* MODAL AVISO */}
+        <dialog open>
+          <div className="modal__content">
+            <h2 className="modal__title">Estás por salir</h2>
+            <p className="modal__text">
+              Estos links son útiles pero hacen que <br />
+              abandones nuestra página y todas las interacciones y datos que
+              brindes<br />
+              por fuera de La Copiadora<br />
+              son de tu responsabilidad absoluta.
+            </p>
+            <form method="dialog">
+              <button className="modal__btn">X</button>
+            </form>
+          </div>
+        </dialog>
 
-      <main className="main">
-        <h1 className="h1precios">
-          En este apartado encontrarás todo lo necesario para organizar tus
-          materias, tus tiempos y apalancar tus estudios con tecnología.
-        </h1>
+        <main className="main">
+          <h1 className="h1precios">
+            En este apartado encontrarás todo lo necesario para organizar tus
+            materias, tus tiempos y apalancar tus estudios con tecnología.
+          </h1>
 
-        <section className="links-utiles">
-          {cards.map((card, index) => (
-            <div className="tarjeta" key={index}>
-              <div className="fondo__imagen">
-                <img
-                  src={card.img}
-                  alt={card.alt}
-                  className={card.className}
-                />
-              </div>
-              <div className="contenido">
-                <h2 className="h2links">{card.title}</h2>
-                <p className="ptarjetas">{card.text}</p>
-              </div>
-              <div>
-                <a href={card.url} target="_blank" rel="noopener noreferrer">
-                  <button className="btn-links">ir a la web</button>
-                </a>
-              </div>
-            </div>
-          ))}
-        </section>
+          <section className="links-utiles">
 
-        <h2 className="h2main-links">
-          Solo recuerda, no existen atajos para llegar a lugares que valen la
-          pena.
-        </h2>
-      </main>
-    </div>
+    
+            {cards.map((card, index) => (
+              <div className="tarjeta" key={index}>
+                <div className="fondo__imagen">
+                  <img
+                    src={card.img}
+                    alt={card.alt}
+                    className={card.className}
+                  />
+                </div>
+                <div className="contenido">
+                  <h2 className="h2links">{card.title}</h2>
+                  <p className="ptarjetas">{card.text}</p>
+                </div>
+                <div>
+                  <a href={card.url} target="_blank" rel="noopener noreferrer">
+                    <button className="btn-links">ir a la web</button>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </section>
+
+          <h2 className="h2main-links">
+            Solo recuerda, no existen atajos para llegar a lugares que valen la
+            pena.
+          </h2>
+        </main>
+      </div>
 
     </>  
   );

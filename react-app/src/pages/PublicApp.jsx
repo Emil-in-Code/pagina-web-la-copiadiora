@@ -4,6 +4,7 @@ import Pricing from './Pricing'
 import Envios from './Envios'
 import LinksUtiles from './LinksUtiles'
 import Pedidos from './Pedidos'
+import Register from './Register'
 
 export default function PublicApp() {
   return (
@@ -14,6 +15,7 @@ export default function PublicApp() {
         <Route path="/envios" element={<Envios />} />
         <Route path="/links-utiles" element={<LinksUtiles />} />
         <Route path="/pedidos" element={<Pedidos />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </BrowserRouter>
   )

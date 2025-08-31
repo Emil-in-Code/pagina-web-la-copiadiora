@@ -1,5 +1,3 @@
-// src/widgets/navbar.jsx
-
 import React from 'react'
 import {Link} from 'react-router-dom'
 
@@ -21,7 +19,7 @@ const Navbar = () => {
             <li><Link className="nav__item" to="/precios">Precios</Link></li>
             <li><Link className="nav__item" to="/pedidos">Pedidos</Link></li>
             <li><Link className="nav__item" to="/links-utiles">Links Útiles</Link></li>
-            <li><Link className="nav__item" to="Register.html">Registrarme</Link></li>
+            <li><Link className="nav__item" to="/Register">Registrarme</Link></li>
             <li><Link className="nav__item nav__item--button" to="login.html">Log-in</Link></li>
             <li id="usuario-navbar" className="nav__item usuario-navbar oculto" style={{position: 'relative'}}>
               <span id="nombre-usuario">👤</span>
