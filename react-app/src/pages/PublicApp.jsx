@@ -5,6 +5,7 @@ import Envios from './Envios'
 import LinksUtiles from './LinksUtiles'
 import Pedidos from './Pedidos'
 import Register from './Register'
+import Login from './Login.jsx'
 
 export default function PublicApp() {
   return (
@@ -16,6 +17,7 @@ export default function PublicApp() {
         <Route path="/links-utiles" element={<LinksUtiles />} />
         <Route path="/pedidos" element={<Pedidos />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   )

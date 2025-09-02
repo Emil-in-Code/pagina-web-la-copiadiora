@@ -16,10 +16,10 @@ export default function Register() {
 
   // Expresiones regulares
   const expresiones = {
-    inputNombre: /^[a-zA-ZÀ-ÿ]+(?:\s[a-zA-ZÀ-ÿ]+)*$/, // solo letras y espacios
+    nombre: /^[a-zA-ZÀ-ÿ]+(?:\s[a-zA-ZÀ-ÿ]+)*$/, // solo letras y espacios
     lastname: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // letras y espacios
     email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$/, // dominio >= 2 chars
-    contraseña: /^(?=.*[A-Z])(?=.*\d).{4,12}$/, // 4-12 chars, al menos 1 mayús y 1 número
+    password: /^(?=.*[A-Z])(?=.*\d).{4,12}$/, // 4-12 chars, al menos 1 mayús y 1 número
   };
 
   // Validación en vivo mientras el usuario escribe
@@ -35,7 +35,7 @@ export default function Register() {
     if (!value.trim()) {
       errorMsg = `El campo ${name} es obligatorio`;
     } else {
-      if (name === "nombre" && !expresiones.inputNombre.test(value)) {
+      if (name === "nombre" && !expresiones.nombre.test(value)) {
         errorMsg = "El nombre solo admite letras";
       }
       if (name === "apellido" && !expresiones.lastname.test(value)) {
@@ -44,8 +44,8 @@ export default function Register() {
       if (name === "email" && !expresiones.email.test(value)) {
         errorMsg = "Usá un formato válido de email";
       }
-      if (name === "password" && !expresiones.contraseña.test(value)) {
-        errorMsg = "Debe tener 4-12 caracteres, una MAYUS y un número";
+      if (name === "password" && !expresiones.password.test(value)) {
+        errorMsg = "La contraseña debe tener 4-12 caracteres, una MAYUS y un número";
       }
     }
 
@@ -63,7 +63,7 @@ export default function Register() {
 
     if (!formData.nombre.trim()) {
       newErrors.nombre = "El nombre es obligatorio";
-    } else if (!expresiones.inputNombre.test(formData.nombre)) {
+    } else if (!expresiones.nombre.test(formData.nombre)) {
       newErrors.nombre = "El nombre solo admite letras";
     }
 
@@ -80,10 +80,9 @@ export default function Register() {
     }
 
     if (!formData.password.trim()) {
-      newErrors.password = "La contraseña es obligatoria";
-    } else if (!expresiones.contraseña.test(formData.password)) {
-      newErrors.password =
-        "Debe tener 4-12 caracteres, una MAYUS y un número";
+      newErrors.password = "La contraeña es obligatoria";
+    } else if (!expresiones.password.test(formData.password)) {
+      newErrors.password ="Debe tener 4-12 caracteres, una MAYUS y un número";
     }
 
     setErrors(newErrors);
