@@ -1,6 +1,7 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import PublicApp from './pages/PublicApp.jsx'
+import'./styles/global.css'
 
 const el = document.getElementById('root')
 if (el) {

@@ -29,20 +29,24 @@
 .body {
   background-color:  #1e1e1e;
   min-height: 100vh;
-  display: block;
+  display: flex; 
+  flex-direction: column;
   margin: 0;
   padding: 0;
   place-items: center;
   min-width: 320px;
+  position: relative;
+  min-height: 100vh;
 }
 
 div, ul, header, footer, a, li, label {
     margin: 0;
     padding: 0;
+
 }
 
 p {
-    color: white;
+    color: #e1e1e1;
     font-size: 25px;
     font-family: keepCalm;
 }
@@ -67,7 +71,7 @@ h1 {
 
 h2 {
     font-family: Baron Neue;
-    color: white;
+    color: #e1e1e1;
     font-size: 50px;
 }
 
@@ -275,25 +279,37 @@ display: none !important
 
 /*footer section Mobile*/
 
-@media  (min-width: 300px) {
+@media  (min-width: 320px) {
   .footer-container {
     background-color: rgba(255, 206, 6, 1);
-    max-width: 100vw;
+    max-width: 100%;
     display: flex;
     justify-content: space-between;
     align-items:center;
-    margin:auto;
+    margin:0;
+    padding:10px 20px;
+    margin-top:auto;
   }
 
   .contact-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    padding:5px;
+    display: flex;
+    justify-content:space-between;
   }
 
   .social-media{
-    color: #1e1e1e;
+    width: 15px;
+    height: 20px;
+    padding: 3px;
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .contact-container a:hover .social-media {
+    transform: none !important;
+    transition: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+    scale: none !important;
   }
 }
 
@@ -301,62 +317,53 @@ display: none !important
 
 @media  (min-width: 978px) {
 
-    .footer__content {
-        background-color: rgba(255, 206, 6, 1);
-        width: 100%;
-        height: 30%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 30px;
-    }
+  .footer-container {
+    background-color: rgba(255, 206, 6, 1);
+    width: 100vw;
+    max-width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:0;
+    padding: 15px 20px;
 
-    .content--wrapper {
-        display: flex;
-        flex-direction: row;
-        justify-content:center;
-        align-items: center;
-        
-    }
+  }
 
-    .footer__logo--container{
-        width: 33%;
-        display: flex;
-        justify-content: center;
-    }
-    
-    .logo-footer{
-        width: 100px;
-        height: 100px;
-    }
-    
-    .title__footer--container  {
-        width: 33%;
-    }
-    
-    .title__footer {
-        font-size: 25px;
-        font-family: Baron Neue;
-    }
+  .contact-container * {
+    display: flex;
+    justify-content:space-between;
+  }
 
-    .p__footer {
-        font-family: KeepCalm;
-        font-size: 19px;
-        margin: auto;
-    }
+  .social-media {
+    width:25px;
+    height:25px;
+    padding: 5px;
+    transition: none !important;
+    transform: none !important;
+  }
 
-    .contact__links{
-        display: flex;
-        flex-flow: wrap;
-        justify-content: center;
-        align-items: center;
-    }
+  .footer-container a:hover .social-media {
+    transform: none !important;
+    transition: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+    scale: none !important;
+    box-shadow: none !important;
+  }
 
-    .links--item{
-        font-family: keepCalm;
-        padding: 10px;
-    }
-
+  /* Si quieres mantener algún efecto hover sutil solo en los enlaces */
+  .footer-container a:hover {
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+  }
+  /* Alternativa: Si sigues teniendo problemas, usa esto para eliminar TODOS los efectos */
+  .contact-container * {
+    transition: none !important;
+    transform: none !important;
+    filter: none !important;
+    animation: none !important;
+  }
 }
+
 /*fin de footer*/
 

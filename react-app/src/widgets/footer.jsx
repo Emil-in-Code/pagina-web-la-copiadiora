@@ -9,10 +9,26 @@ const Footer = () => {
       </div>
 
       <ul className = "contact-container">
-        <li><Link className= "social-media" to="https://wa.me/message/EOKHJIUZOJSKF1">WhatsApp</Link></li>
-        <li><Link className= "social-media" to="https://instagram.com/lacopiadora44">Instagram</Link></li>
-        <li><Link className="social-media" to="https://facebook.com/lacopiadora44">Facebook</Link></li>
-        <li><Link className="social-media" to="https://lacopiadora44@gmail.com">Email</Link></li>
+        <li>
+          <Link  to="https://wa.me/message/EOKHJIUZOJSKF1">
+            <img src="/assets/WP icon.png" className="social-media" alt="whatsapp" />
+          </Link>
+        </li>
+        <li>
+          <Link to="https://instagram.com/lacopiadora44">
+            <img src="/assets/INSTAGRAM ICON.png" className="social-media" alt="instagr am" />
+          </Link>
+        </li>
+        <li>
+          <Link to="https://facebook.com/lacopiadora44">
+             <img src="/assets/Fb icon.png" className="social-media" alt="facebook" />
+          </Link>
+        </li>
+        <li>
+          <Link to="https://lacopiadora44@gmail.com">
+            <img src="/assets/gmail icon.png" className="social-media" alt="gmail" />
+          </Link>
+        </li>
       </ul>
     </div>
   )
