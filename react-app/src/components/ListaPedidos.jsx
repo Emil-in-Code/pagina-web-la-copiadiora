@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PedidoCard from './PedidoCard';
+import PedidoCard from './Pedidos/PedidoCard.jsx';
 import styles from './styles/ListaPedidos.module.css'; 
 
 export default function ListaPedidos() {

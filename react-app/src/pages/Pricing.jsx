@@ -1,5 +1,5 @@
 import Navbar from '../widgets/navbar'
-import Footer from '../widgets/footer'
+import Footer from '../widgets/Footer/Footer.jsx'
 import styles from "../styles/pricing.module.css"
 import CtaButton from "../components/CtaButton/CtaButton.jsx"
 import InfoCard from "../components/InfoCard/InfoCard.jsx"

@@ -338,9 +338,7 @@
   margin: 8px;
 }
 
-img:hover {
-  width: 150px;
-}
+
 
 .libros--item {
   display: grid;

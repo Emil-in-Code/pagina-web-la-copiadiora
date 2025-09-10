@@ -2,7 +2,7 @@ import React from 'react'
 import "../styles/global.css";
 import "../styles/envios.css";
 import Navbar from "../widgets/navbar";
-import Footer from "../widgets/footer"
+import Footer from "../widgets/Footer/Footer.jsx"
 import CtaButton from "../components/CtaButton/CtaButton.jsx"
 
 export default function Envios() {

@@ -28,15 +28,12 @@
 
 .body {
   background-color:  #1e1e1e;
-  min-height: 100vh;
   display: flex; 
   flex-direction: column;
   margin: 0;
   padding: 0;
   place-items: center;
   min-width: 320px;
-  position: relative;
-  min-height: 100vh;
 }
 
 div, ul, header, footer, a, li, label {
@@ -274,96 +271,4 @@ display: none !important
 }
 
 /*fin de section*/
-
-
-
-/*footer section Mobile*/
-
-@media  (min-width: 320px) {
-  .footer-container {
-    background-color: rgba(255, 206, 6, 1);
-    max-width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items:center;
-    margin:0;
-    padding:10px 20px;
-    margin-top:auto;
-  }
-
-  .contact-container{
-    display: flex;
-    justify-content:space-between;
-  }
-
-  .social-media{
-    width: 15px;
-    height: 20px;
-    padding: 3px;
-    transition: none !important;
-    transform: none !important;
-  }
-
-  .contact-container a:hover .social-media {
-    transform: none !important;
-    transition: none !important;
-    filter: none !important;
-    opacity: 1 !important;
-    scale: none !important;
-  }
-}
-
-/*footer section tablet y desktop*/
-
-@media  (min-width: 978px) {
-
-  .footer-container {
-    background-color: rgba(255, 206, 6, 1);
-    width: 100vw;
-    max-width: 100vw;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin:0;
-    padding: 15px 20px;
-
-  }
-
-  .contact-container * {
-    display: flex;
-    justify-content:space-between;
-  }
-
-  .social-media {
-    width:25px;
-    height:25px;
-    padding: 5px;
-    transition: none !important;
-    transform: none !important;
-  }
-
-  .footer-container a:hover .social-media {
-    transform: none !important;
-    transition: none !important;
-    filter: none !important;
-    opacity: 1 !important;
-    scale: none !important;
-    box-shadow: none !important;
-  }
-
-  /* Si quieres mantener algún efecto hover sutil solo en los enlaces */
-  .footer-container a:hover {
-    opacity: 0.8;
-    transition: opacity 0.2s ease;
-  }
-  /* Alternativa: Si sigues teniendo problemas, usa esto para eliminar TODOS los efectos */
-  .contact-container * {
-    transition: none !important;
-    transform: none !important;
-    filter: none !important;
-    animation: none !important;
-  }
-}
-
-/*fin de footer*/
 

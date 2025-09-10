@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import "../styles/global.css";
 import "../styles/links.css";
 import Navbar from "../widgets/navbar";
-import Footer from "../widgets/footer"
+import Footer from "../widgets/Footer/Footer.jsx"
 
 export default function LinksUtiles() {
   return (

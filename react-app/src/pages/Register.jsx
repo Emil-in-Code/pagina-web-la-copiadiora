@@ -1,5 +1,5 @@
 import Navbar from "../widgets/navbar.jsx"
-import Footer from "../widgets/footer.jsx"
+import Footer from "../widgets/Footer/Footer.jsx"
 import "../styles/register.css"
 import { useState } from 'react'
 
