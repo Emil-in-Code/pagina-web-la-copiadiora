@@ -1,6 +1,6 @@
 
 // src/components/index.js
-export { default as ListaPedidos } from "./ListaPedidos";
+export { default as ListaPedido } from "./CardPedido/ListaPedido";
 export { default as PedidoCard } from "./Pedidos/PedidoCard";
 export { default as InicioHero } from "./InicioHero"; // si lo renombraste así
 

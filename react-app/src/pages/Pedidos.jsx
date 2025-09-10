@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import ListaPedidos from '../components/ListaPedidos.jsx'
+import ListaPedido from '../components/CardPedido/ListaPedido.jsx';
 import '../styles/pedidos.css'
 import Navbar from "../widgets/navbar"
 
@@ -37,7 +37,7 @@ export default function Pedidos() {
         <Navbar />
         <div className="body-pedidos">
           <h1 className="titulo">Subí tus archivos en PDF</h1>
-          <ListaPedidos pedidos={pedidos} />
+          <ListaPedido pedidos={pedidos} />
         </div>   
       </> 
     )
