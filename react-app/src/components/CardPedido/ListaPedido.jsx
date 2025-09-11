@@ -40,9 +40,11 @@ export default function ListaPedido() {
         id="fileInput"
       />
 
-      <label htmlFor="fileInput" className= {styles.uploadBtn}>
-       Seleccionar
-      </label>
+        <div className={styles.btnContainer}>
+         <label htmlFor="fileInput" className= {styles.uploadBtn}>
+          Seleccionar
+         </label>
+        </div>
 
       {files.length > 0 && (
         <div className={styles.globalControls}>

@@ -1,5 +1,4 @@
 .body-pedidos {
-  background: red;
   display:flex; 
   flex-direction: column;
   justify-content: center;
@@ -7,5 +6,6 @@
 
 .titulo {
   margin-top: 5rem;
+  color:#e1e1e1;
 }
 
