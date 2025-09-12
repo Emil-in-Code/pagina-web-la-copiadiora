@@ -6,10 +6,10 @@
   justify-content: flex-start;
   width: fit-content;
   height: 45px;
-  border: none;
+  border:none;
   padding: 0px 15px;
-  border-radius: 5px;
-  background-color: rgb(49, 49, 83);
+  border-radius: 5px; 
+  background: linear-gradient(to bottom, #B19005 40%, #E5C53F 60%, #ffce06 100%);
   gap: 10px;
   cursor: pointer;
   transition: all 0.3s;
@@ -45,10 +45,10 @@
   transition: all 0.3s ease-out;
 }
 .text {
-  color: white;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  color: #e1e1e1;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 1px;
 }
 .Documents-btn:hover .filePage {
   transform: translateY(-5px);

@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './ListaPedidos.module.css';
 import PedidoCard from './PedidoCard.jsx';
 import useListaPedido from './useListaPedido.js';
+import FileButton from '../FileBtn/FileBtn.jsx'
 
 export default function ListaPedido() {
   const {
@@ -39,11 +40,12 @@ export default function ListaPedido() {
         className={styles.fileInputHidden}
         id="fileInput"
       />
-
+          
+         
         <div className={styles.btnContainer}>
-         <label htmlFor="fileInput" className= {styles.uploadBtn}>
+         <FileButton htmlFor="fileInput">
           Seleccionar
-         </label>
+         </FileButton>
         </div>
 
       {files.length > 0 && (

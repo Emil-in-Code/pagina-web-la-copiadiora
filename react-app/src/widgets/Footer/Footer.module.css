@@ -1,6 +1,6 @@
 @media  (min-width: 320px) {
-  .footer-container {
-    background-color: rgba(255, 206, 6, 1);
+  .footer-container { 
+    background:none;
     max-width: 100%;
     display: flex;
     justify-content:center; 
@@ -12,6 +12,7 @@
   .contact-container{
     display: flex;
     justify-content:center;
+    background: linear-gradient(to bottom, #B19005 40%, #E5C53F 60%, #ffce06 100%);
   }
 
   .social-media{
@@ -29,7 +30,7 @@
 @media  (min-width: 978px) {
 
   .footer-container {
-    background-color: rgba(255, 206, 6, 1);
+    background-color:none;
     width: 100%;
     height:50px;
     display: flex;
@@ -42,6 +43,8 @@
 
   .contact-container {
     width: 150px;
+    padding-top:10px;
+    gap:10px;
     margin:auto;
   }
 
@@ -58,4 +61,3 @@
 
 }
 
-/*fin de footer*/

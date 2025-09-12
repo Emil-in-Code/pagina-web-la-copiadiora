@@ -13,6 +13,7 @@ export default function Index() {
 
       <main>
         <section className={homeStyles['hero__flexbox']}>
+
           <div className={homeStyles['text__container']}>
             <h1 className={homeStyles["indexh1"]}>Tu caRRera, tu futuRO,<br />tu tiempO.</h1>
             <p>
@@ -41,6 +42,9 @@ export default function Index() {
             />
           </div>
         </section>
+ 
+        <div className={homeStyles["shadow"]}></div>
+        <div className={homeStyles["shadow2"]}></div>
 
         <section className={homeStyles["feature"]}>
           <div className={homeStyles["gallery__container"]}>
