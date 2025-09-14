@@ -1,6 +1,7 @@
 import Navbar from "../widgets/navbar.jsx"
 import Footer from "../widgets/Footer/Footer.jsx"
 import "../styles/register.css"
+import "../styles/global.css"
 import { useState } from 'react'
 
 export default function Register() {
@@ -131,6 +132,7 @@ export default function Register() {
             <label htmlFor="nombre" className="formulario__label">
               <em>Nombre:</em>
               <input
+                
                 id="nombre"
                 className={`form-input ${
                   errors.nombre

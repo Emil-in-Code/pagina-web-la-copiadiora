@@ -9,7 +9,7 @@ export default function InfoCard({
   containerClass, 
   imageClass,     
   titleClass,
-  textClass      
+  textClass,       
 })
 {
   return (
@@ -32,6 +32,7 @@ export default function InfoCard({
       </div>
 
       {children && <div>{children}</div>}
+
     </div>
   );
 }

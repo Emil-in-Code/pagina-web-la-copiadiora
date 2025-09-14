@@ -1,12 +1,9 @@
 .container {
-    border-radius: 7px;
+    border-radius:7px;
     border: 1px solid rgba(255, 206, 6, 1);
-    width: 350px;
-    margin: auto;
-    margin-top: 1rem;
-    margin-bottom: 10rem;
-    padding: 40px; 
-    box-sizing: border-box;
+    width: 300px;
+    margin-top: 2rem;
+    padding: 10px; 
     background: linear-gradient(to top right,#B19005 20%, #ffce06 50%, #E5C53F 80%);
 }
 

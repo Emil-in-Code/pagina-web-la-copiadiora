@@ -7,7 +7,7 @@ import CtaButton from "../components/CtaButton/CtaButton.jsx"
 
 export default function Envios() {
   return (
-    <div className="body">
+    <>
 
       <Navbar /> 
 
@@ -71,6 +71,6 @@ export default function Envios() {
       </div>
 
       <Footer /> 
-    </div>
+    </>
   );
 }

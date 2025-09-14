@@ -7,7 +7,7 @@ import Footer from "../widgets/Footer/Footer.jsx"
 export default function LinksUtiles() {
   return (
     <>
-         <Navbar />
+      <Navbar />
 
       <div className="body">
         {/* MODAL AVISO */}
@@ -64,7 +64,7 @@ export default function LinksUtiles() {
           </h2>
         </main>
       </div>
-
+      <Footer />
     </>  
   );
 }

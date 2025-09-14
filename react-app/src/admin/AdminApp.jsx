@@ -1,4 +1,6 @@
 import React from 'react'
+import InfoCard from "../components/InfoCard/InfoCard.jsx"
+import styles from "../components/InfoCard/InfoCard.module.css"
 
 const AdminApp = () => {
   return (

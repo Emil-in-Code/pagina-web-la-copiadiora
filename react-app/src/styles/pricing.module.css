@@ -147,7 +147,7 @@
   .h1precios {
     color: rgba(255, 206, 6, 1);
     text-align: center;
-    margin-top: 10rem;
+    margin-top: 3rem;
   }
 
   .enlace-registrarse {
@@ -160,12 +160,14 @@
   .enlace-registrarse:hover {
     background: none;
     color: #ffce06;
+    cursor:pointer;
   }
 
   .p-h1 {
     text-align: center;
     margin-top: 30px;
     margin-bottom: 45px;
+    color: #e1e1e1;
   }
 
   .pricing__cards--section {
