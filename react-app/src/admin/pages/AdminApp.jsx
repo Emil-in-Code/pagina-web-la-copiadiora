@@ -1,12 +1,20 @@
+import React from 'react'
+import InfoCard from "../components/InfoCard/InfoCard.jsx"
+import styles from "../components/InfoCard/InfoCard.module.css"
+
+const AdminApp = () => {
+  return (
+    <div>
+      <h1>Panel de Administración</h1>
+      <p>En desarrollo...</p>
+    </div>
+  )
+}
+
+export default AdminApp
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './Home'
-import Pricing from './Pricing'
-import Envios from './Envios'
-import LinksUtiles from './LinksUtiles'
-import Pedidos from './Pedidos'
-import Register from './Register'
-import Login from './Login'
-import Dashboard from './Dashboard'
+import DashboardPedidos from './pages/DashboardPedidos.jsx'
 
 export default function PublicApp() {
   return (
@@ -19,7 +27,6 @@ export default function PublicApp() {
         <Route path="/pedidos" element={<Pedidos />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="Dashboard" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   )

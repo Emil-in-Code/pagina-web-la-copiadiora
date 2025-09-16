@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <header className="header__container">
       <div className="logo__container--nav">
-        <Link className="nav__logo" to="/">La Copiadora</Link>
+        <Link className="nav__logo" to="/">Admin mode</Link>
       </div>
       
       <input type="checkbox" className="header__checkbox" id="open-menu" />
@@ -19,8 +19,6 @@ const Navbar = () => {
             <li><Link className="nav__item" to="/precios">Precios</Link></li>
             <li><Link className="nav__item" to="/pedidos">Pedidos</Link></li>
             <li><Link className="nav__item" to="/links-utiles">Links Útiles</Link></li>
-            <li><Link className="nav__item" to="/Register">Registrarme</Link></li>
-            <li><Link className="nav__item" to="/Dashboard">Admin</Link></li>
             <li><Link className="nav__item nav__item--button" to="/login">Log-in</Link></li>
             <li id="usuario-navbar" className="nav__item usuario-navbar oculto" style={{position: 'relative'}}>
               <span id="nombre-usuario">👤</span>
