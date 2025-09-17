@@ -1,0 +1,32 @@
+.comanda-container{
+  width: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 7px;
+  border: 1px solid #000;
+}
+
+.info-container{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: space-between;
+}
+
+.container-row1{
+  width:190px;
+  display:flex;
+  justify-content:space-between;
+}
+
+.title{
+  font-size: 25px;
+}
+.price{
+  color: #1A972F;
+  -webkit-text-stroke: 1px black;
+  font-size:16px;
+}
+
+.subtitle, .details, .action, .time {
+  font-size:16px;
+  color: #e1e1e1;
+}

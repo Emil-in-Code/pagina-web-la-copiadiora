@@ -12,7 +12,7 @@ export default function InfoCard({
   textClass,       
 })
 {
-  return (
+   return (
     <div className={`${styles["card-container"]} ${containerClass}`}>
       <div className={styles["card__fondo--amarillo"]}>
         <img
