@@ -1,0 +1,11 @@
+.contenedor{
+  background:red;
+  margin-top:1rem;
+}
+
+.news{
+  display:flex;
+  flex-direction: column;
+  background:#ffce06;
+  gap:10px;
+}
