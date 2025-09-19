@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Comanda from "../components/Comanda/Comanda.jsx";
 import DetalleModal from "../components/DetalleModal/DetalleModal.jsx";
-import { useComandas } from '../context/ComandaContext.js';
+import { useComandas } from '../context/ComandaContext.jsx';
 import styles from "../styles/Dashboard.module.css";
 
 const DashboardPedidos = () => {
