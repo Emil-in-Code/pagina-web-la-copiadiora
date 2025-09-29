@@ -10,7 +10,7 @@ export default function useListaPedido() {
   const [globalColor, setGlobalColor] = useState(false);
   const [globalBindings, setGlobalBindings] = useState(false);
   const [pagesPerFile, setPagesPerFile] = useState({});
-   const bindingPrice = 3000;
+  const bindingPrice = 3000;
   const handleFileUpload = (e) => {
     const newFiles = Array.from(e.target.files);
     setFiles(prev => [...prev, ...newFiles]);
