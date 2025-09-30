@@ -57,7 +57,7 @@ export default function ListaPedido() {
               onChange={(e) => {
               const checked = e.target.checked;
               setGlobalDoubleSided(checked);
-              if (!checked) setGlobalBindings(0);
+              if (!checked) setGlobalBindings(false);
               }}
             />
             Doble faz global
@@ -103,7 +103,7 @@ export default function ListaPedido() {
             onSubtotalChange ={(subtotal) => handleSubtotalChange(index, subtotal)}
             onPageChange={(numPages) => handlePagesChange(index, numPages)}
             globalDoubleSided = {globalDoubleSided}
-            globalBindings = {false}
+            globalBindings = {globalBindings}
             globalColor = {globalColor}
             numPages = {pagesPerFile[index] || 0}
           />

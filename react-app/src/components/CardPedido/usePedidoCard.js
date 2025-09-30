@@ -36,6 +36,22 @@ export default function usePedidoCard({
   }, [file]);
 
   useEffect(() => {
+    setDoubleSided(globalDoubleSided);
+  }, [globalDoubleSided]);
+
+  useEffect(() => {
+    setColor(globalColor);
+  }, [globalColor]);
+
+  useEffect(() => {
+    if (globalBindings) {
+      setBindings(1);
+    } else {
+      setBindings(0);
+    }
+  }, [globalBindings]);
+
+  useEffect(() => {
     calculateSubtotal();
 
     const totalSheets = numPages * copies;
@@ -49,30 +65,22 @@ export default function usePedidoCard({
   }, [numPages, copies, bindings, doubleSided, color]);
 
   useEffect(()=> {
-    setDoubleSided(globalDoubleSided);
-  }, [globalDoubleSided]);
-
-  useEffect(()=> {
     const maxPages = doubleSided ? 800 : 400;
-    if (bindings && numPages > maxPages) {
+    const totalSheets = numPages * copies;
+
+    if (bindings > 0 && totalSheets > maxPages && !globalBindings) {
       setBindings(0);
     }
-  }, [doubleSided, numPages, bindings]);
+  }, [doubleSided, numPages, copies, globalBindings]);
 
-  useEffect(() => {
-    setBindings(globalBindings);
-  }, [globalBindings]);
 
-  useEffect(()=> {
-    setColor(globalColor);
-  }, [globalColor]);
 
   // Notificar cambios de subtotal al componente padre
   useEffect(() => {
     if (onSubtotalChange) {
       onSubtotalChange(subtotal);
     }
-  }, [subtotal]);
+  }, [subtotal, onSubtotalChange]);
 
   const calculateSubtotal = () => {
     if (!numPages) return;
