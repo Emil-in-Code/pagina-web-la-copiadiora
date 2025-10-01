@@ -1,9 +1,9 @@
 import React from 'react';
 import { Document, Page } from 'react-pdf';
-import styles from './PedidoCard.module.css';
-import usePedidoCard from './usePedidoCard.js';
+import styles from './OrderCard.module.css';
+import useOrderCard from './useOrderCard.js';
 
-export default function PedidoCard ({
+export default function OrderCard ({
   file,
   onRemove,
   onSubtotalChange,
@@ -29,7 +29,7 @@ export default function PedidoCard ({
     handleLoadSuccess,
     handleRemove,
     formatFileSize
-  } = usePedidoCard ({
+  } = useOrderCard ({
     file,
     onRemove,
     onSubtotalChange,
@@ -80,7 +80,7 @@ export default function PedidoCard ({
 
         <div className={styles.row}>
           <div className={styles.switchToggle}>
-            <span className={styles.label}>Color:</span> 
+            <span className={styles.optionText}>Color:</span> 
             <input 
               type="checkbox"
               id={`color-switch-${file.name}`} // ID único por archivo
@@ -93,7 +93,7 @@ export default function PedidoCard ({
         
 
           <div className={styles.switchToggle}>
-            <span className= {styles.label}>Doble faz:</span>
+            <span className= {styles.optionText}>Doble faz:</span>
             <input 
               type="checkbox"
               id={`switch-${file.name}`} // ID único por archivo
@@ -105,30 +105,63 @@ export default function PedidoCard ({
           </div>
         </div>
 
-        <div className={styles.row}>
-          <label className={styles.label}>
-            Juegos: 
-            <input 
-              type="number"
-              min="1"
-              max="100"
-              value={copies}
-              onChange={(e) => setCopies(Math.max(1, parseInt(e.target.value) || 1))}
-              className={styles.inputNumero}
-            />
-          </label>
 
-          <label className={styles.label}>
-            Anillados:
-            <input
-              type="number"
-              min="0"
-              max="100"
-              value={bindings}
-              onChange={(e) => setBindings(Math.max(0, parseInt(e.target.value) || 0))}
-              className={styles.inputNumero}
-            /> 
-          </label>
+        <div className={styles.row}>
+          <div className={styles.numberWrapper}>
+            <span className={styles.optionText}>Juegos:</span>
+            <div className={styles.customNumber}>
+              <button 
+                type="button" 
+                onClick={() => setCopies(Math.max(1, copies - 1))}
+                className={styles.numberBtn}
+              >
+                –
+              </button>
+              <input 
+                type="number"
+                min="1"
+                max="100"
+                value={copies}
+                onChange={(e) => setCopies(Math.max(1, parseInt(e.target.value) || 1))}
+                className={styles.quantityInput}
+              />
+              <button 
+                type="button" 
+                onClick={() => setCopies(Math.min(100, copies + 1))}
+                className={styles.numberBtn}
+              >
+                +
+              </button>
+            </div>
+          </div>
+
+          <div className={styles.numberWrapper}>
+            <span className={styles.optionText}>Anillados:</span>
+            <div className={styles.customNumber}>
+              <button 
+                type="button" 
+                onClick={() => setBindings(Math.max(0, bindings - 1))}
+                className={styles.numberBtn}
+              >
+                –
+              </button>
+              <input
+                type="number"
+                min="0"
+                max="100"
+                value={bindings}
+                onChange={(e) => setBindings(Math.max(0, parseInt(e.target.value) || 0))}
+                className={styles.quantityInput}
+              />
+              <button 
+                type="button" 
+                onClick={() => setBindings(Math.min(100, bindings + 1))}
+                className={styles.numberBtn}
+              >
+                +
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 

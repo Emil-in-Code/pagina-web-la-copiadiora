@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from './ListaPedidos.module.css';
-import PedidoCard from './PedidoCard.jsx';
-import useListaPedido from './useListaPedido.js';
+import styles from './OrderList.module.css';
+import PedidoCard from './OrderCard.jsx';
+import useOrderList from './useOrderList.js';
 import FileButton from '../FileBtn/FileBtn.jsx'
 
-export default function ListaPedido() {
+export default function OrderList() {
   const {
     files,
     subtotals,
@@ -27,7 +27,7 @@ export default function ListaPedido() {
     porcentaje,
     descuento,
     totalFinal
-  } = useListaPedido();
+  } = useOrderList();
 
   return (
     <div className= {styles.filesContainer}>

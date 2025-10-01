@@ -40,13 +40,69 @@
   border-radius: 7px;
 }
 
-.label{ 
+
+/* Wrapper para cada campo */
+.numberWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Caja de input + botones */
+.customNumber {
+  display: flex;
+  align-items: center;
+  border-radius: 7px;
+  box-shadow: inset 1px 0px 5px #000;
+  overflow: hidden;
+
+}
+
+/* Input */
+.quantityInput {
+  text-align: center;
+  border: none;
+  font-family: Baron Neue;
+  outline: none;
+  -moz-appearance: textfield;
+}
+.quantityInput::-webkit-outer-spin-button,
+.quantityInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Botones + / - */
+.numberBtn {
+  background: #1e1e1e;
+  color: #ffce06;
+  border: none;
+  width: 28px;
+  height: 28px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.numberBtn:hover {
+  background: #ffce;
+  color: #000;
+  border:2px solid #000;
+}
+
+.optionText{ 
   margin-top: 2px;
   width: 80%;
   color: #000;
   font-family: KeepCalm;
   font-size:15px;
-  text-align:start;
+  text-align:center;
+  -webkit-text-stroke: initial;
+  text-shadow: none;
 }
 
 .row{
@@ -60,16 +116,15 @@
   gap:10px;
 }
 
-.inputNumero {
-  width: 5.5rem; 
-  padding: 0px 3px 0px 3px; 
-  border-radius: 7px;
-  box-shadow: inset 1px 0px 5px #000;
-  background: #e1e1e1;
-  color: #000;
-  font-size:17px;
-  font-family: Baron Neue;
-  margin-top:0px;
+.quantityInput{
+  width: 2.5rem; 
+  height: 28px;
+  padding: 8px 0px 3px 5px; 
+  border-radius: 0px;
+  background: #1e1e1e;
+  color: #e1e1e1;
+  font-size:12px;
+  font-family: KeepCalm;
 }
 
 

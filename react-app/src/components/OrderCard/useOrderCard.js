@@ -12,7 +12,7 @@ const bindingPrice = 3000;
 const priceColor = 300;
 const priceColorD = 350;
 
-export default function usePedidoCard({ 
+export default function useOrderCard({ 
   file, 
   onRemove,
   onSubtotalChange,

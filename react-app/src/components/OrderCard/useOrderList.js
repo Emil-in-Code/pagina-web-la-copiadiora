@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 
 
-export default function useListaPedido() {
+export default function useOrderList() {
 
   const [files, setFiles] = useState([]);
   const [subtotals, setSubtotals] = useState({});
@@ -93,6 +93,10 @@ export default function useListaPedido() {
     globalColor,
     globalBindings,
     pagesPerFile,
+
+    setGlobalColor,
+    setGlobalBindings,
+    setGlobalDoubleSided,
 
     handleFileUpload,
     handleSubtotalChange,

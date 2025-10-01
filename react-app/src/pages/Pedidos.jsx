@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import ListaPedido from '../components/CardPedido/ListaPedido.jsx';
+import ListaPedido from '../components/OrderCard/OrderList.jsx';
 import '../styles/pedidos.css'
 import Navbar from "../widgets/navbar"
 import FileButton from '../components/FileBtn/FileBtn.jsx'
