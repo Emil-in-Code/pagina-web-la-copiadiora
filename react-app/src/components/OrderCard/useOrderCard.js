@@ -17,6 +17,7 @@ export default function useOrderCard({
   onRemove,
   onSubtotalChange,
   onPageChange,
+  onConfigChange,//nuevo,sacar si no sirve
   globalDoubleSided,
   globalBindings,
   globalColor
@@ -82,6 +83,20 @@ export default function useOrderCard({
     }
   }, [subtotal, onSubtotalChange]);
 
+  //nuevo si no funciona se sacar
+  useEffect(() => {
+    if (onConfigChange){
+      onConfigChange({
+        copies,
+        bindings,
+        doubleSided,
+        color,
+        numPages,
+        subtotal
+      });
+    }
+  },[copies, bindings, doubleSided, color, numPages, subtotal, onConfigChange]);
+
   const calculateSubtotal = () => {
     if (!numPages) return;
 
@@ -130,7 +145,7 @@ export default function useOrderCard({
     }
     const maxPages = doubleSided ? 800 : 400;
     if (bindings && numPages > maxPages) {
-      alert("demasiadas hojas para 1 solo anillado")
+      alert("demasiadas hojas para 1 solo anillado,prueba en doble faz")
       setBindings(0);
     }
   };

@@ -30,6 +30,14 @@ export default function useOrderList() {
     }))
   }
 
+// Nueva función para guardar la configuración completa de cada archivo
+  const handleConfigChange = (index, config) => {
+    setFilesConfigs(prev => ({
+      ...prev,
+      [index]: config
+    }));
+  };
+
   const handleRemoveFile = (indexToRemove) => {
     const updatedFiles = files.filter((_, i) => i !== indexToRemove);
     setFiles(updatedFiles);
@@ -37,14 +45,18 @@ export default function useOrderList() {
 
     const updatedSubtotals = {};
     const updatedPages = {};
+    const updatedConfigs = {};//sacar si no sirve
 
     updatedFiles.forEach((_, newIndex) => {
       updatedSubtotals[newIndex] = subtotals[newIndex >= indexToRemove ? newIndex + 1 : newIndex] || 0;
       updatedPages[newIndex] = pagesPerFile[newIndex >= indexToRemove ? newIndex + 1 : newIndex] || 0;
+      //sacar updatedConfigs si no sirve
+      updatedConfigs[newIndex] = filesConfigs[newIndex >= indexToRemove ? newIndex + 1 : newIndex] || {};
     }); 
 
     setSubtotals(updatedSubtotals);
     setPagesPerFile(updatedPages);
+    setFilesConfigs(updatedConfigs); //sacar si no sirve
  };
   
 
@@ -77,6 +89,42 @@ export default function useOrderList() {
     };
   };
   
+  // Nueva función: preparar datos del pedido
+  const prepararDatosPedido = () => {
+     const archivosConConfig = files.map((file, index) => ({
+       file: file, // El File object completo
+       name: file.name,
+       size: file.size,
+       numPages: pagesPerFile[index] || 0,
+       copies: filesConfigs[index]?.copies || 1,
+       bindings: filesConfigs[index]?.bindings || 0,
+       doubleSided: filesConfigs[index]?.doubleSided || globalDoubleSided,
+       color: filesConfigs[index]?.color || globalColor,
+       subtotal: subtotals[index] || 0
+     }));
+
+     return {
+       archivos: archivosConConfig,
+       totalSinDescuento: totalWithBinding,
+       totalConDescuento: totalFinal,
+       porcentajeDescuento: porcentaje,
+       globalBindings: globalBindings,
+       totalPages: totalPages
+     };
+  };
+
+  // Nueva función: limpiar todo después de hacer el pedido
+  const limpiarPedido = () => {
+     setFiles([]);
+     setSubtotals({});
+     setPagesPerFile({});
+     setFilesConfigs({});
+     setGlobalDoubleSided(false);
+     setGlobalColor(false);
+     setGlobalBindings(false);
+  };
+  
+
   const totalAmount = Object.values(subtotals).reduce((sum,value) => sum + value, 0);
   const totalPages = Object.values(pagesPerFile).reduce((sum,value)=> sum + value, 0);
 
@@ -101,8 +149,11 @@ export default function useOrderList() {
     handleFileUpload,
     handleSubtotalChange,
     handlePagesChange,
+    handleConfigChange,//nuevo sacar si no sirve
     handleRemoveFile,
     calcularDescuento,
+    prepararDatosPedido,//sacar si no sirve
+    limpiarPedido,//sacar si no sirve
 
     totalAmount,
     totalPages,

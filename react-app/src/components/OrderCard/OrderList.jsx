@@ -2,9 +2,12 @@ import React from 'react';
 import styles from './OrderList.module.css';
 import PedidoCard from './OrderCard.jsx';
 import useOrderList from './useOrderList.js';
-import FileButton from '../FileBtn/FileBtn.jsx'
+import FileButton from '../FileBtn/FileBtn.jsx';
+import { useComandas } from '../../context/ComandaContext.jsx'; // nuevo sacar si no sirve
 
 export default function OrderList() {
+  const { crearComanda } = useComandas(); // nuevo, sacar si no sirve
+  
   const {
     files,
     subtotals,
@@ -21,6 +24,9 @@ export default function OrderList() {
     handleSubtotalChange,
     handlePagesChange,
     handleRemoveFile,
+    handleConfigChange,
+    prepararDatosPedido,
+    limpiarPedido,
 
     totalPages,
     totalWithBinding,
@@ -28,6 +34,34 @@ export default function OrderList() {
     descuento,
     totalFinal
   } = useOrderList();
+
+  //funcion para hacer pedido (temporal funcionando en local)
+  const handleHacerPedido = () => {
+    if (files.length === 0) {
+      alert('no hay archivos en el pedido');
+      return;
+    }
+  
+
+    const datosPedido = prepararDatosPedido();
+
+    //Datos para testing 
+    const pedidoCompleto = {
+      usuario: 'Usuario de Prueba',
+      entrega: 'retiro',
+      direccion: '',
+      telefono: '2213642438',
+      archivos: datosPedido.archivos,
+      total: datosPedido.totalConDescuento > 0
+        ? datosPedido.totalConDescuento
+        : datosPedido.totalSinDescuento
+    };
+    
+    const comandaId = crearComanda(pedidoCompleto);
+
+    alert('¡Pedido creado! ID: ${comandaId}');
+    limpiarPedido();
+  }
 
   return (
     <div className= {styles.filesContainer}>
@@ -102,6 +136,7 @@ export default function OrderList() {
             onRemove={() => handleRemoveFile(index)}
             onSubtotalChange ={(subtotal) => handleSubtotalChange(index, subtotal)}
             onPageChange={(numPages) => handlePagesChange(index, numPages)}
+            onConfigChange={(config) => handleConfigChange(index, config)} //sacar si no funciona 
             globalDoubleSided = {globalDoubleSided}
             globalBindings = {globalBindings}
             globalColor = {globalColor}
@@ -134,6 +169,26 @@ export default function OrderList() {
               </p>
             </div>
           )}
+
+          {/*Botón de testeo para pedido*/}
+          <div className={styles.btnContainer} style={{ marginTop: '2rem'}}>
+            <button 
+              onclick={handleHacerPedido}
+              style={{
+                padding: '1rem 2rem',
+                fontSize: '1.2rem',
+                fontWeight: 'bold',
+                backgroundColor: '#4CAF50',
+                color: 'white',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                width: '100%'
+              }}
+            >
+              finalizar pedido
+            </button>
+          </div>
         </>
       )}
     </div>
