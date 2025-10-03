@@ -8,6 +8,7 @@ export default function OrderCard ({
   onRemove,
   onSubtotalChange,
   onPageChange,
+  onConfigChange,//sacar si no sirve.
   globalDoubleSided,
   globalBindings,
   globalColor
@@ -34,6 +35,7 @@ export default function OrderCard ({
     onRemove,
     onSubtotalChange,
     onPageChange,
+    onConfigChange,//sacar si no sirve
     globalDoubleSided,
     globalBindings,
     globalColor

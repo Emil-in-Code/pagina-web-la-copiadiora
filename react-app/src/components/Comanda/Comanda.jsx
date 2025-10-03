@@ -66,8 +66,9 @@ export default function Comanda ({
 
   return (
     <div className={styles["comanda-container"]}>
-      <div className={styles["container-title"]}>
-        <h2 className={styles["title"]}>Pedido {id}</h2>
+
+      <div className={styles["container-PedidoID"]}>
+        <h2 className={styles["pedidoId"]}>Pedido {id}</h2>
         {estado === 'realizando' && (
           <span className={styles["en-proceso"]}>🔄</span>
         )}
@@ -77,8 +78,9 @@ export default function Comanda ({
       </div>
 
       <div className={styles["info-container"]}>
-        <div className={styles["container-row1"]}>
-          <h3 className={styles["subtitle"]}> 
+
+        <div className={styles["container-price"]}>
+          <h3 className={styles["typeImp"]}> 
             {getTipoTexto()}
           </h3>
           <p className={styles["price"]}> 
@@ -93,47 +95,58 @@ export default function Comanda ({
           <p className={styles["entrega"]}>
             📦 {entrega} {direccion && `- ${direccion}`}
           </p>
-        </div>
 
-        <div className={styles["archivos-info"]}>
-          <p className={styles["archivo-count"]}>
-            📄 {getTotalArchivos()} archivo{getTotalArchivos() !== 1 ? 's' : ''}
-          </p>
-          <p className={styles["juegos-count"]}>
-            📊 {getTotalJuegos()} juego{getTotalJuegos() !== 1 ? 's' : ''}
-          </p>
+          <div className={styles["archivos-info"]}>
+            <p className={styles["archivo-count"]}>
+              📄 {getTotalArchivos()} archivo{getTotalArchivos() !== 1 ? 's' : ''}
+            </p>
+            <p className={styles["juegos-count"]}>
+              📊 {getTotalJuegos()} juego{getTotalJuegos() !== 1 ? 's' : ''}
+            </p>
+          </div>
         </div>
+      </div>
 
-        <div className={styles["container-row2"]}>
+
+
+      <div className={styles["container-action"]}>
+        <button 
+          className={styles["details-btn"]} 
+          onClick={() => onVerDetalle?.(comandaData)}
+        > 
+          📋 Detalle
+        </button>
+
+        {estado !== 'finalizado' && (
           <button 
-            className={styles["details-btn"]} 
-            onClick={() => onVerDetalle?.(comandaData)}
+            className={`${styles["action"]} ${styles[`action-${estado}`]}`}
+            onClick={handleEstadoChange}
           > 
-            📋 Detalle
+            {getEstadoTexto()}
           </button>
+        )}
 
-          {estado !== 'finalizado' && (
-            <button 
-              className={`${styles["action"]} ${styles[`action-${estado}`]}`}
-              onClick={handleEstadoChange}
-            > 
-              {getEstadoTexto()}
-            </button>
-          )}
+        {estado !== 'finalizado' && (
+          <button 
+            className={styles["download-btn"]}
+            onClick={() => onDescargarZip?.(comandaData)}
+          >
+            📥 Descargar
+          </button>
+        )}
 
-          {estado === 'finalizado' && (
-            <button 
-              className={styles["download-btn"]}
-              onClick={() => onDescargarZip?.(comandaData)}
-            >
-              📥 Descargar
-            </button>
-          )}
+        {estado === 'finalizado' && (
+          <button 
+            className={styles["eliminar-btn"]}
+            onClick={handleEstadoChange}
+          >
+            ❌ Eliminar comanda
+          </button>
+        )}
 
-          <p className={styles["time"]}> 
-            ⏱️ {tiempoEstimado}
-          </p>
-        </div>
+        <p className={styles["time"]}> 
+          ⏱️ {tiempoEstimado}
+        </p>
       </div>
     </div>
   );

@@ -173,17 +173,17 @@ export default function OrderList() {
           {/*Botón de testeo para pedido*/}
           <div className={styles.btnContainer} style={{ marginTop: '2rem'}}>
             <button 
-              onclick={handleHacerPedido}
+              onClick={handleHacerPedido}
               style={{
-                padding: '1rem 2rem',
-                fontSize: '1.2rem',
+                padding: '1rem',
+                fontSize: '16px',
                 fontWeight: 'bold',
                 backgroundColor: '#4CAF50',
                 color: 'white',
                 border: 'none',
-                borderRadius: '8px',
+                borderRadius: '7px',
                 cursor: 'pointer',
-                width: '100%'
+                width: '10%'
               }}
             >
               finalizar pedido

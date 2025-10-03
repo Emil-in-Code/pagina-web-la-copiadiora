@@ -10,7 +10,11 @@ export default function useOrderList() {
   const [globalColor, setGlobalColor] = useState(false);
   const [globalBindings, setGlobalBindings] = useState(false);
   const [pagesPerFile, setPagesPerFile] = useState({});
+  const [filesConfigs, setFilesConfigs] = useState({});
+
   const bindingPrice = 3000;
+
+
   const handleFileUpload = (e) => {
     const newFiles = Array.from(e.target.files);
     setFiles(prev => [...prev, ...newFiles]);
