@@ -72,7 +72,7 @@ const DashboardPedidos = () => {
 
   return (
     <div className={styles["dashboard-container"]}>
-      <div className={styles["contenedor"]}>
+      <div className={styles["container-stats"]}>
         <h1 className={styles["title"]}>Panel de Administración</h1>
         <div className={styles["stats"]}>
           <span className={styles["stat"]}>

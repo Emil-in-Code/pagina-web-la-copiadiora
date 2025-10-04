@@ -1,7 +1,5 @@
-
-.contenedor{
-  width:100%;
-
+.container-stats{
+width:100%;
 }
 
 .stats{
@@ -9,20 +7,16 @@
   justify-content:space-between;
   gap:20px;
   background:#ffce;
-  padding:15px;
+  padding: 10px;
 }
 
 .kanban-board{
   width: 100%;
-  background:#ffce06;
+  border: 2px solid #ffce06;
   display:flex;
   justify-content: space-between;
   gap:5px;
+  padding:10px;
 }
 
-.news{
-  display:flex;
-  flex-direction: row;
-  background:#ffce06;
-  gap:10px;
-}
+

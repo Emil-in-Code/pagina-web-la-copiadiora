@@ -1,6 +1,6 @@
 import styles from "./Comanda.module.css"
 
-import { useComandas } from '../../context/ComandaContext.jsx'; // Ajustar ruta según tu estructura
+import { useComandas } from '../../context/ComandaContext.jsx'; 
 
 export default function Comanda ({ 
   comandaData,
@@ -114,7 +114,7 @@ export default function Comanda ({
           className={styles["details-btn"]} 
           onClick={() => onVerDetalle?.(comandaData)}
         > 
-          📋 Detalle
+          📋<br/> Detalle
         </button>
 
         {estado !== 'finalizado' && (
@@ -131,7 +131,7 @@ export default function Comanda ({
             className={styles["download-btn"]}
             onClick={() => onDescargarZip?.(comandaData)}
           >
-            📥 Descargar
+            📥 <br/> Descargar
           </button>
         )}
 
@@ -140,7 +140,7 @@ export default function Comanda ({
             className={styles["eliminar-btn"]}
             onClick={handleEstadoChange}
           >
-            ❌ Eliminar comanda
+            ❌<br/> Eliminar comanda
           </button>
         )}
 
