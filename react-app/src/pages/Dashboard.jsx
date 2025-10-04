@@ -88,9 +88,9 @@ const DashboardPedidos = () => {
       </div>
         
       <div className={styles["kanban-board"]}>
-        {renderColumna("Pendientes", comandasPendientes, styles["pendientes"])}
-        {renderColumna("Realizando", comandasRealizando, styles["realizando"])}
-        {renderColumna("Finalizados", comandasFinalizadas, styles["finalizados"])}
+        {renderColumna("", comandasPendientes, styles["pendientes"])}
+        {renderColumna("", comandasRealizando, styles["realizando"])}
+        {renderColumna("", comandasFinalizadas, styles["finalizados"])}
       </div>
 
       {mostrarDetalle && (

@@ -1,11 +1,28 @@
+
 .contenedor{
-  background:red;
-  margin-top:1rem;
+  width:100%;
+
+}
+
+.stats{
+  display: flex;
+  justify-content:space-between;
+  gap:20px;
+  background:#ffce;
+  padding:15px;
+}
+
+.kanban-board{
+  width: 100%;
+  background:#ffce06;
+  display:flex;
+  justify-content: space-between;
+  gap:5px;
 }
 
 .news{
   display:flex;
-  flex-direction: column;
+  flex-direction: row;
   background:#ffce06;
   gap:10px;
 }

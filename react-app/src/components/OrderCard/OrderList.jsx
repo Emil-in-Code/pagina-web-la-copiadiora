@@ -183,7 +183,7 @@ export default function OrderList() {
                 border: 'none',
                 borderRadius: '7px',
                 cursor: 'pointer',
-                width: '10%'
+                width: 'fit-content'
               }}
             >
               finalizar pedido
