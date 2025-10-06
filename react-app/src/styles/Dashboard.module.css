@@ -1,22 +1,31 @@
+.dashboard-container{
+  padding-top: 2px;
+  margin-top:1px;
+  display: flex;
+  flex-direction: column;
+
+}
+
 .container-stats{
-width:100%;
+width:90%;
 }
 
 .stats{
   display: flex;
-  justify-content:space-between;
-  gap:20px;
+  justify-content:space-around;
+  gap:50px;
   background:#ffce;
   padding: 10px;
 }
 
 .kanban-board{
-  width: 100%;
+  width: 90%;
   border: 2px solid #ffce06;
   display:flex;
   justify-content: space-between;
   gap:5px;
   padding:10px;
+  align-items:flex-start;
 }
 
 

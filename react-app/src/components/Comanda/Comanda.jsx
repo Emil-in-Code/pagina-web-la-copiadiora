@@ -8,20 +8,24 @@ export default function Comanda ({
   onCambiarEstado,
   onDescargarZip
 }) {
-  const { actualizarEstadoComanda } = useComandas();
+  const { actualizarEstadoComanda, eliminarComanda } = useComandas();
 
   const {
     id,
     usuario,
     entrega,
     direccion,
-    archivos,
+    archivos, 
     total,
     estado,
     tiempoEstimado
   } = comandaData;
 
   const handleEstadoChange = () => {
+    if (estado === 'finalizado') {
+      eliminarComanda(id);
+      return;
+    }
     let nuevoEstado;
     switch(estado) {
       case 'pendiente':
@@ -70,10 +74,10 @@ export default function Comanda ({
       <div className={styles["container-PedidoID"]}>
         <h2 className={styles["pedidoId"]}>Pedido {id}</h2>
         {estado === 'realizando' && (
-          <span className={styles["en-proceso"]}>🔄</span>
+          <span className={styles["en-proceso"]}></span>
         )}
         {estado === 'finalizado' && (
-          <span className={styles["completado"]}>✅</span>
+          <span className={styles["completado"]}></span>
         )}
       </div>
 

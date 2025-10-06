@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import Comanda from "../components/Comanda/Comanda.jsx";
 import DetalleModal from "../components/DetalleModal/DetalleModal.jsx";
 import { useComandas } from '../context/ComandaContext.jsx';
+import useZipDownload from '../hooks/useZipDownload.js'
 import styles from "../styles/Dashboard.module.css";
+import Navbar from "../widgets/navbar"
 
 const DashboardPedidos = () => {
   const { getComandasPorEstado } = useComandas();
+  const { descargarZipComanda, isDownloading, error } = useZipDownload();
   const [comandaDetalle, setComandaDetalle] = useState(null);
   const [mostrarDetalle, setMostrarDetalle] = useState(false);
-
+  
   const comandasPendientes = getComandasPorEstado('pendiente');
   const comandasRealizando = getComandasPorEstado('realizando');
   const comandasFinalizadas = getComandasPorEstado('finalizado');
@@ -19,35 +22,14 @@ const DashboardPedidos = () => {
   };
 
   const handleDescargarZip = async (comandaData) => {
-    try {
-      // Aquí implementarías la lógica de descarga del ZIP
-      await descargarZipComanda(comandaData);
-    } catch (error) {
-      console.error('Error al descargar ZIP:', error);
-      alert('Error al descargar los archivos');
-    }
-  };
+    const success = await descargarZipComanda(comandaData);
 
-  const descargarZipComanda = async (comandaData) => {
-    // Esta función necesitaría implementarse según tu backend
-    // Por ahora, simulamos la descarga
-    console.log('Descargando ZIP para comanda:', comandaData.id);
-    
-    // Ejemplo de implementación con archivos locales:
-    // const JSZip = require('jszip'); // Necesitarías instalar jszip
-    // const zip = new JSZip();
-    // 
-    // comandaData.archivos.forEach((archivo, index) => {
-    //   zip.file(`${archivo.name}`, archivo.file);
-    // });
-    // 
-    // const content = await zip.generateAsync({type:"blob"});
-    // const url = window.URL.createObjectURL(content);
-    // const a = document.createElement('a');
-    // a.href = url;
-    // a.download = `Pedido_${comandaData.id}.zip`;
-    // a.click();
-  };
+    if(success){
+      alert('zip descargado');
+    } else {
+      alert(`Error al descargar: ${error || 'Intenta nuevamente'}`);
+    }
+  }
 
   const renderColumna = (titulo, comandas, className) => (
     <div className={`${styles["columna"]} ${className}`}>
@@ -71,35 +53,38 @@ const DashboardPedidos = () => {
   );
 
   return (
-    <div className={styles["dashboard-container"]}>
-      <div className={styles["container-stats"]}>
-        <h1 className={styles["title"]}>Panel de Administración</h1>
-        <div className={styles["stats"]}>
-          <span className={styles["stat"]}>
-            📋 Pendientes: {comandasPendientes.length}
-          </span>
-          <span className={styles["stat"]}>
-            🔄 En proceso: {comandasRealizando.length}
-          </span>
-          <span className={styles["stat"]}>
-            ✅ Finalizados: {comandasFinalizadas.length}
-          </span>
+    <>
+      <Navbar />
+      <main className={styles["dashboard-container"]}>
+        <div className={styles["container-stats"]}>
+          <h1 className={styles["title"]}>Panel de Administración</h1>
+          <div className={styles["stats"]}>
+            <span className={styles["stat"]}>
+              📋 Pendientes: {comandasPendientes.length}
+            </span>
+            <span className={styles["stat"]}>
+              🔄 En proceso: {comandasRealizando.length}
+            </span>
+            <span className={styles["stat"]}>
+              ✅ Finalizados: {comandasFinalizadas.length}
+            </span>
+          </div>
         </div>
-      </div>
-        
-      <div className={styles["kanban-board"]}>
-        {renderColumna("", comandasPendientes, styles["pendientes"])}
-        {renderColumna("", comandasRealizando, styles["realizando"])}
-        {renderColumna("", comandasFinalizadas, styles["finalizados"])}
-      </div>
+          
+        <div className={styles["kanban-board"]}>
+          {renderColumna("", comandasPendientes, styles["pendientes"])}
+          {renderColumna("", comandasRealizando, styles["realizando"])}
+          {renderColumna("", comandasFinalizadas, styles["finalizados"])}
+        </div>
 
-      {mostrarDetalle && (
-        <DetalleModal
-          comanda={comandaDetalle}
-          onClose={() => setMostrarDetalle(false)}
-        />
-      )}
-    </div>
+        {mostrarDetalle && (
+          <DetalleModal
+            comanda={comandaDetalle}
+            onClose={() => setMostrarDetalle(false)}
+          />
+        )}
+      </main>
+    </> 
   );
 };
 

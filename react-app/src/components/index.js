@@ -18,3 +18,4 @@ export { default as DetalleModal } from "./DetalleModal/DetalleModal.jsx"
 // (Opcional) Re-exportar widgets para importarlos desde el mismo lugar
 export { default as Navbar } from "@/widgets/navbar";
 export { default as Footer } from "@/widgets/footer";
+

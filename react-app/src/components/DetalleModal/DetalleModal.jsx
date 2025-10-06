@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './DetalleModal.module.css';
+import useZipDownload from '../../hooks/useZipDownload.js'
 
 const DetalleModal = ({ comanda, onClose }) => {
   if (!comanda) return null;
@@ -7,7 +8,15 @@ const DetalleModal = ({ comanda, onClose }) => {
   const formatFecha = (fecha) => {
     return new Date(fecha).toLocaleString('es-AR');
   };
+   
+  const { descargarZipComanda, isDownloading, error } = useZipDownload();
 
+  const handleClick = async () => {
+    const succes = await descargarZipComanda(MiComponente);
+    if (succes){
+      console.log('zip Descargado');
+    }
+  }
   return (
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
@@ -65,8 +74,8 @@ const DetalleModal = ({ comanda, onClose }) => {
         </div>
 
         <div className={styles.actions}>
-          <button className={styles.downloadBtn}>
-            📥 Descargar ZIP
+          <button onClick={handleClick} disabled={isDownloading} className={styles.downloadBtn}>
+            {isDownloading ? 'Descargando...' : ' 📥 Descargar'}
           </button>
           <button className={styles.closeModalBtn} onClick={onClose}>
             Cerrar
