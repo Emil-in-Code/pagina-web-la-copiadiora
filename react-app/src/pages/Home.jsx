@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import Navbar from "../widgets/navbar"
+import Navbar from "../widgets/Navbar/Navbar.jsx"
 import Footer from '../widgets/Footer/Footer.jsx';
 import homeStyles from "../styles/Home.module.css"
 import "../styles/global.css"

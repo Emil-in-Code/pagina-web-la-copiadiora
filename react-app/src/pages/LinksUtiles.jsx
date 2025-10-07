@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import "../styles/global.css";
 import "../styles/links.css";
-import Navbar from "../widgets/navbar";
+import Navbar from "../widgets/Navbar/Navbar.jsx";
 import Footer from "../widgets/Footer/Footer.jsx"
 
 export default function LinksUtiles() {

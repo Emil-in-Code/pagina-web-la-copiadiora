@@ -1,4 +1,4 @@
-import Navbar from '../widgets/navbar'
+import Navbar from '../widgets/Navbar/Navbar.jsx'
 import Footer from '../widgets/Footer/Footer.jsx'
 import styles from "../styles/pricing.module.css"
 import CtaButton from "../components/CtaButton/CtaButton.jsx"

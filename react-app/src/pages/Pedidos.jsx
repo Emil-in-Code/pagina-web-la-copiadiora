@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import ListaPedido from '../components/OrderCard/OrderList.jsx';
 import '../styles/pedidos.css'
-import Navbar from "../widgets/navbar"
+import Navbar from "../widgets/Navbar/Navbar.jsx"
 import FileButton from '../components/FileBtn/FileBtn.jsx'
 
 export default function Pedidos() {

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './DetalleModal.module.css';
-import useZipDownload from '../../hooks/useZipDownload.js'
+import useZipDownload from '../Zip/useZipDownload.js'
 
 const DetalleModal = ({ comanda, onClose }) => {
   if (!comanda) return null;

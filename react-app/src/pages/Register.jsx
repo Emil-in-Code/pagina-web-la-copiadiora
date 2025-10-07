@@ -1,4 +1,4 @@
-import Navbar from "../widgets/navbar.jsx"
+import Navbar from "../widgets/Navbar/Navbar.jsx"
 import Footer from "../widgets/Footer/Footer.jsx"
 import "../styles/register.css"
 import "../styles/global.css"

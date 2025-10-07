@@ -1,7 +1,7 @@
 import React from 'react'
 import "../styles/global.css";
 import "../styles/envios.css";
-import Navbar from "../widgets/navbar";
+import Navbar from "../widgets/Navbar/Navbar.jsx";
 import Footer from "../widgets/Footer/Footer.jsx"
 import CtaButton from "../components/CtaButton/CtaButton.jsx"
 
