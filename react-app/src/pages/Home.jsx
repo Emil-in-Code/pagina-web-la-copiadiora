@@ -61,7 +61,7 @@ export default function Index() {
               <div className={homeStyles["galleryOverlay"]}>Desde el taxi</div>
             </div>
 
-            <div className={homeStyles["galleryItemTall"]}>
+            <div className={homeStyles["galleryItem"]}>
               <div className={homeStyles["galleryPlaceholeder"]}>🏛️</div>
               <div className={homeStyles["galleryOverlay"]}>Desde la facu</div>
             </div>
@@ -76,7 +76,7 @@ export default function Index() {
               <div className={homeStyles["galleryOverlay"]}>Mientras te cebás ese</div>
             </div>
 
-            <div className={homeStyles["gallery--item"]}>
+            <div className={homeStyles["heroCta"]}>
               <CtaButton
                 to="/registrarme" 
                 className={homeStyles["button-presupuesto--grid"]} 
