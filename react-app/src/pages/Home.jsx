@@ -12,15 +12,16 @@ export default function Index() {
       <Navbar />
 
       <main>
-        <section className={homeStyles['hero__flexbox']}>
+        <section className={homeStyles['hero']}>
 
-          <div className={homeStyles['text__container']}>
-            <h1 className={homeStyles["indexh1"]}>Tu caRRera, tu futuRO,<br />tu tiempO.</h1>
+          <div className={homeStyles['heroContent']}>
+            <h1 className={homeStyles["heroTitle"]}>Tu caRRera, tu futuRO,<br />tu tiempO.</h1>
             <p>
               Leer todo lo que te piden ya es complicado.<br />
               Que imprimirlo sea<br /> rápido, fácil y seguro
             </p>
-            <div className={homeStyles["cta__container"]}>
+
+            <div className={homeStyles["heroCta"]}>
               <CtaButton
                 to="./Pedidos"
                 text="Presupuestar gratis"
@@ -28,47 +29,51 @@ export default function Index() {
               />
             </div> 
           </div>
+          
+          <div className={homeStyles["heroCard"]}>
+            <div className={homeStyles["logo"]}>
+              <img
+               src="/assets/logo-copiadora.png"
+               alt="logo de la copiadora"
+               className={homeStyles["logo"]}
+              />
+            </div>
 
-          <div className={homeStyles["logo__container"]}>
-            <img src="/assets/logo-copiadora.png" alt="logo de la copiadora" className={homeStyles["logo"]} />
-          </div>
-
-          <div className={homeStyles["cta__container2"]}>
-            <CtaButton
-              to="./Pedidos" 
-              className={homeStyles["button-presupuesto2"]} 
-              aria-label="Presupuestar fotocopias gratis"
-              text="Presupuestar Ahora"
-            />
+            <h2>Nuestros servicios</h2>
+            <ul>
+              <li>✓ Entrega en el día</li>
+              <li>✓ Descuento por cantidad</li>
+              <li>✓ Delivery</li>
+              <li>✓ Impresiones a color</li>
+            </ul>
           </div>
         </section>
- 
-        <div className={homeStyles["shadow"]}></div>
-        <div className={homeStyles["shadow2"]}></div>
 
-        <section className={homeStyles["feature"]}>
-          <div className={homeStyles["gallery__container"]}>
-            <div className={homeStyles["gallery--item"]}>
-              <h2 className={homeStyles["title__feature"]}>
-                Pedilas donde quieras, cuando quieras.<br />
-                a la hOra que quieras.
-              </h2>
+        <section className={homeStyles["valueProp"]}>
+          <h2>
+            Pedilas donde quieras, cuando quieras.<br />
+            a la hOra que quieras.
+          </h2>
+          <div className={homeStyles["gallery"]}>
+
+            <div className={homeStyles["galleryItem"]}>
+              <div className={homeStyles["galleryPlaceholeder"]}>🚕</div>
+              <div className={homeStyles["galleryOverlay"]}>Desde el taxi</div>
             </div>
 
-            <div className={homeStyles["gallery--item"]}>
-              <img src="/assets/leyendo en la playa.jpg" alt="Persona leyendo en la playa" className={homeStyles["gallery__img"]} />
+            <div className={homeStyles["galleryItemTall"]}>
+              <div className={homeStyles["galleryPlaceholeder"]}>🏛️</div>
+              <div className={homeStyles["galleryOverlay"]}>Desde la facu</div>
             </div>
 
-            <div className={homeStyles["gallery--item"]}>
-              <img src="/assets/catedral.webp" alt="Persona leyendo en el escritorio desde un plano cenital" className={homeStyles["gallery__img"]} />
+            <div>
+              <div className={homeStyles["galleryItem"]}>🛏️</div>
+              <div className={homeStyles["galleryOverlay"]}>Desde tu cama</div>
             </div>
 
-            <div className={homeStyles["gallery--item"]}>
-              <img src="/assets/leyendo en kindle.jpg" alt="Persona leyendo en el kindle" className={homeStyles["gallery__img"]} />
-            </div>
-
-            <div className={homeStyles["gallery--item"]}>
-              <img src="/assets/leyendo en la habitacion.jpg" alt="Persona leyendo en su cama a la noche" className={homeStyles["gallery__img"]} />
+            <div>
+              <div className={homeStyles["galleryItem"]}>🧉</div>
+              <div className={homeStyles["galleryOverlay"]}>Mientras te cebás ese</div>
             </div>
 
             <div className={homeStyles["gallery--item"]}>
@@ -82,58 +87,36 @@ export default function Index() {
           </div>
         </section>
       
-        <section className={homeStyles["aside__wrapper"]}>
-          
-          <h2 className={homeStyles["title__aside"]}>¿Cómo hago mi pedido?</h2>
+        <section className={homeStyles["process"]}>
+          <h2>¿Cómo hago mi pedido?</h2>
+          <div className={homeStyles["processGrid"]}>
+            <div className={homeStyles["proccesCard"]}>
+              <div className={homeStyles["processNumber"]}>1</div>
+              <div className={homeStyles["processIcon"]}>📂</div>
+              <h3>Cargá tus archivos</h3>
+              <p>Subí tus pdf desde cualquier dispositivo</p>
+            </div> 
+            <div className={homeStyles["proccesCard"]}>
+              <div className={homeStyles["processNumber"]}>2</div>
+              <div className={homeStyles["processIcon"]}></div>
+              <h3>Preferencias</h3>
+              <p>Seleccioná tus preferencias de impresión</p>
+            </div> 
+            <div className={homeStyles["proccesCard"]}>
+              <div className={homeStyles["processNumber"]}>3</div>
+              <div className={homeStyles["processIcon"]}>💳</div>
+              <h3>Aboná</h3>
+              <p>Tu pedido te estará esperando</p>
+            </div>
 
-          <div className={homeStyles["flex-container"]}>
-            <InfoCard
-              imgSrc="/assets/pdf.svg"
-              imgAlt="1.Carga tus pdf"
-              title="1. Cargá tus archivos"
-              text={"Solo aceptamos PDF"}
-            />  
-            <InfoCard
-              imgSrc="/assets/Preferencias.svg"
-              imgAlt="2.Elegí tus preferencias de impresión"
-              title="2. Preferencias"
-              text={"Seleccioná\ntus preferencias de impresión"}
-              imageClass={homeStyles['card-image']}
-            />          
-            <InfoCard
-              imgSrc="/assets/entrega.svg"
-              imgAlt="3.Te diremos en cuanto tiempo estará tu pedido"
-              title="3.Tiempo"
-              text={"Te diremos en cuánto tiempo estará tu pedido"}
-            />  
-            <InfoCard
-              imgSrc="/assets/tarjetasinfondo.png"
-              imgAlt="4.Abonar con tarjeta de débito"
-              title="4.Abonalo"
-              text={"te enviaremos la confirmación por WhatsApp"}
-            />
-            <InfoCard
-              imgSrc="/assets/precios/delivery.svg"
-              imgAlt="5.Recibilo en casa o retiralo por sucursal"
-              title="5. Recibilo"
-              text={"Recibilo en casa o retiralo en tienda"}
-            />
-            <InfoCard
-              imgSrc="/assets/orgiamiheart.png"
-              imgAlt="6.Ya puedes disfrutar tu pedido"
-              title="6.Disfrutalo"
-              text={"Tu educación es la mejor inversión"}
-            />
-
-          </div>
-
-          <div className={homeStyles["aside__cta"]}>
-            <CtaButton
-              to="/registrarme" 
-              className={homeStyles["button-presupuesto--grid"]} 
-              aria-label="Crear una cuenta"
-              text="Quiero mis copias"
-            />
+            <div className={homeStyles["aside__cta"]}>
+              <CtaButton
+                to="/registrarme" 
+                className={homeStyles["button-presupuesto--grid"]} 
+                aria-label="Crear una cuenta"
+                text="Quiero mis copias"
+              />
+            </div>
           </div>
         </section>
       </main>
