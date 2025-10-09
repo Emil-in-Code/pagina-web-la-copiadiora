@@ -109,15 +109,18 @@ export default function Index() {
               <h3>Cargá tus archivos</h3>
               <p>Subí tus pdf desde cualquier dispositivo</p>
             </div> 
+
             <div className={homeStyles["processCard"]}>
               <div className={homeStyles["processNumber"]}>2</div>
               <img 
-               src="../../public/assets/"
-               alt="Estudiante"
+               src="../../public/assets/Frame 26.svg"
+               alt="preferencias de impresión"
+               className={homeStyles["processIcon"]}
               />
               <h3>Preferencias</h3>
               <p>Seleccioná tus preferencias de impresión</p>
             </div> 
+
             <div className={homeStyles["processCard"]}>
               <div className={homeStyles["processNumber"]}>3</div>
               <div className={homeStyles["processIcon"]}>💳</div>
@@ -133,6 +136,7 @@ export default function Index() {
                 text="Quiero mis copias"
               />
             </div>
+
           </div>
         </section>
       </main>
