@@ -112,7 +112,7 @@ export default function Index() {
             <div className={homeStyles["processCard"]}>
               <div className={homeStyles["processNumber"]}>2</div>
               <img 
-               src="../../public/assets/Preferencias.svg"
+               src="../../public/assets/"
                alt="Estudiante"
               />
               <h3>Preferencias</h3>
