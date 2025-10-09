@@ -72,9 +72,8 @@
   width:fit-content;
 }
 .presupuestar-btn:hover{
-  background:none;
-  border:solid 1px #ffce06;
-  color:#ffce06;
+  background:#ffce;
+  color:#000;
 }
 
 
@@ -325,24 +324,25 @@
     background: linear-gradient(135deg, rgba(255, 208, 0, 0.1) 0%, rgba(255, 165, 0, 0.05) 100%);
 }
 
-.ctaButton {
-    text-align: center;
-    margin-top: 3rem;
+.CtaContainer {
+  display: flex;
+  gap:10px;
 }
 
-.cta-button button {
-    background: #FFD000;
-    color: #000;
-    padding: 1.2rem 3rem;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s;
+.presupuestar-btn2{
+  background:none;
+  color: #ffce06;
+  padding: 0.5rem;
+  border-radius: 7px;
+  font-size: 1rem;
+  font-weight: 400;
+  border: 1px solid #ffce06;
+  cursor: pointer;
+  display: inline-block;
+  width:fit-content;
 }
-
-.cta-button button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(255, 208, 0, 0.4);
+.presupuestar-btn2:hover{
+  background:#ffce06;
+  border:none;
+  color:#000;
 }

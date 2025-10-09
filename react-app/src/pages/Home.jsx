@@ -113,7 +113,7 @@ export default function Index() {
             <div className={homeStyles["processCard"]}>
               <div className={homeStyles["processNumber"]}>2</div>
               <img 
-               src="../../public/assets/Frame 26.svg"
+               src="../../public/assets/preferenciasimp.svg"
                alt="preferencias de impresión"
                className={homeStyles["processIcon"]}
               />
@@ -128,19 +128,25 @@ export default function Index() {
               <p>Tu pedido te estará esperando</p>
             </div>
 
-            <div className={homeStyles["aside__cta"]}>
+            <div className={homeStyles["CtaContainer"]}>
               <CtaButton
                 to="/registrarme" 
-                className={homeStyles["button-presupuesto--grid"]} 
+                className={homeStyles["presupuestar-btn"]} 
                 aria-label="Crear una cuenta"
-                text="Quiero mis copias"
+                text="Registrarme"
+              />
+              <CtaButton
+                to="/pedidos" 
+                className={homeStyles["presupuestar-btn2"]} 
+                aria-label="Crear una cuenta"
+                text="Imprimir"
               />
             </div>
 
           </div>
         </section>
+       <Footer />
       </main>
-      <Footer />
     </>
   )
 }

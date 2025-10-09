@@ -30,7 +30,7 @@ html, body {
   height:100%;
 }
 
-div, ul, header, footer, a, li, label {
+div, ul, a, li, label {
     margin: 0;
     padding: 0;
 

@@ -124,8 +124,8 @@ export default function Login() {
 
           </form>
         </div>
+        <Footer />
       </main>
-      <Footer />
     </>
   )
 }
