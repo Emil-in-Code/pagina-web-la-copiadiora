@@ -20,7 +20,7 @@
   }
 }
 
-.heroContent h1 {
+.heroTitle {
  font-size: 3rem;
  font-weight: 900;
  line-height: 1.1;
@@ -29,8 +29,6 @@
  background-clip: text;
  animation: slideRight 0.8s ease-out;
  text-align:start;
- position:absolute;
- top:1rem;
 }
 
 @keyframes slideRight {
@@ -58,10 +56,10 @@
  font-size: 1.2rem;
  color: #bbb;
  margin-bottom: 2.5rem;
- line-height: 1.6;
+ line-height: 1.8;
 }
 
-.heroCta {
+.presupuestar-btn{
   background:#ffce06;
   color: #000;
   padding: 0.5rem;
@@ -71,10 +69,12 @@
   border: none;
   cursor: pointer;
   display: inline-block;
+  width:fit-content;
 }
-.heroCta:hover{
+.presupuestar-btn:hover{
   background:none;
   border:solid 1px #ffce06;
+  color:#ffce06;
 }
 
 
@@ -82,9 +82,10 @@
   background: linear-gradient(135deg, rgba(255, 208, 0, 0.1) 0%, rgba(255, 165, 0, 0.05) 100%);
   backdrop-filter: blur(10px);
   border-radius: 30px;
-  padding: 2rem;
+  padding: 1.5rem;
   border: 1px solid rgba(255, 208, 0, 0.2);
   position: relative;
+  top:60px;
   overflow: hidden;
   animation: slideLeft 0.8s ease-out;
 }
@@ -155,7 +156,7 @@
 }
 
 .logo{
-  width:50%;
+  width:40%;
 }
 
 /* Value Proposition */
@@ -174,22 +175,22 @@
 
 /* Gallery Grid */
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    padding: 0 5%;
-    max-width: 1400px;
-    margin: 0 auto 4rem;
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ gap: 1rem;
+ padding: 0 5%;
+ max-width: 1400px;
+ margin: 0 auto 4rem;
 }
 
 .galleryItem {
-    aspect-ratio: 1;
-    background: #2a2a2a;
-    border-radius: 20px;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+ aspect-ratio: 1;
+ background: #2a2a2a;
+ border-radius: 20px;
+ overflow: hidden;
+ position: relative;
+ cursor: pointer;
+ transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .galleryItem:hover {
@@ -206,7 +207,7 @@
 }
 
 .galleryItem:hover img {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 .galleryOverlay {
@@ -301,7 +302,7 @@
 .processNumber {
     position: absolute;
     top: 1.5rem;
-    right: 1.5rem;
+    left: 1.5rem;
     font-size: 3rem;
     font-weight: 900;
     color: rgba(255, 208, 0, 0.1);

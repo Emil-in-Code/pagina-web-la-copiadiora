@@ -15,19 +15,21 @@ export default function Index() {
         <section className={homeStyles['hero']}>
 
           <div className={homeStyles['heroContent']}>
-            <h1 className={homeStyles["heroTitle"]}>Tu caRRera, tu futuRO,<br />tu tiempO.</h1>
+            <h1 className={homeStyles["heroTitle"]}>
+              Tu caRRera,<br/>
+              tu futuRO,<br />
+              tu tiempO.</h1>
             <p>
-              Leer todo lo que te piden ya es complicado.<br />
+              Leer todo lo que te piden <br />ya es complicado.<br />
               Que imprimirlo sea<br /> rápido, fácil y seguro
             </p>
 
-            <div className={homeStyles["heroCta"]}>
-              <CtaButton
-                to="./Pedidos"
-                text="Presupuestar gratis"
-                className={homeStyles["presupuestar-btn"]}
-              />
-            </div> 
+            <CtaButton
+              to="./Pedidos"
+              text="Presupuestar gratis"
+              className={homeStyles["presupuestar-btn"]}
+            />
+
           </div>
           
           <div className={homeStyles["heroCard"]}>
@@ -57,52 +59,66 @@ export default function Index() {
           <div className={homeStyles["gallery"]}>
 
             <div className={homeStyles["galleryItem"]}>
-              <div className={homeStyles["galleryPlaceholeder"]}>🚕</div>
-              <div className={homeStyles["galleryOverlay"]}>Desde el taxi</div>
+              <img 
+               src="../../public/assets/catedral.webp"
+               alt="hacé tu pedido en la plaza"
+              />
+              <div className={homeStyles["galleryOverlay"]}>Desde la plaza </div>
             </div>
 
             <div className={homeStyles["galleryItem"]}>
-              <div className={homeStyles["galleryPlaceholeder"]}>🏛️</div>
-              <div className={homeStyles["galleryOverlay"]}>Desde la facu</div>
-            </div>
-
-            <div>
-              <div className={homeStyles["galleryItem"]}>🛏️</div>
-              <div className={homeStyles["galleryOverlay"]}>Desde tu cama</div>
-            </div>
-
-            <div>
-              <div className={homeStyles["galleryItem"]}>🧉</div>
-              <div className={homeStyles["galleryOverlay"]}>Mientras te cebás ese</div>
-            </div>
-
-            <div className={homeStyles["heroCta"]}>
-              <CtaButton
-                to="/registrarme" 
-                className={homeStyles["button-presupuesto--grid"]} 
-                aria-label="Crear una cuenta"
-                text= "Crear una cuenta"
+              <img 
+               src="../../public/assets/leyendo en kindle.jpg"
+               alt="desde tu tablet"
               />
+              <div className={homeStyles["galleryOverlay"]}> 🏛️Desde la facu</div>
             </div>
+
+            <div className={homeStyles["galleryItem"]}>
+              <img 
+               src="../../public/assets/leyendo en la habitacion.jpg"
+               alt="Desde tu cama"
+              />
+              <div className={homeStyles["galleryOverlay"]}> 🛏️Desde tu cama</div>
+            </div>
+
+            <div className={homeStyles["galleryItem"]}>
+              <img 
+               src="../../public/assets/leyendo en la playa.jpg"
+               alt="Estudiante"
+              />
+              <div className={homeStyles["galleryOverlay"]}>🧉O Mientras te cebás ese en la playa</div>
+            </div>
+
+            <CtaButton
+              to="/registrarme" 
+              className={homeStyles["presupuestar-btn"]} 
+              aria-label="Crear una cuenta"
+              text= "Crear una cuenta"
+            />
+            
           </div>
         </section>
       
         <section className={homeStyles["process"]}>
           <h2>¿Cómo hago mi pedido?</h2>
           <div className={homeStyles["processGrid"]}>
-            <div className={homeStyles["proccesCard"]}>
+            <div className={homeStyles["processCard"]}>
               <div className={homeStyles["processNumber"]}>1</div>
               <div className={homeStyles["processIcon"]}>📂</div>
               <h3>Cargá tus archivos</h3>
               <p>Subí tus pdf desde cualquier dispositivo</p>
             </div> 
-            <div className={homeStyles["proccesCard"]}>
+            <div className={homeStyles["processCard"]}>
               <div className={homeStyles["processNumber"]}>2</div>
-              <div className={homeStyles["processIcon"]}></div>
+              <img 
+               src="../../public/assets/Preferencias.svg"
+               alt="Estudiante"
+              />
               <h3>Preferencias</h3>
               <p>Seleccioná tus preferencias de impresión</p>
             </div> 
-            <div className={homeStyles["proccesCard"]}>
+            <div className={homeStyles["processCard"]}>
               <div className={homeStyles["processNumber"]}>3</div>
               <div className={homeStyles["processIcon"]}>💳</div>
               <h3>Aboná</h3>
