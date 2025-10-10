@@ -6,12 +6,11 @@ import LinksUtiles from './LinksUtiles'
 import Pedidos from './Pedidos'
 import Register from './Register'
 import Login from './Login'
-import Dashboard from './Dashboard'
-import { ComandaProvider } from '../context/ComandaContext.jsx';
+{/*import Dashboard from './Dashboard'*/}
+import AdminApp from '../admin/AdminApp.jsx'
 
 export default function PublicApp() {
   return (
-    <ComandaProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -21,11 +20,20 @@ export default function PublicApp() {
           <Route path="/pedidos" element={<Pedidos />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="Dashboard" element={<Dashboard />} />
-        </Routes>
-      </BrowserRouter>    
-    </ComandaProvider>
+          {/* <Route path="Dashboard" element={<Dashboard />} />*/}
 
+          <Route
+            path="../admin/AdminApp.jsx"
+            element={
+             <ProtectedRoute>
+               <AdminApp />
+             </ProtectedRoute>
+            }
+          />
+        </Routes>
+
+      </BrowserRouter>
+ 
   )
 }
 
