@@ -3,8 +3,8 @@ import Comanda from "../components/Comanda/Comanda.jsx";
 import DetalleModal from "../components/DetalleModal/DetalleModal.jsx";
 import { useComandas } from '../context/ComandaContext.jsx';
 import useZipDownload from '../components/Zip/useZipDownload.js'
-import styles from "../styles/Dashboard.module.css";
-import Navbar from "../widgets/Navbar/Navbar.jsx"
+import styles from "./Dashboard.module.css";
+import Navbar from "../widgets/Navbar.module.css"
 
 const DashboardPedidos = () => {
   const { getComandasPorEstado } = useComandas();

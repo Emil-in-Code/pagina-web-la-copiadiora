@@ -1,6 +1,6 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import Navbar from './navbar.jsx'
+import Navbar from './Navbar.jsx'
 
 const el = document.getElementById('navbar-root')
 if (el) {

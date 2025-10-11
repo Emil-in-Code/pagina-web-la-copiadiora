@@ -3,7 +3,7 @@ import styles from './OrderList.module.css';
 import PedidoCard from './OrderCard.jsx';
 import useOrderList from './useOrderList.js';
 import FileButton from '../FileBtn/FileBtn.jsx';
-import { useComandas } from '../../context/ComandaContext.jsx'; // nuevo sacar si no sirve
+import { useComandas } from '../../admin/context/ComandaContext.jsx'
 
 export default function OrderList() {
   const { crearComanda } = useComandas(); // nuevo, sacar si no sirve
