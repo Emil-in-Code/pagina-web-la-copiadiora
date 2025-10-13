@@ -8,6 +8,7 @@ import Register from './Register'
 import Login from './Login'
 {/*import Dashboard from './Dashboard'*/}
 import AdminApp from '../admin/AdminApp.jsx'
+import ProtectedRoute from '../auth/ProtectedRoute.jsx'
 
 export default function PublicApp() {
   return (
@@ -23,7 +24,7 @@ export default function PublicApp() {
           {/* <Route path="Dashboard" element={<Dashboard />} />*/}
 
           <Route
-            path="../admin/AdminApp.jsx"
+            path="../admin/*"
             element={
              <ProtectedRoute>
                <AdminApp />

@@ -1,6 +1,6 @@
-import React from 'react'
 import {Link} from 'react-router-dom'
 import styles from './Navbar.module.css'
+import React, { useState } from 'react';
 
 const Navbar = () => {
 
@@ -47,7 +47,7 @@ const Navbar = () => {
       {user ? (
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
            <span style={{ color: '#fff', fontSize: '15px' }}>
-             Hola, <strong style={{ color: '#FFce06' }}>{user.nombre}</strong>
+             ¡Hola! <strong style={{ color: '#FFce06' }}>{user.nombre}</strong>
            </span>
            <button 
             onClick={handleLogout}
