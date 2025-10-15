@@ -3,18 +3,6 @@ import styles from './Navbar.module.css'
 import React, { useState } from 'react';
 
 const Navbar = () => {
-
-  // 👇 Simula el usuario logeado (cuando conectes Supabase, lo reemplazás)
-  const [user, setUser] = useState({ nombre: "Cosme" }); 
-  // const [user, setUser] = useState(null); // si querés probar sin usuario
-
-  const handleLogout = () => {
-    setUser(null);
-    console.log("👋 Usuario desconectado");
-    // más adelante: await supabase.auth.signOut();
-  };
-
-
  return (
    <header className={styles.header}>
     <nav className={styles.nav} aria-label="Main Navigation"> 

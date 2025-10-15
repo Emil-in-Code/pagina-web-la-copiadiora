@@ -13,6 +13,7 @@ import ProtectedRoute from '../auth/ProtectedRoute.jsx'
 export default function PublicApp() {
   return (
       <BrowserRouter>
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/precios" element={<Pricing />} />
