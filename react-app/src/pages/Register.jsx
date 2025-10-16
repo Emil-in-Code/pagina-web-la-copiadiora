@@ -3,6 +3,7 @@ import Footer from "../widgets/Footer/Footer.jsx"
 import "../styles/register.css"
 import "../styles/global.css"
 import { useState } from 'react'
+import { supabase } from "../lib/supabaseClient.js"
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -89,31 +90,44 @@ export default function Register() {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length > 0) {
-      setMensaje({ texto: "❌ Revisá los campos en rojo", tipo: "error" });
+      setMensaje({
+        texto: "❌ Revisá los campos en rojo", 
+        tipo: "error"
+      });
       return;
     }
+    
+    try{
+       const { data, error } = await supabase.auth.signUp({
+         email: formData.email,
+         password: formData.password,
+         options: {
+           data: {
+            nombre: formData.nombre,
+            apellido: formData.apellido,
+            role: 'cliente'
+          },
+         },
+       });
 
-    // Si no hay errores → enviar datos
-    console.log("✅ Datos válidos, enviar a backend:", formData);
-
-    setMensaje({ texto: "✅ Registro exitoso", tipo: "exito" });
-
-    // Ejemplo de conexión a Supabase (comentar/descomentar cuando lo uses):
-    /*
-    const { data, error } = await supabase.auth.signUp({
-      email: formData.email,
-      password: formData.password,
-      options: {
-        data: { nombre: formData.nombre, apellido: formData.apellido }
-      }
-    });
-
-    if (error) {
-      setMensaje({ texto: "❌ " + error.message, tipo: "error" });
-    } else {
-      setMensaje({ texto: "✅ Usuario creado correctamente", tipo: "exito" });
+       if (error) {
+         setMensaje({
+          texto: "❌ " + error.message,
+          tipo: "error"
+        });
+       } else {
+         setMensaje({
+          texto: "✅ Usuario creado correctamente", 
+          tipo: "exito"
+        });
+       }
+    } catch (err) {
+      console.error(err);
+      serMensaje({ 
+        texto:"❌ Error al registrar", 
+        tipo: "error"
+      });
     }
-    */
 
     // Limpiar formulario
     setFormData({ nombre: "", apellido: "", email: "", password: "" });

@@ -1,8 +1,53 @@
-import {Link} from 'react-router-dom'
+import {Link, useNavigate } from 'react-router-dom'
 import styles from './Navbar.module.css'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { supabase } from '../../lib/supabaseClient.js'
 
 const Navbar = () => {
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // obtener sesión activa al cargar
+    const getUser = async () => {
+      const { data } = await supabase.auth.getUser()
+      if (data?.user) {
+        setUser({
+          nombre: data.user.user_metadata?.nombre || 'usuario',
+          apellido: data.user.user_metadata?.apellido || '',
+          email: data.user.email,
+          role: data.user.user_metadata?.role||'cliente',
+        });
+      } else {
+        setUser(null)
+      }
+    };
+    getUser();
+
+    // escuchar cambios de sesión (login / logout)
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (session?.user) {
+        setUser({
+          nombre: session.user.user_metadata?.nombre || 'usuario',
+          apellido: session.user.user_metadata?.apellido || '',
+          email: session.user.email,
+          role: session.user.user_metadata?.role||'cliente',
+        })
+        navigate('../../pages/Pedidos.jsx')
+      } else {
+        setUser(null)
+        navigate('/')
+      }
+    })
+
+    return () => listener.subscription.unsubscribe()
+  }, [navigate])
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut()
+    setUser(null)
+    navigate('/')
+  }
  return (
    <header className={styles.header}>
     <nav className={styles.nav} aria-label="Main Navigation"> 

@@ -2,6 +2,7 @@ import Navbar from "../widgets/Navbar/Navbar.jsx"
 import Footer from "../widgets/Footer/Footer.jsx"
 import "../styles/login.css"
 import { useState } from 'react'
+import { supabase } from "../lib/supabaseClient.js"
 
 export default function Login() {
   const [ formData, setFormData] = useState({
@@ -66,8 +67,33 @@ export default function Login() {
       setMensaje({ texto: "❌ Revisá los campos en rojo", tipo: "error"});
       return;
     }
+    
+  try {
+    const { data, error } = await supabase.auth.signInWithPassword({
+    email: formData.email,
+    password: formData.password,
+    });
 
-    console.log("todo piola, enviar a backend:", formData);
+    if (error) {
+      setMensaje({ 
+        texto:"❌ " + error.message,
+        tipo: "error"
+      });
+    }else {
+      const user = data.user;
+      setMensaje({ 
+        texto: "✅ Bienvenido " + (user?.user_metadata?.nombre || ""), 
+        tipo: "exito" 
+      });
+      console.log("Usuario logeado:", user);
+    }
+  } catch (err) {
+    console.error(err);
+    setMensaje({
+      texto: "❌ Error al iniciar sesión", 
+      tipo: "error" 
+    });
+  }
 
     setMensaje({ texto: "todo piola", tipo: "exito" });
 
