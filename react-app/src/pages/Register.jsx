@@ -98,42 +98,55 @@ export default function Register() {
     }
     
     try{
+       
+      const { nombre, apellido, email, password } = formData;
 
+      // crear usuario en Supabase Auth
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
       });
 
+      if (error) {
+        setMensaje({
+          texto: "❌ " + error.message,
+          tipo: "error",
+        });
+        return;
+      }
+
+      // si el registro fue exitoso, crear perfil asociado
       if (data?.user) {
-        await supabase.from('profiles').insert([
+        const { error: insertError } = await supabase.from("profiles").insert([
           {
             id: data.user.id,
             nombre,
             apellido,
-            role: 'cliente' // todos los nuevos son clientes por defecto
-          }
+            role: "cliente", // todos los nuevos son clientes por defecto
+          },
         ]);
-      }
 
-       if (error) {
-         setMensaje({
-          texto: "❌ " + error.message,
-          tipo: "error"
+        if (insertError) {
+          console.error("Error creando perfil:", insertError.message);
+          setMensaje({
+            texto: "❌ Error creando perfil en base de datos",
+            tipo: "error",
+          });
+          return;
+        }
+
+        setMensaje({
+          texto: "✅ Usuario creado correctamente",
+          tipo: "exito",
         });
-       } else {
-         setMensaje({
-          texto: "✅ Usuario creado correctamente", 
-          tipo: "exito"
-        });
-       }
+      }
     } catch (err) {
       console.error(err);
-      serMensaje({ 
-        texto:"❌ Error al registrar", 
-        tipo: "error"
+      setMensaje({
+        texto: "❌ Error al registrar",
+        tipo: "error",
       });
-    }
-
+    }  
     // Limpiar formulario
     setFormData({ nombre: "", apellido: "", email: "", password: "" });
     setErrors({});
