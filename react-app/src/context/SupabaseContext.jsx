@@ -9,33 +9,47 @@ export function SupabaseProvider({ children }) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Obtenemos la sesión actual
-    const getSession = async () => {
-      const { data } = await supabase.auth.getSession()
-      setUser(data?.session?.user ?? null)
+    const loadUser = async () => {
+      const { data: { session } } = await supabase.auth.getSession()
+      const currentUser = session?.user || null
+      if (currentUser) {
+        // Buscar el rol en la tabla profiles
+        const { data: profile } = await supabase
+          .from('profiles')
+          .select('nombre, apellido, role')
+          .eq('id', currentUser.id)
+          .single()
+
+        setUser({
+          id: currentUser.id,
+          email: currentUser.email,
+          nombre: profile?.nombre,
+          apellido: profile?.apellido,
+          role: profile?.role || 'cliente',
+        })
+      } else {
+        setUser(null)
+      }
       setLoading(false)
     }
 
-    getSession()
+    loadUser()
 
-    // Escuchamos cambios de sesión (login/logout)
     const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null)
+      if (!session) setUser(null)
+      else loadUser()
     })
 
-    return () => {
-      listener.subscription.unsubscribe()
-    }
+    return () => listener.subscription.unsubscribe()
   }, [])
 
   return (
-    <SupabaseContext.Provider value={{ user, supabase, loading }}>
+    <SupabaseContext.Provider value={{ user, loading, supabase }}>
       {children}
     </SupabaseContext.Provider>
   )
 }
 
-// Hook para acceder fácilmente al contexto
 export function useSupabase() {
   const context = useContext(SupabaseContext)
   if (!context) {

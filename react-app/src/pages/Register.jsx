@@ -98,17 +98,22 @@ export default function Register() {
     }
     
     try{
-       const { data, error } = await supabase.auth.signUp({
-         email: formData.email,
-         password: formData.password,
-         options: {
-           data: {
-            nombre: formData.nombre,
-            apellido: formData.apellido,
-            role: 'cliente'
-          },
-         },
-       });
+
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+      });
+
+      if (data?.user) {
+        await supabase.from('profiles').insert([
+          {
+            id: data.user.id,
+            nombre,
+            apellido,
+            role: 'cliente' // todos los nuevos son clientes por defecto
+          }
+        ]);
+      }
 
        if (error) {
          setMensaje({

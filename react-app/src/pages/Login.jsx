@@ -147,7 +147,13 @@ export default function Login() {
               />
               <span className="error">{errors.password}</span>             
             </label>
-
+            <div className="form__group" id="grupo__submit">
+              <input
+                className="btn-submit"
+                type="submit"
+                value="Iniciar"
+              />
+            </div>
           </form>
         </div>
         <Footer />

@@ -33,10 +33,8 @@ const Navbar = () => {
           email: session.user.email,
           role: session.user.user_metadata?.role||'cliente',
         })
-        navigate('../../pages/Pedidos.jsx')
       } else {
         setUser(null)
-        navigate('/')
       }
     })
 
