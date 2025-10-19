@@ -85,7 +85,6 @@ export default function Login() {
         texto: "✅ Bienvenido " + (user?.user_metadata?.nombre || ""), 
         tipo: "exito" 
       });
-      console.log("Usuario logeado:", user);
     }
   } catch (err) {
     console.error(err);
@@ -94,9 +93,6 @@ export default function Login() {
       tipo: "error" 
     });
   }
-
-    setMensaje({ texto: "todo piola", tipo: "exito" });
-
     setFormData({ email:"", password: ""});
     setErrors({})
   };

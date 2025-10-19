@@ -5,25 +5,59 @@ import { supabase } from '../../lib/supabaseClient.js'
 import { useNavbar } from './useNavbar.js'
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const { user, navbarType, handleLogout } = useNavbar()
+  const goToLogin = () => {
+    navigate('/login');
+  }
+  const goToRegister = () => {
+    navigate('/register');
+  }
 
   const renderLinks = () => {
     switch (navbarType) {
       case 'guest':
         return (
           <>
-            <li><Link to="/">Inicio</Link></li>
-            <li><Link to="/precios">Precios</Link></li>
-            <li><Link to="/login">Login</Link></li>
-            <li><Link to="/register">Registrarme</Link></li>
+            <li><Link to="/pedidos">Imprimir</Link></li>
+           {/* <li><Link to="/precios">Precios</Link></li>*/}
+            <li><Link to="/links-utiles">Links Útiles</Link></li>
+            <li><Link to="/envios">Envíos</Link></li>
+            <li>
+              <button
+                onClick= {goToRegister}
+                className={styles.btnLogin}
+                style={{
+                  background: 'none',
+                  border: '1px solid #FFce06',
+                  color: '#FFce06',
+                }}
+              >
+                Registrarme
+              </button>
+            </li>
+            <li>
+              <button
+                onClick= {goToLogin}
+                className={styles.btnLogin}
+                style={{
+                  background: '#FFce06',
+                  border: '1px solid #FFce06',
+                  color: '#000',
+                }}
+              >
+                Login
+              </button>
+            </li>
           </>
         )
 
       case 'admin':
         return (
           <>
-            <li><Link to="/">Inicio</Link></li>
-            <li><Link to="/admin/dashboard">Dashboard</Link></li>
+            <li><Link to="/dashboard">Dashboard</Link></li>
+            <li><Link to="/precios">Precios</Link></li>
+            <li><Link to="/envios">Envíos</Link></li>
             <li>
               <button
                 onClick={handleLogout}
@@ -45,7 +79,7 @@ const Navbar = () => {
         return (
           <>
             <li><Link to="/envios">Envíos</Link></li>
-            <li><Link to="/pedidos">Pedidos</Link></li>
+            <li><Link to="/pedidos">Imprimir</Link></li>
             <li><Link to="/links-utiles">Links Útiles</Link></li>
             <li>
               <button

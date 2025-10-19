@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { ComandaProvider } from '../admin/context/ComandaContext.jsx'
 import Home from './Home'
 import Pricing from './Pricing'
 import Envios from './Envios'
@@ -6,14 +7,13 @@ import LinksUtiles from './LinksUtiles'
 import Pedidos from './Pedidos'
 import Register from './Register'
 import Login from './Login'
-{/*import Dashboard from './Dashboard'*/}
 import AdminApp from '../admin/AdminApp.jsx'
 import ProtectedRoute from '../auth/ProtectedRoute.jsx'
 
 export default function PublicApp() {
   return (
+    <ComandaProvider>
       <BrowserRouter>
-
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/precios" element={<Pricing />} />
@@ -25,7 +25,7 @@ export default function PublicApp() {
           {/* <Route path="Dashboard" element={<Dashboard />} />*/}
 
           <Route
-            path="../admin/*"
+            path="/admin/*"
             element={
              <ProtectedRoute>
                <AdminApp />
@@ -33,9 +33,8 @@ export default function PublicApp() {
             }
           />
         </Routes>
-
       </BrowserRouter>
- 
+    </ComandaProvider>
   )
 }
 

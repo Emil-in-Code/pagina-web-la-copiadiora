@@ -21,7 +21,7 @@ export default function Register() {
     nombre: /^[a-zA-ZÀ-ÿ]+(?:\s[a-zA-ZÀ-ÿ]+)*$/, // solo letras y espacios
     lastname: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // letras y espacios
     email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$/, // dominio >= 2 chars
-    password: /^(?=.*[A-Z])(?=.*\d).{4,12}$/, // 4-12 chars, al menos 1 mayús y 1 número
+    password: /^(?=.*[A-Z])(?=.*\d).{8,20}$/, // 4-12 chars, al menos 1 mayús y 1 número
   };
 
   // Validación en vivo mientras el usuario escribe
@@ -47,7 +47,7 @@ export default function Register() {
         errorMsg = "Usá un formato válido de email";
       }
       if (name === "password" && !expresiones.password.test(value)) {
-        errorMsg = "La contraseña debe tener 4-12 caracteres, una MAYUS y un número";
+        errorMsg = "La contraseña debe tener 8-20 caracteres, una MAYUS y un número";
       }
     }
 
@@ -84,7 +84,7 @@ export default function Register() {
     if (!formData.password.trim()) {
       newErrors.password = "La contraeña es obligatoria";
     } else if (!expresiones.password.test(formData.password)) {
-      newErrors.password ="Debe tener 4-12 caracteres, una MAYUS y un número";
+      newErrors.password ="Debe tener 8-20 caracteres, una MAYUS y un número";
     }
 
     setErrors(newErrors);
@@ -98,13 +98,18 @@ export default function Register() {
     }
     
     try{
-       
-      const { nombre, apellido, email, password } = formData;
-
-      // crear usuario en Supabase Auth
-      const { data, error } = await supabase.auth.signUp({
+      const { email, password, nombre, apellido }= formData;
+      const { data, error }= await supabase.auth.signUp({
         email,
         password,
+        options:{
+          data: {
+            nombre,
+            apellido,
+            email,
+            role: 'cliente',
+          },
+        },
       });
 
       if (error) {
@@ -115,35 +120,17 @@ export default function Register() {
         return;
       }
 
-      // si el registro fue exitoso, crear perfil asociado
-      if (data?.user) {
-        const { error: insertError } = await supabase.from("profiles").insert([
-          {
-            id: data.user.id,
-            nombre,
-            apellido,
-            role: "cliente", // todos los nuevos son clientes por defecto
-          },
-        ]);
+      setMensaje({
+        texto: "✅ Usuario creado correctamente",
+        tipo: "exito",
+      });
 
-        if (insertError) {
-          console.error("Error creando perfil:", insertError.message);
-          setMensaje({
-            texto: "❌ Error creando perfil en base de datos",
-            tipo: "error",
-          });
-          return;
-        }
-
-        setMensaje({
-          texto: "✅ Usuario creado correctamente",
-          tipo: "exito",
-        });
-      }
+      setFormData({ nombre: "", apellido:"", email:"", password:""});
+      setErrors({});
     } catch (err) {
       console.error(err);
       setMensaje({
-        texto: "❌ Error al registrar",
+        texto: "❌ Error al registrar el usuario",
         tipo: "error",
       });
     }  
