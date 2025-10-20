@@ -53,7 +53,6 @@ const DashboardPedidos = () => {
 
   return (
     <>
-      <Navbar />
       <main className={styles["dashboard-container"]}>
         <div className={styles["container-stats"]}>
           <h1 className={styles["title"]}>Panel de Administración</h1>

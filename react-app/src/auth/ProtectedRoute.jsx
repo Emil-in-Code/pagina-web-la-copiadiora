@@ -14,7 +14,7 @@ export default function ProtectedRoute({ children }) {
   }
 
   // si el usuario no tiene rol admin, lo manda a inicio
-  const role = user.user_metadata?.role || "cliente";
+  const role = user.role || "cliente";
   if (role !== "admin") {
     return <Navigate to="/" />;
   }

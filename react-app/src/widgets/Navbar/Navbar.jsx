@@ -55,7 +55,7 @@ const Navbar = () => {
       case 'admin':
         return (
           <>
-            <li><Link to="/dashboard">Dashboard</Link></li>
+            <li><Link to="/admin/dashboard">Dashboard</Link></li>
             <li><Link to="/precios">Precios</Link></li>
             <li><Link to="/envios">Envíos</Link></li>
             <li>
