@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-
+import { supabase } from '../../lib/supabaseClient.js'
 const ComandaContext = createContext();
 
 export const useComandas = () => {
@@ -12,63 +12,134 @@ export const useComandas = () => {
 
 export const ComandaProvider = ({ children }) => {
   const [comandas, setComandas] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [userRole, setUserRole] = useState(null);
 
-  const crearComanda = (pedidoData) => {
-    const nuevaComanda = {
-      id: Date.now(), // Mejor usar uuid en producción
-      fecha: new Date().toISOString(),
-      usuario: pedidoData.usuario || 'Anónimo',
-      entrega: pedidoData.entrega || 'Retiro',
-      direccion: pedidoData.direccion || '',
-      telefono: pedidoData.telefono || '',
-      archivos: pedidoData.archivos || [],
-      total: pedidoData.total || 0,
-      estado: 'pendiente', // pendiente, realizando, finalizado
-      tiempoEstimado: calcularTiempoEstimado(pedidoData.archivos),
+  useEffect(() => {
+    const getUserRole = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+
+      if (user) {
+        const { data: profile } = await supabase
+          .from('profiles')
+          .select('role')
+          .eq('id', user.id)
+          .single();
+
+         setUserRole(profile?.role || 'cliente');
+      }
     };
+    getUserRole();
+  },[]);
+
+  const crearComanda = async (pedidoData) => {
+
+    try {
+      setLoading(true);
+      //obtener usuario actual(puede ser null para no registrados)
+      const { data: {user}} = await supabase.auth.getUser();
+      const esRegistrado = !!user;
+
+      const pedidoPayload = {
+        usuario_id: esRegistrado ? user.id : null,
+        total: pedidoData.total,
+        entrega: pedidoData.entrega || 'Retiro',
+        direccion: pedidoData.direccion || '',
+        telefono: pedidoData.telefono || '',
+        global_double_sided: pedidoData.globalDoubleSided || false,
+        global_color: pedidoData.globalColor || false,
+        global_bindings: pedidoData.globalBindings || false,
+        tiempo_estimado: calcularTiempoEstimado(pedidoData.archivos),
+        estado: 'pendiente',
+        es_usuario_registrado: esRegistrado,
+        // Solo para usuarios anónimos:
+        nombre_cliente: esRegistrado ? null : pedidoData.usuario?.split(' ')[0] || 'Anónimo',
+        apellido_cliente: esRegistrado ? null : pedidoData.usuario?.split(' ').slice(1).join(' ') || '',
+        email_cliente: esRegistrado ? null : pedidoData.email || ''
+      };
+
+      const { data: pedido, error: pedidoError } = await supabase 
+        .from('pedidos')
+        .insert(pedidoPayload)
+        .select()
+        .single();
+  
+       if (pedidoError) throw pedidoError;
+
+       const pedidoId = pedido.id;
+        //subir archivos al storage y crear registro en archivos_pedidos
+      for (const archivo of pedidoData.archivos) {
+          const carpetaUsuario = esRegistrado ? user.id : 'anonimo';
+          const rutaStorage = `${carpetaUsuario}/${pedidoId}/${archivo.file.name}`;
+
+          const { error: uploadError } = await supabase.storage
+            .from('pedidos-pdf')
+            .upload(rutaStorage, archivo.file, {
+              cacheControl: '3600',
+              upsert: false
+            });
+          if (uploadError) {
+            console.error('Error subiendo archivo:', uploadError);
+            throw uploadError;
+          }
+        // Crear registro en tabla archivos_pedido
+       const { error: archivoError } = await supabase
+         .from('archivos_pedido')
+         .insert({
+           pedido_id: pedidoId,
+           nombre_archivo: archivo.name,
+           ruta_storage: rutaStorage,
+           num_pages: archivo.numPages || 0,
+           copies: archivo.copies || 1,
+           bindings: archivo.bindings || 0,
+           double_sided: archivo.doubleSided || false,
+           color: archivo.color || false,
+           subtotal: archivo.subtotal || 0
+        });
+
+       if (archivoError) throw archivoError;
+      }
+
+      //actualizar lista de comandas 
+      await obtenerComandas();
+
+      return pedidoId;
+    }catch (error) {
+      console.error('Error creando comanda:', error);
+      throw error;
+    }finally {
+      setLoading(false);
+    }
+  };
+
+  //obtener pedido desde supabase 
+//
+  const obtenerComandas = async () => {
+    try {
+      setLoading(true);
+
+      const { data: { user } } = await supabase.auth.getUser();
     
-    setComandas(prev => [...prev, nuevaComanda]);
-    return nuevaComanda.id;
-  };
+      if (!user) {
+        setComandas([]);
+        return;
+      }
 
-  const actualizarEstadoComanda = (id, nuevoEstado) => {
-    setComandas(prev => 
-      prev.map(comanda => 
-        comanda.id === id 
-          ? { ...comanda, estado: nuevoEstado }
-          : comanda
-      )
-    );
-  };
+      const { data: { profile } } = await supabase 
+        .from('profiles')
+        .select('role')
+        .eq('id', user.id)
+        .single();
 
-  const eliminarComanda = (id) => {
-    setComandas(prev => prev.filter(comanda => comanda.id !== id));
-  };
+      const esAdmin = profile?.role === 'admin';
 
-  const calcularTiempoEstimado = (archivos) => {
-    let totalPaginas = 0;
-    archivos.forEach(archivo => {
-      totalPaginas += (archivo.numPages || 0) * (archivo.copies || 1);
-    });
-    
-    // Estimación: 1 minuto por cada 10 páginas, mínimo 30 min
-    const minutos = Math.max(30, Math.ceil(totalPaginas / 10));
-    return `${Math.floor(minutos / 60)}h ${minutos % 60}min`;
-  };
-
-  const getComandasPorEstado = (estado) => {
-    return comandas.filter(comanda => comanda.estado === estado);
-  };
-
-  return (
-    <ComandaContext.Provider value={{
-      comandas,
-      crearComanda,
-      actualizarEstadoComanda,
-      eliminarComanda,
-      getComandasPorEstado
-    }}>
-      {children}
-    </ComandaContext.Provider>
-  );
-};
+      //Query base 
+      let query = supabase 
+        .from('pedidos')
+        .select(`
+          *,
+          archivos_pedido (*)
+        `)
+        .order('created_at', { ascending: false });
+    }
+  }};
