@@ -1,5 +1,7 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { supabase } from '../../lib/supabaseClient.js'
+
+
 const ComandaContext = createContext();
 
 export const useComandas = () => {
@@ -113,7 +115,6 @@ export const ComandaProvider = ({ children }) => {
   };
 
   //obtener pedido desde supabase 
-//
   const obtenerComandas = async () => {
     try {
       setLoading(true);
@@ -141,5 +142,109 @@ export const ComandaProvider = ({ children }) => {
           archivos_pedido (*)
         `)
         .order('created_at', { ascending: false });
-    }
-  }};
+
+      if (!esAdmin) {
+        query = query.eq('usuario_id', user.id);
+      }
+      
+      const { data: pedidos, error } = await query;
+
+      if (error) throw error;
+
+      //Transformar a formato de comandas
+      const comandasFormateadas = pedidos.map(pedido => ({
+        id: pedido.id,
+        fecha: pedido.fecha,
+        usuario: pedido.es_usuario_registrado
+          ? `${pedido.nombre_cliente || ''} ${pedido.apellido_cliente || ''}`.trim() || 'Usuario registrado'
+          : `${pedido.nombre_cliente} ${pedido.apellido_cliente}`,
+        entrega: pedido.entrega,
+        direccion: pedido.direccion,
+        teleno: pedido.telefono,
+        archivos: pedido.archivos_pedido,
+        total: pedido.total,
+        estado: pedido.estado,
+        tiempoEstimado: pedido.tiempo_estimado
+      }));
+
+      setComandas(comandasFormateadas);
+    } catch (error){
+      console.error('Error obteniendo comandas:', error);
+    } finally {
+      setLoading(false);
+    };
+
+    //Actualizar estado en supabase
+    const actualizarEstadoComanda = async (id, nuevoEstado) => {
+      try {
+        const { error } = await supabase
+          .from('pedidos')
+          .update({ estado: nuevoEstado })
+          .eq('id', id);
+
+        if (error) throw error;
+
+        // actualizar estado local
+        setComandas(prev => 
+          prev.map(comanda =>
+            comanda.id === id
+              ? { ...comanda, estado: nuevoEstado }
+              : comanda 
+          )
+        );
+      } catch (error) {
+        console.error('Error actualizando estado:', error);
+      }
+    };
+    
+    //Eliminar comanda de Supabase
+    const elminarComanda = async (id) => {
+      try {
+        //al eliminar los archivos se eliminan por cascade
+        const { error } = await supabase
+          .from('pedidos')
+          .delete()
+          .eq('id', id);
+
+        if (error) throw error;
+
+        //actualizar estado local 
+
+        setComandas(prev => prev.filter(comanda => comanda.id !== id));
+      } catch (error) {
+        console.error('Error eliminando comanda', error);
+      }
+    };
+
+    //calcularTiempoEstimado  
+    const calcularTiempoEstimado = (archivos) => {
+      let totalPaginas = 0;
+      archivos.forEach(archivo => {
+        totalPaginas += (archivo.numPages || 0) * (archivo.copies || 1);
+      });
+
+      const minutos = Math.max(30, Math.ceil(totalPaginas /10));
+      return `${Math.floor(minutos / 60)}h ${minutos % 60}min`;
+    };
+
+    //Filtrar por estado 
+    const getComandasPorEstado = (estado) => {
+      return comandas.filter(comanda => comanda.estado === estado);
+    };
+
+    return (
+      <ComandaContext.Provider value={{
+        comandas,
+        loading,
+        userRole,
+        crearComanda,
+        obtenerCOmandas,
+        actualizarEstadoComanda,
+        eliminarComanda,
+        getComandasPorEstado
+      }}>
+        {children}
+      </ComandaContext.Provider>
+    );
+  };
+};
