@@ -1,5 +1,6 @@
 import styles from "./Comanda.module.css"
 import { useComandas } from '../../context/ComandaContext.jsx'; 
+import { supabase } from '../../../lib/supabaseClient.js'
 
 export default function Comanda ({ 
   comandaData,

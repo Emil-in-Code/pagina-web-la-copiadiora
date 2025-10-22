@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './OrderList.module.css';
 import PedidoCard from './OrderCard.jsx';
 import useOrderList from './useOrderList.js';
@@ -6,8 +6,9 @@ import FileButton from '../FileBtn/FileBtn.jsx';
 import { useComandas } from '../../admin/context/ComandaContext.jsx'
 
 export default function OrderList() {
-  const { crearComanda } = useComandas(); // nuevo, sacar si no sirve
-  
+  const { crearComanda } = useComandas(); 
+  const {isSubmitting, setIsubmitting} = useState(false);
+
   const {
     files,
     subtotals,
@@ -35,33 +36,46 @@ export default function OrderList() {
     totalFinal
   } = useOrderList();
 
-  //funcion para hacer pedido (temporal funcionando en local)
-  const handleHacerPedido = () => {
+  //funcion para hacer pedido (guarda en supabase)
+  const handleHacerPedido = async () => {
     if (files.length === 0) {
       alert('no hay archivos en el pedido');
       return;
     }
-  
-
-    const datosPedido = prepararDatosPedido();
-
-    //Datos para testing 
-    const pedidoCompleto = {
-      usuario: 'Usuario de Prueba',
-      entrega: 'retiro',
-      direccion: '',
-      telefono: '2213642438',
-      archivos: datosPedido.archivos,
-      total: datosPedido.totalConDescuento > 0
-        ? datosPedido.totalConDescuento
-        : datosPedido.totalSinDescuento
-    };
     
-    const comandaId = crearComanda(pedidoCompleto);
+    if (isSubmitting) return;
+    
+    try {
+      setIsubmitting(true);
+      const datosPedido = prepararDatosPedido();
 
-    alert('¡Pedido creado! ID: ${comandaId}');
-    limpiarPedido();
-  }
+      //Datos para el pedido (prueba)
+      const pedidoCompleto = {
+        usuario: 'Usuario de Prueba',
+        entrega: 'retiro',
+        direccion: '',
+        telefono: '2213642438',
+        archivos: datosPedido.archivos,
+        total: datosPedido.totalConDescuento > 0
+          ? datosPedido.totalConDescuento
+          : datosPedido.totalSinDescuento,
+        globalDoubleSided: globalDoubleSided,
+        globalColor: globalColor,
+        globalBindings: globalBindings
+      };
+
+      //sube a supabase
+      const comandaId = async crearComanda(pedidoCompleto);
+
+      alert('¡Pedido creado con éxito! ID: ${comandaId}');
+      limpiarPedido();
+    } catch (error) {
+      console.error('Error al crear pedido', error);
+      alert('Hubo un erro al crear tu pedido, por favor intentá de nuevo');
+    } finally{
+      setIsubmitting(false);
+    }
+  };
 
   return (
     <div className= {styles.filesContainer}>
@@ -178,15 +192,16 @@ export default function OrderList() {
                 padding: '1rem',
                 fontSize: '16px',
                 fontWeight: 'bold',
-                backgroundColor: '#4CAF50',
+                backgroundColor: isSubmitting ? '#cccccc' : '#4CAF50',
                 color: 'white',
                 border: 'none',
                 borderRadius: '7px',
-                cursor: 'pointer',
+                cursor:  isSubmitting ? 'not-allowed' : 'pointer',
                 width: 'fit-content'
+                opacity: isSubmitting ? 0.6 : 1
               }}
             >
-              finalizar pedido
+              {isSubmitting ? 'Subiendo archivos...' : 'Finalizar pedido'} 
             </button>
           </div>
         </>
