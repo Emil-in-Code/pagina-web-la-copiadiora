@@ -65,9 +65,9 @@ export default function OrderList() {
       };
 
       //sube a supabase
-      const comandaId = async crearComanda(pedidoCompleto);
+      const comandaId = await crearComanda(pedidoCompleto);
 
-      alert('¡Pedido creado con éxito! ID: ${comandaId}');
+      alert(`¡Pedido creado exitosamente! ID: ${comandaId}`);
       limpiarPedido();
     } catch (error) {
       console.error('Error al crear pedido', error);
@@ -197,8 +197,8 @@ export default function OrderList() {
                 border: 'none',
                 borderRadius: '7px',
                 cursor:  isSubmitting ? 'not-allowed' : 'pointer',
-                width: 'fit-content'
-                opacity: isSubmitting ? 0.6 : 1
+                width: 'fit-content',
+                opacity: isSubmitting ? 0.6 : 1,
               }}
             >
               {isSubmitting ? 'Subiendo archivos...' : 'Finalizar pedido'} 

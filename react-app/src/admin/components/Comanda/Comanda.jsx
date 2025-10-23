@@ -6,7 +6,6 @@ export default function Comanda ({
   comandaData,
   onVerDetalle,
   onCambiarEstado,
-  onDescargarZip
 }) {
   const { actualizarEstadoComanda, eliminarComanda } = useComandas();
 
@@ -40,6 +39,33 @@ export default function Comanda ({
     
     actualizarEstadoComanda(id, nuevoEstado);
     onCambiarEstado?.(id, nuevoEstado);
+  };
+
+    //función para descargar archivos
+  
+  const handleDescargarZip = async () => {
+    try {
+      for (const archivo of archivos) {
+        const { data, error } = await supabase.storage
+        .from ('pedidos-pdf')
+        .download(archivo.ruta_storage);
+
+        if (error) throw error;
+
+        const url = URL.createObjectURL(data);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = archivo.nombre_archivo;
+        document.body.appendChild(a);
+        a.click();
+        document.bode.removeChild(a);
+        URL.revokeObjectURL(url);
+      }
+      alert(`Descargados ${archivos.length} archivo(s)`);
+    } catch (error) {
+      console.error('Error al descargar archivos:', error);
+      alert('error al descargar archivos')
+    }
   };
 
   const getEstadoTexto = () => {
@@ -133,7 +159,7 @@ export default function Comanda ({
         {estado !== 'finalizado' && (
           <button 
             className={styles["download-btn"]}
-            onClick={() => onDescargarZip?.(comandaData)}
+            onClick={handleDescargarZip}
           >
             📥 <br/> Descargar
           </button>
@@ -154,4 +180,4 @@ export default function Comanda ({
       </div>
     </div>
   );
-}
+} 

@@ -1,36 +1,70 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './DetalleModal.module.css';
 import useZipDownload from '../Zip/useZipDownload.js'
+import { supabase } from '../../../lib/supabaseClient.js'
 
 const DetalleModal = ({ comanda, onClose }) => {
+  const [isDownloading, setIsDownloading] = useState(false);
+
   if (!comanda) return null;
 
   const formatFecha = (fecha) => {
     return new Date(fecha).toLocaleString('es-AR');
   };
    
-  const { descargarZipComanda, isDownloading, error } = useZipDownload();
+  const handleDescargarArchivos = async () => {
+    try {
+      setIsDownloading(true);
 
-  const handleClick = async () => {
-    const succes = await descargarZipComanda(MiComponente);
-    if (succes){
-      console.log('zip Descargado');
+      if (!comanda.archivos || comanda.archivos.length === 0) {
+        alert('no hay archivos para descargar');
+        return;
+      }
+
+      for (const archivo of comanda.archivos) {
+        const { data, error } = await supabase.storage
+        .from('pedidos-pdf')
+        .download(archivo.ruta_storage);
+
+        if (error){
+          console.error('Error descargando archivo individual', error);
+          throw error;
+        }
+
+        //crear link de descarga
+        const url = URL.createObjectURL(data);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = archivo.nombre_archivo;
+        document.body.appendChild(a);
+        URL.revokeObjectURL(url);
+
+        await new Promise(resolve => setTimeout(resolve, 300));
+      }
+
+      alert(`✅ Descargados ${comanda.archivos.length} archivo(s)`);
+    } catch (error) {
+      console.error('Error al descargar archivos:', error);
+      alert('❌ Error al descargar archivos. Intentá nuevamente.');
+    } finally {
+      setIsDownloading(false);
     }
-  }
+  };
+
   return (
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
         <div className={styles.header}>
-          <h2>Detalle del Pedido {comanda.id}</h2>
+          <h2>Detalle del Pedido {comanda.id.substring(0,8)}</h2>
           <button className={styles.closeBtn} onClick={onClose}>✕</button>
         </div>
 
-        <div className={styles.content}>
+        <div className={styles.content}>                  
           <div className={styles.infoSection}>
             <h3>Información del Cliente</h3>
             <p><strong>Usuario:</strong> {comanda.usuario}</p>
             <p><strong>Entrega:</strong> {comanda.entrega}</p>
-            {comanda.direccion && (
+            {comanda.direccion && (                 
               <p><strong>Dirección:</strong> {comanda.direccion}</p>
             )}
             {comanda.telefono && (
@@ -46,12 +80,12 @@ const DetalleModal = ({ comanda, onClose }) => {
               {comanda.archivos.map((archivo, index) => (
                 <div key={index} className={styles.archivoItem}>
                   <div className={styles.archivoInfo}>
-                    <h4>{archivo.name}</h4>
+                    <h4>{archivo.nombre_archivo}</h4>
                     <div className={styles.archivoDetalles}>
-                      <span>📄 {archivo.numPages} páginas</span>
+                      <span>📄 {archivo.num_pages} páginas</span>
                       <span>📊 {archivo.copies} juego{archivo.copies !== 1 ? 's' : ''}</span>
                       <span>{archivo.color ? '🎨 Color' : '⚫ B/N'}</span>
-                      {archivo.doubleSided && <span>📑 Doble faz</span>}
+                      {archivo.double_sided && <span>📑 Doble faz</span>}
                       {archivo.bindings > 0 && (
                         <span>📎 {archivo.bindings} anillado{archivo.bindings !== 1 ? 's' : ''}</span>
                       )}
@@ -74,7 +108,11 @@ const DetalleModal = ({ comanda, onClose }) => {
         </div>
 
         <div className={styles.actions}>
-          <button onClick={handleClick} disabled={isDownloading} className={styles.downloadBtn}>
+          <button
+            onClick={handleDescargarArchivos}
+            disabled={isDownloading} 
+            className={styles.downloadBtn}
+          >
             {isDownloading ? 'Descargando...' : ' 📥 Descargar'}
           </button>
           <button className={styles.closeModalBtn} onClick={onClose}>

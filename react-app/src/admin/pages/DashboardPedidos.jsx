@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Comanda from "../components/Comanda/Comanda.jsx";
 import DetalleModal from "../components/DetalleModal/DetalleModal.jsx";
 import { useComandas } from '../context/ComandaContext.jsx';
@@ -6,10 +6,17 @@ import useZipDownload from '../components/Zip/useZipDownload.js'
 import styles from "./Dashboard.module.css";
 
 const DashboardPedidos = () => {
-  const { getComandasPorEstado } = useComandas();
-  const { descargarZipComanda, isDownloading, error } = useZipDownload();
+  const { getComandasPorEstado,
+    obtenerComandas,
+    loading
+  } = useComandas();
+
   const [comandaDetalle, setComandaDetalle] = useState(null);
   const [mostrarDetalle, setMostrarDetalle] = useState(false);
+
+  useEFfect(() => {
+    obtenerComandas();
+  }, []);
   
   const comandasPendientes = getComandasPorEstado('pendiente');
   const comandasRealizando = getComandasPorEstado('realizando');
@@ -20,16 +27,6 @@ const DashboardPedidos = () => {
     setMostrarDetalle(true);
   };
 
-  const handleDescargarZip = async (comandaData) => {
-    const success = await descargarZipComanda(comandaData);
-
-    if(success){
-      alert('zip descargado');
-    } else {
-      alert(`Error al descargar: ${error || 'Intenta nuevamente'}`);
-    }
-  }
-
   const renderColumna = (titulo, comandas, className) => (
     <div className={`${styles["columna"]} ${className}`}>
       <h2 className={styles["columna-titulo"]}>{titulo}</h2>
@@ -39,7 +36,6 @@ const DashboardPedidos = () => {
             key={comanda.id}
             comandaData={comanda}
             onVerDetalle={handleVerDetalle}
-            onDescargarZip={handleDescargarZip}
           />
         ))}
         {comandas.length === 0 && (
@@ -51,6 +47,21 @@ const DashboardPedidos = () => {
     </div>
   );
 
+  if (loading) {
+    return (
+      <main className={styles["dashboard-container"]}>
+        <div style={{
+          display: 'flex',
+          justifyContent:'center',
+          alignItems: 'center',
+          height: '100vh',
+          fontSize: '18px'
+        }}>
+         Cargando pedidos...
+        </div>
+      </main>
+    );
+  }
   return (
     <>
       <main className={styles["dashboard-container"]}>
