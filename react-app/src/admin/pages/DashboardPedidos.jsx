@@ -14,7 +14,7 @@ const DashboardPedidos = () => {
   const [comandaDetalle, setComandaDetalle] = useState(null);
   const [mostrarDetalle, setMostrarDetalle] = useState(false);
 
-  useEFfect(() => {
+  useEffect(() => {
     obtenerComandas();
   }, []);
   

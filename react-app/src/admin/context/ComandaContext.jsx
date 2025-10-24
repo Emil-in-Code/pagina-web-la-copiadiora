@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { supabase } from '../../lib/supabaseClient.js'
-
+import { supabase } from '../../lib/supabaseClient.js';
 
 const ComandaContext = createContext();
 
@@ -17,31 +16,35 @@ export const ComandaProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [userRole, setUserRole] = useState(null);
 
+  // Obtener el rol del usuario actual
   useEffect(() => {
     const getUserRole = async () => {
       const { data: { user } } = await supabase.auth.getUser();
-
+      
       if (user) {
         const { data: profile } = await supabase
           .from('profiles')
           .select('role')
           .eq('id', user.id)
           .single();
-
-         setUserRole(profile?.role || 'cliente');
+        
+        setUserRole(profile?.role || 'cliente');
       }
     };
+
     getUserRole();
-  },[]);
+  }, []);
 
+  // Crear pedido en Supabase
   const crearComanda = async (pedidoData) => {
-
     try {
       setLoading(true);
-      //obtener usuario actual(puede ser null para no registrados)
-      const { data: {user}} = await supabase.auth.getUser();
+      
+      // Obtener usuario actual (puede ser null para anónimos)
+      const { data: { user } } = await supabase.auth.getUser();
       const esRegistrado = !!user;
 
+      // 1. Crear el pedido en la tabla 'pedidos'
       const pedidoPayload = {
         usuario_id: esRegistrado ? user.id : null,
         total: pedidoData.total,
@@ -60,73 +63,78 @@ export const ComandaProvider = ({ children }) => {
         email_cliente: esRegistrado ? null : pedidoData.email || ''
       };
 
-      const { data: pedido, error: pedidoError } = await supabase 
+      const { data: pedido, error: pedidoError } = await supabase
         .from('pedidos')
         .insert(pedidoPayload)
         .select()
         .single();
-  
-       if (pedidoError) throw pedidoError;
 
-       const pedidoId = pedido.id;
-        //subir archivos al storage y crear registro en archivos_pedidos
+      if (pedidoError) throw pedidoError;
+
+      const pedidoId = pedido.id;
+
+      // 2. Subir archivos a Storage y crear registros en 'archivos_pedido'
       for (const archivo of pedidoData.archivos) {
-          const carpetaUsuario = esRegistrado ? user.id : 'anonimo';
-          const rutaStorage = `${carpetaUsuario}/${pedidoId}/${archivo.file.name}`;
+        const carpetaUsuario = esRegistrado ? user.id : 'anonimo';
+        const rutaStorage = `${carpetaUsuario}/${pedidoId}/${archivo.file.name}`;
 
-          const { error: uploadError } = await supabase.storage
-            .from('pedidos-pdf')
-            .upload(rutaStorage, archivo.file, {
-              cacheControl: '3600',
-              upsert: false
-            });
-          if (uploadError) {
-            console.error('Error subiendo archivo:', uploadError);
-            throw uploadError;
-          }
+        // Subir archivo a Storage
+        const { error: uploadError } = await supabase.storage
+          .from('pedidos-pdf')
+          .upload(rutaStorage, archivo.file, {
+            cacheControl: '3600',
+            upsert: false
+          });
+
+        if (uploadError) {
+          console.error('Error subiendo archivo:', uploadError);
+          throw uploadError;
+        }
+
         // Crear registro en tabla archivos_pedido
-       const { error: archivoError } = await supabase
-         .from('archivos_pedido')
-         .insert({
-           pedido_id: pedidoId,
-           nombre_archivo: archivo.name,
-           ruta_storage: rutaStorage,
-           num_pages: archivo.numPages || 0,
-           copies: archivo.copies || 1,
-           bindings: archivo.bindings || 0,
-           double_sided: archivo.doubleSided || false,
-           color: archivo.color || false,
-           subtotal: archivo.subtotal || 0
-        });
+        const { error: archivoError } = await supabase
+          .from('archivos_pedido')
+          .insert({
+            pedido_id: pedidoId,
+            nombre_archivo: archivo.name,
+            ruta_storage: rutaStorage,
+            num_pages: archivo.numPages || 0,
+            copies: archivo.copies || 1,
+            bindings: archivo.bindings || 0,
+            double_sided: archivo.doubleSided || false,
+            color: archivo.color || false,
+            subtotal: archivo.subtotal || 0
+          });
 
-       if (archivoError) throw archivoError;
+        if (archivoError) throw archivoError;
       }
 
-      //actualizar lista de comandas 
+      // 3. Actualizar lista de comandas
       await obtenerComandas();
 
       return pedidoId;
-    }catch (error) {
+    } catch (error) {
       console.error('Error creando comanda:', error);
       throw error;
-    }finally {
+    } finally {
       setLoading(false);
     }
   };
 
-  //obtener pedido desde supabase 
+  // Obtener pedidos desde Supabase
   const obtenerComandas = async () => {
     try {
       setLoading(true);
-
+      
       const { data: { user } } = await supabase.auth.getUser();
-    
+      
       if (!user) {
         setComandas([]);
         return;
       }
 
-      const { data: { profile } } = await supabase 
+      // Obtener rol del usuario
+      const { data: profile } = await supabase
         .from('profiles')
         .select('role')
         .eq('id', user.id)
@@ -134,8 +142,8 @@ export const ComandaProvider = ({ children }) => {
 
       const esAdmin = profile?.role === 'admin';
 
-      //Query base 
-      let query = supabase 
+      // Query base
+      let query = supabase
         .from('pedidos')
         .select(`
           *,
@@ -143,24 +151,25 @@ export const ComandaProvider = ({ children }) => {
         `)
         .order('created_at', { ascending: false });
 
+      // Si no es admin, solo sus pedidos
       if (!esAdmin) {
         query = query.eq('usuario_id', user.id);
       }
-      
+
       const { data: pedidos, error } = await query;
 
       if (error) throw error;
 
-      //Transformar a formato de comandas
+      // Transformar a formato de comandas
       const comandasFormateadas = pedidos.map(pedido => ({
         id: pedido.id,
         fecha: pedido.fecha,
-        usuario: pedido.es_usuario_registrado
+        usuario: pedido.es_usuario_registrado 
           ? `${pedido.nombre_cliente || ''} ${pedido.apellido_cliente || ''}`.trim() || 'Usuario registrado'
           : `${pedido.nombre_cliente} ${pedido.apellido_cliente}`,
         entrega: pedido.entrega,
         direccion: pedido.direccion,
-        teleno: pedido.telefono,
+        telefono: pedido.telefono,
         archivos: pedido.archivos_pedido,
         total: pedido.total,
         estado: pedido.estado,
@@ -168,83 +177,82 @@ export const ComandaProvider = ({ children }) => {
       }));
 
       setComandas(comandasFormateadas);
-    } catch (error){
+    } catch (error) {
       console.error('Error obteniendo comandas:', error);
     } finally {
       setLoading(false);
-    };
+    }
+  }; 
 
-    //Actualizar estado en supabase
-    const actualizarEstadoComanda = async (id, nuevoEstado) => {
-      try {
-        const { error } = await supabase
-          .from('pedidos')
-          .update({ estado: nuevoEstado })
-          .eq('id', id);
+  // Actualizar estado en Supabase
+  const actualizarEstadoComanda = async (id, nuevoEstado) => {
+    try {
+      const { error } = await supabase
+        .from('pedidos')
+        .update({ estado: nuevoEstado })
+        .eq('id', id);
 
-        if (error) throw error;
+      if (error) throw error;
 
-        // actualizar estado local
-        setComandas(prev => 
-          prev.map(comanda =>
-            comanda.id === id
-              ? { ...comanda, estado: nuevoEstado }
-              : comanda 
-          )
-        );
-      } catch (error) {
-        console.error('Error actualizando estado:', error);
-      }
-    };
-    
-    //Eliminar comanda de Supabase
-    const elminarComanda = async (id) => {
-      try {
-        //al eliminar los archivos se eliminan por cascade
-        const { error } = await supabase
-          .from('pedidos')
-          .delete()
-          .eq('id', id);
-
-        if (error) throw error;
-
-        //actualizar estado local 
-
-        setComandas(prev => prev.filter(comanda => comanda.id !== id));
-      } catch (error) {
-        console.error('Error eliminando comanda', error);
-      }
-    };
-
-    //calcularTiempoEstimado  
-    const calcularTiempoEstimado = (archivos) => {
-      let totalPaginas = 0;
-      archivos.forEach(archivo => {
-        totalPaginas += (archivo.numPages || 0) * (archivo.copies || 1);
-      });
-
-      const minutos = Math.max(30, Math.ceil(totalPaginas /10));
-      return `${Math.floor(minutos / 60)}h ${minutos % 60}min`;
-    };
-
-    //Filtrar por estado 
-    const getComandasPorEstado = (estado) => {
-      return comandas.filter(comanda => comanda.estado === estado);
-    };
-
-    return (
-      <ComandaContext.Provider value={{
-        comandas,
-        loading,
-        userRole,
-        crearComanda,
-        obtenerCOmandas,
-        actualizarEstadoComanda,
-        eliminarComanda,
-        getComandasPorEstado
-      }}>
-        {children}
-      </ComandaContext.Provider>
-    );
+      // Actualizar estado local
+      setComandas(prev =>
+        prev.map(comanda =>
+          comanda.id === id
+            ? { ...comanda, estado: nuevoEstado }
+            : comanda
+        )
+      );
+    } catch (error) {
+      console.error('Error actualizando estado:', error);
+    }
   };
-};
+
+  // Eliminar comanda de Supabase
+  const eliminarComanda = async (id) => { 
+    try {
+      // Al eliminar el pedido, los archivos_pedido se eliminan por CASCADE
+      const { error } = await supabase
+        .from('pedidos')
+        .delete()
+        .eq('id', id);
+
+      if (error) throw error;
+
+      // Actualizar estado local
+      setComandas(prev => prev.filter(comanda => comanda.id !== id));
+    } catch (error) {
+      console.error('Error eliminando comanda:', error);
+    }
+  };
+
+  // Calcular tiempo estimado
+  const calcularTiempoEstimado = (archivos) => {
+    let totalPaginas = 0;
+    archivos.forEach(archivo => {
+      totalPaginas += (archivo.numPages || 0) * (archivo.copies || 1);
+    });
+    
+    const minutos = Math.max(30, Math.ceil(totalPaginas / 10));
+    return `${Math.floor(minutos / 60)}h ${minutos % 60}min`;
+  };
+
+  // Filtrar por estado
+  const getComandasPorEstado = (estado) => {
+    return comandas.filter(comanda => comanda.estado === estado);
+  };
+
+  return (
+    <ComandaContext.Provider value={{
+      comandas,
+      loading,
+      userRole,
+      crearComanda,
+      obtenerComandas, 
+      actualizarEstadoComanda,
+      eliminarComanda,
+      getComandasPorEstado
+    }}>
+      {children}
+    </ComandaContext.Provider>
+  );
+}; 

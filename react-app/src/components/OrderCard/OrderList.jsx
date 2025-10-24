@@ -7,7 +7,7 @@ import { useComandas } from '../../admin/context/ComandaContext.jsx'
 
 export default function OrderList() {
   const { crearComanda } = useComandas(); 
-  const {isSubmitting, setIsubmitting} = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {
     files,
@@ -46,7 +46,7 @@ export default function OrderList() {
     if (isSubmitting) return;
     
     try {
-      setIsubmitting(true);
+      setIsSubmitting(true);
       const datosPedido = prepararDatosPedido();
 
       //Datos para el pedido (prueba)
@@ -73,7 +73,7 @@ export default function OrderList() {
       console.error('Error al crear pedido', error);
       alert('Hubo un erro al crear tu pedido, por favor intentá de nuevo');
     } finally{
-      setIsubmitting(false);
+      setIsSubmitting(false);
     }
   };
 
@@ -150,7 +150,7 @@ export default function OrderList() {
             onRemove={() => handleRemoveFile(index)}
             onSubtotalChange ={(subtotal) => handleSubtotalChange(index, subtotal)}
             onPageChange={(numPages) => handlePagesChange(index, numPages)}
-            onConfigChange={(config) => handleConfigChange(index, config)} //sacar si no funciona 
+            onConfigChange={(config) => handleConfigChange(index, config)}
             globalDoubleSided = {globalDoubleSided}
             globalBindings = {globalBindings}
             globalColor = {globalColor}
