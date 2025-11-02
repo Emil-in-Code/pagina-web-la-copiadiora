@@ -120,25 +120,7 @@ export default function OrderList() {
             Color global
           </label>
 
-          <label>
-            <input
-              type="checkbox"
-              checked={globalBindings}
-              onChange={(e) => {
-                const checked = e.target.checked;
-                const maxPages = globalDoubleSided ? 800 : 400;
 
-                if (totalPages > maxPages) {
-                  alert ("Excede la cantidad, se debe anillar por separado");
-                  setGlobalBindings(false);
-                } else {
-                  setGlobalBindings(checked);
-                }
-              }}
-              disabled={files.length === 0}
-            />
-            Anillar todo en 1
-          </label>
         </div>
       )}
 
