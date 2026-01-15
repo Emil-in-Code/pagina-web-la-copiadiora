@@ -1,31 +1,68 @@
-# La Copiadora
-Fue una fotocopiadora situada en la ciudad de La Plata, con 6 años en el mercado buscando estar posicionada a nivel digital, un sitio web era la respuesta que consiguió ante esa meta y a su vez era la respuesta ante el inminente cambio del comportamiento del público y la baja de consumo en el rubro.
+# La Copiadora - Plataforma de Gestión de Impresiones
 
-Hoy las facultades y gran parte de los trámites burocráticos son documentos que se transfieren por WhatsApp, Gmail o alguna nube.
-La Copiadora atendía por todos estos canales, pero ante la creciente en pedidos los cuellos de botella eran inevitables.
+> **Estado del proyecto:** Archivo histórico. El desarrollo alcanzó una fase funcional de MVP (Producto Mínimo Viable) antes del cese de operaciones físicas de la empresa en 2025.
 
-Con esta web el usuario puede subir sus pdf, y en tiempo real elegir las preferencias de impresión:
+## 📖 Contexto
+La Copiadora fue una empresa con 6 años de trayectoria en La Plata. Ante la digitalización de documentos académicos y burocráticos, el negocio enfrentó el desafío de centralizar pedidos que llegaban dispersos por WhatsApp y Gmail, generando cuellos de botella.
 
-- Doble o simple faz
-- Color o blanco y negro
-- Cantidades
-- Envíos a domicilio
+Esta web nació como la solución para automatizar la recepción de trabajos y el cálculo de presupuestos sin intervención humana.
 
-y obtener al instante un presupuesto de cada archivo individual, y un resumen del total con descuentos incluídos.
+## 🚀 Funcionalidades Principales
 
-##Acerca del proyecto
+### Para el Usuario:
+* **Presupuestador Inteligente:** El usuario sube sus archivos PDF y selecciona preferencias en tiempo real:
+    * Tipo de impresión (Doble/Simple faz).
+    * Color o Blanco y Negro.
+    * Cálculo automático de descuentos por cantidad.
+* **Gestión de Envíos:** Opción de entrega a domicilio integrada en el flujo de pago.
+* **Sistema de Cuentas:** Registro y logueo de usuarios para historial de pedidos.
 
- La Copiadora tuvo que cerrar sus puertas en el 2025, y la web nunca entró en producción, el desarrollo llego hasta:
- - Registro y logueo de usuarios.
- - Presupuesto en tiempo real.
- - página admin con manejo de comandas.
- - páginas varias de información
- 
-## Desarrollo
+### Para la Administración:
+* **Panel de Comandas:** Visualización y gestión de pedidos entrantes para optimizar el flujo de trabajo en el local.
 
-El proyecto está desarrollado en react, en donde se modularizó todo en un SPA.
-La parte Auth y base de datos se trabajó en supabase (actualmente desconectado por falta de actividad)
+## 🛠️ Tecnologías Usadas
+* **Frontend:** React (Arquitectura de Single Page Application - SPA).
+* **Backend & Auth:** Supabase (PostgreSQL + Auth service).
+* **Estilos:** Module Css.
+* **Modularización:** El proyecto fue atomizado en componentes reutilizables para facilitar el mantenimiento.
 
-###Preview del sitio
-![Hero Section](./react-app/screenshots/web1.png)
-![Presupuesto en tiempo real](./react-app/screenshots/web2.png)
+---
+
+## 📸 Vista Previa
+<p align="center">
+  <img src="./react-app/screenshots/web1.png" width="45%" alt="Vista Principal" />
+  <img src="./react-app/screenshots/web2.png" width="45%" alt="Panel de Administración" />
+</p>
+
+## 🛠️ Desafíos Técnicos: El Presupuestador de PDFs
+
+La funcionalidad principal del proyecto es un **motor de cálculo de presupuestos en tiempo real**. A diferencia de un e-commerce convencional, el precio no es estático: se calcula dinámicamente analizando los metadatos de los archivos cargados por el usuario.
+
+### 📄 Procesamiento de Archivos en el Cliente
+Para garantizar una respuesta instantánea y reducir la carga del servidor, el procesamiento se realiza íntegramente en el frontend:
+
+* **Análisis de Metadatos:** Utilicé `react-pdf` y `pdfjs-dist` para extraer el número exacto de páginas de cada archivo PDF tan pronto como el usuario lo selecciona.
+* **Gestión de Estado Complejo:** Implementé un sistema de *custom hooks* (`useOrderCard` y `useOrderList`) para sincronizar las configuraciones individuales de cada archivo con los totales globales del pedido.
+* **Previsualización Dinámica:** Se integró una vista previa de la primera página de cada PDF para que el usuario identifique visualmente sus archivos antes de confirmar.
+
+### 💰 Lógica de Precios Dinámica
+El sistema aplica reglas de negocio específicas del rubro gráfico:
+
+* **Optimización por Doble Faz:** El algoritmo distingue entre páginas (contenido) y hojas (papel físico), calculando el costo base según el uso de papel.
+* **Validación de Restricciones Físicas:** El sistema incluye alertas que impiden configuraciones técnicamente imposibles, como exceder el límite de hojas para un anillado estándar (800 páginas en doble faz o 400 en simple faz).
+* **Escalabilidad de Descuentos:** Implementé una función que aplica automáticamente hasta un **40% de descuento** sobre el total del pedido basándose en umbrales de facturación configurables.
+
+### Fragmento de Lógica: Cálculo de Costo Base
+```javascript
+// Lógica para determinar el costo base considerando páginas impares en impresión doble faz
+if (doubleSided) {
+  if (numPages === 1) {
+    baseCost = pricePerPage;
+  } else if (numPages % 2 === 0) {
+    baseCost = (numPages / 2) * pricePerPage;
+  } else {
+    // Si es impar, se compensa la hoja física extra
+    baseCost = ((numPages + 1) / 2) * pricePerPage;
+  }
+}
+
